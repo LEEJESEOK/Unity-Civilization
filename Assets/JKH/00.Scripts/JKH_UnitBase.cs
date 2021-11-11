@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum eras
+public enum Eras
 {
     Ancient, //고대 0
     Classical, //고전 1
@@ -16,7 +16,7 @@ public enum eras
     Future //미래 X
 }
 
-public enum militaries
+public enum Militaries
 {
     racons, //정찰
     melee, //근접
@@ -35,20 +35,26 @@ public enum militaries
 
 }
 
+
+
 public class JKH_UnitBase : MonoBehaviour
 {
-    public eras age;
-    public militaries type;
-
+    public Eras era;
+    public Militaries type;
+    
     //unit's Info
     public int hp;
     public int moveCount;
     public int attackDamage;
 
+    
+
+    // Add Ally and Enemy
+
     // Start is called before the first frame update
     void Start()
     {
-
+       
     }
 
     // Update is called once per frame
