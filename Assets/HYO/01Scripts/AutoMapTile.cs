@@ -24,15 +24,16 @@ public class AutoMapTile : MonoBehaviour
 
                 if(z == 0 || z == length -1)
                 {
-                    Material[] materials = tile.transform.GetChild(0).GetComponent<MeshRenderer>().materials;
+                    Material[] materials = tile.transform.GetComponent<MeshRenderer>().materials;
                     materials[0] = tileMaterial[0];
-                    tile.transform.GetChild(0).GetComponent<MeshRenderer>().materials = materials;
+                    tile.GetComponent<MeshRenderer>().materials = materials;
                 }
-
+                tile.AddComponent<TerrainData>();
+                tile.GetComponent<TerrainData>().SetIndex(x,z);
 
                 tiles.Add((x + z * width).ToString(), tile);
                 tile.transform.parent = transform;
-                MeshCollider col = tile.transform.GetChild(0).gameObject.AddComponent<MeshCollider>();
+                MeshCollider col = tile.transform.gameObject.AddComponent<MeshCollider>();
                 col.convex = true;
             }
         }

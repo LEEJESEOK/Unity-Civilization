@@ -18,7 +18,7 @@ public enum TerrainType
 //지형특성
 public enum feature
 {
-    ICE, WOOD, MARSH, RAINFOREST,NONE
+    ICE, WOOD, MARSH, RAINFOREST, NONE
 };
 
 
@@ -48,6 +48,18 @@ public class TerrainData : MonoBehaviour
     public TerrainType terrainType;
     public OutPut output;
     public LayerMask mask;
+
+    //map index
+    public int width = 50;
+    public int length = 50;
+
+    public int x, y;
+
+    public void SetIndex(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
 
     //layer(6~12)
     public void CheckTerrainType()
@@ -81,4 +93,5 @@ public class TerrainData : MonoBehaviour
 
     }
 
+    
 }
