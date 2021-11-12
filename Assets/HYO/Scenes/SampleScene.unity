@@ -416,6 +416,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 71607763351896286, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 987689331652491342, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439681207209867932, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599674701613878512, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2981162517126261820, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142015861864046359, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008998918743952297, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083173591997909865, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401812878870047072, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776938714218516456, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5352354613962040118, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -467,6 +507,46 @@ PrefabInstance:
     - target: {fileID: 5352354613962040121, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
       propertyPath: m_Name
       value: Evironment
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599112252926733942, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963206612661973872, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779560497891322985, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6836534108968778272, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974043477360931061, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080946817572464236, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460545039879889735, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650320341695705250, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8366215413887597358, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9084052454443402092, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: terrainType
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}

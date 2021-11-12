@@ -49,12 +49,17 @@ public class TerrainData : MonoBehaviour
     public OutPut output;
     public LayerMask mask;
 
-    //map size
+    //map index
     public int width = 50;
     public int length = 50;
 
     public int x, y;
 
+    public void SetIndex(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
 
     //layer(6~12)
     public void CheckTerrainType()
@@ -88,9 +93,5 @@ public class TerrainData : MonoBehaviour
 
     }
 
-    public void SetIndex(int x, int y)
-    {
-        this.x = x;
-        this.y = y;
-    }
+    
 }
