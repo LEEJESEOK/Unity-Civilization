@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,16 +115,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 4
@@ -265,9 +267,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 1
   width: 50
   length: 50
   x: 6
@@ -348,7 +352,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: e68d55909439c3c41a881463ce2a7fe7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -401,16 +405,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 2
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 6
@@ -551,9 +557,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 1
   width: 50
   length: 50
   x: 2
@@ -694,9 +702,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 0
@@ -777,7 +787,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -830,16 +840,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 8
@@ -980,9 +992,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 5
@@ -1123,9 +1137,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 1
@@ -1266,9 +1282,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 1
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 2
@@ -1349,7 +1367,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: e68d55909439c3c41a881463ce2a7fe7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1402,16 +1420,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 2
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 7
@@ -1492,7 +1512,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1545,16 +1565,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 0
@@ -1695,9 +1717,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 1
@@ -1838,9 +1862,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 7
@@ -1981,9 +2007,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 6
@@ -2124,9 +2152,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 8
@@ -2207,7 +2237,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: 8891b2fd045efce45b1ba5926d27f2b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2260,16 +2290,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 3
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 2
@@ -2350,7 +2382,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2403,16 +2435,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 2
@@ -2493,7 +2527,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2546,16 +2580,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 3
@@ -2696,9 +2732,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 1
@@ -2779,7 +2817,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2832,16 +2870,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 3
@@ -2922,7 +2962,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2975,16 +3015,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 7
@@ -3125,9 +3167,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 7
@@ -3268,9 +3312,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 8
@@ -3351,7 +3397,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3404,16 +3450,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 9
@@ -3494,7 +3542,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3547,16 +3595,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 2
@@ -3637,7 +3687,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3690,16 +3740,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 4
@@ -3780,7 +3832,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: e68d55909439c3c41a881463ce2a7fe7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3833,16 +3885,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 2
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 6
@@ -3923,7 +3977,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3976,16 +4030,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 6
@@ -4126,9 +4182,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 8
@@ -4209,7 +4267,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4262,16 +4320,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 9
@@ -4412,9 +4472,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 2
@@ -4555,9 +4617,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 1
@@ -4698,9 +4762,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 1
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 4
@@ -4781,7 +4847,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4834,16 +4900,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 0
@@ -4924,7 +4992,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4977,16 +5045,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 6
@@ -5127,9 +5197,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 4
@@ -5210,7 +5282,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5263,16 +5335,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 8
@@ -5413,9 +5487,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 5
@@ -5556,9 +5632,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 4
@@ -5699,9 +5777,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 1
   width: 50
   length: 50
   x: 4
@@ -5842,9 +5922,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 4
@@ -5925,7 +6007,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5978,16 +6060,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 9
@@ -6128,9 +6212,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 6
@@ -6211,7 +6297,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6264,16 +6350,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 9
@@ -6414,9 +6502,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 9
@@ -6497,7 +6587,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: 8891b2fd045efce45b1ba5926d27f2b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6550,16 +6640,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 3
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 3
@@ -6700,9 +6792,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 7
@@ -6783,7 +6877,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6836,16 +6930,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 0
@@ -6986,9 +7082,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 3
@@ -7069,7 +7167,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7122,16 +7220,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 9
@@ -7272,9 +7372,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 5
@@ -7355,7 +7457,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7408,16 +7510,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 4
@@ -7498,7 +7602,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7551,16 +7655,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 7
@@ -7641,7 +7747,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7694,16 +7800,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 9
@@ -7844,9 +7952,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 8
@@ -7987,9 +8097,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 5
@@ -8130,9 +8242,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 8
@@ -8423,9 +8537,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 1
   width: 50
   length: 50
   x: 7
@@ -8566,9 +8682,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 3
@@ -8709,9 +8827,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 8
@@ -8852,9 +8972,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 3
@@ -8995,9 +9117,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 1
@@ -9138,9 +9262,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 6
@@ -9281,9 +9407,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 1
   width: 50
   length: 50
   x: 2
@@ -9424,9 +9552,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 4
@@ -9567,9 +9697,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 1
@@ -9710,9 +9842,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 1
@@ -9853,9 +9987,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 8
@@ -9996,9 +10132,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 5
@@ -10079,7 +10217,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10132,16 +10270,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 0
@@ -10222,7 +10362,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10275,16 +10415,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 2
@@ -10365,7 +10507,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10418,16 +10560,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 1
@@ -10508,7 +10652,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10561,16 +10705,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 9
@@ -10651,7 +10797,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: 8891b2fd045efce45b1ba5926d27f2b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10704,16 +10850,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 3
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 3
@@ -10794,7 +10942,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10847,16 +10995,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 1
@@ -10997,9 +11147,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 7
@@ -11080,7 +11232,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11133,16 +11285,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 5
@@ -11223,7 +11377,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11276,16 +11430,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 7
@@ -11426,9 +11582,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 5
@@ -11509,7 +11667,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11562,16 +11720,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 5
@@ -11652,7 +11812,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11705,16 +11865,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 1
@@ -11795,7 +11957,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11848,16 +12010,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 0
@@ -11998,9 +12162,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 5
@@ -12081,7 +12247,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12134,16 +12300,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 0
@@ -12284,9 +12452,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 2
@@ -12367,7 +12537,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12420,16 +12590,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 8
@@ -12570,9 +12742,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 3
@@ -12653,7 +12827,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12706,16 +12880,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 6
@@ -12856,9 +13032,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 4
@@ -12999,9 +13177,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 3
@@ -13142,9 +13322,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 5
@@ -13285,9 +13467,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 3
@@ -13428,9 +13612,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 0
@@ -13511,7 +13697,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13564,16 +13750,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 0
@@ -13654,7 +13842,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: 8891b2fd045efce45b1ba5926d27f2b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13707,16 +13895,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 3
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 2
@@ -13797,7 +13987,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13850,16 +14040,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 0
@@ -13940,7 +14132,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: cb38cccad6f2d31449b8a5712cab1bfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13993,16 +14185,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 5
   output:
     food: 0
     productivity: 0
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 9
@@ -14143,9 +14337,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 7
@@ -14286,9 +14482,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 6
@@ -14429,9 +14627,11 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
+  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isHills: 0
   width: 50
   length: 50
   x: 9

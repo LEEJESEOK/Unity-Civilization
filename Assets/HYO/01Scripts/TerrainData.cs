@@ -13,13 +13,18 @@ public enum TerrainType
     Mountain,
     Coast,
     Ocean,
-    Hills
 }
 //지형특성
-public enum feature
+public enum Feature
 {
     ICE, WOOD, MARSH, RAINFOREST, NONE
-};
+}
+
+//건설
+public enum Facility
+{
+    FARM,MINE,NONE
+}
 
 
 [Serializable]
@@ -30,7 +35,7 @@ public class OutPut
     public int productivity;
     public int gold;
     public int science;
-    //이동력
+    //이동력(0이면 이동불가)
     public int movePower;
 
     public OutPut(int food, int productivity, int gold, int science, int movePower)
@@ -47,7 +52,11 @@ public class TerrainData : MonoBehaviour
 {
     public TerrainType terrainType;
     public OutPut output;
+    public Facility facility;
     public LayerMask mask;
+    // 언덕유무
+    public bool isHills;
+    
 
     //map index
     public int width = 50;
@@ -68,24 +77,33 @@ public class TerrainData : MonoBehaviour
         {
             case TerrainType.GrassLand:
                 gameObject.layer = 6;
+                output = new OutPut(2, 0, 0, 0, 1);
+                CheckHillsNFacility();
                 break;
             case TerrainType.Plains:
                 gameObject.layer = 7;
+                output = new OutPut(1, 1, 0, 0, 1);
+                CheckHillsNFacility();
                 break;
             case TerrainType.Desert:
                 gameObject.layer = 8;
+                output = new OutPut(0, 0, 0, 0, 1);
+                CheckHillsNFacility();
                 break;
             case TerrainType.Mountain:
                 gameObject.layer = 9;
+                output = new OutPut(0, 0, 0, 0, 0);
+                CheckHillsNFacility();
                 break;
             case TerrainType.Coast:
                 gameObject.layer = 10;
+                output = new OutPut(1, 0, 1, 0, 1);
+                CheckHillsNFacility();
                 break;
             case TerrainType.Ocean:
                 gameObject.layer = 11;
-                break;
-            case TerrainType.Hills:
-                gameObject.layer = 12;
+                output = new OutPut(1, 0, 0, 0, 1);
+                CheckHillsNFacility();
                 break;
             default:
                 break;
@@ -93,5 +111,18 @@ public class TerrainData : MonoBehaviour
 
     }
 
-    
+    public void CheckHillsNFacility()
+    {
+        if (isHills)
+        {
+            output.productivity += 1;
+            output.movePower = 2;
+            //전투력 +3
+        }
+    }
+
+    private void Update()
+    {
+        CheckTerrainType();
+    }
 }
