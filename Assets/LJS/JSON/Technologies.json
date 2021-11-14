@@ -1,0 +1,37 @@
+{
+  "technologies": [
+    {
+      "name": "Pottery",
+      "researchCost": "25",
+      "unlockObject": [
+        "Farm"
+      ],
+      "leadToTech": [
+        "Irrigation",
+        "Writing"
+      ]
+    },
+    {
+      "name": "Animal Husbandry",
+      "researchCost": "25",
+      "unlockObject": [
+        "Pasture"
+      ],
+      "leadToTech": [
+        "Archery"
+      ]
+    },
+    {
+      "name": "Mining",
+      "researchCost": "25",
+      "unlockObject": [
+        "Mine"
+      ],
+      "leadToTech": [
+        "Masonry",
+        "Bronze Working",
+        "Wheel"
+      ]
+    }
+  ]
+}
