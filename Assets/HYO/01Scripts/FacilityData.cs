@@ -5,13 +5,13 @@ using UnityEngine.UI;
 using System;
 
 
-//½Ã¼³
+//ì‹œì„¤
 public enum Facility
 {
     FARM, MINE, NONE
 }
 
-//Æ¯¼öÁö±¸
+//íŠ¹ìˆ˜ì§€êµ¬
 public enum District
 {
     CAMPUS, COMMERCAILHUB, INDUSTRIALZONE , NONE
@@ -32,16 +32,16 @@ public class DistrictInPut
  public class FacilityData : MonoBehaviour
 {
     public TerrainData terrainData;
-    //º¸À¯½Ã¼³
+    //ë³´ìœ ì‹œì„¤
     public Facility facility;
     public string[] facilityOn;
-    //º¸À¯ Æ¯¼öÁö±¸
+    //ë³´ìœ  íŠ¹ìˆ˜ì§€êµ¬
     public string[] districtOn;
     public DistrictInPut districtInput;
     public District district;
-    //ÀÎ±¸
+    //ì¸êµ¬
     public int populatuon;
-    //ÀÌ¹ÌÁö
+    //ì´ë¯¸ì§€
     public Sprite[] icons;
     public GameObject iconPos;
     public int iconNum;
