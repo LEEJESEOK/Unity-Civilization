@@ -20,12 +20,6 @@ public enum Feature
     ICE, WOOD, MARSH, RAINFOREST, NONE
 }
 
-//건설
-public enum Facility
-{
-    FARM,MINE,NONE
-}
-
 
 [Serializable]
 public class OutPut
@@ -38,13 +32,12 @@ public class OutPut
     //이동력(0이면 이동불가)
     public int movePower;
 
-    public OutPut(int food, int productivity, int gold, int science, int movePower)
+    public OutPut(int food, int productivity, int gold, int science)
     {
         this.food = food;
         this.productivity = productivity;
         this.gold = gold;
         this.science = science;
-        this.movePower = movePower;
     }
 }
 
@@ -77,32 +70,38 @@ public class TerrainData : MonoBehaviour
         {
             case TerrainType.GrassLand:
                 gameObject.layer = 6;
-                output = new OutPut(2, 0, 0, 0, 1);
+                output = new OutPut(2, 0, 0, 0);
+                output.movePower = 1;
                 CheckHillsNFacility();
                 break;
             case TerrainType.Plains:
                 gameObject.layer = 7;
-                output = new OutPut(1, 1, 0, 0, 1);
+                output = new OutPut(1, 1, 0, 0);
+                output.movePower = 1;
                 CheckHillsNFacility();
                 break;
             case TerrainType.Desert:
                 gameObject.layer = 8;
-                output = new OutPut(0, 0, 0, 0, 1);
+                output = new OutPut(0, 0, 0, 0);
+                output.movePower = 1;
                 CheckHillsNFacility();
                 break;
             case TerrainType.Mountain:
                 gameObject.layer = 9;
-                output = new OutPut(0, 0, 0, 0, 0);
+                output = new OutPut(0, 0, 0, 0);
+                output.movePower = 0;
                 CheckHillsNFacility();
                 break;
             case TerrainType.Coast:
                 gameObject.layer = 10;
-                output = new OutPut(1, 0, 1, 0, 1);
+                output = new OutPut(1, 0, 1, 0);
+                output.movePower = 1;
                 CheckHillsNFacility();
                 break;
             case TerrainType.Ocean:
                 gameObject.layer = 11;
-                output = new OutPut(1, 0, 0, 0, 1);
+                output = new OutPut(1, 0, 0, 0);
+                output.movePower = 1;
                 CheckHillsNFacility();
                 break;
             default:
