@@ -29,7 +29,7 @@ public class DistrictInPut
     }
 }
 
-    public class FacilityData : MonoBehaviour
+ public class FacilityData : MonoBehaviour
 {
     public TerrainData terrainData;
     //보유시설
@@ -73,12 +73,40 @@ public class DistrictInPut
         }
     }
 
-    public void Constr_Btn()
+    public void whatFacility()
     {
+        switch (facility)
+        {
+            case Facility.FARM:
+                iconNum = 3;
+                break;
+            case Facility.MINE:
+                iconNum = 4;
+                break;
+            case Facility.NONE:
+                break;
+            default:
+                break;
+        }
+    }
+
+    public int arrayX, arrayY;
+    public void OnClickConstr_Btn()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                arrayX = hit.transform.GetComponent<TerrainData>().x;
+                arrayY = hit.transform.GetComponent<TerrainData>().y;
+            }
+        }
         GameObject empty = Instantiate(iconPos, this.transform.position, Quaternion.identity);
         empty.transform.parent = this.transform;
-        empty.GetComponent<SpriteRenderer>().sprite = icons[iconNum];
-        
+        empty.GetComponent<SpriteRenderer>().sprite = icons[iconNum];      
     }
 
     public void Constr_Condition()
