@@ -1,21 +1,191 @@
 {
     "data": [
         {
-            "id": 0,
-            "name": "Farm",
+            "id": 211,
+            "name": "Pottery",
             "researchCost": 25,
+            "unlockObjectId": [],
             "leadToTechId": []
         },
         {
-            "id": 1,
-            "name": "Mine",
+            "id": 212,
+            "name": "Animal Husbandry",
             "researchCost": 25,
+            "unlockObjectId": [],
             "leadToTechId": []
         },
         {
-            "id": 2,
-            "name": "Pasture",
+            "id": 213,
+            "name": "Mining",
             "researchCost": 25,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 223,
+            "name": "Irrigation",
+            "researchCost": 50,
+            "unlockObjectId": [],
+            "leadToTechId": [
+                0
+            ]
+        },
+        {
+            "id": 224,
+            "name": "Writing",
+            "researchCost": 50,
+            "unlockObjectId": [],
+            "leadToTechId": [
+                0
+            ]
+        },
+        {
+            "id": 225,
+            "name": "Archery",
+            "researchCost": 50,
+            "unlockObjectId": [],
+            "leadToTechId": [
+                1
+            ]
+        },
+        {
+            "id": 231,
+            "name": "Masonry",
+            "researchCost": 80,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 232,
+            "name": "Bronze Working",
+            "researchCost": 80,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 233,
+            "name": "Wheel",
+            "researchCost": 80,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 312,
+            "name": "Currency",
+            "researchCost": 144,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 313,
+            "name": "Horseback Riding",
+            "researchCost": 144,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 314,
+            "name": "Iron Working",
+            "researchCost": 144,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 322,
+            "name": "Mathematics",
+            "researchCost": 240,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 323,
+            "name": "Construction",
+            "researchCost": 240,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 324,
+            "name": "Engineering",
+            "researchCost": 240,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 411,
+            "name": "Military Tactics",
+            "researchCost": 360,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 412,
+            "name": "Apprenticeship",
+            "researchCost": 360,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 413,
+            "name": "Machinery",
+            "researchCost": 360,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 421,
+            "name": "Education",
+            "researchCost": 468,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 422,
+            "name": "Stirrups",
+            "researchCost": 468,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 423,
+            "name": "Military Engineering",
+            "researchCost": 468,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 424,
+            "name": "Castle",
+            "researchCost": 468,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 512,
+            "name": "Mass Production",
+            "researchCost": 720,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 513,
+            "name": "Banking",
+            "researchCost": 720,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 514,
+            "name": "Printing",
+            "researchCost": 720,
+            "unlockObjectId": [],
+            "leadToTechId": []
+        },
+        {
+            "id": 515,
+            "name": "Gunpowder",
+            "researchCost": 720,
+            "unlockObjectId": [],
             "leadToTechId": []
         }
     ]
