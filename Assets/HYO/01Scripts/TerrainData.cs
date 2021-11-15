@@ -45,7 +45,6 @@ public class TerrainData : MonoBehaviour
 {
     public TerrainType terrainType;
     public OutPut output;
-    public Facility facility;
     public LayerMask mask;
     // 언덕유무
     public bool isHills;
@@ -72,37 +71,37 @@ public class TerrainData : MonoBehaviour
                 gameObject.layer = 6;
                 output = new OutPut(2, 0, 0, 0);
                 output.movePower = 1;
-                CheckHillsNFacility();
+                CheckHills();
                 break;
             case TerrainType.Plains:
                 gameObject.layer = 7;
                 output = new OutPut(1, 1, 0, 0);
                 output.movePower = 1;
-                CheckHillsNFacility();
+                CheckHills();
                 break;
             case TerrainType.Desert:
                 gameObject.layer = 8;
                 output = new OutPut(0, 0, 0, 0);
                 output.movePower = 1;
-                CheckHillsNFacility();
+                CheckHills();
                 break;
             case TerrainType.Mountain:
                 gameObject.layer = 9;
                 output = new OutPut(0, 0, 0, 0);
                 output.movePower = 0;
-                CheckHillsNFacility();
+                CheckHills();
                 break;
             case TerrainType.Coast:
                 gameObject.layer = 10;
                 output = new OutPut(1, 0, 1, 0);
                 output.movePower = 1;
-                CheckHillsNFacility();
+                CheckHills();
                 break;
             case TerrainType.Ocean:
                 gameObject.layer = 11;
                 output = new OutPut(1, 0, 0, 0);
                 output.movePower = 1;
-                CheckHillsNFacility();
+                CheckHills();
                 break;
             default:
                 break;
@@ -110,7 +109,7 @@ public class TerrainData : MonoBehaviour
 
     }
 
-    public void CheckHillsNFacility()
+    public void CheckHills()
     {
         if (isHills)
         {

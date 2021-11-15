@@ -123,7 +123,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -158,12 +157,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &464642824616623471
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +290,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -322,12 +324,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &542086453236922540
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +457,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -486,12 +491,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &602452236580881795
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +624,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -650,12 +658,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &611642084523128254
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,7 +791,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -814,12 +825,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &740613067338533882
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,7 +958,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -978,12 +992,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &892647935995134417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,7 +1125,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -1142,12 +1159,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &1120900172139210285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,7 +1292,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -1306,12 +1326,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &1158737145743306064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,7 +1459,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 1
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -1470,12 +1493,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &1185317311622625834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,7 +1626,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -1634,12 +1660,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &1236964747710821658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1763,7 +1793,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -1798,12 +1827,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &1521611961759501198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,7 +1960,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -1962,12 +1994,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &1573695792668735159
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,7 +2127,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -2126,12 +2161,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &1592872795732760181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2255,7 +2294,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -2290,12 +2328,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &1719715733529756064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2419,7 +2461,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -2454,12 +2495,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &1940868719109670790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,7 +2628,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -2618,12 +2662,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &1955581764989685256
 GameObject:
   m_ObjectHideFlags: 0
@@ -2747,7 +2795,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -2782,12 +2829,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2145105753170066720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2911,7 +2962,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -2946,12 +2996,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2159503928886523697
 GameObject:
   m_ObjectHideFlags: 0
@@ -3075,7 +3129,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -3110,12 +3163,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2177979603888471409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3239,7 +3296,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -3274,12 +3330,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2232869668279508848
 GameObject:
   m_ObjectHideFlags: 0
@@ -3403,7 +3463,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -3438,12 +3497,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2248335344672609433
 GameObject:
   m_ObjectHideFlags: 0
@@ -3567,7 +3630,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -3602,12 +3664,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2368236588535454803
 GameObject:
   m_ObjectHideFlags: 0
@@ -3731,7 +3797,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -3766,12 +3831,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2497018917943350490
 GameObject:
   m_ObjectHideFlags: 0
@@ -3895,7 +3964,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -3930,12 +3998,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2508187195501053321
 GameObject:
   m_ObjectHideFlags: 0
@@ -4059,7 +4131,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -4094,12 +4165,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2658694695737287438
 GameObject:
   m_ObjectHideFlags: 0
@@ -4223,7 +4298,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -4258,12 +4332,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2671159453044453941
 GameObject:
   m_ObjectHideFlags: 0
@@ -4387,7 +4465,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -4422,12 +4499,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2736597049430440141
 GameObject:
   m_ObjectHideFlags: 0
@@ -4551,7 +4632,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -4586,12 +4666,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2786011395412499593
 GameObject:
   m_ObjectHideFlags: 0
@@ -4715,7 +4799,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -4750,12 +4833,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2837789076258003485
 GameObject:
   m_ObjectHideFlags: 0
@@ -4879,7 +4966,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -4914,12 +5000,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2956803641604804144
 GameObject:
   m_ObjectHideFlags: 0
@@ -5043,7 +5133,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -5078,12 +5167,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2971932999908398803
 GameObject:
   m_ObjectHideFlags: 0
@@ -5207,7 +5300,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -5242,12 +5334,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &2994273555336319371
 GameObject:
   m_ObjectHideFlags: 0
@@ -5371,7 +5467,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 1
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -5406,12 +5501,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &3035235434139754689
 GameObject:
   m_ObjectHideFlags: 0
@@ -5535,7 +5634,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -5570,12 +5668,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &3216912607178646722
 GameObject:
   m_ObjectHideFlags: 0
@@ -5699,7 +5801,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -5734,12 +5835,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &3218080906632922344
 GameObject:
   m_ObjectHideFlags: 0
@@ -5863,7 +5968,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -5898,12 +6002,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &3395433833940076829
 GameObject:
   m_ObjectHideFlags: 0
@@ -6027,7 +6135,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -6062,12 +6169,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &3404053901950379574
 GameObject:
   m_ObjectHideFlags: 0
@@ -6191,7 +6302,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -6226,12 +6336,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &3461975603714112073
 GameObject:
   m_ObjectHideFlags: 0
@@ -6355,7 +6469,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -6390,12 +6503,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &3486925282077774940
 GameObject:
   m_ObjectHideFlags: 0
@@ -6519,7 +6636,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -6554,12 +6670,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &3626820878889808048
 GameObject:
   m_ObjectHideFlags: 0
@@ -6683,7 +6803,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -6718,12 +6837,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &3832091037402372782
 GameObject:
   m_ObjectHideFlags: 0
@@ -6847,7 +6970,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -6882,12 +7004,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &3850874365874721089
 GameObject:
   m_ObjectHideFlags: 0
@@ -7011,7 +7137,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -7046,12 +7171,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &4013407755013108268
 GameObject:
   m_ObjectHideFlags: 0
@@ -7175,7 +7304,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -7210,12 +7338,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &4313351934112828252
 GameObject:
   m_ObjectHideFlags: 0
@@ -7339,7 +7471,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -7374,12 +7505,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &4362502869845472154
 GameObject:
   m_ObjectHideFlags: 0
@@ -7503,7 +7638,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -7538,12 +7672,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &4363776730939611290
 GameObject:
   m_ObjectHideFlags: 0
@@ -7667,7 +7805,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -7702,12 +7839,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &4386320139206575566
 GameObject:
   m_ObjectHideFlags: 0
@@ -7831,7 +7972,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -7866,12 +8006,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &4392363256436301656
 GameObject:
   m_ObjectHideFlags: 0
@@ -7995,7 +8139,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -8030,12 +8173,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &4589193605963605833
 GameObject:
   m_ObjectHideFlags: 0
@@ -8159,7 +8306,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -8194,12 +8340,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &4616667045139566360
 GameObject:
   m_ObjectHideFlags: 0
@@ -8323,7 +8473,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -8358,12 +8507,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &4630496392835185382
 GameObject:
   m_ObjectHideFlags: 0
@@ -8487,7 +8640,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -8522,12 +8674,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &4652902456537085361
 GameObject:
   m_ObjectHideFlags: 0
@@ -8651,7 +8807,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -8686,12 +8841,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &4692656625797827442
 GameObject:
   m_ObjectHideFlags: 0
@@ -8815,7 +8974,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -8850,12 +9008,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &4889496649172339958
 GameObject:
   m_ObjectHideFlags: 0
@@ -8979,7 +9141,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -9014,12 +9175,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &4908316492556305063
 GameObject:
   m_ObjectHideFlags: 0
@@ -9143,7 +9308,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -9178,12 +9342,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &5084515500885202361
 GameObject:
   m_ObjectHideFlags: 0
@@ -9307,7 +9475,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -9342,12 +9509,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &5352354613962040121
 GameObject:
   m_ObjectHideFlags: 0
@@ -9376,7 +9547,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 9168716265158404481}
+  - {fileID: 3034216986420165733}
   - {fileID: 3837519033868142762}
   - {fileID: 1161376914181129130}
   - {fileID: 1745592050945159006}
@@ -9621,7 +9792,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -9656,12 +9826,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &5603146053062538889
 GameObject:
   m_ObjectHideFlags: 0
@@ -9785,7 +9959,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -9820,12 +9993,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &5641935868769409729
 GameObject:
   m_ObjectHideFlags: 0
@@ -9949,7 +10126,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -9984,12 +10160,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &5673863508285064985
 GameObject:
   m_ObjectHideFlags: 0
@@ -10113,7 +10293,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -10148,12 +10327,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &5730248722403254234
 GameObject:
   m_ObjectHideFlags: 0
@@ -10277,7 +10460,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -10312,12 +10494,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &5759294589814986902
 GameObject:
   m_ObjectHideFlags: 0
@@ -10441,7 +10627,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -10476,12 +10661,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &6055864658667928704
 GameObject:
   m_ObjectHideFlags: 0
@@ -10605,7 +10794,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -10640,12 +10828,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &6123127119005456508
 GameObject:
   m_ObjectHideFlags: 0
@@ -10769,7 +10961,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -10804,12 +10995,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &6183560712235953608
 GameObject:
   m_ObjectHideFlags: 0
@@ -10933,7 +11128,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -10968,12 +11162,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &6217786323952939807
 GameObject:
   m_ObjectHideFlags: 0
@@ -11097,7 +11295,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -11132,12 +11329,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &6306031724680601154
 GameObject:
   m_ObjectHideFlags: 0
@@ -11261,7 +11462,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -11296,12 +11496,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &6316080084551235512
 GameObject:
   m_ObjectHideFlags: 0
@@ -11425,7 +11629,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -11460,12 +11663,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &6517039651383630429
 GameObject:
   m_ObjectHideFlags: 0
@@ -11589,7 +11796,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -11624,12 +11830,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &6638972749198851706
 GameObject:
   m_ObjectHideFlags: 0
@@ -11753,7 +11963,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -11788,12 +11997,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &6692045335200470780
 GameObject:
   m_ObjectHideFlags: 0
@@ -11917,7 +12130,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -11952,12 +12164,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &6701753390316174486
 GameObject:
   m_ObjectHideFlags: 0
@@ -12081,7 +12297,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -12116,12 +12331,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7142135593081785299
 GameObject:
   m_ObjectHideFlags: 0
@@ -12245,7 +12464,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -12280,12 +12498,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7242587176948623926
 GameObject:
   m_ObjectHideFlags: 0
@@ -12409,7 +12631,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -12444,12 +12665,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7312097151905468639
 GameObject:
   m_ObjectHideFlags: 0
@@ -12573,7 +12798,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -12608,12 +12832,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7353569003415829591
 GameObject:
   m_ObjectHideFlags: 0
@@ -12737,7 +12965,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -12772,12 +12999,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7431760312895660841
 GameObject:
   m_ObjectHideFlags: 0
@@ -12901,7 +13132,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -12936,12 +13166,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7431804331013668263
 GameObject:
   m_ObjectHideFlags: 0
@@ -13065,7 +13299,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -13100,12 +13333,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7536454305035857308
 GameObject:
   m_ObjectHideFlags: 0
@@ -13229,7 +13466,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -13264,12 +13500,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7687593446789080697
 GameObject:
   m_ObjectHideFlags: 0
@@ -13393,7 +13633,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -13428,12 +13667,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7747390997697724784
 GameObject:
   m_ObjectHideFlags: 0
@@ -13557,7 +13800,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -13592,12 +13834,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7783406821475543647
 GameObject:
   m_ObjectHideFlags: 0
@@ -13721,7 +13967,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -13756,12 +14001,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7798075136853177463
 GameObject:
   m_ObjectHideFlags: 0
@@ -13885,7 +14134,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -13920,12 +14168,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7809334422479959843
 GameObject:
   m_ObjectHideFlags: 0
@@ -14049,7 +14301,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -14084,12 +14335,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7970777419209786810
 GameObject:
   m_ObjectHideFlags: 0
@@ -14213,7 +14468,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -14248,12 +14502,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &7996727705110169058
 GameObject:
   m_ObjectHideFlags: 0
@@ -14377,7 +14635,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -14412,12 +14669,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &8015785223011686671
 GameObject:
   m_ObjectHideFlags: 0
@@ -14541,7 +14802,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -14576,12 +14836,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &8193195658785682762
 GameObject:
   m_ObjectHideFlags: 0
@@ -14705,7 +14969,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -14740,12 +15003,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &8365169017033587766
 GameObject:
   m_ObjectHideFlags: 0
@@ -14869,7 +15136,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -14904,12 +15170,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &8414161839419331614
 GameObject:
   m_ObjectHideFlags: 0
@@ -15033,7 +15303,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -15068,12 +15337,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &8417013732161819263
 GameObject:
   m_ObjectHideFlags: 0
@@ -15197,7 +15470,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -15232,12 +15504,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &8457766294279288207
 GameObject:
   m_ObjectHideFlags: 0
@@ -15246,13 +15522,15 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9168716265158404481}
+  - component: {fileID: 3034216986420165733}
   - component: {fileID: 730918863426115475}
   - component: {fileID: 9160264125611730227}
   - component: {fileID: 5200158978431513171}
   - component: {fileID: 987689331652491342}
   - component: {fileID: 5533056470915959595}
   - component: {fileID: 8540297890037597742}
+  - component: {fileID: 756269121467110151}
+  - component: {fileID: 2660216338984507590}
   m_Layer: 0
   m_Name: HexTop_Pasture(Clone)
   m_TagString: Untagged
@@ -15260,20 +15538,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9168716265158404481
-Transform:
+--- !u!224 &3034216986420165733
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8457766294279288207}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5352354613962040119}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -5, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &730918863426115475
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15361,7 +15644,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -15396,12 +15678,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
+--- !u!222 &756269121467110151
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8457766294279288207}
+  m_CullTransparentMesh: 1
+--- !u!114 &2660216338984507590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8457766294279288207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8730337896383288979
 GameObject:
   m_ObjectHideFlags: 0
@@ -15525,7 +15849,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -15560,12 +15883,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &8761628615467180891
 GameObject:
   m_ObjectHideFlags: 0
@@ -15689,7 +16016,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 2
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -15724,12 +16050,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &8771810502156138007
 GameObject:
   m_ObjectHideFlags: 0
@@ -15853,7 +16183,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -15888,12 +16217,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &8984398265472880832
 GameObject:
   m_ObjectHideFlags: 0
@@ -16017,7 +16350,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -16052,12 +16384,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &9155300740356957391
 GameObject:
   m_ObjectHideFlags: 0
@@ -16181,7 +16517,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -16216,12 +16551,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &9206653646419128007
 GameObject:
   m_ObjectHideFlags: 0
@@ -16345,7 +16684,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -16380,12 +16718,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
 --- !u!1 &9211164781589392730
 GameObject:
   m_ObjectHideFlags: 0
@@ -16509,7 +16851,6 @@ MonoBehaviour:
     gold: 0
     science: 0
     movePower: 0
-  facility: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -16544,9 +16885,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainData: {fileID: 0}
+  facility: 0
   facilityOn: []
   districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
+  populatuon: 0
+  icons: []
