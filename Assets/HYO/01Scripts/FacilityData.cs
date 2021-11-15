@@ -14,7 +14,7 @@ public enum Facility
 //특수지구
 public enum District
 {
-    CAMPUS, COMMERCAILHUB, INDUSTRIALZONE , NONE
+    CAMPUS, COMMERCAILHUB, INDUSTRIALZONE, NONE
 }
 
 [Serializable]
@@ -22,14 +22,14 @@ public class DistrictInPut
 {
     public int productivity;
     public int gold;
-    public DistrictInPut(int productivity,int gold)
+    public DistrictInPut(int productivity, int gold)
     {
         this.productivity = productivity;
         this.gold = gold;
     }
 }
 
- public class FacilityData : MonoBehaviour
+public class FacilityData : MonoBehaviour
 {
     public TerrainData terrainData;
     //보유시설
@@ -42,8 +42,6 @@ public class DistrictInPut
     //인구
     public int populatuon;
     //이미지
-    public Sprite[] icons;
-    public GameObject iconPos;
     public int iconNum;
 
     public void WhatDistric()
@@ -66,9 +64,7 @@ public class DistrictInPut
                 terrainData.output.productivity = populatuon * 2;
                 break;
             case District.NONE:
-                districtInput = new DistrictInPut(0,0);
-                break;
-            default:
+                districtInput = new DistrictInPut(0, 0);
                 break;
         }
     }
@@ -85,35 +81,15 @@ public class DistrictInPut
                 break;
             case Facility.NONE:
                 break;
-            default:
-                break;
         }
     }
 
-    public int arrayX, arrayY;
-    public void OnClickConstr_Btn()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                arrayX = hit.transform.GetComponent<TerrainData>().x;
-                arrayY = hit.transform.GetComponent<TerrainData>().y;
-            }
-        }
-        GameObject empty = Instantiate(iconPos, this.transform.position, Quaternion.identity);
-        empty.transform.parent = this.transform;
-        empty.GetComponent<SpriteRenderer>().sprite = icons[iconNum];      
-    }
 
     public void Constr_Condition()
     {
         districtOn = new string[(populatuon * 3) - 2];
 
-        if(districtOn != null)
+        if (districtOn != null)
         {
             terrainData.output = new OutPut(0, 0, 0, 0);
         }
