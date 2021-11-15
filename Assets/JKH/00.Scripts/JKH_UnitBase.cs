@@ -5,33 +5,33 @@ using UnityEngine;
 
 public enum Eras
 {
-    Ancient, //°í´ë 0
-    Classical, //°íÀü 1
-    Medieval, //Áß¼¼ 2
-    Renaissance, //¸£³×»ó½º 3
-    Industrial, //»ê¾÷ 4
-    Modern, //Çö´ë 5
-    Atomic, //¿øÀÚ 6
-    Information, //Á¤º¸ 7
-    Future //¹Ì·¡ X
+    Ancient, //ê³ ëŒ€ 0
+    Classical, //ê³ ì „ 1
+    Medieval, //ì¤‘ì„¸ 2
+    Renaissance, //ë¥´ë„¤ìƒìŠ¤ 3
+    Industrial, //ì‚°ì—… 4
+    Modern, //í˜„ëŒ€ 5
+    Atomic, //ì›ì 6
+    Information, //ì •ë³´ 7
+    Future //ë¯¸ë˜ X
 }
 
 public enum Militaries
 {
-    racons, //Á¤Âû
-    melee, //±ÙÁ¢
-    range, //¿ø°Å¸®
-    heavyCavalry, //Áß±âº´
-    lightCavalry, //°æ±âº´
-    AntiCavalry, //´ë ±âº´
-    Siege, //°ø¼º
-    navalMelee, //±ÙÁ¢ÇØ±º
-    navalRanged, //¿ø°Å¸®ÇØ±º
-    navalRaider, //¾àÅ»(ÇØ±º·¹ÀÌ´õ)
-    navalCarrier, //Ç×°ø¸ğÇÔ
-    airFighter, //ÀüÅõ±â
-    airBomber, //Æø°İ±â
-    support //Áö¿ø
+    racons, //ì •ì°°
+    melee, //ê·¼ì ‘
+    range, //ì›ê±°ë¦¬
+    heavyCavalry, //ì¤‘ê¸°ë³‘
+    lightCavalry, //ê²½ê¸°ë³‘
+    AntiCavalry, //ëŒ€ ê¸°ë³‘
+    Siege, //ê³µì„±
+    navalMelee, //ê·¼ì ‘í•´êµ°
+    navalRanged, //ì›ê±°ë¦¬í•´êµ°
+    navalRaider, //ì•½íƒˆ(í•´êµ°ë ˆì´ë”)
+    navalCarrier, //í•­ê³µëª¨í•¨
+    airFighter, //ì „íˆ¬ê¸°
+    airBomber, //í­ê²©ê¸°
+    support //ì§€ì›
 
 }
 
