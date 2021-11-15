@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+[Serializable]
+public class Player
 {
     // 보유중인 유닛
     public List<GameObject> units;
@@ -15,29 +17,34 @@ public class Player : MonoBehaviour
     // 보유한 자원
     int food, production, gold, science;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public Player()
     {
         units = new List<GameObject>();
         cities = new List<GameObject>();
         technologies = new List<Technology>();
 
+        ongoingTechnology = new Technology();
+
+        food = production = gold = science = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    // 유닛 생성 -> 플레이어의 유닛 리스트에 추가
+    public void ConstructUnit(GameObject unit)
     {
-
+        units.Add(unit);
     }
 
-    public void ConstructUnit()
+    // 도시 건설 -> 플레이어의 도시 리스트에 추가
+    public void BuildCity(GameObject city)
     {
-
+        cities.Add(city);
     }
 
-    public void ChooseResearch()
+    // 새로 연구할 기술 선택
+    public void ChooseResearch(Technology technology)
     {
-        
+        ongoingTechnology = technology;
     }
 
 }

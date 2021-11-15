@@ -1,0 +1,22 @@
+{
+    "data": [
+        {
+            "id": 0,
+            "name": "Farm",
+            "researchCost": 25,
+            "leadToTechId": []
+        },
+        {
+            "id": 1,
+            "name": "Mine",
+            "researchCost": 25,
+            "leadToTechId": []
+        },
+        {
+            "id": 2,
+            "name": "Pasture",
+            "researchCost": 25,
+            "leadToTechId": []
+        }
+    ]
+}
