@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class HYO_PlayerClickTest : MonoBehaviour
 {
-    HYO_ConstructManager constrMng= HYO_ConstructManager.instance;
+    HYO_ConstructManager constrMng;
+
+    private void Start()
+    {
+        constrMng = HYO_ConstructManager.instance;
+    }
 
     void Update()
     {

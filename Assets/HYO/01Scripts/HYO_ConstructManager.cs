@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HYO_ConstructManager : MonoBehaviour
+public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 {
     public static HYO_ConstructManager instance;
     private void Awake()
