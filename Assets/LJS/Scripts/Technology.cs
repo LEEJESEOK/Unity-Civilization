@@ -1,32 +1,50 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Text;
 
 [Serializable]
 public class Technology
 {
-    public int id;
+    public TechnologyId id;
     public string name;
+    public string korean;
     public int researchCost;
-    public List<object> unlockObject;
-    public List<int> leadToTechId;
+    public int[] unlockObjectId;
+    public List<TechnologyId> requireTechId;
+
 
     public Technology()
     {
-        id = -1;
-        name = "";
+        id = 0;
+        name = korean = "";
         researchCost = -1;
-        unlockObject = new List<object>();
-        leadToTechId = new List<int>();
+        unlockObjectId = new int[] { };
+        requireTechId = new List<TechnologyId>();
     }
 
-    public Technology(int id, string name, int researchCost, List<object> unlockObject, List<int> leadToTechId)
+    public Technology(TechnologyId id, string name, string korean, int researchCost, int[] unlockObjectId, List<TechnologyId> requireTechId)
     {
         this.id = id;
         this.name = name;
+        this.korean = korean;
         this.researchCost = researchCost;
-        this.unlockObject = unlockObject;
-        this.leadToTechId = leadToTechId;
+        this.unlockObjectId = unlockObjectId;
+        this.requireTechId = requireTechId;
+    }
+
+    public override string ToString()
+    {
+        StringBuilder sb = new StringBuilder();
+
+        sb.Append(string.Format("id : {0}\n", this.id));
+        sb.Append(string.Format("name : {0}\n", this.name));
+        sb.Append(string.Format("korean : {0}\n", this.korean));
+        sb.Append(string.Format("researchCost : {0}\n", this.researchCost));
+        sb.Append(string.Format("unlockObjectId : {0}\n", this.unlockObjectId));
+        sb.Append(string.Format("requireTechId : {0}\n", this.requireTechId));
+
+        return sb.ToString();
     }
 }
