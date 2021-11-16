@@ -13,13 +13,13 @@ public class JKH_Node
 	public int hCost;
 	public JKH_Node parent;
 
-	public JKH_Node(bool _walkable, Vector3 _worldPos,int _gridX, int _gridY)
+	public JKH_Node(bool _walkable, Vector3 _worldPos)
 	{
 		walkable = _walkable;
 		worldPosition = _worldPos;
-        gridX = _gridX;
-        gridY = _gridY;
-    }
+		//gridX = _gridX;
+		//gridY = _gridY;
+	}
 
 	public int fCost
 	{

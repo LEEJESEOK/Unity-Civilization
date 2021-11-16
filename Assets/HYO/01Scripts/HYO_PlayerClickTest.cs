@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HYO_PlayerClickTest : MonoBehaviour
 {
-    HYO_ConstructManager constrMng = HYO_ConstructManager.instance;
+    HYO_ConstructManager constrMng= HYO_ConstructManager.instance;
 
     void Update()
     {
@@ -18,9 +18,9 @@ public class HYO_PlayerClickTest : MonoBehaviour
             {
                 GameObject empty = Instantiate(constrMng.emptyPre);
                 int chooseIndex = -1;
-                for (int i = 0; i < constrMng.districtOn_.Length; i++)
+                for(int i=0; i< constrMng.districtOn_.Length;i++)
                 {
-                    if (constrMng.districtOn_[i] = null)
+                    if(constrMng.districtOn_[i] = null)
                     {
                         constrMng.districtOn_[i] = empty;
                         chooseIndex = i;
