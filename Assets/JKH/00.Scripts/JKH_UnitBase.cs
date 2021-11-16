@@ -16,7 +16,7 @@ public enum Eras
     Future //미래 X
 }
 
-public enum Militaries
+public enum UnitType
 {
     Racons = TypeIdBase.UNIT, //정찰
     Melee, //근접
@@ -42,7 +42,7 @@ public enum Militaries
 public class JKH_UnitBase : MonoBehaviour
 {
     public Eras era;
-    public Militaries type;
+    public UnitType type;
 
     //unit's Info
     public int hp;
