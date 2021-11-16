@@ -38,6 +38,13 @@ public class JKH_Grid : MonoBehaviour
         }
     }
 
+    #region 노트
+    //Note Todo..
+    //6각형으로 바꾸어야한다
+    //추가된 좌표 (x-1, y-1) (x+1, y-1)
+    //
+    #endregion
+
     public List<JKH_Node> GetNeighbours(JKH_Node node)
     {
         List<JKH_Node> neighbours = new List<JKH_Node>();
@@ -45,7 +52,7 @@ public class JKH_Grid : MonoBehaviour
         {
             for(int y=-1; y <= 1; y++)
             {
-                if (x == 0 && y == 0)
+                if ((x == 0 && y == 0) || (x == -1 && y == 1) || (x == 1 && y == 1))
                 {
                     continue;
                 }

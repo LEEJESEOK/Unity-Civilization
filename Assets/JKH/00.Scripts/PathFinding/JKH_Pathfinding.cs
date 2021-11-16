@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using System.Collections.Generic;
+
 
 public class JKH_Pathfinding : MonoBehaviour
 {
@@ -19,6 +19,7 @@ public class JKH_Pathfinding : MonoBehaviour
 
     void FindPath(Vector3 startPos, Vector3 targetPos)
     {
+        //시작값, 타겟값
         JKH_Node startNode = grid.NodeFromWorldPoint(startPos);
         JKH_Node targetNode = grid.NodeFromWorldPoint(targetPos);
 
@@ -29,9 +30,11 @@ public class JKH_Pathfinding : MonoBehaviour
         while (openSet.Count > 0)
         {
             JKH_Node currentNode = openSet[0];
-            for(int i=1;i<openSet.Count; i++)
+            for (int i = 1; i < openSet.Count; i++)
             {
-                if (openSet[i].fCost < currentNode.fCost|| openSet[i].fCost==currentNode.fCost&&openSet[i].hCost<currentNode.hCost)
+                if ((openSet[i].fCost < currentNode.fCost)
+                    || (openSet[i].fCost == currentNode.fCost)
+                    && (openSet[i].hCost < currentNode.hCost))
                 {
                     currentNode = openSet[i];
                 }
@@ -39,13 +42,13 @@ public class JKH_Pathfinding : MonoBehaviour
             openSet.Remove(currentNode);
             closeSet.Add(currentNode);
 
-            if(currentNode == targetNode)
+            if (currentNode == targetNode)
             {
                 RetracePath(startNode, targetNode);
                 return;
             }
 
-            foreach(JKH_Node neighbour in grid.GetNeighbours(currentNode))
+            foreach (JKH_Node neighbour in grid.GetNeighbours(currentNode))
             {
                 if (!neighbour.walkable || closeSet.Contains(neighbour))
                 {
