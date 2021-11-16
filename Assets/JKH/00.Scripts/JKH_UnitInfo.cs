@@ -7,8 +7,8 @@ public class JKH_UnitInfo : MonoBehaviour
 {
 
     #region read
-    //¡ØÈ®ÀåÆÑ ¾È³ÖÀ½¡Ø
-    //Âü°í»çÀÌÆ®
+    //â€»í™•ì¥íŒ© ì•ˆë„£ìŒâ€»
+    //ì°¸ê³ ì‚¬ì´íŠ¸
     //https://namu.wiki/w/%EB%AC%B8%EB%AA%85%206/%EC%9C%A0%EB%8B%9B#s-3
     //https://civilization.fandom.com/wiki/List_of_units_in_Civ6
     #endregion
@@ -23,21 +23,21 @@ public class JKH_UnitInfo : MonoBehaviour
     public int wood;
 
     public Eras eras;
-    //½Ã´ë
+    //ì‹œëŒ€
     public enum Eras
     {
-        Ancient, //°í´ë 0
-        Classical, //°íÀü 1
-        Medieval, //Áß¼¼ 2
-        Renaissance, //¸£³×»ó½º 3
-        Industrial, //»ê¾÷ 4
-        Modern, //Çö´ë 5
-        Atomic, //¿øÀÚ 6
-        Information, //Á¤º¸ 7
-        Future //¹Ì·¡ X
+        Ancient, //ê³ ëŒ€ 0
+        Classical, //ê³ ì „ 1
+        Medieval, //ì¤‘ì„¸ 2
+        Renaissance, //ë¥´ë„¤ìƒìŠ¤ 3
+        Industrial, //ì‚°ì—… 4
+        Modern, //í˜„ëŒ€ 5
+        Atomic, //ì›ì 6
+        Information, //ì •ë³´ 7
+        Future //ë¯¸ë˜ X
     }    
 
-    //±º´ë(ÇÊ¿ä¾øÀ»µí? ÀÖ³ª? ¾Æ´Ô¸»°í)
+    //êµ°ëŒ€(í•„ìš”ì—†ì„ë“¯? ìˆë‚˜? ì•„ë‹˜ë§ê³ )
     enum Militaries
     {
         Army,
@@ -48,153 +48,153 @@ public class JKH_UnitInfo : MonoBehaviour
             //
     }
 
-    #region º´Á¾
+    #region ë³‘ì¢…
 
     // EraNum/ Name 
 
-    //Á¤Âû°è¿­
+    //ì •ì°°ê³„ì—´
     enum Recons
     {
-        scout, //0 Á¤Âûº´
-        ranger //4 ·¹ÀÎÀú
+        scout, //0 ì •ì°°ë³‘
+        ranger //4 ë ˆì¸ì €
     }
 
 
-    //±ÙÁ¢°è¿­
+    //ê·¼ì ‘ê³„ì—´
     enum Melee
     {
-        warrior, //0 Àü»ç
-        swordsman, //1 °Ë»ç-> ½Ã´ë2_Àü»ç
-        manAtArns, //2 Áß°©º´ ->½Ã´ë3_Àü»ç
-        musketman, //3 ¸Ó½ºÅ¶º´
-        lineInfantry, //4 Àü¿­º¸º´
-        infantry, //5 º¸º´
-        merchanizedInfantry //7 ±â°èÈ­º¸º´
+        warrior, //0 ì „ì‚¬
+        swordsman, //1 ê²€ì‚¬-> ì‹œëŒ€2_ì „ì‚¬
+        manAtArns, //2 ì¤‘ê°‘ë³‘ ->ì‹œëŒ€3_ì „ì‚¬
+        musketman, //3 ë¨¸ìŠ¤í‚·ë³‘
+        lineInfantry, //4 ì „ì—´ë³´ë³‘
+        infantry, //5 ë³´ë³‘
+        merchanizedInfantry //7 ê¸°ê³„í™”ë³´ë³‘
     }
 
-    //¿ø°Å¸®°è¿­
+    //ì›ê±°ë¦¬ê³„ì—´
     enum Range
     {
-        slinger, //0 Åõ¼®º´
-        Archer, //0 ±Ã¼ö
-        Crossbowman, //2 ¼®±Ãº´
-        fieldCannon, //4 ÀüÀåÆ÷
-        MachineGun //6 ±â°üÃÑ
+        slinger, //0 íˆ¬ì„ë³‘
+        Archer, //0 ê¶ìˆ˜
+        Crossbowman, //2 ì„ê¶ë³‘
+        fieldCannon, //4 ì „ì¥í¬
+        MachineGun //6 ê¸°ê´€ì´
     }
 
-    //´ë(anti) ±âº´
+    //ëŒ€(anti) ê¸°ë³‘
     enum AntiCavalry
     {
-        spearman, //0 Ã¢º´
-        pikeman, //2 ÆÄÀÌÅ©º´
-        ATCrew, //5 ´ëÀüÂ÷º´
-        modernAT //7 Çö´ë ´ëÀüÂ÷º´
+        spearman, //0 ì°½ë³‘
+        pikeman, //2 íŒŒì´í¬ë³‘
+        ATCrew, //5 ëŒ€ì „ì°¨ë³‘
+        modernAT //7 í˜„ëŒ€ ëŒ€ì „ì°¨ë³‘
     }
 
-    //°æ±âº´
+    //ê²½ê¸°ë³‘
     enum lightCavalry
     {
-        horseMan, //1 ±â¸¶º´
-        cavalry, //4 ±âº´´ë
-        helicopter //6 Çï¸®ÄßÅÍ
+        horseMan, //1 ê¸°ë§ˆë³‘
+        cavalry, //4 ê¸°ë³‘ëŒ€
+        helicopter //6 í—¬ë¦¬ì½¥í„°
     }
 
-    //Áß±âº´
+    //ì¤‘ê¸°ë³‘
     enum heavyCavalry
     {
-        heavyCavalry, //0 ÁßÀüÂ÷
-        knight, //2 ±â»ç
-        tank, //5 ÅÊÅ©
-        modernArmor //7 Çö´ë ÀüÂ÷
+        heavyCavalry, //0 ì¤‘ì „ì°¨
+        knight, //2 ê¸°ì‚¬
+        tank, //5 íƒ±í¬
+        modernArmor //7 í˜„ëŒ€ ì „ì°¨
     }
 
-    //°ø¼º
+    //ê³µì„±
     enum Siege
     {
-        catapult, //1 Ä³ÅÍÆŞÆ®
-        trebuchet, //2 Æ®·¹ºä¼Â
-        bombard, //3 »ç¼®Æ÷
-        artillery, //5 ¾ßÆ÷
-        rocketArtillery //7 ·ÎÄÏÆ÷
+        catapult, //1 ìºí„°í„íŠ¸
+        trebuchet, //2 íŠ¸ë ˆë·°ì…‹
+        bombard, //3 ì‚¬ì„í¬
+        artillery, //5 ì•¼í¬
+        rocketArtillery //7 ë¡œì¼“í¬
     }
     
-    //°Å´ë ÀüÅõ·Îº¿(GDR) È®ÀåÆÑ
+    //ê±°ëŒ€ ì „íˆ¬ë¡œë´‡(GDR) í™•ì¥íŒ©
 
-    //±ÙÁ¢ÇØ±º
+    //ê·¼ì ‘í•´êµ°
     enum navalMelee
     {
-        galley, //0 °¶¸®
-        caravel, //3 Ä³·¯º§
-        ironclad, //4 Ã¶°©ÇÔ
-        destroyer //6 ±¸ÃàÇÔ
+        galley, //0 ê°¤ë¦¬
+        caravel, //3 ìºëŸ¬ë²¨
+        ironclad, //4 ì² ê°‘í•¨
+        destroyer //6 êµ¬ì¶•í•¨
     }
 
-    //¿ø°Å¸®ÇØ±º
+    //ì›ê±°ë¦¬í•´êµ°
     enum navalRanged
     {
-        quadrireme, //1 »ç´Ü³ë¼±
-        frigate, //3 ÇÁ¸®±ê
-        battleship, //5 ÀüÇÔ
-        missileCruiser //7 ¹Ì»çÀÏ¼ø¾çÇÔ
+        quadrireme, //1 ì‚¬ë‹¨ë…¸ì„ 
+        frigate, //3 í”„ë¦¬ê¹ƒ
+        battleship, //5 ì „í•¨
+        missileCruiser //7 ë¯¸ì‚¬ì¼ìˆœì–‘í•¨
     }
 
-    //¾àÅ»(ÇØ±º ·¹ÀÌ´õ)
+    //ì•½íƒˆ(í•´êµ° ë ˆì´ë”)
     enum navalRaider
     {
-        privateer, //3 »ç·«¼±
-        submarine, //5 Àá¼öÇÔ
-        nuclearSubmarine //7 ÇÙÀá¼öÇÔ
+        privateer, //3 ì‚¬ëµì„ 
+        submarine, //5 ì ìˆ˜í•¨
+        nuclearSubmarine //7 í•µì ìˆ˜í•¨
     }
 
-    //Ç×°ø¸ğÇÔ
+    //í•­ê³µëª¨í•¨
     enum navalCarrier
     {
-        airCraftCarrier //6 Ç×°ø¸ğÇÔ
+        airCraftCarrier //6 í•­ê³µëª¨í•¨
     }
 
-    //ÀüÅõ±â
+    //ì „íˆ¬ê¸°
     enum airFighter
     {
-        biplane, //5 º¹¿±±â
-        fighter, //6 ÀüÅõ±â
-        jetFighter //7 Á¦Æ® ÀüÅõ±â
+        biplane, //5 ë³µì—½ê¸°
+        fighter, //6 ì „íˆ¬ê¸°
+        jetFighter //7 ì œíŠ¸ ì „íˆ¬ê¸°
     }
 
-    //Æø°İ±â
+    //í­ê²©ê¸°
     enum airBomber
     {
-        bomber, //6 Æø°İ±â
-        jetBomber //7 Á¦Æ® Æø°İ±â
+        bomber, //6 í­ê²©ê¸°
+        jetBomber //7 ì œíŠ¸ í­ê²©ê¸°
     }
     
-    //Áö¿ø
+    //ì§€ì›
     enum support
     {
-        batteringRam, //0 °ø¼ºÃß
-        SiegeTower, //1 °ø¼ºÅ¾
-        militaryEngineer, //2 °øº´
-        medic, //3 ÀÇ¹«º´
-        observationBalloon, //4 °üÃø¿ë ¿­±â±¸
-        antiAirGun, //5 ´ë°øÆ÷
-        mobileSAM //6 Áö´ë°ø¹Ì»çÀÏ
+        batteringRam, //0 ê³µì„±ì¶”
+        SiegeTower, //1 ê³µì„±íƒ‘
+        militaryEngineer, //2 ê³µë³‘
+        medic, //3 ì˜ë¬´ë³‘
+        observationBalloon, //4 ê´€ì¸¡ìš© ì—´ê¸°êµ¬
+        antiAirGun, //5 ëŒ€ê³µí¬
+        mobileSAM //6 ì§€ëŒ€ê³µë¯¸ì‚¬ì¼
     }
 
     #endregion
 
 
 
-    public enum º´Á¾
+    public enum ë³‘ì¢…
     {
-        Á¤Âû,
-        ±ÙÁ¢,
-        ¿ø°Å¸®,
+        ì •ì°°,
+        ê·¼ì ‘,
+        ì›ê±°ë¦¬,
     }
 
-    public enum ½Ã´ë
+    public enum ì‹œëŒ€
     {
-        °í´ë,
-        °íÀü,
-        Áß¼¼,
+        ê³ ëŒ€,
+        ê³ ì „,
+        ì¤‘ì„¸,
     }
 
    

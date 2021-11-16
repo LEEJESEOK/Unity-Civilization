@@ -16,7 +16,7 @@ public class JKH_Note : MonoBehaviour
         unitCost.Add("heavyChariot", 1);
         unitCost.Add("Galley", 1);
 
-        //2°³ ÀÌ»óÀº ¾î¶»°Ô ÇÔ? sl
+        //2ê°œ ì´ìƒì€ ì–´ë–»ê²Œ í•¨? sl
     }
 
     void Update()

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class HYO_ConstructManager : MonoBehaviour
 {
     public static HYO_ConstructManager instance;
