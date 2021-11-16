@@ -9,24 +9,24 @@ public class Technology
     public int id;
     public string name;
     public int researchCost;
-    public List<object> unlockObject;
-    public List<int> leadToTechId;
+    public int[] unlockObjectId;
+    public int[] leadToTechId;
 
     public Technology()
     {
         id = -1;
         name = "";
         researchCost = -1;
-        unlockObject = new List<object>();
-        leadToTechId = new List<int>();
+        unlockObjectId = new int[] { };
+        leadToTechId = new int[] { };
     }
 
-    public Technology(int id, string name, int researchCost, List<object> unlockObject, List<int> leadToTechId)
+    public Technology(int id, string name, int researchCost, int[] unlockObjectId, int[] leadToTechId)
     {
         this.id = id;
         this.name = name;
         this.researchCost = researchCost;
-        this.unlockObject = unlockObject;
+        this.unlockObjectId = unlockObjectId;
         this.leadToTechId = leadToTechId;
     }
 }

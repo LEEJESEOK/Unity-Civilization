@@ -16,23 +16,25 @@ public enum Eras
     Future //미래 X
 }
 
-public enum Militaries
+public enum UnitType
 {
-    racons, //정찰
-    melee, //근접
-    range, //원거리
-    heavyCavalry, //중기병
-    lightCavalry, //경기병
+    Racons = TypeIdBase.UNIT, //정찰
+    Melee, //근접
+    Range, //원거리
+    HeavyCavalry, //중기병
+    LightCavalry, //경기병
     AntiCavalry, //대 기병
     Siege, //공성
-    navalMelee, //근접해군
-    navalRanged, //원거리해군
-    navalRaider, //약탈(해군레이더)
-    navalCarrier, //항공모함
-    airFighter, //전투기
-    airBomber, //폭격기
-    support //지원
+    NavalMelee, //근접해군
+    NavalRanged, //원거리해군
+    NavalRaider, //약탈(해군레이더)
+    NavalCarrier, //항공모함
+    AirFighter, //전투기
+    AirBomber, //폭격기
+    Support, //지원
 
+    Builder,
+    Settler,
 }
 
 
@@ -40,21 +42,21 @@ public enum Militaries
 public class JKH_UnitBase : MonoBehaviour
 {
     public Eras era;
-    public Militaries type;
-    
+    public UnitType type;
+
     //unit's Info
     public int hp;
     public int moveCount;
     public int attackDamage;
 
-    
+
 
     // Add Ally and Enemy
 
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame

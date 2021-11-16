@@ -413,6 +413,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 425b83910f51802439847450b6d1d54b, type: 3}
   - {fileID: 21300000, guid: 363b533fe4f125e4d9c0bab2c824aa2a, type: 3}
   - {fileID: 21300000, guid: 45bb94b02aeb0d146bec75244749a4a0, type: 3}
+<<<<<<< HEAD
+=======
   emptyPre: {fileID: 5626515892868040593, guid: d63608c69c3fd7b4d9c3ba6cf04d4d7b, type: 3}
   districtOn_: []
   iconPos:
@@ -421,6 +423,7 @@ MonoBehaviour:
   - {x: 0.302, y: 0.105, z: 0.111}
   iconPosTemp: 0
   evironment: {fileID: 1162458673}
+>>>>>>> HYO
 --- !u!4 &1142719484
 Transform:
   m_ObjectHideFlags: 0
@@ -433,6 +436,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1162458673 stripped
@@ -440,6 +447,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5352354613962040119, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
   m_PrefabInstance: {fileID: 1589227796}
   m_PrefabAsset: {fileID: 0}
+>>>>>>> HYO
 --- !u!1 &1239389425
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,7 +610,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 6
+=======
   m_RootOrder: 5
+>>>>>>> HYO
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1538094714
 MonoBehaviour:
@@ -616,6 +628,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e5b11ec8ad0a2409cb0e904eb2769d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+  emptyPre: {fileID: 5626515892868040593, guid: d63608c69c3fd7b4d9c3ba6cf04d4d7b, type: 3}
+=======
+>>>>>>> HYO
 --- !u!1001 &1589227796
 PrefabInstance:
   m_ObjectHideFlags: 0
