@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//특수지구 건설
 public class HYO_PlayerClickTest : MonoBehaviour
 {
     HYO_ConstructManager constrMng;
@@ -46,4 +47,5 @@ public class HYO_PlayerClickTest : MonoBehaviour
             }
         }
     }
+
 }

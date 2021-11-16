@@ -5,37 +5,50 @@ using UnityEngine;
 
 public class AutoMapTile : MonoBehaviour
 {
+    public bool makeMap;
     public int width = 50;
     public int length = 50;
     public Vector2 tileSize = new Vector2(1, 1);
     public Vector2 gap = new Vector2(0, 0);
     public GameObject tileFactory;
-    Dictionary<string, GameObject> tiles = new Dictionary<string, GameObject>();
+    //Dictionary<string, GameObject> tiles = new Dictionary<string, GameObject>();
+    List<GameObject> tiles = new List<GameObject>();
 
     public List<Material> tileMaterial;
 
     void Start()
     {
-        for (int z = 0; z < width; z++)
+        if (makeMap)
         {
-            for (int x = 0; x < length; x++)
+            for (int z = 0; z < width; z++)
             {
-                GameObject tile = Instantiate(tileFactory);
-
-                if(z == 0 || z == length -1)
+                for (int x = 0; x < length; x++)
                 {
-                    Material[] materials = tile.transform.GetComponent<MeshRenderer>().materials;
-                    materials[0] = tileMaterial[0];
-                    tile.GetComponent<MeshRenderer>().materials = materials;
-                }
-                tile.AddComponent<TerrainData>();
-                tile.GetComponent<TerrainData>().SetIndex(x,z);
+                    GameObject tile = Instantiate(tileFactory);
 
-                tiles.Add((x + z * width).ToString(), tile);
-                tile.transform.parent = transform;
-                MeshCollider col = tile.transform.gameObject.AddComponent<MeshCollider>();
-                col.convex = true;
+                    if (z == 0 || z == length - 1)
+                    {
+                        Material[] materials = tile.transform.GetComponent<MeshRenderer>().materials;
+                        materials[0] = tileMaterial[0];
+                        tile.GetComponent<MeshRenderer>().materials = materials;
+                    }
+                    tile.AddComponent<TerrainData>();
+                    tile.GetComponent<TerrainData>().SetIndex(x, z);
+
+                    tiles.Add(tile);
+                    tile.transform.parent = transform;
+                    MeshCollider col = tile.transform.gameObject.AddComponent<MeshCollider>();
+                    col.convex = true;
+                }
             }
+        }
+        else
+        {
+            for (int i = 0; i < transform.childCount; ++i)
+            {
+                tiles.Add(transform.GetChild(i).gameObject);
+            }
+
         }
     }
 
@@ -48,7 +61,7 @@ public class AutoMapTile : MonoBehaviour
         {
             for (int z = 0; z < length; z++)
             {
-                GameObject tile = tiles[(x + z * width).ToString()];
+                GameObject tile = tiles[(x + z * width)];
                 float fz = z;
                 if (x % 2 == 1)
                 {

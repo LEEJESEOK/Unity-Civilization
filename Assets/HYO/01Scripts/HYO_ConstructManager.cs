@@ -21,4 +21,5 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         districtOn_ = evironment.GetComponentInChildren<FacilityData>().districtOn;
     }
 
+
 }
