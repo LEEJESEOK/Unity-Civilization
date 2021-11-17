@@ -34,7 +34,6 @@ public class FacilityData : MonoBehaviour
     public TerrainData terrainData;
     //보유시설
     public Facility facility;
-    public GameObject[] facilityOn;
     //보유 특수지구
     public GameObject[] districtOn;
     public DistrictInPut districtInput;
@@ -65,6 +64,11 @@ public class FacilityData : MonoBehaviour
         }
     }
 
+    public void SetDistrict(District next)
+    {
+        district = next;
+        WhatDistric();
+    }
     public void WhatDistric()
     {
         switch (district)

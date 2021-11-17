@@ -16,6 +16,9 @@ public class NonCombatUnit : MonoBehaviour
     public GameObject farmBTN;
     public GameObject mineBTN;
     public GameObject settleBTN;
+    public GameObject campusBTN;
+    public GameObject commercialHubBTN;
+    public GameObject industrialZoneBTN;
     public Transform tileTemp;
 
     public void NonCambatUnitCase()
@@ -82,23 +85,39 @@ public class NonCombatUnit : MonoBehaviour
         }
     }
 
-    //create button
+    //Create buttons
     public void OnClickFarmBtn()
     {
         tileTemp.GetComponent<FacilityData>().SetFacility(Facility.FARM);
-        Create(3);
+        CreateFacility(3);
     }
     public void OnClickMineBtn()
     {
         tileTemp.GetComponent<FacilityData>().SetFacility(Facility.MINE);
-        Create(4);
+        CreateFacility(4);
     }
-    public void CreateTerritoryBtn()
+    public void OnClickCampusBtn()
+    {
+        tileTemp.GetComponent<FacilityData>().SetDistrict(District.CAMPUS);
+        CreateDistrict(0);
+    }
+    public void OnClickCommercialHubBtn()
+    {
+        tileTemp.GetComponent<FacilityData>().SetDistrict(District.COMMERCAILHUB);
+        CreateDistrict(1);
+    }
+    public void OnclickIndustrialZoneBtn()
+    {
+        tileTemp.GetComponent<FacilityData>().SetDistrict(District.INDUSTRIALZONE);
+        CreateDistrict(2);
+    }
+    public void CreateFacilityTerritoryBtn()
     {
         tileTemp.gameObject.AddComponent<Territory>();   
     }
 
-    public void Create(int chooseIndex)
+
+    public void CreateFacility(int chooseIndex)
     {
         GameObject empty = Instantiate(constrMng.emptyPre);
         FacilityData fd = tileTemp.GetComponent<FacilityData>();
@@ -115,6 +134,19 @@ public class NonCombatUnit : MonoBehaviour
         empty.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);       
         empty.GetComponent<SpriteRenderer>().sprite = constrMng.icons[chooseIndex];
 
+    }
+    public void CreateDistrict(int chooseIndex)
+    {
+        GameObject empty = Instantiate(constrMng.emptyPre);
+        FacilityData fd = tileTemp.GetComponent<FacilityData>();
+        fd.AddDistrict(empty);
+
+        empty.transform.parent = tileTemp;
+        empty.transform.position = tileTemp.position;
+        empty.transform.localPosition = constrMng.iconPos[chooseIndex];
+        empty.transform.localEulerAngles = new Vector3(90, 0, 0);
+        empty.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        empty.GetComponent<SpriteRenderer>().sprite = HYO_ConstructManager.instance.icons[fd.iconNum];
     }
 
 }
