@@ -27,6 +27,7 @@ public class JKH_Move : MonoBehaviour
 
     void Start()
     {
+        canMove = false;
         cam = Camera.main;
     }
 
@@ -58,21 +59,41 @@ public class JKH_Move : MonoBehaviour
             //버튼이 나온다
             moveBtn.SetActive(true);
         }
+
+        UnitMove();
     }
     
     //버튼을 누르면
     public void onClickMoveBtn()
     {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitInfo;
+        canMove = true;
+        print("눌림");
+    }
 
-        //마우스 클릭한다
-        if (Input.GetButton("Fire1"))
+    public void UnitMove()
+    {
+        if (canMove)
         {
-            if (Physics.Raycast(ray, out hitInfo, 1000, ground))
+            print("canMove");
+
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitInfo;
+
+            //마우스 클릭한다
+            if (Input.GetButton("Fire1"))
             {
-                transform.position = hitInfo.transform.position;
+                print("클릭확인");
+                //레이 추가? 해야하겠주?
+                if (Physics.Raycast(ray, out hitInfo, 1000))
+                {
+                    print("눌린거확인");
+                    transform.position = hitInfo.transform.position;
+                    //가라앉는거 수정한다.
+                    canMove = false;
+
+                }
             }
         }
+        
     }
 }
