@@ -152,11 +152,6 @@ public class TerrainData : MonoBehaviour
         }
     }
 
-   public void GetTerritory()
-    {
- 
-
-    }
 
     private void Update()
     {

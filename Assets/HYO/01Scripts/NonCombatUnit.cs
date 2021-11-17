@@ -88,28 +88,48 @@ public class NonCombatUnit : MonoBehaviour
     //Create buttons
     public void OnClickFarmBtn()
     {
-        tileTemp.GetComponent<FacilityData>().SetFacility(Facility.FARM);
-        CreateFacility(3);
+        if (tileTemp.GetComponent<FacilityData>().canCreate)
+        {
+            tileTemp.GetComponent<FacilityData>().SetFacility(Facility.FARM);
+            CreateFacility(3);
+        }
+        else return;      
     }
     public void OnClickMineBtn()
     {
-        tileTemp.GetComponent<FacilityData>().SetFacility(Facility.MINE);
-        CreateFacility(4);
+        if (tileTemp.GetComponent<FacilityData>().canCreate)
+        {
+            tileTemp.GetComponent<FacilityData>().SetFacility(Facility.MINE);
+            CreateFacility(4);
+        }
+        else return;
     }
     public void OnClickCampusBtn()
     {
-        tileTemp.GetComponent<FacilityData>().SetDistrict(District.CAMPUS);
-        CreateDistrict(0);
+        if (tileTemp.GetComponent<FacilityData>().canCreate)
+        {
+            tileTemp.GetComponent<FacilityData>().SetDistrict(District.CAMPUS);
+            CreateDistrict(0);
+        }
+        else return;
     }
     public void OnClickCommercialHubBtn()
     {
-        tileTemp.GetComponent<FacilityData>().SetDistrict(District.COMMERCAILHUB);
-        CreateDistrict(1);
+        if (tileTemp.GetComponent<FacilityData>().canCreate)
+        {
+            tileTemp.GetComponent<FacilityData>().SetDistrict(District.COMMERCAILHUB);
+            CreateDistrict(1);
+        }
+        else return;
     }
     public void OnclickIndustrialZoneBtn()
     {
-        tileTemp.GetComponent<FacilityData>().SetDistrict(District.INDUSTRIALZONE);
-        CreateDistrict(2);
+        if (tileTemp.GetComponent<FacilityData>().canCreate)
+        {
+            tileTemp.GetComponent<FacilityData>().SetDistrict(District.INDUSTRIALZONE);
+            CreateDistrict(2);
+        }
+        else return;
     }
     public void CreateFacilityTerritoryBtn()
     {
@@ -118,7 +138,7 @@ public class NonCombatUnit : MonoBehaviour
 
 
     public void CreateFacility(int chooseIndex)
-    {
+    {       
         GameObject empty = Instantiate(constrMng.emptyPre);
         FacilityData fd = tileTemp.GetComponent<FacilityData>();
         fd.AddDistrict(empty);

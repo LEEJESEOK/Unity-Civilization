@@ -38,6 +38,7 @@ public class FacilityData : MonoBehaviour
     public GameObject[] districtOn;
     public DistrictInPut districtInput;
     public District district;
+    public bool canCreate;
     //인구
     public int populatuon;
     //이미지
@@ -45,18 +46,25 @@ public class FacilityData : MonoBehaviour
 
     private void Start()
     {
+        canCreate = true;
         districtOn = new GameObject[3];
         terrainData = gameObject.GetComponent<TerrainData>();
         facility = Facility.NONE;
         district = District.NONE;
 
     }
-
+    private void Update()
+    {
+        if (transform.childCount >= 3)
+        {
+            canCreate = false;
+        }
+    }
     public void AddDistrict(GameObject add)
     {
         for (int i = 0; i < districtOn.Length; i++)
         {
-            if (districtOn[i] = null)
+            if (districtOn[i] == null)
             {
                 districtOn[i] = add;
                 break;
@@ -119,6 +127,7 @@ public class FacilityData : MonoBehaviour
 
     public void Constr_Condition()
     {
+
         //districtOn = new GameObject[(populatuon * 3) - 2];
 
         //if (districtOn != null)
