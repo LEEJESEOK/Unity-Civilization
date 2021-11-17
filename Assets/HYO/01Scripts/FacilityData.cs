@@ -55,6 +55,7 @@ public class FacilityData : MonoBehaviour
     }
     private void Update()
     {
+        //Constr_Condition();
         if (transform.childCount >= 3)
         {
             canCreate = false;
@@ -127,7 +128,10 @@ public class FacilityData : MonoBehaviour
 
     public void Constr_Condition()
     {
-
+        float pow = Mathf.Pow(populatuon - 1, 1.5f);
+        terrainData.output.food = 8 * populatuon + 7 + (int)Mathf.Floor(pow);
+        int resize = (populatuon * 3) - 2;
+        Array.Resize(ref districtOn, resize);
         //districtOn = new GameObject[(populatuon * 3) - 2];
 
         //if (districtOn != null)
