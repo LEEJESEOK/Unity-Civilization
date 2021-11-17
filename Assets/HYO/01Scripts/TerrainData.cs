@@ -44,6 +44,7 @@ public class OutPut
 public class TerrainData : MonoBehaviour
 {
     public TerrainType terrainType;
+    public Feature feature;
     public OutPut output;
     public LayerMask mask;
     // 언덕유무
@@ -55,6 +56,11 @@ public class TerrainData : MonoBehaviour
     public int length = 50;
 
     public int x, y;
+
+    private void Start()
+    {
+        CheckTerrainType();
+    }
 
     public void SetIndex(int x, int y)
     {
@@ -109,6 +115,32 @@ public class TerrainData : MonoBehaviour
 
     }
 
+    public void CheckTerrainFeature()
+    {
+        switch (feature)
+        {
+            case Feature.ICE:
+                break;
+            case Feature.WOOD:
+                output.productivity += 1;
+                output.movePower += 1;
+                break;
+            case Feature.MARSH:
+                isHills = false;
+                output.food += 1;
+                output.movePower += 1;
+                break;
+            case Feature.RAINFOREST:
+                output.food += 1;
+                output.movePower += 1;
+                break;
+            case Feature.NONE:
+                break;
+            default:
+                break;
+        }
+    }
+
     public void CheckHills()
     {
         if (isHills)
@@ -119,8 +151,18 @@ public class TerrainData : MonoBehaviour
         }
     }
 
+    int range;
+    public void GetNearTiles()
+    {
+        //range = Vector3.Angle(,);
+        for(int i=0; i < 6; i++)
+        {
+
+        }
+    }
+
     private void Update()
     {
-        CheckTerrainType();
+       
     }
 }

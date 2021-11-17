@@ -6,74 +6,81 @@ using System.IO;
 
 public class TechnologyManager : Singleton<TechnologyManager>
 {
-    public bool isLoadJson;
+    public bool isSave;
+    public bool isLoad;
     public string fileName;
 
     public List<Technology> technologies;
 
 
-
-
     // Start is called before the first frame update
     void Start()
     {
-
         technologies = new List<Technology>();
 
         #region save
-        if(isLoadJson == false)
+        if (isSave)
         {
-            technologies.Add(new Technology(211, "Pottery", 25, null, null));
-            technologies.Add(new Technology(212, "Animal Husbandry", 25, null, null));
-            technologies.Add(new Technology(213, "Mining", 25, null, null));
-
-            technologies.Add(new Technology(223, "Irrigation", 50, null, new int[]{0}));
-            technologies.Add(new Technology(224, "Writing", 50, null, new int[]{0}));
-            technologies.Add(new Technology(225, "Archery", 50, null, new int[]{1}));
-
-            technologies.Add(new Technology(231, "Masonry", 80, null, null));
-            technologies.Add(new Technology(232, "Bronze Working", 80, null, null));
-            technologies.Add(new Technology(233, "Wheel", 80, null, null));
-
-            technologies.Add(new Technology(312, "Currency", 144, null, null));
-            technologies.Add(new Technology(313, "Horseback Riding", 144, null, null));
-            technologies.Add(new Technology(314, "Iron Working", 144, null, null));
-
-            technologies.Add(new Technology(322, "Mathematics", 240, null, null));
-            technologies.Add(new Technology(323, "Construction", 240, null, null));
-            technologies.Add(new Technology(324, "Engineering", 240, null, null));
-
-            technologies.Add(new Technology(411, "Military Tactics", 360, null, null));
-            technologies.Add(new Technology(412, "Apprenticeship", 360, null, null));
-            technologies.Add(new Technology(413, "Machinery", 360, null, null));
-
-            technologies.Add(new Technology(421, "Education", 468, null, null));
-            technologies.Add(new Technology(422, "Stirrups", 468, null, null));
-            technologies.Add(new Technology(423, "Military Engineering", 468, null, null));
-            technologies.Add(new Technology(424, "Castle", 468, null, null));
-
-            technologies.Add(new Technology(512, "Mass Production", 720, null, null));
-            technologies.Add(new Technology(513, "Banking", 720, null, null));
-            technologies.Add(new Technology(514, "Printing", 720, null, null));
-            technologies.Add(new Technology(515, "Gunpowder", 720, null, null));
-
-            ArrayDataSaveText<Technology>(technologies.ToArray(), fileName);
+            SaveTechnologies();
         }
         #endregion
 
         #region load
-        if (isLoadJson)
+        if (isLoad)
         {
-            // technologies = new List<Technology>(ArrayDataLoadText<Technology>(fileName));
-            // print(technologies);
+            LoadTechnologies();
+
+            UIManager.instance.SetTechnologyPanel();
         }
         #endregion
     }
 
-    // Update is called once per frame
-    void Update()
+    void SaveTechnologies()
     {
+        technologies.Add(new Technology(TechnologyId.Pottery, "Pottery", "도예", 25, null, null));
+        technologies.Add(new Technology(TechnologyId.AnimalHusbandry, "Animal Husbandry", "목축업", 25, null, null));
+        technologies.Add(new Technology(TechnologyId.Mining, "Mining", "채광", 25, null, null));
 
+        technologies.Add(new Technology(TechnologyId.Irrigation, "Irrigation", "관개", 50, null, new List<TechnologyId> { TechnologyId.Pottery }));
+        technologies.Add(new Technology(TechnologyId.Writing, "Writing", "문자", 50, null, new List<TechnologyId> { TechnologyId.Pottery }));
+        technologies.Add(new Technology(TechnologyId.Archery, "Archery", "궁술", 50, null, new List<TechnologyId> { TechnologyId.AnimalHusbandry }));
+
+        technologies.Add(new Technology(TechnologyId.Masonry, "Masonry", "석조 기술", 80, null, new List<TechnologyId> { TechnologyId.Mining }));
+        technologies.Add(new Technology(TechnologyId.BronzeWorking, "Bronze Working", "청동 기술", 80, null, new List<TechnologyId> { TechnologyId.Mining }));
+        technologies.Add(new Technology(TechnologyId.Wheel, "Wheel", "바퀴", 80, null, new List<TechnologyId> { TechnologyId.Mining }));
+
+        technologies.Add(new Technology(TechnologyId.Currency, "Currency", "화폐", 144, null, new List<TechnologyId> { TechnologyId.Writing }));
+        technologies.Add(new Technology(TechnologyId.HorsebackRiding, "Horseback Riding", "기마술", 144, null, new List<TechnologyId> { TechnologyId.Archery }));
+        technologies.Add(new Technology(TechnologyId.IronWorking, "Iron Working", "철제 기술", 144, null, new List<TechnologyId> { TechnologyId.BronzeWorking }));
+
+        technologies.Add(new Technology(TechnologyId.Mathematics, "Mathematics", "수학", 240, null, new List<TechnologyId> { TechnologyId.Currency }));
+        technologies.Add(new Technology(TechnologyId.Construction, "Construction", "건축", 240, null, new List<TechnologyId> { TechnologyId.Masonry, TechnologyId.HorsebackRiding }));
+        technologies.Add(new Technology(TechnologyId.Engineering, "Engineering", "공학", 240, null, new List<TechnologyId> { TechnologyId.Wheel }));
+
+        technologies.Add(new Technology(TechnologyId.MilitaryTactics, "Military Tactics", "군사 전술", 360, null, new List<TechnologyId> { TechnologyId.Mathematics }));
+        technologies.Add(new Technology(TechnologyId.Apprenticeship, "Apprenticeship", "도제제도", 360, null, new List<TechnologyId> { TechnologyId.Currency, TechnologyId.HorsebackRiding }));
+        technologies.Add(new Technology(TechnologyId.Machinery, "Machinery", "기계", 360, null, new List<TechnologyId> { TechnologyId.IronWorking, TechnologyId.Engineering }));
+
+        technologies.Add(new Technology(TechnologyId.Education, "Education", "교육", 468, null, new List<TechnologyId> { TechnologyId.Mathematics, TechnologyId.Apprenticeship }));
+        technologies.Add(new Technology(TechnologyId.Stirrups, "Stirrups", "등자", 468, null, new List<TechnologyId> { TechnologyId.HorsebackRiding }));
+        technologies.Add(new Technology(TechnologyId.MilitaryEngineering, "Military Engineering", "군사 공학", 468, null, new List<TechnologyId> { TechnologyId.Construction }));
+        technologies.Add(new Technology(TechnologyId.Castles, "Castles", "성", 468, null, new List<TechnologyId> { TechnologyId.Construction }));
+
+        technologies.Add(new Technology(TechnologyId.MassProduction, "Mass Production", "대량 생산", 720, null, new List<TechnologyId> { TechnologyId.Education, TechnologyId.MilitaryTactics }));
+        technologies.Add(new Technology(TechnologyId.Baking, "Banking", "은행업", 720, null, new List<TechnologyId> { TechnologyId.Education, TechnologyId.Stirrups }));
+        technologies.Add(new Technology(TechnologyId.Printing, "Printing", "인쇄술", 720, null, new List<TechnologyId> { TechnologyId.Machinery }));
+        technologies.Add(new Technology(TechnologyId.Gunpowder, "Gunpowder", "화약", 720, null, new List<TechnologyId> { TechnologyId.Apprenticeship, TechnologyId.Stirrups, TechnologyId.MilitaryEngineering }));
+
+        technologies.Add(new Technology(TechnologyId.SiegeTactics, "Siege Tactics", "공성 전략", 730, null, new List<TechnologyId> { TechnologyId.Castles }));
+        technologies.Add(new Technology(TechnologyId.MetalCasting, "Metal Casting", "주조", 730, null, new List<TechnologyId> { TechnologyId.Gunpowder }));
+        technologies.Add(new Technology(TechnologyId.Astronomy, "Astronomy", "천문학", 730, null, new List<TechnologyId> { TechnologyId.Education }));
+
+        ArrayDataSaveText<Technology>(technologies.ToArray(), fileName);
+    }
+
+    void LoadTechnologies()
+    {
+        technologies = new List<Technology>(ArrayDataLoadText<Technology>(fileName));
     }
 
     public void DataSaveText<T>(T data, string fileName)
