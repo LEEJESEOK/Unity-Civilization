@@ -47,6 +47,7 @@ public class TerrainData : MonoBehaviour
     public Feature feature;
     public OutPut output;
     public LayerMask mask;
+    public GameObject[] territory = new GameObject[7];
     // 언덕유무
     public bool isHills;
     
@@ -151,18 +152,14 @@ public class TerrainData : MonoBehaviour
         }
     }
 
-    int range;
-    public void GetNearTiles()
+   public void GetTerritory()
     {
-        //range = Vector3.Angle(,);
-        for(int i=0; i < 6; i++)
-        {
+ 
 
-        }
     }
 
     private void Update()
     {
-       
+        
     }
 }

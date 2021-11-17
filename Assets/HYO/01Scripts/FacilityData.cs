@@ -36,7 +36,7 @@ public class FacilityData : MonoBehaviour
     public Facility facility;
     public GameObject[] facilityOn;
     //보유 특수지구
-    public GameObject[] districtOn = new GameObject[3];
+    public GameObject[] districtOn;
     public DistrictInPut districtInput;
     public District district;
     //인구
@@ -46,19 +46,23 @@ public class FacilityData : MonoBehaviour
 
     private void Start()
     {
+        districtOn = new GameObject[3];
         terrainData = gameObject.GetComponent<TerrainData>();
         facility = Facility.NONE;
         district = District.NONE;
 
-        for (int i = 0; i < districtOn.Length; i++)
-        {
-            districtOn[i].SetActive(false);
-        }
     }
 
-    private void Update()
+    public void AddDistrict(GameObject add)
     {
-        //whatFacility();
+        for (int i = 0; i < districtOn.Length; i++)
+        {
+            if (districtOn[i] = null)
+            {
+                districtOn[i] = add;
+                break;
+            }
+        }
     }
 
     public void WhatDistric()
@@ -111,11 +115,11 @@ public class FacilityData : MonoBehaviour
 
     public void Constr_Condition()
     {
-        districtOn = new GameObject[(populatuon * 3) - 2];
+        //districtOn = new GameObject[(populatuon * 3) - 2];
 
-        if (districtOn != null)
-        {
-            terrainData.output = new OutPut(0, 0, 0, 0);
-        }
+        //if (districtOn != null)
+        //{
+        //    terrainData.output = new OutPut(0, 0, 0, 0);
+        //}
     }
 }
