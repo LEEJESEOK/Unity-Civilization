@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7145172238670506486}
   - component: {fileID: 7145172238670506485}
   m_Layer: 5
-  m_Name: Sector
+  m_Name: TechnologySector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

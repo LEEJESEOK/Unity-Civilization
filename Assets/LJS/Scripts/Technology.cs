@@ -11,6 +11,7 @@ public class Technology
     public string name;
     public string korean;
     public int researchCost;
+    public bool isResearched;
     public int[] unlockObjectId;
     public List<TechnologyId> requireTechId;
 
@@ -22,6 +23,8 @@ public class Technology
         researchCost = -1;
         unlockObjectId = new int[] { };
         requireTechId = new List<TechnologyId>();
+        
+        isResearched = false;
     }
 
     public Technology(TechnologyId id, string name, string korean, int researchCost, int[] unlockObjectId, List<TechnologyId> requireTechId)
@@ -32,6 +35,8 @@ public class Technology
         this.researchCost = researchCost;
         this.unlockObjectId = unlockObjectId;
         this.requireTechId = requireTechId;
+
+        isResearched = false;
     }
 
     public override string ToString()
