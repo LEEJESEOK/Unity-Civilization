@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JKH_Grid : MonoBehaviour
 {
-    public Transform player;
+    //public Transform player;
     public LayerMask unwalkableMask;
     public Vector2 gridWorldSize;
     public float nodeRadius;
@@ -33,9 +33,39 @@ public class JKH_Grid : MonoBehaviour
                     Vector3.forward * (y * nodeDiameter + nodeRadius);
                 bool walkable = !(Physics.CheckSphere(worldPoint, nodeRadius,unwalkableMask)); //
                 //grid[x, y] = new JKH_Node(walkable, worldPoint);
-                grid[x, y] = new JKH_Node(walkable, worldPoint);
+                grid[x, y] = new JKH_Node(walkable, worldPoint, x, y);
             }
         }
+    }
+
+    #region 노트
+    //Note Todo..
+    //6각형으로 바꾸어야한다
+    //추가된 좌표 (x-1, y-1) (x+1, y-1)
+    //
+    #endregion
+
+    public List<JKH_Node> GetNeighbours(JKH_Node node)
+    {
+        List<JKH_Node> neighbours = new List<JKH_Node>();
+        for(int x= -1; x <= 1; x++)
+        {
+            for(int y=-1; y <= 1; y++)
+            {
+                if ((x == 0 && y == 0) || (x == -1 && y == 1) || (x == 1 && y == 1))
+                {
+                    continue;
+                }
+                int checkX = node.gridX + x;
+                int checkY = node.gridY + y;
+
+                if(checkX>=0 && checkX<gridSizeX && checkY >= 0 && checkY < gridSizeY)
+                {
+                    neighbours.Add(grid[checkX, checkY]);
+                }
+            }
+        }
+        return neighbours;
     }
 
     public JKH_Node NodeFromWorldPoint(Vector3 worldPosition)
@@ -50,25 +80,21 @@ public class JKH_Grid : MonoBehaviour
         return grid[x, y];
     }
 
+    public List<JKH_Node> path;
 
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
 
         if (grid != null)
         {
-            JKH_Node playerNode = NodeFromWorldPoint(player.position);
             foreach (JKH_Node n in grid)
             {
-                if (n == null)
-                    continue;
-                //�浹�ϸ� ���� �ƴϸ� �Ͼ�
                 Gizmos.color = (n.walkable) ? Color.white : Color.red;
-                if (playerNode == n)
-                {
-                    Gizmos.color = Color.cyan;
-                }
-                Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - 0.1f));
+                if (path != null)
+                    if (path.Contains(n))
+                        Gizmos.color = Color.black;
+                Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
             }
         }
     }
