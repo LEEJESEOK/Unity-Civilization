@@ -1,19 +1,19 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class JKH_Battle : MonoBehaviour
 {
 
-    //ÀüÅõ ¼ø¼­
-    //Ä³¸¯ÅÍ Å¬¸¯À» ÇÑ´Ù
-    //ÀüÅõ ¹öÆ°À» ´©¸¥´Ù
-    //°ø°Ý´ë»óÀ» ´©¸¥´Ù 
-    //ÀüÅõ 
+    //ì „íˆ¬ ìˆœì„œ
+    //ìºë¦­í„° í´ë¦­ì„ í•œë‹¤
+    //ì „íˆ¬ ë²„íŠ¼ì„ ëˆ„ë¥¸ë‹¤
+    //ê³µê²©ëŒ€ìƒì„ ëˆ„ë¥¸ë‹¤ 
+    //ì „íˆ¬ 
 
-    //ÇÊ¿ä
-    //º´»çÁ¾·ù(´É·ÂÄ¡)
-    //=> ´É·ÂÄ¡(ÀÌµ¿·Â °ø°Ý·Â Ã¼·Â ¿ø°Å¸®°ø°Ý·Â »ç°Å¸®)
-    //ÀüÅõ°ø½Ä: ³ª¹«À§Å° 
+    //í•„ìš”
+    //ë³‘ì‚¬ì¢…ë¥˜(ëŠ¥ë ¥ì¹˜)
+    //=> ëŠ¥ë ¥ì¹˜(ì´ë™ë ¥ ê³µê²©ë ¥ ì²´ë ¥ ì›ê±°ë¦¬ê³µê²©ë ¥ ì‚¬ê±°ë¦¬)
+    //ì „íˆ¬ê³µì‹: ë‚˜ë¬´ìœ„í‚¤ 
 
 }
