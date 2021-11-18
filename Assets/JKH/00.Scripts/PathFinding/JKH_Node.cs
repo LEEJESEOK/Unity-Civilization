@@ -6,15 +6,15 @@ public class JKH_Node
 {
 	public bool walkable;
 	public Vector3 worldPosition;
-	
-	//µ¥ÀÌÅÍ¿ë ÁÂÇ¥
+
+	//ë°ì´í„°ìš© ì¢Œí‘œ
 	public int gridX;
 	public int gridY;
 
 	public int gCost;
 	public int hCost;
-	//°æ·ÎÀúÀå¿ë == ¹ßÀÚÃë (linked list) 
-	public JKH_Node parent; 
+	//ê²½ë¡œì €ì¥ìš© == ë°œìì·¨ (linked list)
+	public JKH_Node parent;
 
 	public JKH_Node(bool _walkable, Vector3 _worldPos,int _gridX, int _gridY)
 	{

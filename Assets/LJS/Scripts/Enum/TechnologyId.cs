@@ -4,23 +4,42 @@ using UnityEngine;
 
 public enum TechnologyId
 {
-    Pottery = (int)TypeIdBase.TECHNOLOGY,
-    Animal_Husbandry,
+    Pottery = TypeIdBase.TECHNOLOGY + EraId.Ancient,
+    AnimalHusbandry,
     Mining,
+
     Irrigation,
     Writing,
     Archery,
 
     Masonry,
-    Bronze_Working,
+    BronzeWorking,
     Wheel,
 
-    Currency,
-    Horseback_Riding,
-    Iron_Working,
+    Currency = TypeIdBase.TECHNOLOGY + EraId.Classical,
+    HorsebackRiding,
+    IronWorking,
 
     Mathematics,
     Construction,
+    Engineering,
 
+    MilitaryTactics = TypeIdBase.TECHNOLOGY + EraId.Medieval,
+    Apprenticeship,
+    Machinery,
+
+    Education,
+    Stirrups,
+    MilitaryEngineering,
+    Castles,
+
+    MassProduction = TypeIdBase.TECHNOLOGY + EraId.Renaissance,
+    Baking,
+    Printing,
+    Gunpowder,
+
+    SiegeTactics,
+    MetalCasting,
+    Astronomy
 
 }

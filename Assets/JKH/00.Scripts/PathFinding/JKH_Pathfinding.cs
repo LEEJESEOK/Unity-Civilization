@@ -14,16 +14,17 @@ public class JKH_Pathfinding : MonoBehaviour
 
     private void Update()
     {
-        //±æ Ã£´Â´Ù
+        //ê¸¸ ì°¾ëŠ”ë‹¤
         FindPath(seeker.position, target.position);
     }
 
     void FindPath(Vector3 startPos, Vector3 targetPos)
     {
-        //½ÃÀÛ°ª, Å¸°Ù°ª
+        //ì‹œì‘ê°’, íƒ€ê²Ÿê°’
         JKH_Node startNode = grid.NodeFromWorldPoint(startPos);
         JKH_Node targetNode = grid.NodeFromWorldPoint(targetPos);
-        
+
+
 
         //openSet
         List<JKH_Node> openSet = new List<JKH_Node>();
@@ -33,57 +34,57 @@ public class JKH_Pathfinding : MonoBehaviour
 
         while (openSet.Count > 0)
         {
-            //½ÃÀÛÁöÁ¡ openSet[0]
+            //ì‹œì‘ì§€ì  openSet[0]
             JKH_Node currentNode = openSet[0];
-            //1ºÎÅÍ openSetÃÖ´ë °¹¼ö¸¸Å­
+            //1ë¶€í„° openSetìµœëŒ€ ê°¯ìˆ˜ë§Œí¼
             for (int i = 1; i < openSet.Count; i++)
             {
-                //i¹ø¤Š fCost°¡ ÇöÀç fCostº¸´Ù ÀÛ°Å³ª
+                //ië²ˆì¨° fCostê°€ í˜„ì¬ fCostë³´ë‹¤ ì‘ê±°ë‚˜
                 if ((openSet[i].fCost < currentNode.fCost)
-                    //openSet°ú ÇöÀç³ëµåÀÇ fCost°¡ °°°í, ÇöÀç³ëµåÀÇ hCost°¡ ´õ Å©´Ù¸é?
+                    //openSetê³¼ í˜„ì¬ë…¸ë“œì˜ fCostê°€ ê°™ê³ , í˜„ì¬ë…¸ë“œì˜ hCostê°€ ë” í¬ë‹¤ë©´?
                     || (openSet[i].fCost == currentNode.fCost)
                     && (openSet[i].hCost < currentNode.hCost))
                 {
-                    //i¹ø¤Š openSetÀº ÇöÀç ³ëµå
+                    //ië²ˆì¨° openSetì€ í˜„ì¬ ë…¸ë“œ
                     currentNode = openSet[i];
                 }
             }
-            //ÇöÀç³ëµåÀÇ openSet Áö¿ì°í 
+            //í˜„ì¬ë…¸ë“œì˜ openSet ì§€ìš°ê³ 
             openSet.Remove(currentNode);
-            //closeSetÀº Ãß°¡ÇÑ´Ù
+            //closeSetì€ ì¶”ê°€í•œë‹¤
             closeSet.Add(currentNode);
 
-            //¸ñÇ¥ÁöÁ¡¿¡ µµ´ŞÇß´Ù¸é
+            //ëª©í‘œì§€ì ì— ë„ë‹¬í–ˆë‹¤ë©´
             if (currentNode == targetNode)
             {
-                //ÀÌ°Å¹¹³Ä 
+                //ì´ê±°ë­ëƒ
                 RetracePath(startNode, targetNode);
                 return;
             }
 
-            //ÇöÀç³ëµåÀÇ ÀÌ¿ôµé °Ë»çÇÑ´Ù
+            //í˜„ì¬ë…¸ë“œì˜ ì´ì›ƒë“¤ ê²€ì‚¬í•œë‹¤
             foreach (JKH_Node neighbour in grid.GetNeighbours(currentNode))
             {
-                //°ÉÀ»¼ö¾ø´Â À§Ä¡°Å³ª, ÀÌ¿ôÀÌ closeSet¿¡ ÀÖ´Ù¸é 
+                //ê±¸ì„ìˆ˜ì—†ëŠ” ìœ„ì¹˜ê±°ë‚˜, ì´ì›ƒì´ closeSetì— ìˆë‹¤ë©´
                 if (!neighbour.walkable || closeSet.Contains(neighbour))
                 {
                     continue;
                 }
-                //g(x)+ ÇöÀç³ëµå¿Í ÀÌ¿ô°£ÀÇ °Å¸®
+                //g(x)+ í˜„ì¬ë…¸ë“œì™€ ì´ì›ƒê°„ì˜ ê±°ë¦¬
                 int newCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
-                //¸¸¾à ÀÌ¿ôÀÇ gCost°¡ ´õ Å©°Å³ª ÀÌ¿ôÀÌ Æ÷ÇÔµÇ¾îÀÖÁö ¾Ê´Ù¸é
+                //ë§Œì•½ ì´ì›ƒì˜ gCostê°€ ë” í¬ê±°ë‚˜ ì´ì›ƒì´ í¬í•¨ë˜ì–´ìˆì§€ ì•Šë‹¤ë©´
                 if (newCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
                 {
-                    //gCost°»½Å
+                    //gCostê°±ì‹ 
                     neighbour.gCost = newCostToNeighbour;
-                    //hCost°»½Å
+                    //hCostê°±ì‹ 
                     neighbour.hCost = GetDistance(neighbour, targetNode);
                     neighbour.parent = currentNode;
 
-                    //ÀÌ¿ôÀ»Æ÷ÇÔÇÏÁö¾Ê´Â´Ù¸é
+                    //ì´ì›ƒì„í¬í•¨í•˜ì§€ì•ŠëŠ”ë‹¤ë©´
                     if (!openSet.Contains(neighbour))
                     {
-                        //ÀÌ¿ôÀ» Ãß°¡ÇÑ´Ù
+                        //ì´ì›ƒì„ ì¶”ê°€í•œë‹¤
                         openSet.Add(neighbour);
 
                     }
@@ -116,16 +117,16 @@ public class JKH_Pathfinding : MonoBehaviour
         int dstX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
         int dstY = Mathf.Abs(nodeA.gridY - nodeB.gridY);
 
-        //´ë°¢¼±ÀÌµ¿
-        //¸¸¾à X°¡ Yº¸´Ù Å©´Ù¸é
+        //ëŒ€ê°ì„ ì´ë™
+        //ë§Œì•½ Xê°€ Yë³´ë‹¤ í¬ë‹¤ë©´
         if (dstX > dstY)
-            //Y ¸¸Å­ ´ë°¢¼± ÀÌµ¿, X-Y¸¸Å­ Á÷¼±ÀÌµ¿
+            //Y ë§Œí¼ ëŒ€ê°ì„  ì´ë™, X-Yë§Œí¼ ì§ì„ ì´ë™
             return 14 * dstY + 10 * (dstX - dstY);
-        //¹İ´ë·Î
+        //ë°˜ëŒ€ë¡œ
         return 14 * dstX + 10 * (dstY - dstX);
 
 
 
-        //+++++6°¢ÇüÀÎ°æ¿ì º¯ÀÇ±æÀÌ°¡ 10ÀÏ¶§, °¢ °Å¸®´Â 10¡î3ÀÌ´Ù.+++++
+        //+++++6ê°í˜•ì¸ê²½ìš° ë³€ì˜ê¸¸ì´ê°€ 10ì¼ë•Œ, ê° ê±°ë¦¬ëŠ” 10âˆš3ì´ë‹¤.+++++
     }
 }

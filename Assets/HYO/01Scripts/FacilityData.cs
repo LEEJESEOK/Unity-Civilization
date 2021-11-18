@@ -46,10 +46,19 @@ public class FacilityData : MonoBehaviour
 
     private void Start()
     {
+        terrainData = gameObject.GetComponent<TerrainData>();
+        facility = Facility.NONE;
+        district = District.NONE;
+
         for (int i = 0; i < districtOn.Length; i++)
         {
             districtOn[i].SetActive(false);
         }
+    }
+
+    private void Update()
+    {
+        //whatFacility();
     }
 
     public void WhatDistric()
@@ -77,15 +86,22 @@ public class FacilityData : MonoBehaviour
         }
     }
 
+    public void SetFacility(Facility next)
+    {
+        facility = next;
+        whatFacility();
+    }
+
+
     public void whatFacility()
     {
         switch (facility)
         {
             case Facility.FARM:
-                iconNum = 3;
+                terrainData.output.food += 1;
                 break;
             case Facility.MINE:
-                iconNum = 4;
+                terrainData.output.productivity += 1;
                 break;
             case Facility.NONE:
                 break;

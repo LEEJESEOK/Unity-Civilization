@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//특수지구 건설
 public class HYO_PlayerClickTest : MonoBehaviour
 {
     HYO_ConstructManager constrMng;
@@ -23,9 +24,9 @@ public class HYO_PlayerClickTest : MonoBehaviour
             {
                 GameObject empty = Instantiate(constrMng.emptyPre);
                 int chooseIndex = -1;
-                for (int i = 0; i < constrMng.districtOn_.Length; i++)
+                for(int i=0; i< constrMng.districtOn_.Length;i++)
                 {
-                    if (constrMng.districtOn_[i] = null)
+                    if(constrMng.districtOn_[i] = null)
                     {
                         constrMng.districtOn_[i] = empty;
                         chooseIndex = i;
@@ -46,4 +47,5 @@ public class HYO_PlayerClickTest : MonoBehaviour
             }
         }
     }
+
 }

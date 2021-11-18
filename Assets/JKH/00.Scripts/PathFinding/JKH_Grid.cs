@@ -38,10 +38,10 @@ public class JKH_Grid : MonoBehaviour
         }
     }
 
-    #region ³ëÆ®
+    #region ë…¸íŠ¸
     //Note Todo..
-    //6°¢ÇüÀ¸·Î ¹Ù²Ù¾î¾ßÇÑ´Ù
-    //Ãß°¡µÈ ÁÂÇ¥ (x-1, y-1) (x+1, y-1)
+    //6ê°í˜•ìœ¼ë¡œ ë°”ê¾¸ì–´ì•¼í•œë‹¤
+    //ì¶”ê°€ëœ ì¢Œí‘œ (x-1, y-1) (x+1, y-1)
     //
     #endregion
 

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 {
+    public static HYO_ConstructManager instance;
+    private void Awake()
+    {
+        instance = this;
+    }
     public Sprite[] icons;
     public GameObject emptyPre;
     public GameObject[] districtOn_;
@@ -15,5 +20,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     {
         districtOn_ = evironment.GetComponentInChildren<FacilityData>().districtOn;
     }
+
 
 }

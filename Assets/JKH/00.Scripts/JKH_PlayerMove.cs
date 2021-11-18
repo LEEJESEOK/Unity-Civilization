@@ -19,7 +19,7 @@ public class JKH_PlayerMove : MonoBehaviour
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitinfo;
 
-        //¸¶¿ì½º ¿ŞÂÊ Å¬¸¯ÇÑ´Ù
+        //ë§ˆìš°ìŠ¤ ì™¼ìª½ í´ë¦­í•œë‹¤
         if (Input.GetButtonDown("Fire1"))
         {
             if(Physics.Raycast(ray,out hitinfo, 1000, layer))
@@ -33,14 +33,14 @@ public class JKH_PlayerMove : MonoBehaviour
         {
             if(Physics.Raycast(ray, out hitinfo, 1000, ~layer))
             {
-                //À§Ä¡°¡ °è¼Ó º¯ÇØ¼­ YÁÂÇ¥ fixÇÑ´Ù
+                //ìœ„ì¹˜ê°€ ê³„ì† ë³€í•´ì„œ Yì¢Œí‘œ fixí•œë‹¤
                 Vector3 vec = new Vector3(hitinfo.point.x,
                     -0.74f , hitinfo.point.z);
                 transform.position = vec;
             }
         }
 
-        //¸¶¿ì½º Å¬¸¯ ¶¼¸é º¯°æµÈ ÀÚ¸®·Î µĞ´Ù
+        //ë§ˆìš°ìŠ¤ í´ë¦­ ë–¼ë©´ ë³€ê²½ëœ ìë¦¬ë¡œ ë‘”ë‹¤
         if (Input.GetButtonUp("Fire1") && isPlayerClick)
         {
             isPlayerClick = false;
