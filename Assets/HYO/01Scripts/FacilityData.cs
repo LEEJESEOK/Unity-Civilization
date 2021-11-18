@@ -34,33 +34,52 @@ public class FacilityData : MonoBehaviour
     public TerrainData terrainData;
     //보유시설
     public Facility facility;
-    public GameObject[] facilityOn;
     //보유 특수지구
-    public GameObject[] districtOn = new GameObject[3];
+    public GameObject[] districtOn;
+    //보유 시설
+    public bool isfacility = false;
+
     public DistrictInPut districtInput;
     public District district;
-    //인구
-    public int populatuon;
+    public bool canCreate;
     //이미지
     public int iconNum;
 
     private void Start()
     {
+        canCreate = true;
+        districtOn = new GameObject[3];
         terrainData = gameObject.GetComponent<TerrainData>();
+
         facility = Facility.NONE;
         district = District.NONE;
 
+    }
+    private void Update()
+    {
+        //Constr_Condition();
+        if (transform.childCount >= 3)
+        {
+            canCreate = false;
+        }
+    }
+    public void AddDistrict(GameObject add)
+    {
         for (int i = 0; i < districtOn.Length; i++)
         {
-            districtOn[i].SetActive(false);
+            if (districtOn[i] == null)
+            {
+                districtOn[i] = add;
+                break;
+            }
         }
     }
 
-    private void Update()
+    public void SetDistrict(District next)
     {
-        //whatFacility();
+        district = next;
+        WhatDistric();
     }
-
     public void WhatDistric()
     {
         switch (district)
@@ -68,17 +87,17 @@ public class FacilityData : MonoBehaviour
             case District.CAMPUS:
                 iconNum = 0;
                 districtInput = new DistrictInPut(54, 1);
-                terrainData.output.science = populatuon * 2;
+                terrainData.output.science = gameObject.GetComponent<Territory>().population * 2;
                 break;
             case District.COMMERCAILHUB:
                 iconNum = 1;
                 districtInput = new DistrictInPut(54, 1);
-                terrainData.output.gold = populatuon * 4;
+                terrainData.output.gold = gameObject.GetComponent<Territory>().population * 4;
                 break;
             case District.INDUSTRIALZONE:
                 iconNum = 2;
                 districtInput = new DistrictInPut(54, 1);
-                terrainData.output.productivity = populatuon * 2;
+                terrainData.output.productivity = gameObject.GetComponent<Territory>().population * 2;
                 break;
             case District.NONE:
                 districtInput = new DistrictInPut(0, 0);
@@ -111,11 +130,7 @@ public class FacilityData : MonoBehaviour
 
     public void Constr_Condition()
     {
-        districtOn = new GameObject[(populatuon * 3) - 2];
-
-        if (districtOn != null)
-        {
-            terrainData.output = new OutPut(0, 0, 0, 0);
-        }
+        int resize = (gameObject.GetComponent<Territory>().population * 3) - 2;
+        Array.Resize(ref districtOn, resize);
     }
 }
