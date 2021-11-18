@@ -36,11 +36,12 @@ public class FacilityData : MonoBehaviour
     public Facility facility;
     //보유 특수지구
     public GameObject[] districtOn;
+    //보유 시설
+    public bool isfacility = false;
+
     public DistrictInPut districtInput;
     public District district;
     public bool canCreate;
-    //인구
-    public int populatuon;
     //이미지
     public int iconNum;
 
@@ -49,6 +50,7 @@ public class FacilityData : MonoBehaviour
         canCreate = true;
         districtOn = new GameObject[3];
         terrainData = gameObject.GetComponent<TerrainData>();
+
         facility = Facility.NONE;
         district = District.NONE;
 
@@ -85,17 +87,17 @@ public class FacilityData : MonoBehaviour
             case District.CAMPUS:
                 iconNum = 0;
                 districtInput = new DistrictInPut(54, 1);
-                terrainData.output.science = populatuon * 2;
+                terrainData.output.science = gameObject.GetComponent<Territory>().population * 2;
                 break;
             case District.COMMERCAILHUB:
                 iconNum = 1;
                 districtInput = new DistrictInPut(54, 1);
-                terrainData.output.gold = populatuon * 4;
+                terrainData.output.gold = gameObject.GetComponent<Territory>().population * 4;
                 break;
             case District.INDUSTRIALZONE:
                 iconNum = 2;
                 districtInput = new DistrictInPut(54, 1);
-                terrainData.output.productivity = populatuon * 2;
+                terrainData.output.productivity = gameObject.GetComponent<Territory>().population * 2;
                 break;
             case District.NONE:
                 districtInput = new DistrictInPut(0, 0);
@@ -128,15 +130,7 @@ public class FacilityData : MonoBehaviour
 
     public void Constr_Condition()
     {
-        float pow = Mathf.Pow(populatuon - 1, 1.5f);
-        terrainData.output.food = 8 * populatuon + 7 + (int)Mathf.Floor(pow);
-        int resize = (populatuon * 3) - 2;
+        int resize = (gameObject.GetComponent<Territory>().population * 3) - 2;
         Array.Resize(ref districtOn, resize);
-        //districtOn = new GameObject[(populatuon * 3) - 2];
-
-        //if (districtOn != null)
-        //{
-        //    terrainData.output = new OutPut(0, 0, 0, 0);
-        //}
     }
 }

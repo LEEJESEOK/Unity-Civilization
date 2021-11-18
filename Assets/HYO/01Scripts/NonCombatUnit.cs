@@ -40,7 +40,7 @@ public class NonCombatUnit : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && non_CombatUnitType==Non_CombatUnitType.Builder)
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -66,7 +66,7 @@ public class NonCombatUnit : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetMouseButtonDown(0) && non_CombatUnitType == Non_CombatUnitType.Settler)
+        else if(Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -88,25 +88,28 @@ public class NonCombatUnit : MonoBehaviour
     //Create buttons
     public void OnClickFarmBtn()
     {
-        if (tileTemp.GetComponent<FacilityData>().canCreate)
+        if (tileTemp.GetComponent<FacilityData>().isfacility == false)
         {
             tileTemp.GetComponent<FacilityData>().SetFacility(Facility.FARM);
             CreateFacility(3);
+            tileTemp.GetComponent<FacilityData>().isfacility = true;
+
         }
         else return;      
     }
     public void OnClickMineBtn()
     {
-        if (tileTemp.GetComponent<FacilityData>().canCreate)
+        if (tileTemp.GetComponent<FacilityData>().isfacility == false)
         {
             tileTemp.GetComponent<FacilityData>().SetFacility(Facility.MINE);
             CreateFacility(4);
+            tileTemp.GetComponent<FacilityData>().isfacility = true;
         }
         else return;
     }
     public void OnClickCampusBtn()
     {
-        if (tileTemp.GetComponent<FacilityData>().canCreate)
+        if (tileTemp.GetComponent<FacilityData>().canCreate && tileTemp.GetComponent<FacilityData>().district == District.NONE)
         {
             tileTemp.GetComponent<FacilityData>().SetDistrict(District.CAMPUS);
             CreateDistrict(0);
@@ -115,7 +118,7 @@ public class NonCombatUnit : MonoBehaviour
     }
     public void OnClickCommercialHubBtn()
     {
-        if (tileTemp.GetComponent<FacilityData>().canCreate)
+        if (tileTemp.GetComponent<FacilityData>().canCreate && tileTemp.GetComponent<FacilityData>().district == District.NONE)
         {
             tileTemp.GetComponent<FacilityData>().SetDistrict(District.COMMERCAILHUB);
             CreateDistrict(1);
@@ -124,7 +127,7 @@ public class NonCombatUnit : MonoBehaviour
     }
     public void OnclickIndustrialZoneBtn()
     {
-        if (tileTemp.GetComponent<FacilityData>().canCreate)
+        if (tileTemp.GetComponent<FacilityData>().canCreate && tileTemp.GetComponent<FacilityData>().district == District.NONE)
         {
             tileTemp.GetComponent<FacilityData>().SetDistrict(District.INDUSTRIALZONE);
             CreateDistrict(2);

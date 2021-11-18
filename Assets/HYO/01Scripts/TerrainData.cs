@@ -35,13 +35,13 @@ public class OutPut
     int _gold;
     int _science;
 
-    // delegate : 변수인데 함수를 담아놓고 사용할 수 있는것이다.
+    // delegate : 변수인데 함수를 담아놓고 사용
     //delegate void MyCallback(OutPutType otype, int amount);
     //MyCallback callback;
-    public System.Action<OutPutType, int> callback;
+    public Action<OutPutType, int> callback;
 
 
-    // Property : 함수(get,set)인데 변수처럼 사용할 수 있는것이다.
+    // Property : 함수(get,set)인데 변수처럼 사용
     public int food
     {
         get { return _food; }

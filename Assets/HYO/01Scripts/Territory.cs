@@ -16,6 +16,7 @@ public class Territory : MonoBehaviour
 {
     public List<TerrainData> data;
     public TotalOutPut totalOutput;
+    public int population =1;
 
     void Start()
     {
@@ -52,9 +53,18 @@ public class Territory : MonoBehaviour
         }
     }
 
+    public void RequestedFood()
+    {
+        //인구 증가 요구 식량
+        float pow = Mathf.Pow(population - 1, 1.5f);
 
+        if(totalOutput.totalfood == 8 * population + 7 + (int)Mathf.Floor(pow))
+        {
+            population += 1;
+        }
+    }
     void Update()
     {
-       
+        RequestedFood();
     }
 }
