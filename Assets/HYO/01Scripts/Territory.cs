@@ -10,51 +10,51 @@ public class TotalOutPut
     public int totalProductivity;
     public int totalGold;
     public int totalScience;
-
-    public TotalOutPut(int totalfood, int totalProductivity, int totalGold, int totalScience)
-    {
-        this.totalfood = totalfood;
-        this.totalProductivity = totalProductivity;
-        this.totalGold = totalGold;
-        this.totalScience = totalScience;
-    }
 }
 
 public class Territory : MonoBehaviour
 {
-    public Collider[] getTerritory;
+    public List<TerrainData> data;
     public TotalOutPut totalOutput;
-    public int outputOrigin;
-    public int outputTemp;
+
     void Start()
     {
-        float maxDistance = 0f;
-        int radius = 1;
-        RaycastHit hit;
-
-        // Physics.SphereCast (레이저를 발사할 위치, 구의 반경, 발사 방향, 충돌 결과, 최대 거리)
-        //bool isHit = Physics.SphereCast(transform.position, 1, transform.up, out hit, maxDistance);
-        getTerritory = Physics.OverlapSphere(transform.position, radius);
+        totalOutput = new TotalOutPut();
+        data = new List<TerrainData>();
        
+        int radius = 1;
+        Collider[] cols = Physics.OverlapSphere(transform.position, radius);
+        
+        for (int i = 0; i < cols.Length; i++)
+        {
+            TerrainData td = cols[i].GetComponent<TerrainData>();
+            if (td != null)
+            {
+                data.Add(td);
+                totalOutput.totalfood += td.output.food;
+                totalOutput.totalProductivity += td.output.productivity;
+                totalOutput.totalGold += td.output.gold;
+                totalOutput.totalScience += td.output.science;
+
+                td.output.callback = MyCallback;
+            }
+        }
     }
+
+    void MyCallback(OutPutType otype, int amount)
+    {
+        switch (otype)
+        {
+            case OutPutType.FOOD: totalOutput.totalfood += amount; break;
+            case OutPutType.PRODUCTIVITY: totalOutput.totalProductivity += amount; break;
+            case OutPutType.GOLD: totalOutput.totalGold += amount; break;
+            case OutPutType.SCIENCE: totalOutput.totalScience += amount; break;
+        }
+    }
+
 
     void Update()
     {
-        outputOrigin = outputTemp;
-        if (outputOrigin != outputTemp || outputOrigin == 0)
-        {
-            if (getTerritory != null)
-            {  
-                for (int i = 0; i < getTerritory.Length; i++)
-                {
-                    totalOutput.totalfood += getTerritory[i].gameObject.GetComponent<TerrainData>().output.food;
-                    totalOutput.totalProductivity += getTerritory[i].gameObject.GetComponent<TerrainData>().output.productivity;
-                    totalOutput.totalGold += getTerritory[i].gameObject.GetComponent<TerrainData>().output.gold;
-                    totalOutput.totalScience += getTerritory[i].gameObject.GetComponent<TerrainData>().output.science;
-                }
-                outputTemp = totalOutput.totalfood + totalOutput.totalProductivity + totalOutput.totalGold + totalOutput.totalScience;
-            }
-        }
        
     }
 }

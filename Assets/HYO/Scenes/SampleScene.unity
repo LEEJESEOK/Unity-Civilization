@@ -1876,7 +1876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828f868569880b44e83c469f88defdf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  non_CombatUnitType: 0
+  non_CombatUnitType: 10000
   facility: 0
   farmBTN: {fileID: 1239389425}
   mineBTN: {fileID: 1466921839}
