@@ -131,7 +131,7 @@ public class NonCombatUnit : MonoBehaviour
         }
         else return;
     }
-    public void CreateFacilityTerritoryBtn()
+    public void CreateTerritoryBtn()
     {
         tileTemp.gameObject.AddComponent<Territory>();   
     }

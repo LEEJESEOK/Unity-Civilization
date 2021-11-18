@@ -61,6 +61,7 @@ public class TerrainData : MonoBehaviour
     private void Start()
     {
         CheckTerrainType();
+        CheckTerrainFeature();
     }
 
     public void SetIndex(int x, int y)
@@ -152,6 +153,10 @@ public class TerrainData : MonoBehaviour
         }
     }
 
+    public void CountTotalOutput()
+    {
+        
+    }
 
     private void Update()
     {
