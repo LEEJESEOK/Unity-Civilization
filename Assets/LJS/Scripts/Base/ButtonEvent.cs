@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonEvent<T> : MonoBehaviour, IButtonEvent<T>
+public abstract class ButtonEvent<T> : MonoBehaviour, IButtonEvent<T>
 {
-    ButtonListener<T> _listener;
-    public ButtonListener<T> listener { get => _listener; set => _listener = value; }
+    [SerializeField]
+    List<ButtonListener<T>> _listenerList;
+    public List<ButtonListener<T>> listenerList { get => _listenerList; set => _listenerList = value; }
 
-    public void ClickEvent(T eventType)
-    {
-
-    }
+    public abstract void ClickEvent(T eventType);
 }

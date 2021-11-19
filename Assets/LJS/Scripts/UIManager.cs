@@ -11,13 +11,19 @@ public class UIManager : Singleton<UIManager>
     bool test;
 
     [Header("Common")]
-    public bool useScience, useCulture, useFaith, useGold;
+    bool useScience;
+    bool useCulture;
+    bool useFaith;
+    bool useGold;
 
     [Header("Resources")]
+    public GameObject resourcesWrapper;
     public GameObject scienceGroup;
     public GameObject cultureGroup;
     public GameObject faithGroup;
+    public GameObject faithChangeGroup;
     public GameObject goldGroup;
+    public GameObject goldChangeGroup;
     public TextMeshProUGUI scienceTMP;
     public TextMeshProUGUI cultureTMP;
     public TextMeshProUGUI faithTMP;
@@ -37,15 +43,23 @@ public class UIManager : Singleton<UIManager>
     {
         test = GameManager.instance.test;
 
-        InitTechnologyPanel();
-        InitResourcesPanel();
-
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void InitUI()
+    {
+        useScience = GameManager.instance.useScience;
+        useCulture = GameManager.instance.useCulture;
+        useFaith = GameManager.instance.useFaith;
+        useGold = GameManager.instance.useGold;
+
+        InitTechnologyPanel();
+        InitResourcesPanel();
     }
 
     void InitResourcesPanel()
@@ -97,7 +111,7 @@ public class UIManager : Singleton<UIManager>
 
     public void SetTechnologyPanel()
     {
-        GameObject sector = new GameObject();
+        GameObject sector = Instantiate(technologySectorPrefab);
         int currentCost = 0;
         for (int i = 0; i < TechnologyManager.instance.technologies.Count; ++i)
         {
@@ -111,8 +125,6 @@ public class UIManager : Singleton<UIManager>
 
             GameObject technologyButton = GetTechnologyButton(technology);
             technologyButton.transform.SetParent(sector.transform);
-
-
         }
     }
 
@@ -127,12 +139,40 @@ public class UIManager : Singleton<UIManager>
         return technologyButton;
     }
 
+    public void ResourcesUpdate()
+    {
+        LayoutGroup[] layoutGroups = GetComponentsInChildren<LayoutGroup>();
+        for (int i = 0; i < layoutGroups.Length; ++i)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroups[i].GetComponent<RectTransform>());
+    }
+
     public void TestResourcesUpdate(int value)
     {
         StringBuilder sb = new StringBuilder();
         sb.Append(int.Parse(scienceTMP.text) + value);
-        goldTMP.text = goldChangeTMP.text = faithTMP.text = faithChangeTMP.text = cultureTMP.text = scienceTMP.text = sb.ToString();
 
-        Canvas.ForceUpdateCanvases();
+        if (useScience)
+        {
+            scienceTMP.text = sb.ToString();
+        }
+        if (useCulture)
+        {
+            cultureTMP.text = sb.ToString();
+        }
+        if (useFaith)
+        {
+            faithTMP.text = sb.ToString();
+            faithChangeTMP.text = sb.ToString();
+        }
+        if (useGold)
+        {
+            goldTMP.text = sb.ToString();
+            goldChangeTMP.text = sb.ToString();
+        }
+
+        LayoutGroup[] layoutGroups = resourcesWrapper.GetComponentsInChildren<LayoutGroup>();
+        for (int i = 0; i < layoutGroups.Length; ++i)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroups[i].GetComponent<RectTransform>());
     }
+
 }
