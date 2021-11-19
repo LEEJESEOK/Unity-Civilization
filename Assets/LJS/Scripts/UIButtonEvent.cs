@@ -30,6 +30,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                         GameManager.instance.TurnEnd();
                         break;
                     case ActionState.CHOOSE_TECH_RESEARCH:
+                        // Open TechPanel
                         break;
                     case ActionState.NEXT_UNIT:
                         break;

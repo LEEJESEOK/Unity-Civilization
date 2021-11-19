@@ -25,9 +25,6 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         InitGame();
-
-        StartCoroutine(TestCoroutine());
-
     }
 
     // Update is called once per frame
@@ -45,7 +42,6 @@ public class GameManager : Singleton<GameManager>
     {
         InitPlyaers();
 
-
         UIManager.instance.InitUI();
     }
 
@@ -60,23 +56,12 @@ public class GameManager : Singleton<GameManager>
 
     public void TurnEnd()
     {
+        // 현재 플레이어의 차례 종료
         players[currentPlayerIdx].isTurn = false;
-        currentPlayerIdx = (currentPlayerIdx + 1) % players.Count;
-
 
         // 다음 플레이어 차례로 전환
+        currentPlayerIdx = (currentPlayerIdx + 1) % players.Count;
         players[currentPlayerIdx].StartTurn();
-
-    }
-
-    IEnumerator TestCoroutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(testDelay);
-
-            UIManager.instance.TestResourcesUpdate(testValue);
-        }
     }
 
 }

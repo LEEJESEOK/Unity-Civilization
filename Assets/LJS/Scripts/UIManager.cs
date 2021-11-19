@@ -86,7 +86,7 @@ public class UIManager : Singleton<UIManager>
         {
             faithGroup.SetActive(true);
             faithTMP = faithGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-            faithChangeTMP = faithGroup.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
+            faithChangeTMP = faithChangeGroup.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         }
         else
         {
@@ -96,12 +96,14 @@ public class UIManager : Singleton<UIManager>
         {
             goldGroup.SetActive(true);
             goldTMP = goldGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-            goldChangeTMP = goldGroup.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
+            goldChangeTMP = goldChangeGroup.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         }
         else
         {
             goldGroup.SetActive(false);
         }
+
+        ResizeLayoutGroup(resourcesWrapper);
     }
 
     void InitTechnologyPanel()
@@ -141,36 +143,12 @@ public class UIManager : Singleton<UIManager>
 
     public void ResourcesUpdate()
     {
-        LayoutGroup[] layoutGroups = GetComponentsInChildren<LayoutGroup>();
-        for (int i = 0; i < layoutGroups.Length; ++i)
-            LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroups[i].GetComponent<RectTransform>());
+        ResizeLayoutGroup(resourcesWrapper);
     }
 
-    public void TestResourcesUpdate(int value)
+    void ResizeLayoutGroup(GameObject layoutObject)
     {
-        StringBuilder sb = new StringBuilder();
-        sb.Append(int.Parse(scienceTMP.text) + value);
-
-        if (useScience)
-        {
-            scienceTMP.text = sb.ToString();
-        }
-        if (useCulture)
-        {
-            cultureTMP.text = sb.ToString();
-        }
-        if (useFaith)
-        {
-            faithTMP.text = sb.ToString();
-            faithChangeTMP.text = sb.ToString();
-        }
-        if (useGold)
-        {
-            goldTMP.text = sb.ToString();
-            goldChangeTMP.text = sb.ToString();
-        }
-
-        LayoutGroup[] layoutGroups = resourcesWrapper.GetComponentsInChildren<LayoutGroup>();
+        LayoutGroup[] layoutGroups = layoutObject.GetComponentsInChildren<LayoutGroup>();
         for (int i = 0; i < layoutGroups.Length; ++i)
             LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroups[i].GetComponent<RectTransform>());
     }
