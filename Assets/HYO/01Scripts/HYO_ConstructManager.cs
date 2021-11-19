@@ -23,7 +23,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public GameObject campusBTN;
     public GameObject commercialHubBTN;
     public GameObject industrialZoneBTN;
+
     public Transform tileTemp;
+    public GameObject centerCheck;
 
     void Start()
     {
@@ -128,6 +130,17 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     }
     public void CreateTerritoryBtn()
     {
+        
+        Collider[] centers = Physics.OverlapSphere(tileTemp.position, 1);
+
+        for (int i = 0; i < centers.Length; i++)
+        {
+            if (centers[i].GetComponent<TerrainData>().myCenter != null)
+            {
+                print("도시건설 불가:도시 인접지역");
+                return;
+            }          
+        }
         tileTemp.gameObject.AddComponent<Territory>();
     }
 

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
 
 //지형
@@ -92,17 +94,20 @@ public class OutPut
     }
 }
 
-public class TerrainData : MonoBehaviour
+public class TerrainData : MonoBehaviour ,IPointerEnterHandler,IPointerExitHandler
 {
     public TerrainType terrainType;
     public Feature feature;
+    public FacilityData facilityData;
     public OutPut output;
     public LayerMask mask;
     public GameObject[] territory = new GameObject[7];
     public GameObject myCenter;
     // 언덕유무
     public bool isHills;
-
+    //TileInfo UI
+    public GameObject tileInfo;
+    public Text tileInfoText;
 
     //map index
     public int width = 50;
@@ -112,6 +117,7 @@ public class TerrainData : MonoBehaviour
 
     private void Start()
     {
+        facilityData = gameObject.GetComponent<FacilityData>();
         InitTerrainType();
         InitTerrainFeature();
     }
@@ -206,8 +212,32 @@ public class TerrainData : MonoBehaviour
         }
     }
 
+    public void ShowTileInfo()
+    {
+        //tileInfoText.text = terrainType.ToString() + "/소유자:" + myCenter + "/행동력:" + output.movePower + "/------------------------------/"
+        //    + output.food + "식량" + "/" + output.productivity + "생산력" + "/건물:" + "/-" + facilityData.districtOn[0].gameObject.name
+        //    + "/-" + facilityData.districtOn[1].gameObject.name + "/-" + facilityData.districtOn[2].gameObject.name;
+
+        tileInfo.SetActive(true);
+    }
+    public void HideTileInfo()
+    {
+        tileInfo.SetActive(false);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        ShowTileInfo();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        HideTileInfo();
+    }
+
     private void Update()
     {
 
     }
+
 }
