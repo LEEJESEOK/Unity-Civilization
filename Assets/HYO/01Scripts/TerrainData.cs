@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
@@ -99,6 +99,7 @@ public class TerrainData : MonoBehaviour
     public OutPut output;
     public LayerMask mask;
     public GameObject[] territory = new GameObject[7];
+    public GameObject myCenter;
     // 언덕유무
     public bool isHills;
 

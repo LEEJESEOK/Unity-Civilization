@@ -47,6 +47,7 @@ public class FacilityData : MonoBehaviour
 
     private void Start()
     {
+        district = District.NONE;
         canCreate = true;
         districtOn = new GameObject[3];
         terrainData = gameObject.GetComponent<TerrainData>();
@@ -87,17 +88,17 @@ public class FacilityData : MonoBehaviour
             case District.CAMPUS:
                 iconNum = 0;
                 districtInput = new DistrictInPut(54, 1);
-                terrainData.output.science = gameObject.GetComponent<Territory>().population * 2;
+                terrainData.output.science = terrainData.myCenter.GetComponent<Territory>().population * 2;
                 break;
-            case District.COMMERCAILHUB:
                 iconNum = 1;
+            case District.COMMERCAILHUB:
                 districtInput = new DistrictInPut(54, 1);
-                terrainData.output.gold = gameObject.GetComponent<Territory>().population * 4;
+                terrainData.output.gold = terrainData.myCenter.GetComponent<Territory>().population * 4;
                 break;
             case District.INDUSTRIALZONE:
                 iconNum = 2;
                 districtInput = new DistrictInPut(54, 1);
-                terrainData.output.productivity = gameObject.GetComponent<Territory>().population * 2;
+                terrainData.output.productivity = terrainData.myCenter.GetComponent<Territory>().population * 2;
                 break;
             case District.NONE:
                 districtInput = new DistrictInPut(0, 0);
@@ -130,7 +131,7 @@ public class FacilityData : MonoBehaviour
 
     public void Constr_Condition()
     {
-        int resize = (gameObject.GetComponent<Territory>().population * 3) - 2;
+        int resize = (terrainData.myCenter.GetComponent<Territory>().population * 3) - 2;
         Array.Resize(ref districtOn, resize);
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Æ¯¼öÁö±¸ °Ç¼³
+//íŠ¹ìˆ˜ì§€êµ¬ ê±´ì„¤
 public class HYO_PlayerClickTest : MonoBehaviour
 {
     HYO_ConstructManager constrMng;

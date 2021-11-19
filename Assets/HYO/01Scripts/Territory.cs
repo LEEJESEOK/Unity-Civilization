@@ -17,9 +17,11 @@ public class Territory : MonoBehaviour
     public List<TerrainData> data;
     public TotalOutPut totalOutput;
     public int population =1;
+    public GameObject cityCenter;
 
     void Start()
     {
+        cityCenter = gameObject;
         totalOutput = new TotalOutPut();
         data = new List<TerrainData>();
        
@@ -38,6 +40,7 @@ public class Territory : MonoBehaviour
                 totalOutput.totalScience += td.output.science;
 
                 td.output.callback = MyCallback;
+                td.myCenter = cityCenter;
             }
         }
     }
@@ -55,7 +58,7 @@ public class Territory : MonoBehaviour
 
     public void RequestedFood()
     {
-        //ÀÎ±¸ Áõ°¡ ¿ä±¸ ½Ä·®
+        //ì¸êµ¬ ì¦ê°€ ìš”êµ¬ ì‹ëŸ‰
         float pow = Mathf.Pow(population - 1, 1.5f);
 
         if(totalOutput.totalfood == 8 * population + 7 + (int)Mathf.Floor(pow))

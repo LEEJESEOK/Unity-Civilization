@@ -406,8 +406,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1538094715}
-        m_TargetAssemblyTypeName: NonCombatUnit, Assembly-CSharp
+      - m_Target: {fileID: 1142719483}
+        m_TargetAssemblyTypeName: HYO_ConstructManager, Assembly-CSharp
         m_MethodName: CreateTerritoryBtn
         m_Mode: 1
         m_Arguments:
@@ -1031,8 +1031,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1538094715}
-        m_TargetAssemblyTypeName: NonCombatUnit, Assembly-CSharp
+      - m_Target: {fileID: 1142719483}
+        m_TargetAssemblyTypeName: HYO_ConstructManager, Assembly-CSharp
         m_MethodName: OnClickCommercialHubBtn
         m_Mode: 1
         m_Arguments:
@@ -1122,8 +1122,15 @@ MonoBehaviour:
   - {x: 0.169, y: 0.105, z: 0.308}
   - {x: 0.051, y: 0.105, z: 0.107}
   - {x: 0.302, y: 0.105, z: 0.111}
-  iconPosTemp: 0
   evironment: {fileID: 1162458673}
+  facility: 0
+  farmBTN: {fileID: 1239389425}
+  mineBTN: {fileID: 1466921839}
+  settleBTN: {fileID: 281634433}
+  campusBTN: {fileID: 1209619394}
+  commercialHubBTN: {fileID: 1001111656}
+  industrialZoneBTN: {fileID: 1413721561}
+  tileTemp: {fileID: 0}
 --- !u!4 &1142719484
 Transform:
   m_ObjectHideFlags: 0
@@ -1305,8 +1312,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1538094715}
-        m_TargetAssemblyTypeName: NonCombatUnit, Assembly-CSharp
+      - m_Target: {fileID: 1142719483}
+        m_TargetAssemblyTypeName: HYO_ConstructManager, Assembly-CSharp
         m_MethodName: OnClickCampusBtn
         m_Mode: 1
         m_Arguments:
@@ -1438,8 +1445,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1538094715}
-        m_TargetAssemblyTypeName: NonCombatUnit, Assembly-CSharp
+      - m_Target: {fileID: 1142719483}
+        m_TargetAssemblyTypeName: HYO_ConstructManager, Assembly-CSharp
         m_MethodName: OnClickFarmBtn
         m_Mode: 1
         m_Arguments:
@@ -1571,8 +1578,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1538094715}
-        m_TargetAssemblyTypeName: NonCombatUnit, Assembly-CSharp
+      - m_Target: {fileID: 1142719483}
+        m_TargetAssemblyTypeName: HYO_ConstructManager, Assembly-CSharp
         m_MethodName: OnclickIndustrialZoneBtn
         m_Mode: 1
         m_Arguments:
@@ -1704,8 +1711,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1538094715}
-        m_TargetAssemblyTypeName: NonCombatUnit, Assembly-CSharp
+      - m_Target: {fileID: 1142719483}
+        m_TargetAssemblyTypeName: HYO_ConstructManager, Assembly-CSharp
         m_MethodName: OnClickMineBtn
         m_Mode: 1
         m_Arguments:
@@ -1878,13 +1885,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   non_CombatUnitType: 10000
   facility: 0
-  farmBTN: {fileID: 1239389425}
-  mineBTN: {fileID: 1466921839}
-  settleBTN: {fileID: 281634433}
-  campusBTN: {fileID: 1209619394}
-  commercialHubBTN: {fileID: 1001111656}
-  industrialZoneBTN: {fileID: 1413721561}
-  tileTemp: {fileID: 0}
 --- !u!1001 &1589227796
 PrefabInstance:
   m_ObjectHideFlags: 0
