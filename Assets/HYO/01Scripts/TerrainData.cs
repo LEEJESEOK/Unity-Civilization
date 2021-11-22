@@ -94,7 +94,7 @@ public class OutPut
     }
 }
 
-public class TerrainData : MonoBehaviour ,IPointerEnterHandler,IPointerExitHandler
+public class TerrainData : MonoBehaviour
 {
     public TerrainType terrainType;
     public Feature feature;
@@ -106,7 +106,6 @@ public class TerrainData : MonoBehaviour ,IPointerEnterHandler,IPointerExitHandl
     // 언덕유무
     public bool isHills;
     //TileInfo UI
-    public GameObject tileInfo;
     public Text tileInfoText;
 
     //map index
@@ -214,26 +213,19 @@ public class TerrainData : MonoBehaviour ,IPointerEnterHandler,IPointerExitHandl
 
     public void ShowTileInfo()
     {
-        //tileInfoText.text = terrainType.ToString() + "/소유자:" + myCenter + "/행동력:" + output.movePower + "/------------------------------/"
-        //    + output.food + "식량" + "/" + output.productivity + "생산력" + "/건물:" + "/-" + facilityData.districtOn[0].gameObject.name
-        //    + "/-" + facilityData.districtOn[1].gameObject.name + "/-" + facilityData.districtOn[2].gameObject.name;
+        tileInfoText.text = terrainType.ToString() + System.Environment.NewLine;
+        tileInfoText.text += "소유자:" + myCenter.ToString() + System.Environment.NewLine;
 
-        tileInfo.SetActive(true);
-    }
-    public void HideTileInfo()
-    {
-        tileInfo.SetActive(false);
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        ShowTileInfo();
+        tileInfoText.text += "행동력:" + output.movePower.ToString() + System.Environment.NewLine;
+        tileInfoText.text += output.food.ToString() + "식량" + System.Environment.NewLine;
+        tileInfoText.text += output.productivity.ToString() + "생산력" + System.Environment.NewLine;
+        //if (facilityData.districtOn.Length > 0)
+        //    tileInfoText.text += "건물:";
+        //for (int i = 0; i < facilityData.districtOn.Length; ++i)
+        //    tileInfoText.text +=
+        //tileInfoText.text += "건물:" + "/n-" + facilityData.districtOn[0].gameObject.name.ToString() + "-" + facilityData.districtOn[1].gameObject.name.ToString() + "-" + facilityData.districtOn[2].gameObject.name.ToString();
     }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        HideTileInfo();
-    }
 
     private void Update()
     {

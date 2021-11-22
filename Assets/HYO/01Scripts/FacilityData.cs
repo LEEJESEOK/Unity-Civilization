@@ -34,10 +34,6 @@ public class FacilityData : MonoBehaviour
     public TerrainData terrainData;
     //보유시설
     public Facility facility;
-    //보유 특수지구
-    public GameObject[] districtOn;
-    //보유 시설
-    public bool isfacility = false;
 
     public DistrictInPut districtInput;
     public District district;
@@ -48,8 +44,7 @@ public class FacilityData : MonoBehaviour
     private void Start()
     {
         district = District.NONE;
-        canCreate = true;
-        districtOn = new GameObject[3];
+        //canCreate = true;
         terrainData = gameObject.GetComponent<TerrainData>();
 
         facility = Facility.NONE;
@@ -58,22 +53,7 @@ public class FacilityData : MonoBehaviour
     }
     private void Update()
     {
-        //Constr_Condition();
-        if (transform.childCount >= 3)
-        {
-            canCreate = false;
-        }
-    }
-    public void AddDistrict(GameObject add)
-    {
-        for (int i = 0; i < districtOn.Length; i++)
-        {
-            if (districtOn[i] == null)
-            {
-                districtOn[i] = add;
-                break;
-            }
-        }
+
     }
 
     public void SetDistrict(District next)
@@ -131,7 +111,7 @@ public class FacilityData : MonoBehaviour
 
     public void Constr_Condition()
     {
-        int resize = (terrainData.myCenter.GetComponent<Territory>().population * 3) - 2;
-        Array.Resize(ref districtOn, resize);
+        //int resize = (terrainData.myCenter.GetComponent<Territory>().population * 3) - 2;
+        //Array.Resize(ref districtOn, resize);
     }
 }

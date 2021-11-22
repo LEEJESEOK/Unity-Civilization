@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 167788753}
   - component: {fileID: 167788752}
   m_Layer: 5
-  m_Name: TileInfoImage
+  m_Name: TileInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 451925319}
   - component: {fileID: 451925318}
   m_Layer: 5
-  m_Name: TileInfo
+  m_Name: TileInfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1285,6 +1285,7 @@ MonoBehaviour:
   campusBTN: {fileID: 1209619394}
   commercialHubBTN: {fileID: 1001111656}
   industrialZoneBTN: {fileID: 1413721561}
+  tileInfo: {fileID: 167788750}
   tileTemp: {fileID: 0}
   centerCheck: {fileID: 0}
 --- !u!4 &1142719484

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 {
@@ -11,7 +12,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     }
     public Sprite[] icons;
     public GameObject emptyPre;
-    public GameObject[] districtOn_;
     public Vector3[] iconPos;
     public Transform evironment;
 
@@ -23,17 +23,20 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public GameObject campusBTN;
     public GameObject commercialHubBTN;
     public GameObject industrialZoneBTN;
+    //TileInfo UI
+    public GameObject tileInfo;
 
     public Transform tileTemp;
     public GameObject centerCheck;
 
     void Start()
     {
-        districtOn_ = evironment.GetComponentInChildren<FacilityData>().districtOn;
+
     }
 
     private void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -58,52 +61,63 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                 {
                     tileTemp = hit.transform;
                 }
-            }
-        }
-        else if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                int layerNum = hit.transform.gameObject.layer;
-                if (layerNum == 6 || layerNum == 7 || layerNum == 8 || layerNum == 9)
+                else if (layerNum == 6 || layerNum == 7 || layerNum == 8 || layerNum == 9)
                 {
                     tileTemp = hit.transform;
                     settleBTN.SetActive(true);
 
                 }
-
             }
         }
-    }
 
+        //Ray rayPoint = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //RaycastHit hitInfo;
+
+        //if (Physics.Raycast(rayPoint, out hitInfo))
+        //{
+        //    tileTemp = hitInfo.transform;
+        //    if (tileTemp.GetComponent<TerrainData>() != null)
+        //    {
+        //        StartCoroutine(tileInfo_Cour());
+        //    }
+        //    else if(hitInfo.transform != tileTemp)
+        //    {
+        //        tileInfo.SetActive(false);
+        //    }
+
+        //}
+
+    }
+    IEnumerator tileInfo_Cour()
+    {
+        yield return new WaitForSeconds(2);
+        tileTemp.GetComponent<TerrainData>().ShowTileInfo();
+        tileInfo.SetActive(true);
+
+    }
     //Create buttons
     public void OnClickFarmBtn()
     {
-        if (tileTemp.GetComponent<FacilityData>().isfacility == false)
+        if (tileTemp.GetComponent<FacilityData>().facility == Facility.NONE)
         {
             tileTemp.GetComponent<FacilityData>().SetFacility(Facility.FARM);
             CreateFacility(3);
-            tileTemp.GetComponent<FacilityData>().isfacility = true;
 
         }
         else return;
     }
     public void OnClickMineBtn()
     {
-        if (tileTemp.GetComponent<FacilityData>().isfacility == false)
+        if (tileTemp.GetComponent<FacilityData>().facility == Facility.NONE)
         {
             tileTemp.GetComponent<FacilityData>().SetFacility(Facility.MINE);
             CreateFacility(4);
-            tileTemp.GetComponent<FacilityData>().isfacility = true;
         }
         else return;
     }
     public void OnClickCampusBtn()
     {
-        if (tileTemp.GetComponent<FacilityData>().canCreate && tileTemp.GetComponent<FacilityData>().district == District.NONE)
+        if (tileTemp.GetComponent<FacilityData>().district == District.NONE && tileTemp.GetComponent<TerrainData>().myCenter.GetComponent<Territory>().distric_limit)
         {
             tileTemp.GetComponent<FacilityData>().SetDistrict(District.CAMPUS);
             CreateDistrict(0);
@@ -112,7 +126,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     }
     public void OnClickCommercialHubBtn()
     {
-        if (tileTemp.GetComponent<FacilityData>().canCreate && tileTemp.GetComponent<FacilityData>().district == District.NONE)
+        if (tileTemp.GetComponent<FacilityData>().district == District.NONE && tileTemp.GetComponent<TerrainData>().myCenter.GetComponent<Territory>().distric_limit)
         {
             tileTemp.GetComponent<FacilityData>().SetDistrict(District.COMMERCAILHUB);
             CreateDistrict(1);
@@ -121,7 +135,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     }
     public void OnclickIndustrialZoneBtn()
     {
-        if (tileTemp.GetComponent<FacilityData>().canCreate && tileTemp.GetComponent<FacilityData>().district == District.NONE)
+        if (tileTemp.GetComponent<FacilityData>().district == District.NONE && tileTemp.GetComponent<TerrainData>().myCenter.GetComponent<Territory>().distric_limit)
         {
             tileTemp.GetComponent<FacilityData>().SetDistrict(District.INDUSTRIALZONE);
             CreateDistrict(2);
@@ -148,8 +162,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public void CreateFacility(int chooseIndex)
     {
         GameObject empty = Instantiate(emptyPre);
-        FacilityData fd = tileTemp.GetComponent<FacilityData>();
-        fd.AddDistrict(empty);
+        Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.gameObject.GetComponent<Territory>();
+        //FacilityData fd = tileTemp.GetComponent<FacilityData>();
 
         if (chooseIndex == -1)
         {
@@ -166,12 +180,12 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public void CreateDistrict(int chooseIndex)
     {
         GameObject empty = Instantiate(emptyPre);
-        FacilityData fd = tileTemp.GetComponent<FacilityData>();
-        fd.AddDistrict(empty);
+        Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.gameObject.GetComponent<Territory>();
+        tt.AddDistrict(empty);
 
         empty.transform.parent = tileTemp;
         empty.transform.position = tileTemp.position;
-        empty.transform.localPosition = new Vector3(0.169f, 0.104999997f, 0.307999998f);//constrMng.iconPos[chooseIndex];
+        empty.transform.localPosition = new Vector3(0, 0.109f, 0);//constrMng.iconPos[chooseIndex];
         empty.transform.localEulerAngles = new Vector3(90, 0, 0);
         empty.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         empty.GetComponent<SpriteRenderer>().sprite = HYO_ConstructManager.instance.icons[chooseIndex/*fd.iconNum*/];

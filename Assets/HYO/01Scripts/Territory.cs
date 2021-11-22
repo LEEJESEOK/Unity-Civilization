@@ -18,12 +18,16 @@ public class Territory : MonoBehaviour
     public TotalOutPut totalOutput;
     public int population =1;
     public GameObject cityCenter;
+    public bool distric_limit = true;
+    //보유 특수지구
+    public List<GameObject> districtOn = new List<GameObject>();
 
     void Start()
     {
         cityCenter = gameObject;
         totalOutput = new TotalOutPut();
         data = new List<TerrainData>();
+
        
         int radius = 1;
         Collider[] cols = Physics.OverlapSphere(transform.position, radius);
@@ -45,6 +49,17 @@ public class Territory : MonoBehaviour
         }
     }
 
+    public void AddDistrict(GameObject add)
+    {
+        districtOn.Add(add);
+        if (districtOn != null)
+        {
+            if (districtOn.Count > (population * 3) - 2) distric_limit = false;
+        }
+            
+    }
+
+
     void MyCallback(OutPutType otype, int amount)
     {
         switch (otype)
@@ -55,6 +70,7 @@ public class Territory : MonoBehaviour
             case OutPutType.SCIENCE: totalOutput.totalScience += amount; break;
         }
     }
+
 
     public void RequestedFood()
     {
