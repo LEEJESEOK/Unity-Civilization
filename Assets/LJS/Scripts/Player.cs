@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         info = new PlayerInfo();
+        info.name = "Player " + playerId;
+
+        gameObject.name = info.name;
     }
 
     // Update is called once per frame
@@ -27,7 +30,7 @@ public class Player : MonoBehaviour
 
     public void TurnUpdate()
     {
-        
+
     }
 
     public void EndTurn()

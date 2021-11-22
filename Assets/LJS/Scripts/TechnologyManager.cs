@@ -30,7 +30,7 @@ public class TechnologyManager : Singleton<TechnologyManager>
         {
             LoadTechnologies();
 
-            UIManager.instance.SetTechnologyPanel();
+            UIManager.instance.SetTechnologies(technologies);
         }
         #endregion
     }

@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
     public bool test;
     public float testDelay = 0.1f;
     public int testValue = 10;
+    public int testValueChange = 1;
 
     [Header("Common")]
     public bool useScience;
@@ -21,20 +22,20 @@ public class GameManager : Singleton<GameManager>
     public int initPlayerCount;
     public int currentPlayerIdx;
 
+    IEnumerator testCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
         InitGame();
+
+        testCoroutine = TestCoroutine();
+        StartCoroutine(testCoroutine);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // for (int i = 0; i < players.Count; ++i)
-        // {
-        //     print(string.Format("{0} : {1}", i, players[i].isTurn));
-        // }
-
         players[currentPlayerIdx].TurnUpdate();
     }
 
@@ -64,4 +65,17 @@ public class GameManager : Singleton<GameManager>
         players[currentPlayerIdx].StartTurn();
     }
 
+    IEnumerator TestCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(testDelay);
+
+            if (test)
+            {
+                testValue += testValueChange;
+                UIManager.instance.UpdateResource(testValue, 0, 0, 0, testValue, testValueChange);
+            }
+        }
+    }
 }

@@ -7,13 +7,16 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
 {
     public GameObject actionButton;
 
+    UIPanelManager uIPanelManager;
+
     // Start is called before the first frame update
     void Start()
     {
         listenerList = new List<ButtonListener<UIButtonId>>(GetComponentsInChildren<ButtonListener<UIButtonId>>());
-
         for (int i = 0; i < listenerList.Count; ++i)
             listenerList[i].AddClickCallback(ClickEvent);
+
+        uIPanelManager = GetComponent<UIPanelManager>();
     }
 
     public override void ClickEvent(UIButtonId eventType)
@@ -38,7 +41,6 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                 break;
 
             case UIButtonId.MENU_TECH:
-                print(eventType);
                 break;
         }
     }

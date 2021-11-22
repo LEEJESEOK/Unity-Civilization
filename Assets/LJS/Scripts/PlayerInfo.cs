@@ -6,6 +6,8 @@ using UnityEngine;
 [Serializable]
 public class PlayerInfo
 {
+    public string name;
+
     // 보유중인 유닛
     public List<GameObject> units;
     // 보유한 도시
