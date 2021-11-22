@@ -135,7 +135,7 @@ public class UIManager : Singleton<UIManager>
         GameObject technologyButton = Instantiate(technologyButtonPrefab);
         technologyButton.name = technology.name;
 
-        technologyButton.transform.GetChild(0).GetComponent<Text>().text = technology.korean;
+        technologyButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = technology.korean;
         technologyButton.GetComponent<TechnologyButtonListener>().SetButtonType(technology.id);
 
         return technologyButton;
