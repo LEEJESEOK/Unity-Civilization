@@ -361,6 +361,8 @@ public class SimplePathFinding2D : MonoBehaviour {
         pathqueries = new LinkedList<AStarSearch>();
         CreateNavMesh();
         initflag = true;
+
+        print("done");
     }
 
     // Update is called once per frame
