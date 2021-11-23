@@ -45,6 +45,8 @@ public class JKH_Grid : MonoBehaviour
     //
     #endregion
 
+
+    //들고 가야할것.@@@@@@@@@
     public List<JKH_Node> GetNeighbours(JKH_Node node)
     {
         List<JKH_Node> neighbours = new List<JKH_Node>();
@@ -54,6 +56,7 @@ public class JKH_Grid : MonoBehaviour
             {
                 if ((x == 0 && y == 0) || (x == -1 && y == 1) || (x == 1 && y == 1))
                 {
+                    //체크 안해도되는 버릴것.
                     continue;
                 }
                 int checkX = node.gridX + x;
@@ -68,6 +71,7 @@ public class JKH_Grid : MonoBehaviour
         return neighbours;
     }
 
+    //들고가야할것@@@@@@@
     public JKH_Node NodeFromWorldPoint(Vector3 worldPosition)
     {
         float percentX = (worldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x;

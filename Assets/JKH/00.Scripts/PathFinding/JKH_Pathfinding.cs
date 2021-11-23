@@ -5,11 +5,26 @@ using UnityEngine;
 
 public class JKH_Pathfinding : MonoBehaviour
 {
+    public static JKH_Pathfinding instance;
     public Transform seeker, target;
     JKH_Grid grid;
+
+    //HEXAGON Needs
+    //좌표, 이웃좌표
+
+
     private void Awake()
     {
         grid = GetComponent<JKH_Grid>();
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
@@ -23,6 +38,9 @@ public class JKH_Pathfinding : MonoBehaviour
         //시작값, 타겟값
         JKH_Node startNode = grid.NodeFromWorldPoint(startPos);
         JKH_Node targetNode = grid.NodeFromWorldPoint(targetPos);
+
+        
+
 
 
 
@@ -57,7 +75,7 @@ public class JKH_Pathfinding : MonoBehaviour
             //목표지점에 도달했다면
             if (currentNode == targetNode)
             {
-                //이거뭐냐
+                //
                 RetracePath(startNode, targetNode);
                 return;
             }
@@ -128,6 +146,6 @@ public class JKH_Pathfinding : MonoBehaviour
 
 
         //+++++6각형인경우 변의길이가 x일때, 각 거리는 x√3== x*1.73이다.+++++
-        //타일간 거리: .95?
+        //타일간 거리: 0.95 ~ 1.00 이정도 되는것같음
     }
 }

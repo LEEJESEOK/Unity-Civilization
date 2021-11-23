@@ -7,7 +7,7 @@ public class JKH_Move : MonoBehaviour
 {
     Camera cam;
     public LayerMask layer;
-    public LayerMask ground;
+    //public LayerMask ground;
 
     public GameObject moveBtn;
 
@@ -16,13 +16,28 @@ public class JKH_Move : MonoBehaviour
     public bool canMove;
 
     //Unit's Stat
-    public int move;
+    public int movePower;
     public int meleeAttack;
     public int Hp;
     public int RangeAttack;
     public int Range;
 
-   
+    //UI
+    public Text moveUI;
+
+    public static JKH_Move instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
 
     void Start()
@@ -33,24 +48,46 @@ public class JKH_Move : MonoBehaviour
 
     void Update()
     {
+        moveUI.text = "남은이동력: " + movePower;
+
+
+        getUnitInfo();
+        UnitMove();
+    }
+
+    public void getUnitInfo()
+    {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
 
         //마우스 클릭한다
         if (Input.GetButton("Fire1"))
         {
-            if(Physics.Raycast(ray,out hitInfo, 1000, layer))
+            if (Physics.Raycast(ray, out hitInfo, 1000, layer))
             {
                 //unitMove
                 JKH_Move um = hitInfo.transform.GetComponent<JKH_Move>();
                 um.isUnitClick = true;
 
                 // 유닛 정보 출력(확인용)
-                print("이동력: " + move);
+                print("이동력: " + movePower);
                 print("공격력: " + meleeAttack);
                 print("체력: " + Hp);
                 print("원거리공격력: " + RangeAttack);
                 print("사거리: " + Range);
+
+                //gameobj위치 기준으로 레이 조금 쏜다 
+                //만약 충돌한게 tag로 확인해서 map이 있나본다
+                //있다면, 맵의 terraindata에xy가져온다 idx를
+                float radius = 0.05f;
+                Collider[] maps = Physics.OverlapSphere(transform.position, radius, ~layer);
+                if (maps.Length == 1)
+                {
+                    if (maps[0].gameObject.tag == "Map")
+                    {
+                        print(maps[0].GetComponent<TerrainData>().x + ", " + maps[0].GetComponent<TerrainData>().y);
+                    }
+                }
             }
         }
 
@@ -59,17 +96,18 @@ public class JKH_Move : MonoBehaviour
             //버튼이 나온다
             moveBtn.SetActive(true);
         }
-
-        UnitMove();
     }
-    
+
     //버튼을 누르면
     public void onClickMoveBtn()
     {
         canMove = true;
-        print("눌림");
+        print("눌림");        
+        
     }
 
+
+    //바닥클릭하면 이동력을 소모하고 이동한다
     public void UnitMove()
     {
         if (canMove)
@@ -79,21 +117,76 @@ public class JKH_Move : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
 
+
+            //마우스가 위치한 좌표.
+            if (Physics.Raycast(ray, out hitInfo, 1000))
+            {
+                print("쏘고있나");
+                if (hitInfo.transform.gameObject.tag == "Map")
+                {
+                    print("마우스에 위치한 좌표" + hitInfo.transform.GetComponent<TerrainData>().x + ", " + hitInfo.transform.GetComponent<TerrainData>().y);
+                }
+            }
+
             //마우스 클릭한다
             if (Input.GetButton("Fire1"))
             {
                 print("클릭확인");
                 //레이 추가? 해야하겠주?
+
                 if (Physics.Raycast(ray, out hitInfo, 1000))
                 {
                     print("눌린거확인");
-                    transform.position = hitInfo.transform.position;
-                    //가라앉는거 수정한다.
-                    canMove = false;
+
+                    print(AutoMapTile.instance.tiles[0].GetComponent<TerrainData>().x + " ," +
+                    AutoMapTile.instance.tiles[0].GetComponent<TerrainData>().y);
+
+                    // 목적지 클릭했다. 대신에 무브 버튼을 누른다음에 마우스가 가르키는 타일의 거리 구한다... ()
+
+                    // 현재위치에서 목적지까지에 필요한 이동력을 계산한다 이걸
+                    // ↓↓↓↓↓↓↓↓↓↓
+                    // ★ A* 알고리즘 이용 ★
+                    // Needs
+                    // 맵 좌표 및 정보 , 이동력 소모값, 이동할수있는 타일인가 아닌가(벽같은개념) 
+                    // 시작점(시작점 제외)에서 목적지까지의 최단거리를 구한다
+                    // 시작점(시작점 제외)에서 목적지까지의 거쳐간 길들의 이동력을 더한다                    
+                    // @@@
+                    // 만약 계산된 이동력이 0보다 크다면 이동한다
+                    // 계산된 이동력이 0뵤다 작다면 이동하지 않는다
+                    //
+                    //
+
+
+                    //이동량이 있다.
+                    if (movePower > 0)
+                    {
+                        transform.position = hitInfo.transform.position;
+                        //가라앉는거 수정한다.
+                        canMove = false;
+                        //목표 타일에 따라 이동력 감소량 다르게 한다.
+                        movePower--;
+                        print("이동완료!");
+
+
+                    }
+
+                    else if (movePower <= 0)
+                    {
+                        print("못움직임");
+                        canMove = false;
+                    }
 
                 }
             }
         }
-        
+
+    }
+
+
+
+    //@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    public void AMove()
+    {
+        //
     }
 }
