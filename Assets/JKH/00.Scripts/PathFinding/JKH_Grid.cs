@@ -54,7 +54,7 @@ public class JKH_Grid : MonoBehaviour
         {
             for(int y=-1; y <= 1; y++)
             {
-                if ((x == 0 && y == 0) || (x == -1 && y == 1) || (x == 1 && y == 1))
+                if ((x == 0 && y == 0) || (x == -1 && y == -1) || (x == 1 && y == -1))
                 {
                     //체크 안해도되는 버릴것.
                     continue;
