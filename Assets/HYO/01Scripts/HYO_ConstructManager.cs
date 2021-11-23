@@ -5,11 +5,6 @@ using UnityEngine.UI;
 
 public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 {
-    public static HYO_ConstructManager instance;
-    private void Awake()
-    {
-        instance = this;
-    }
     public Sprite[] icons;
     public GameObject emptyPre;
     public GameObject cityGate;
@@ -271,7 +266,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         empty.transform.localPosition = new Vector3(0, 0.109f, 0);//constrMng.iconPos[chooseIndex];
         empty.transform.localEulerAngles = new Vector3(90, 0, 0);
         empty.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-        empty.GetComponent<SpriteRenderer>().sprite = HYO_ConstructManager.instance.icons[chooseIndex/*fd.iconNum*/];
+        empty.GetComponent<SpriteRenderer>().sprite = instance.icons[chooseIndex/*fd.iconNum*/];
     }
 
 }
