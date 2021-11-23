@@ -12,6 +12,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     }
     public Sprite[] icons;
     public GameObject emptyPre;
+    public GameObject cityGate;
     public Vector3[] iconPos;
     public Transform evironment;
 
@@ -25,9 +26,14 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public GameObject industrialZoneBTN;
     //TileInfo UI
     public GameObject tileInfo;
+    public Vector3 mousePos;
+    public float popupTime = 2;
+    public float currentTime;
 
     public Transform tileTemp;
     public GameObject centerCheck;
+
+    bool isOpenPopup;
 
     void Start()
     {
@@ -70,31 +76,97 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             }
         }
 
-        //Ray rayPoint = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //RaycastHit hitInfo;
+        //레이쏴서
+        Ray rayPoint = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitInfo;
 
-        //if (Physics.Raycast(rayPoint, out hitInfo))
-        //{
-        //    tileTemp = hitInfo.transform;
-        //    if (tileTemp.GetComponent<TerrainData>() != null)
-        //    {
-        //        StartCoroutine(tileInfo_Cour());
-        //    }
-        //    else if(hitInfo.transform != tileTemp)
-        //    {
-        //        tileInfo.SetActive(false);
-        //    }
+        // 1.1 만약 마우스가 움직이지 않는다면
+        //      2. 만약 2초가 흘렀다면
+        //      3. 마우스의 위치에 타일이 있는지 검사하고싶다.
+        //      4. 만약 타일이 있다면 팝업을 띄우고싶다.
+        // 1.2 그렇지않고 팝업을 보여주는 중이라면 팝업을 끄고싶다.
 
-        //}
 
+        if(isOpenPopup == false)
+            mousePos = Input.mousePosition;
+
+
+        if (Physics.Raycast(rayPoint, out hitInfo))
+        {
+            if(mousePos == Input.mousePosition)
+            {
+                currentTime += Time.deltaTime;
+                if(currentTime > popupTime)
+                {
+                    isOpenPopup = true;
+
+                    tileTemp = hitInfo.transform;
+                    if (tileTemp.GetComponent<TerrainData>() != null)
+                    {
+                        tileTemp.GetComponent<TerrainData>().ShowTileInfo();
+                        tileInfo.SetActive(true);
+                    }
+                        currentTime = 0;
+                }
+            }
+            else
+            {
+                if(tileInfo.activeSelf == true)
+                {
+                    isOpenPopup = false;
+
+                    tileInfo.SetActive(false);
+                }
+            }
+
+
+
+            //// 팝업으로 보려는 시도 중
+            //if (isTryShowTileInfoPopup)
+            //{
+            //    // 창을 띄우고싶다.
+            //    if (false == isTryShowTileInfoPopup)
+            //    {
+            //        StartCoroutine(tileInfo_Cour());
+            //        isTryShowTileInfoPopup = true;
+            //    }
+            //}
+            //else
+            //{
+            //    // 타일 위에 마우스 포인트가 올라왔다면
+            //    //타일이 맞으면
+            //    tileTemp = hitInfo.transform;
+            //    if (tileTemp.GetComponent<TerrainData>() != null)
+            //    {
+            //        isTryShowTileInfoPopup = true;
+            //        currentTime = 0;
+            //        mousePos = Input.mousePosition;
+            //    }
+            
+            //}
+
+        }
     }
-    IEnumerator tileInfo_Cour()
-    {
-        yield return new WaitForSeconds(2);
-        tileTemp.GetComponent<TerrainData>().ShowTileInfo();
-        tileInfo.SetActive(true);
 
-    }
+    //bool isTryShowTileInfoPopup;
+    //IEnumerator tileInfo_Cour()
+    //{
+
+    //    //창띄우기
+    //    tileTemp.GetComponent<TerrainData>().ShowTileInfo();
+    //    tileInfo.SetActive(true);
+    //    while (true)
+    //    {
+    //        //마우스가 움직이면
+    //        if (mousePos != Input.mousePosition)
+    //        {
+    //            //끈다
+    //            tileInfo.SetActive(false);
+    //        }
+    //        yield return 0;
+    //    }
+
+    //}
     //Create buttons
     public void OnClickFarmBtn()
     {
@@ -102,6 +174,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         {
             tileTemp.GetComponent<FacilityData>().SetFacility(Facility.FARM);
             CreateFacility(3);
+            tileTemp = null;
 
         }
         else return;
@@ -112,6 +185,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         {
             tileTemp.GetComponent<FacilityData>().SetFacility(Facility.MINE);
             CreateFacility(4);
+            tileTemp = null;
         }
         else return;
     }
@@ -121,6 +195,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         {
             tileTemp.GetComponent<FacilityData>().SetDistrict(District.CAMPUS);
             CreateDistrict(0);
+            tileTemp = null;
         }
         else return;
     }
@@ -130,6 +205,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         {
             tileTemp.GetComponent<FacilityData>().SetDistrict(District.COMMERCAILHUB);
             CreateDistrict(1);
+            tileTemp = null;
         }
         else return;
     }
@@ -139,6 +215,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         {
             tileTemp.GetComponent<FacilityData>().SetDistrict(District.INDUSTRIALZONE);
             CreateDistrict(2);
+            tileTemp = null;
         }
         else return;
     }
@@ -156,6 +233,12 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             }          
         }
         tileTemp.gameObject.AddComponent<Territory>();
+        GameObject city = Instantiate(cityGate);
+        city.transform.parent = tileTemp;
+        city.transform.position = tileTemp.position;
+        city.transform.localPosition = new Vector3(0, 0.1f, 0);
+        city.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        tileTemp = null;
     }
 
 

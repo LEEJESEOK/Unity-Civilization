@@ -1272,7 +1272,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 363b533fe4f125e4d9c0bab2c824aa2a, type: 3}
   - {fileID: 21300000, guid: 45bb94b02aeb0d146bec75244749a4a0, type: 3}
   emptyPre: {fileID: 5626515892868040593, guid: d63608c69c3fd7b4d9c3ba6cf04d4d7b, type: 3}
-  districtOn_: []
+  cityGate: {fileID: 4333696619351369187, guid: c29228413037a8346abd105f159b80e0, type: 3}
   iconPos:
   - {x: 0.169, y: 0.105, z: 0.308}
   - {x: 0.051, y: 0.105, z: 0.107}
@@ -1286,6 +1286,9 @@ MonoBehaviour:
   commercialHubBTN: {fileID: 1001111656}
   industrialZoneBTN: {fileID: 1413721561}
   tileInfo: {fileID: 167788750}
+  mousePos: {x: 0, y: 0, z: 0}
+  popupTime: 2
+  currentTime: 0
   tileTemp: {fileID: 0}
   centerCheck: {fileID: 0}
 --- !u!4 &1142719484
