@@ -15,7 +15,7 @@ public class JKH_RayMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DrawRay();
+        //DrawRay();
         //rayShot();
     }
     public void rayShot()
@@ -24,10 +24,10 @@ public class JKH_RayMove : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
-            //Quaternion qDir = Quaternion.Euler(transform.forward);
-            Quaternion qDir = Quaternion.Euler(0,0,1); //transform.f
-            Quaternion diff = Quaternion.Euler(0, i * 60, 0);
-            Vector3 dir = (qDir * diff).eulerAngles;
+            Vector3 tmp = new Vector3(2 * Mathf.Sin((60 * i) * (Mathf.PI / 180)),
+                0, 2 * Mathf.Cos((60 * i) * (Mathf.PI / 180)));
+
+            Vector3 dir = transform.localPosition - tmp;
             print(dir);
             Ray ray = new Ray(transform.position, dir);
             int layer = 1 << LayerMask.NameToLayer("TestCube");
@@ -44,19 +44,15 @@ public class JKH_RayMove : MonoBehaviour
         }
     }
 
-    public Vector3 tmp;
-    void DrawRay()
-    {
-        for (int i = 0; i < 6; i++)
-        {
-            tmp = new Vector3(2 * Mathf.Sin((60 * i) * (Mathf.PI / 180)),
-                0, 2 * Mathf.Cos((60 * i) * (Mathf.PI / 180)));
-
-            Vector3 dir = transform.localPosition - tmp;
-            Debug.DrawRay(transform.position, dir * 15, Color.red);
-            Ray ray = new Ray(transform.position, dir);
-        }
-    }
+    //public Vector3 tmp;
+    //void DrawRay()
+    //{
+    //    for (int i = 0; i < 6; i++)
+    //    {
+    //        Debug.DrawRay(transform.position, dir * 15, Color.red);
+    //        Ray ray = new Ray(transform.position, dir);
+    //    }
+    //}
 
     //private void OnDrawGizmos()
     //{
