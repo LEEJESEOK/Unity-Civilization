@@ -139,7 +139,8 @@ public class JKH_Move : MonoBehaviour
                         print("EndNewPos" + endPosX + ", " + endPosY);
                         print("StartNewPos" + startPosX + ", " + startPosY);
 
-                        //
+                        //Start
+
 
                         //이동량이 있다. (이동하는것)
                         if (movePower > 0)

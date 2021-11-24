@@ -199,13 +199,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256165471}
-  m_LocalRotation: {x: -0.48226523, y: -0, z: -0, w: 0.87602526}
-  m_LocalPosition: {x: 0, y: -14.6, z: -4.1}
+  m_LocalRotation: {x: -0.4365663, y: 0, z: 0, w: 0.89967215}
+  m_LocalPosition: {x: 0, y: -19.5, z: -4.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -57.667, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -51.77, y: 0, z: 0}
 --- !u!1 &619249565
 GameObject:
   m_ObjectHideFlags: 0
@@ -6898,8 +6898,8 @@ MonoBehaviour:
   PathLoad: 64
   MinimumPathIterationsPerFrame: 8
   MaximumPathIterationsPerFrame: 512
-  DebugDrawPaths: 0
-  DebugDrawNavGrid: 0
+  DebugDrawPaths: 1
+  DebugDrawNavGrid: 1
   DebugMarkerObject: {fileID: 0}
 --- !u!1 &1234784900
 GameObject:
@@ -6917,7 +6917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1234784901
 MonoBehaviour:
   m_ObjectHideFlags: 0
