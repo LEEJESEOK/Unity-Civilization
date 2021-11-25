@@ -90,6 +90,7 @@ public class JKH_Pathfinding : MonoBehaviour
                 }
                 //g(x)+ 현재노드와 이웃간의 거리
                 int newCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
+                //int newCostToNeighbour = 옆타일의 이동력
                 //만약 이웃의 gCost가 더 크거나 이웃이 포함되어있지 않다면
                 if (newCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
                 {
