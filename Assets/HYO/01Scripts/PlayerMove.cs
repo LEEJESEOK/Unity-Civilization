@@ -22,7 +22,7 @@ public class PlayerMove : MonoBehaviour
         Debug.DrawRay(transform.position, transform.up * -1,Color.red);
         if (Physics.Raycast(ray, out hit, 1))
         {
-            Debug.Log(hit.transform.gameObject.layer);
+            //Debug.Log(hit.transform.gameObject.layer);
         }
         
 

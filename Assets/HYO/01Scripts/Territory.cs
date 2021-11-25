@@ -30,7 +30,8 @@ public class Territory : MonoBehaviour
 
        
         int radius = 1;
-        Collider[] cols = Physics.OverlapSphere(transform.position, radius);
+        int layerMask = 1 << LayerMask.NameToLayer("HexFog");
+        Collider[] cols = Physics.OverlapSphere(transform.position, radius,~layerMask);
         
         for (int i = 0; i < cols.Length; i++)
         {

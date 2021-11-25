@@ -58,17 +58,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -87,13 +86,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1733140668953697375
 MeshRenderer:
@@ -227,17 +224,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 0
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -256,13 +252,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5839387165412847531
 MeshRenderer:
@@ -395,18 +389,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 2
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -425,13 +418,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8985506983803727057
 MeshRenderer:
@@ -564,18 +555,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -594,13 +584,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &457860609038828174
 MeshRenderer:
@@ -734,17 +722,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -763,13 +750,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1216033401957949146
 MeshRenderer:
@@ -903,17 +888,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -932,13 +916,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &690549467963123442
 MeshRenderer:
@@ -1071,18 +1053,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -1101,13 +1082,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2202244812525594064
 MeshRenderer:
@@ -1240,18 +1219,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -1270,13 +1248,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6397902307853021367
 MeshRenderer:
@@ -1409,18 +1385,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -1439,13 +1414,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7912664521370021295
 MeshRenderer:
@@ -1578,18 +1551,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 2
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -1608,13 +1580,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2700927439007664536
 MeshRenderer:
@@ -1747,18 +1717,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -1777,13 +1746,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7540908271123503570
 MeshRenderer:
@@ -1916,18 +1883,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -1946,13 +1912,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1518242667957104543
 MeshRenderer:
@@ -2085,18 +2049,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -2115,13 +2078,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4167568558494120447
 MeshRenderer:
@@ -2255,17 +2216,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -2283,14 +2243,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7409782671637433296
 MeshRenderer:
@@ -2423,18 +2381,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -2453,13 +2410,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7830850145296971829
 MeshRenderer:
@@ -2592,18 +2547,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 3
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -2622,13 +2576,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3895710575410347145
 MeshRenderer:
@@ -2762,17 +2714,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -2791,13 +2742,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3497594241143731575
 MeshRenderer:
@@ -2931,17 +2880,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -2960,13 +2908,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5754502760528025063
 MeshRenderer:
@@ -3099,18 +3045,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -3129,13 +3074,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5613759215317041902
 MeshRenderer:
@@ -3268,18 +3211,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -3298,13 +3240,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8128838302696848742
 MeshRenderer:
@@ -3437,18 +3377,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -3467,13 +3406,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3166477125626900238
 MeshRenderer:
@@ -3607,17 +3544,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -3635,14 +3571,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5549572891522842084
 MeshRenderer:
@@ -3775,18 +3709,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -3805,13 +3738,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1944105438649221629
 MeshRenderer:
@@ -3944,18 +3875,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -3974,13 +3904,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2193391507663110926
 MeshRenderer:
@@ -4113,18 +4041,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -4143,13 +4070,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4815343716132135559
 MeshRenderer:
@@ -4282,18 +4207,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -4312,13 +4236,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8141405263974694245
 MeshRenderer:
@@ -4451,18 +4373,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 2
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -4481,13 +4402,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4149930478397854802
 MeshRenderer:
@@ -4620,18 +4539,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -4650,13 +4568,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1324451389365079809
 MeshRenderer:
@@ -4790,17 +4706,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -4819,13 +4734,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8678700377159654599
 MeshRenderer:
@@ -4958,18 +4871,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -4988,13 +4900,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4849617567986229088
 MeshRenderer:
@@ -5128,17 +5038,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -5157,13 +5066,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1332203568069881560
 MeshRenderer:
@@ -5296,18 +5203,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -5326,13 +5232,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4826928262894214477
 MeshRenderer:
@@ -5465,18 +5369,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -5495,13 +5398,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8700657563476377738
 MeshRenderer:
@@ -5634,18 +5535,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -5664,13 +5564,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3201580735491670198
 MeshRenderer:
@@ -5804,17 +5702,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -5833,13 +5730,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8962450568602988479
 MeshRenderer:
@@ -5973,17 +5868,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 0
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -6002,13 +5896,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8423273863346791395
 MeshRenderer:
@@ -6141,18 +6033,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -6171,13 +6062,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1209148958172886555
 MeshRenderer:
@@ -6310,18 +6199,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -6340,13 +6228,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6582269698414691146
 MeshRenderer:
@@ -6479,18 +6365,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -6509,13 +6394,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8069685621585979812
 MeshRenderer:
@@ -6648,18 +6531,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -6678,13 +6560,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6925680642027281391
 MeshRenderer:
@@ -6818,17 +6698,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -6846,14 +6725,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &124948108815216102
 MeshRenderer:
@@ -6986,18 +6863,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -7016,13 +6892,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2601586375802818549
 MeshRenderer:
@@ -7155,18 +7029,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -7185,13 +7058,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3149730792449012494
 MeshRenderer:
@@ -7324,18 +7195,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -7354,13 +7224,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3944003473497905591
 MeshRenderer:
@@ -7494,17 +7362,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -7522,14 +7389,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7234494313388406180
 MeshRenderer:
@@ -7662,18 +7527,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 3
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -7692,13 +7556,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3896594820501202454
 MeshRenderer:
@@ -7831,18 +7693,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -7861,13 +7722,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6249807236420218341
 MeshRenderer:
@@ -8000,18 +7859,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -8030,13 +7888,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &104857738357837146
 MeshRenderer:
@@ -8170,17 +8026,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -8198,14 +8053,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5295651391978854028
 MeshRenderer:
@@ -8338,18 +8191,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -8368,13 +8220,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6664041817606575099
 MeshRenderer:
@@ -8508,17 +8358,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -8536,14 +8385,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5808437691885524344
 MeshRenderer:
@@ -8677,17 +8524,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -8706,13 +8552,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7989538838701040047
 MeshRenderer:
@@ -8845,18 +8689,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -8875,13 +8718,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2228514272268416826
 MeshRenderer:
@@ -9014,18 +8855,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -9044,13 +8884,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8182722285755347767
 MeshRenderer:
@@ -9183,18 +9021,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -9213,13 +9050,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5827748009055302539
 MeshRenderer:
@@ -9352,18 +9187,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -9382,13 +9216,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4334870781526152305
 MeshRenderer:
@@ -9521,18 +9353,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -9551,13 +9382,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8838953022236493611
 MeshRenderer:
@@ -9841,18 +9670,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -9871,13 +9699,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3394072248651981383
 MeshRenderer:
@@ -10010,18 +9836,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -10040,13 +9865,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3504757034687266709
 MeshRenderer:
@@ -10179,18 +10002,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -10209,13 +10031,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1588648371904793747
 MeshRenderer:
@@ -10349,17 +10169,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -10378,13 +10197,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4824495922268152686
 MeshRenderer:
@@ -10518,17 +10335,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -10547,13 +10363,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2778219075377373513
 MeshRenderer:
@@ -10686,18 +10500,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -10716,13 +10529,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &525971785781554805
 MeshRenderer:
@@ -10855,18 +10666,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -10885,13 +10695,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5860979845436570289
 MeshRenderer:
@@ -11025,17 +10833,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -11054,13 +10861,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &621992765772439446
 MeshRenderer:
@@ -11194,17 +10999,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -11222,14 +11026,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8778147157949771356
 MeshRenderer:
@@ -11362,18 +11164,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -11392,13 +11193,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2421410025706542590
 MeshRenderer:
@@ -11532,17 +11331,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -11560,14 +11358,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4478922205983110341
 MeshRenderer:
@@ -11700,18 +11496,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -11730,13 +11525,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6947396231797895492
 MeshRenderer:
@@ -11869,18 +11662,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -11899,13 +11691,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8223198138250185198
 MeshRenderer:
@@ -12039,17 +11829,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -12068,13 +11857,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4164497638658396903
 MeshRenderer:
@@ -12208,17 +11995,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -12237,13 +12023,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5559175670578155767
 MeshRenderer:
@@ -12376,18 +12160,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -12406,13 +12189,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4322752130256883189
 MeshRenderer:
@@ -12545,18 +12326,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 3
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -12575,13 +12355,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7511371640890098218
 MeshRenderer:
@@ -12714,18 +12492,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -12744,13 +12521,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8380767623070308998
 MeshRenderer:
@@ -12883,18 +12658,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -12913,13 +12687,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5553715737278394207
 MeshRenderer:
@@ -13052,18 +12824,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -13082,13 +12853,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4090064330073047718
 MeshRenderer:
@@ -13222,17 +12991,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -13251,13 +13019,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &146611808490144957
 MeshRenderer:
@@ -13391,17 +13157,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -13420,13 +13185,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1277461125595564294
 MeshRenderer:
@@ -13560,17 +13323,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -13589,13 +13351,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4349501679974455731
 MeshRenderer:
@@ -13728,18 +13488,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -13758,13 +13517,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8000029750741567490
 MeshRenderer:
@@ -13897,18 +13654,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -13927,13 +13683,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2530953548015593803
 MeshRenderer:
@@ -14066,18 +13820,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -14096,13 +13849,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7096594542264069025
 MeshRenderer:
@@ -14235,18 +13986,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -14265,13 +14015,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3674160807246161030
 MeshRenderer:
@@ -14405,17 +14153,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -14433,14 +14180,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5599059900024592159
 MeshRenderer:
@@ -14574,17 +14319,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -14603,13 +14347,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6232374048416891217
 MeshRenderer:
@@ -14742,18 +14484,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -14772,13 +14513,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1724605259257593304
 MeshRenderer:
@@ -14912,17 +14651,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -14941,13 +14679,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4486036194016832856
 MeshRenderer:
@@ -15081,17 +14817,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 0
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -15110,13 +14845,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3423619738277626858
 MeshRenderer:
@@ -15249,18 +14982,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -15279,13 +15011,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5513015790530323937
 MeshRenderer:
@@ -15418,18 +15148,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -15448,13 +15177,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6821459782477682660
 MeshRenderer:
@@ -15587,18 +15314,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -15617,13 +15343,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4297095150610421528
 MeshRenderer:
@@ -15715,7 +15439,6 @@ GameObject:
   - component: {fileID: 5200158978431513171}
   - component: {fileID: 5533056470915959595}
   - component: {fileID: 756269121467110151}
-  - component: {fileID: 2660216338984507590}
   m_Layer: 0
   m_Name: HexTop_Pasture(Clone)
   m_TagString: Untagged
@@ -15764,17 +15487,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -15792,14 +15514,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &9160264125611730227
 MeshRenderer:
@@ -15883,36 +15603,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8457766294279288207}
   m_CullTransparentMesh: 1
---- !u!114 &2660216338984507590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8457766294279288207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8730337896383288979
 GameObject:
   m_ObjectHideFlags: 0
@@ -15970,18 +15660,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -16000,13 +15689,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &9143209978038722213
 MeshRenderer:
@@ -16139,18 +15826,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 3
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -16169,13 +15855,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7593969099049342411
 MeshRenderer:
@@ -16308,18 +15992,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -16338,13 +16021,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5178542171952112111
 MeshRenderer:
@@ -16477,18 +16158,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -16507,13 +16187,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7281703592642106330
 MeshRenderer:
@@ -16647,17 +16325,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -16676,13 +16353,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4561674824783378823
 MeshRenderer:
@@ -16816,17 +16491,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -16845,13 +16519,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &379041704917958492
 MeshRenderer:
@@ -16985,17 +16657,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -17014,13 +16685,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6514553954749801463
 MeshRenderer:

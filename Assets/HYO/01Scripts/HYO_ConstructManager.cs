@@ -42,14 +42,26 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
+            //int layerMask = 1 << LayerMask.NameToLayer("HexFog");
 
-            if (Physics.Raycast(ray, out hit))
+            // 지형레이어
+            int layerGrassLand = LayerMask.NameToLayer("GrassLand");    // 6
+            int layerPlains = LayerMask.NameToLayer("Plains");          // 7
+            int layerDesert = LayerMask.NameToLayer("Desert");          // 8
+            int layerMountain = LayerMask.NameToLayer("Mountain");      // 9
+
+            int layerMask = 1 << layerGrassLand | 1 << layerPlains | 1 << layerDesert | 1 << layerMountain;
+
+            if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
             {
+                tileTemp = hit.transform;
+                settleBTN.SetActive(true);
+
                 int layerNum = hit.transform.gameObject.layer;
-                if (layerNum == 6 || layerNum == 7)
+                if (layerNum == layerGrassLand || layerNum == layerPlains)
                 {
-                    tileTemp = hit.transform;
-                    if (hit.transform.gameObject.GetComponent<TerrainData>().isHills)
+                    bool isHillis = hit.transform.gameObject.GetComponent<TerrainData>().isHills;
+                    if (isHillis)
                     {
                         mineBTN.SetActive(true);
                     }
@@ -57,16 +69,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                     {
                         farmBTN.SetActive(true);
                     }
-                }
-                else if (layerNum == 8 || layerNum == 9)
-                {
-                    tileTemp = hit.transform;
-                }
-                else if (layerNum == 6 || layerNum == 7 || layerNum == 8 || layerNum == 9)
-                {
-                    tileTemp = hit.transform;
-                    settleBTN.SetActive(true);
-
                 }
             }
         }
@@ -82,16 +84,16 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         // 1.2 그렇지않고 팝업을 보여주는 중이라면 팝업을 끄고싶다.
 
 
-        if(isOpenPopup == false)
+        if (isOpenPopup == false)
             mousePos = Input.mousePosition;
 
 
         if (Physics.Raycast(rayPoint, out hitInfo))
         {
-            if(mousePos == Input.mousePosition)
+            if (mousePos == Input.mousePosition)
             {
                 currentTime += Time.deltaTime;
-                if(currentTime > popupTime)
+                if (currentTime > popupTime)
                 {
                     isOpenPopup = true;
 
@@ -101,12 +103,12 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                         tileTemp.GetComponent<TerrainData>().ShowTileInfo();
                         tileInfo.SetActive(true);
                     }
-                        currentTime = 0;
+                    currentTime = 0;
                 }
             }
             else
             {
-                if(tileInfo.activeSelf == true)
+                if (tileInfo.activeSelf == true)
                 {
                     isOpenPopup = false;
 
@@ -137,7 +139,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             //        currentTime = 0;
             //        mousePos = Input.mousePosition;
             //    }
-            
+
             //}
 
         }
@@ -216,7 +218,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     }
     public void CreateTerritoryBtn()
     {
-        
+
         Collider[] centers = Physics.OverlapSphere(tileTemp.position, 1);
 
         for (int i = 0; i < centers.Length; i++)
@@ -225,7 +227,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             {
                 print("도시건설 불가:도시 인접지역");
                 return;
-            }          
+            }
         }
         tileTemp.gameObject.AddComponent<Territory>();
         GameObject city = Instantiate(cityGate);
