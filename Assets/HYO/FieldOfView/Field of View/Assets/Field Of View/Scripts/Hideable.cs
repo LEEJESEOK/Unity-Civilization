@@ -15,14 +15,6 @@ public class Hideable : MonoBehaviour, IHideable
     }
     public void OnFOVTransparency()
     {
-        //Material Mat = renderer.material;
-
-        //Color matColor = Mat.color;
-
-        //matColor.a = 0.5f;
-
-        //Mat.color = matColor;
-
         renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 0.5f);
     }
 }
