@@ -1868,26 +1868,6 @@ MonoBehaviour:
   district: 0
   canCreate: 0
   iconNum: 0
---- !u!114 &394461527147384958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2956803642024909036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terrainData: {fileID: 0}
-  facility: 0
-  districtInput:
-    productivity: 0
-    gold: 0
-  district: 0
-  canCreate: 0
-  iconNum: 0
 --- !u!64 &426356158267721926
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2150,7 +2130,6 @@ GameObject:
   - component: {fileID: 359449253883112583}
   - component: {fileID: 2685923149586690975}
   - component: {fileID: 2410983848846942222}
-  - component: {fileID: 2549109684593190101}
   - component: {fileID: 8985506984224619021}
   - component: {fileID: 1098552492386229614}
   - component: {fileID: 996901232852708972}
@@ -5474,26 +5453,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464642823961144243}
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
---- !u!114 &2549109684593190101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 542086453923589744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8831be6306daf2344a18b579a4e99c2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terrainData: {fileID: 0}
-  facility: 0
-  districtInput:
-    productivity: 0
-    gold: 0
-  district: 0
-  canCreate: 0
-  iconNum: 0
 --- !u!4 &2549430002880969739
 Transform:
   m_ObjectHideFlags: 0
@@ -6248,7 +6207,6 @@ GameObject:
   - component: {fileID: 1997354030268501892}
   - component: {fileID: 4414133516736820801}
   - component: {fileID: 7650320342382143102}
-  - component: {fileID: 394461527147384958}
   - component: {fileID: 1332203567381379076}
   - component: {fileID: 1695091539576130751}
   - component: {fileID: 8570709007715483085}
