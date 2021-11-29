@@ -10,6 +10,7 @@ public class ButtonListener<T> : MonoBehaviour, IButtonListener<T>
     public T buttonType { get => _buttonType; set => _buttonType = value; }
     public Action<T> onClickCallback { get; set; }
 
+
     public void SetButtonType(T buttonType)
     {
         this.buttonType = buttonType;
