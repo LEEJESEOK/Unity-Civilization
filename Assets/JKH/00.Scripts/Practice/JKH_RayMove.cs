@@ -44,9 +44,36 @@ public class JKH_RayMove : MonoBehaviour
             {
                 if (hitInfo.transform.gameObject)
                 {
-                    print("ㅎㅇ");
-                    print(i);
-                    print(hitInfo.transform.gameObject.name);
+                    //해당 좌표를 가져온다.
+                    //Script xxx =GameObject.Find("xxx").GetComponent<Script>();
+                    if (hitInfo.transform.gameObject.tag == "Map")
+                    {
+                        print(i +"번째에서, "+hitInfo.transform.GetComponent<TerrainData>().x + 
+                            ", " + hitInfo.transform.GetComponent<TerrainData>().y);
+
+                        //이웃의 이동력도 불러온다!!!
+                        //print("이웃타일의 이동력: "+ hitInfo.transform.GetComponent<TerrainData>().)
+
+
+                        //needs
+                        //시작지점의 좌표 
+                        //목적지의 좌표
+                        //본인의 위치의 g(n)과 이웃의 g(n) (자신의 G + 이웃의 이동력  ) 계산
+                        //갈수있는 타일인가? BOOL (이미 왔던데, 벽 은 못움직이니까 제외)
+                        //----
+                        //g(n)= 시작지점부터 현위치까지 이동한거리
+                        //h(n)= 현위치에서 목적지까지의 거리
+                        //f(n)= g(n)+h(n)
+                        
+                        //이웃의 f(n) 점수를 합산해서 제일 낮은 위치로 이동
+                        //목적지에 도달할떄 까지 반복한다.
+
+
+
+
+
+                    }
+
                 }
             }
         }
