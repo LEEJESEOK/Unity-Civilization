@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2452465402627229479}
   - component: {fileID: 8536070355104347669}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,17 +58,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -87,13 +86,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1733140668953697375
 MeshRenderer:
@@ -185,7 +182,7 @@ GameObject:
   - component: {fileID: 4654203423759294743}
   - component: {fileID: 4200459082209777088}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,17 +224,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 0
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -256,13 +252,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5839387165412847531
 MeshRenderer:
@@ -354,7 +348,7 @@ GameObject:
   - component: {fileID: 1098552491967728562}
   - component: {fileID: 996901232465672368}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -395,18 +389,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 2
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -425,13 +418,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8985506983803727057
 MeshRenderer:
@@ -523,7 +514,7 @@ GameObject:
   - component: {fileID: 2212246609192389500}
   - component: {fileID: 5961637968478584165}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -564,18 +555,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -594,13 +584,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &457860609038828174
 MeshRenderer:
@@ -692,7 +680,7 @@ GameObject:
   - component: {fileID: 3154429860232900641}
   - component: {fileID: 3357306372369035664}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -734,17 +722,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -763,13 +750,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1216033401957949146
 MeshRenderer:
@@ -861,7 +846,7 @@ GameObject:
   - component: {fileID: 8101017401816829223}
   - component: {fileID: 8306514583501125050}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -903,17 +888,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -932,13 +916,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &690549467963123442
 MeshRenderer:
@@ -1030,7 +1012,7 @@ GameObject:
   - component: {fileID: 128414637270493389}
   - component: {fileID: 8003996590467138770}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1071,18 +1053,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -1101,13 +1082,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2202244812525594064
 MeshRenderer:
@@ -1199,7 +1178,7 @@ GameObject:
   - component: {fileID: 1551513226750988909}
   - component: {fileID: 8939943534080436690}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1240,18 +1219,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -1270,13 +1248,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6397902307853021367
 MeshRenderer:
@@ -1368,7 +1344,7 @@ GameObject:
   - component: {fileID: 428092062435597419}
   - component: {fileID: 2762739387325048944}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1409,18 +1385,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -1439,13 +1414,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7912664521370021295
 MeshRenderer:
@@ -1537,7 +1510,7 @@ GameObject:
   - component: {fileID: 537599802326496931}
   - component: {fileID: 426356158921399834}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1578,18 +1551,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 2
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -1608,13 +1580,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2700927439007664536
 MeshRenderer:
@@ -1706,7 +1676,7 @@ GameObject:
   - component: {fileID: 7857803318312550802}
   - component: {fileID: 7062664854877247175}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1747,18 +1717,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -1777,13 +1746,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7540908271123503570
 MeshRenderer:
@@ -1875,7 +1842,7 @@ GameObject:
   - component: {fileID: 6864256580586176290}
   - component: {fileID: 8322643460786751875}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1916,18 +1883,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -1946,13 +1912,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1518242667957104543
 MeshRenderer:
@@ -2044,7 +2008,7 @@ GameObject:
   - component: {fileID: 5015158503479671640}
   - component: {fileID: 1724911410839441879}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2085,18 +2049,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -2115,13 +2078,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4167568558494120447
 MeshRenderer:
@@ -2213,7 +2174,7 @@ GameObject:
   - component: {fileID: 6237555334966595540}
   - component: {fileID: 9192960905630612853}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2255,17 +2216,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -2283,14 +2243,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7409782671637433296
 MeshRenderer:
@@ -2382,7 +2340,7 @@ GameObject:
   - component: {fileID: 4128678530613658664}
   - component: {fileID: 3040260037931503119}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2423,18 +2381,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -2453,13 +2410,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7830850145296971829
 MeshRenderer:
@@ -2551,7 +2506,7 @@ GameObject:
   - component: {fileID: 6453123040296522200}
   - component: {fileID: 6158803357061591523}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2592,18 +2547,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 3
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -2622,13 +2576,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3895710575410347145
 MeshRenderer:
@@ -2720,7 +2672,7 @@ GameObject:
   - component: {fileID: 4990783449234817288}
   - component: {fileID: 1073890286236973907}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2762,17 +2714,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -2791,13 +2742,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3497594241143731575
 MeshRenderer:
@@ -2889,7 +2838,7 @@ GameObject:
   - component: {fileID: 1452835695829871239}
   - component: {fileID: 5033005428674609067}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2931,17 +2880,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -2960,13 +2908,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5754502760528025063
 MeshRenderer:
@@ -3058,7 +3004,7 @@ GameObject:
   - component: {fileID: 7047249435860723740}
   - component: {fileID: 2842548543036428844}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3099,18 +3045,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -3129,13 +3074,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5613759215317041902
 MeshRenderer:
@@ -3227,7 +3170,7 @@ GameObject:
   - component: {fileID: 5354447442334998843}
   - component: {fileID: 6818263877531012494}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3268,18 +3211,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -3298,13 +3240,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8128838302696848742
 MeshRenderer:
@@ -3396,7 +3336,7 @@ GameObject:
   - component: {fileID: 2692575111276900755}
   - component: {fileID: 3758867694486698623}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3437,18 +3377,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -3467,13 +3406,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3166477125626900238
 MeshRenderer:
@@ -3565,7 +3502,7 @@ GameObject:
   - component: {fileID: 188265034884964640}
   - component: {fileID: 4166628381956954251}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3607,17 +3544,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -3635,14 +3571,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5549572891522842084
 MeshRenderer:
@@ -3734,7 +3668,7 @@ GameObject:
   - component: {fileID: 9147480094284195518}
   - component: {fileID: 2926247092884421697}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3775,18 +3709,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -3805,13 +3738,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1944105438649221629
 MeshRenderer:
@@ -3903,7 +3834,7 @@ GameObject:
   - component: {fileID: 4284909699052308364}
   - component: {fileID: 6185462157601038302}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3944,18 +3875,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -3974,13 +3904,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2193391507663110926
 MeshRenderer:
@@ -4072,7 +4000,7 @@ GameObject:
   - component: {fileID: 8993834222868797926}
   - component: {fileID: 5627480002150626483}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4113,18 +4041,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -4143,13 +4070,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4815343716132135559
 MeshRenderer:
@@ -4241,7 +4166,7 @@ GameObject:
   - component: {fileID: 4119454426574057404}
   - component: {fileID: 2888804556761642049}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4282,18 +4207,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -4312,13 +4236,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8141405263974694245
 MeshRenderer:
@@ -4410,7 +4332,7 @@ GameObject:
   - component: {fileID: 1470701157751182374}
   - component: {fileID: 6564661246611198270}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4451,18 +4373,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 2
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -4481,13 +4402,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4149930478397854802
 MeshRenderer:
@@ -4579,7 +4498,7 @@ GameObject:
   - component: {fileID: 3431145533375060268}
   - component: {fileID: 2816660539240550497}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4620,18 +4539,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -4650,13 +4568,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1324451389365079809
 MeshRenderer:
@@ -4748,7 +4664,7 @@ GameObject:
   - component: {fileID: 3762253963145356455}
   - component: {fileID: 8651266259004345321}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4790,17 +4706,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -4819,13 +4734,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8678700377159654599
 MeshRenderer:
@@ -4917,7 +4830,7 @@ GameObject:
   - component: {fileID: 2434291487875262907}
   - component: {fileID: 7560827643883850297}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4958,18 +4871,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -4988,13 +4900,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4849617567986229088
 MeshRenderer:
@@ -5086,7 +4996,7 @@ GameObject:
   - component: {fileID: 1695091539189095011}
   - component: {fileID: 8570709008401918737}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5128,17 +5038,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -5157,13 +5066,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1332203568069881560
 MeshRenderer:
@@ -5255,7 +5162,7 @@ GameObject:
   - component: {fileID: 7925191435437845178}
   - component: {fileID: 7723190563538028352}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5296,18 +5203,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -5326,13 +5232,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4826928262894214477
 MeshRenderer:
@@ -5424,7 +5328,7 @@ GameObject:
   - component: {fileID: 1453409889672854782}
   - component: {fileID: 8124035117633357440}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5465,18 +5369,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -5495,13 +5398,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8700657563476377738
 MeshRenderer:
@@ -5593,7 +5494,7 @@ GameObject:
   - component: {fileID: 2352573411072726991}
   - component: {fileID: 2855217020013172051}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5634,18 +5535,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -5664,13 +5564,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3201580735491670198
 MeshRenderer:
@@ -5762,7 +5660,7 @@ GameObject:
   - component: {fileID: 4214481786313576996}
   - component: {fileID: 7681092494875661736}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5804,17 +5702,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -5833,13 +5730,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8962450568602988479
 MeshRenderer:
@@ -5931,7 +5826,7 @@ GameObject:
   - component: {fileID: 7335414075277074294}
   - component: {fileID: 8456842610263391678}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5973,17 +5868,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 0
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -6002,13 +5896,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8423273863346791395
 MeshRenderer:
@@ -6100,7 +5992,7 @@ GameObject:
   - component: {fileID: 4785608717513320763}
   - component: {fileID: 276766433544002026}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6141,18 +6033,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -6171,13 +6062,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1209148958172886555
 MeshRenderer:
@@ -6269,7 +6158,7 @@ GameObject:
   - component: {fileID: 6547691520193643504}
   - component: {fileID: 3369258952027451457}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6310,18 +6199,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -6340,13 +6228,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6582269698414691146
 MeshRenderer:
@@ -6438,7 +6324,7 @@ GameObject:
   - component: {fileID: 2016134705901459944}
   - component: {fileID: 8784784293915991177}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6479,18 +6365,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -6509,13 +6394,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8069685621585979812
 MeshRenderer:
@@ -6607,7 +6490,7 @@ GameObject:
   - component: {fileID: 6079694208985212437}
   - component: {fileID: 8945056724120176813}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6648,18 +6531,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -6678,13 +6560,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6925680642027281391
 MeshRenderer:
@@ -6776,7 +6656,7 @@ GameObject:
   - component: {fileID: 8440786100587368742}
   - component: {fileID: 6692496504961312007}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6818,17 +6698,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -6846,14 +6725,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &124948108815216102
 MeshRenderer:
@@ -6945,7 +6822,7 @@ GameObject:
   - component: {fileID: 3715237518836711411}
   - component: {fileID: 4890829477178282064}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6986,18 +6863,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -7016,13 +6892,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2601586375802818549
 MeshRenderer:
@@ -7114,7 +6988,7 @@ GameObject:
   - component: {fileID: 230004082233158859}
   - component: {fileID: 7979933590770319802}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7155,18 +7029,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -7185,13 +7058,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3149730792449012494
 MeshRenderer:
@@ -7283,7 +7154,7 @@ GameObject:
   - component: {fileID: 7380135803804916855}
   - component: {fileID: 1184375053813814280}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7324,18 +7195,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -7354,13 +7224,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3944003473497905591
 MeshRenderer:
@@ -7452,7 +7320,7 @@ GameObject:
   - component: {fileID: 3026102969018281673}
   - component: {fileID: 3797039872685640540}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7494,17 +7362,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -7522,14 +7389,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7234494313388406180
 MeshRenderer:
@@ -7621,7 +7486,7 @@ GameObject:
   - component: {fileID: 1152316160665350658}
   - component: {fileID: 9157702490176760423}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7662,18 +7527,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 3
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -7692,13 +7556,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3896594820501202454
 MeshRenderer:
@@ -7790,7 +7652,7 @@ GameObject:
   - component: {fileID: 3890991291361563887}
   - component: {fileID: 8133804651379027747}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7831,18 +7693,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -7861,13 +7722,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6249807236420218341
 MeshRenderer:
@@ -7959,7 +7818,7 @@ GameObject:
   - component: {fileID: 3838802233871625940}
   - component: {fileID: 5163449268234982831}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8000,18 +7859,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -8030,13 +7888,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &104857738357837146
 MeshRenderer:
@@ -8128,7 +7984,7 @@ GameObject:
   - component: {fileID: 7393460615013346013}
   - component: {fileID: 8307561157804777133}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8170,17 +8026,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -8198,14 +8053,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5295651391978854028
 MeshRenderer:
@@ -8297,7 +8150,7 @@ GameObject:
   - component: {fileID: 5384574769290416602}
   - component: {fileID: 2436880916429129577}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8338,18 +8191,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -8368,13 +8220,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6664041817606575099
 MeshRenderer:
@@ -8466,7 +8316,7 @@ GameObject:
   - component: {fileID: 8189248652273316967}
   - component: {fileID: 8982978722895600563}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8508,17 +8358,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -8536,14 +8385,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5808437691885524344
 MeshRenderer:
@@ -8635,7 +8482,7 @@ GameObject:
   - component: {fileID: 7191294104422603756}
   - component: {fileID: 1745415132853594624}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8677,17 +8524,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -8706,13 +8552,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7989538838701040047
 MeshRenderer:
@@ -8804,7 +8648,7 @@ GameObject:
   - component: {fileID: 5312064434951689324}
   - component: {fileID: 973425087982916189}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8845,18 +8689,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -8875,13 +8718,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2228514272268416826
 MeshRenderer:
@@ -8973,7 +8814,7 @@ GameObject:
   - component: {fileID: 5121722790031637178}
   - component: {fileID: 7356877243619645644}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9014,18 +8855,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -9044,13 +8884,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8182722285755347767
 MeshRenderer:
@@ -9142,7 +8980,7 @@ GameObject:
   - component: {fileID: 7040340900185162837}
   - component: {fileID: 2126048715226497923}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9183,18 +9021,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -9213,13 +9050,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5827748009055302539
 MeshRenderer:
@@ -9311,7 +9146,7 @@ GameObject:
   - component: {fileID: 6585714486393171059}
   - component: {fileID: 5463557942378557565}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9352,18 +9187,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -9382,13 +9216,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4334870781526152305
 MeshRenderer:
@@ -9480,7 +9312,7 @@ GameObject:
   - component: {fileID: 475789368538490800}
   - component: {fileID: 6864791934134736603}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9521,18 +9353,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -9551,13 +9382,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8838953022236493611
 MeshRenderer:
@@ -9800,7 +9629,7 @@ GameObject:
   - component: {fileID: 1918013617052233914}
   - component: {fileID: 7226934754617528717}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9841,18 +9670,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -9871,13 +9699,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3394072248651981383
 MeshRenderer:
@@ -9969,7 +9795,7 @@ GameObject:
   - component: {fileID: 7914256983953102907}
   - component: {fileID: 6977909290972079014}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10010,18 +9836,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -10040,13 +9865,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3504757034687266709
 MeshRenderer:
@@ -10138,7 +9961,7 @@ GameObject:
   - component: {fileID: 1193244774825039949}
   - component: {fileID: 821850303699969710}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10179,18 +10002,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -10209,13 +10031,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1588648371904793747
 MeshRenderer:
@@ -10307,7 +10127,7 @@ GameObject:
   - component: {fileID: 3256278461516105913}
   - component: {fileID: 6666978215477805044}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10349,17 +10169,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -10378,13 +10197,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4824495922268152686
 MeshRenderer:
@@ -10476,7 +10293,7 @@ GameObject:
   - component: {fileID: 6405754165063799178}
   - component: {fileID: 6316454165030769126}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10518,17 +10335,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -10547,13 +10363,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2778219075377373513
 MeshRenderer:
@@ -10645,7 +10459,7 @@ GameObject:
   - component: {fileID: 768774981392151265}
   - component: {fileID: 8918926924161011819}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10686,18 +10500,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -10716,13 +10529,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &525971785781554805
 MeshRenderer:
@@ -10814,7 +10625,7 @@ GameObject:
   - component: {fileID: 2387592492828088103}
   - component: {fileID: 3034760592317286821}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10855,18 +10666,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -10885,13 +10695,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5860979845436570289
 MeshRenderer:
@@ -10983,7 +10791,7 @@ GameObject:
   - component: {fileID: 9014842296758887665}
   - component: {fileID: 1356593593837266280}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11025,17 +10833,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -11054,13 +10861,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &621992765772439446
 MeshRenderer:
@@ -11152,7 +10957,7 @@ GameObject:
   - component: {fileID: 8432527266835309545}
   - component: {fileID: 4744873488839496309}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11194,17 +10999,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -11222,14 +11026,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8778147157949771356
 MeshRenderer:
@@ -11321,7 +11123,7 @@ GameObject:
   - component: {fileID: 2945269276833321551}
   - component: {fileID: 8514190329826941342}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11362,18 +11164,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -11392,13 +11193,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2421410025706542590
 MeshRenderer:
@@ -11490,7 +11289,7 @@ GameObject:
   - component: {fileID: 2890625615457534240}
   - component: {fileID: 6956811911279851107}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11532,17 +11331,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -11560,14 +11358,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4478922205983110341
 MeshRenderer:
@@ -11659,7 +11455,7 @@ GameObject:
   - component: {fileID: 1391497649987601511}
   - component: {fileID: 7428160072908222147}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11700,18 +11496,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -11730,13 +11525,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6947396231797895492
 MeshRenderer:
@@ -11828,7 +11621,7 @@ GameObject:
   - component: {fileID: 8261235081591159789}
   - component: {fileID: 3005789820742680610}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11869,18 +11662,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -11899,13 +11691,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8223198138250185198
 MeshRenderer:
@@ -11997,7 +11787,7 @@ GameObject:
   - component: {fileID: 3600184875600221969}
   - component: {fileID: 8106584194099254337}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12039,17 +11829,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -12068,13 +11857,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4164497638658396903
 MeshRenderer:
@@ -12166,7 +11953,7 @@ GameObject:
   - component: {fileID: 4355048777997886148}
   - component: {fileID: 110030716848434348}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12208,17 +11995,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -12237,13 +12023,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5559175670578155767
 MeshRenderer:
@@ -12335,7 +12119,7 @@ GameObject:
   - component: {fileID: 1772139543129384126}
   - component: {fileID: 7062412034164044089}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12376,18 +12160,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -12406,13 +12189,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4322752130256883189
 MeshRenderer:
@@ -12504,7 +12285,7 @@ GameObject:
   - component: {fileID: 8110424997889927692}
   - component: {fileID: 6724435291590300393}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12545,18 +12326,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 3
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -12575,13 +12355,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7511371640890098218
 MeshRenderer:
@@ -12673,7 +12451,7 @@ GameObject:
   - component: {fileID: 3121038414045144722}
   - component: {fileID: 482160997337573997}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12714,18 +12492,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -12744,13 +12521,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8380767623070308998
 MeshRenderer:
@@ -12842,7 +12617,7 @@ GameObject:
   - component: {fileID: 1633769053004966297}
   - component: {fileID: 1468566084644157926}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12883,18 +12658,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -12913,13 +12687,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5553715737278394207
 MeshRenderer:
@@ -13011,7 +12783,7 @@ GameObject:
   - component: {fileID: 2680334071389138988}
   - component: {fileID: 1929452210802400820}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13052,18 +12824,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -13082,13 +12853,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4090064330073047718
 MeshRenderer:
@@ -13180,7 +12949,7 @@ GameObject:
   - component: {fileID: 5670070452958881687}
   - component: {fileID: 7048754753289377640}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13222,17 +12991,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -13251,13 +13019,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &146611808490144957
 MeshRenderer:
@@ -13349,7 +13115,7 @@ GameObject:
   - component: {fileID: 2378023016250409408}
   - component: {fileID: 8507667394449571944}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13391,17 +13157,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -13420,13 +13185,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1277461125595564294
 MeshRenderer:
@@ -13518,7 +13281,7 @@ GameObject:
   - component: {fileID: 8584765202851284833}
   - component: {fileID: 9094054901376908456}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13560,17 +13323,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -13589,13 +13351,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4349501679974455731
 MeshRenderer:
@@ -13687,7 +13447,7 @@ GameObject:
   - component: {fileID: 4966077547417640800}
   - component: {fileID: 2076118497865228832}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13728,18 +13488,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 1
@@ -13758,13 +13517,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &8000029750741567490
 MeshRenderer:
@@ -13856,7 +13613,7 @@ GameObject:
   - component: {fileID: 4639375376619727217}
   - component: {fileID: 7194599612353568849}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13897,18 +13654,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -13927,13 +13683,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &2530953548015593803
 MeshRenderer:
@@ -14025,7 +13779,7 @@ GameObject:
   - component: {fileID: 3650835445808174784}
   - component: {fileID: 6638366757885788471}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14066,18 +13820,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
-  isHills: 0
+  myCenter: {fileID: 0}
+  isHills: 1
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -14096,13 +13849,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7096594542264069025
 MeshRenderer:
@@ -14194,7 +13945,7 @@ GameObject:
   - component: {fileID: 3145113832615669232}
   - component: {fileID: 8271152037833981360}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14235,18 +13986,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -14265,13 +14015,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3674160807246161030
 MeshRenderer:
@@ -14363,7 +14111,7 @@ GameObject:
   - component: {fileID: 5030806906136562748}
   - component: {fileID: 4526610979336196281}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14405,17 +14153,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -14433,14 +14180,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5599059900024592159
 MeshRenderer:
@@ -14532,7 +14277,7 @@ GameObject:
   - component: {fileID: 4728669398853415367}
   - component: {fileID: 7821369903876323043}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14574,17 +14319,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 8
@@ -14603,13 +14347,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6232374048416891217
 MeshRenderer:
@@ -14701,7 +14443,7 @@ GameObject:
   - component: {fileID: 6194613449305619270}
   - component: {fileID: 1418526822960413273}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14742,18 +14484,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -14772,13 +14513,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &1724605259257593304
 MeshRenderer:
@@ -14870,7 +14609,7 @@ GameObject:
   - component: {fileID: 6206243350674062737}
   - component: {fileID: 3927502887530535525}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14912,17 +14651,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -14941,13 +14679,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4486036194016832856
 MeshRenderer:
@@ -15039,7 +14775,7 @@ GameObject:
   - component: {fileID: 6117785308510575987}
   - component: {fileID: 7939403561458904586}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15081,17 +14817,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 0
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 4
@@ -15110,13 +14845,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &3423619738277626858
 MeshRenderer:
@@ -15208,7 +14941,7 @@ GameObject:
   - component: {fileID: 7106996676324822213}
   - component: {fileID: 4256042032815870766}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15249,18 +14982,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 3
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -15279,13 +15011,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5513015790530323937
 MeshRenderer:
@@ -15377,7 +15107,7 @@ GameObject:
   - component: {fileID: 3303363367613671003}
   - component: {fileID: 4843739665129511373}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15418,18 +15148,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 5
@@ -15448,13 +15177,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6821459782477682660
 MeshRenderer:
@@ -15546,7 +15273,7 @@ GameObject:
   - component: {fileID: 9189154136670893966}
   - component: {fileID: 7038458339501572909}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15587,18 +15314,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 2
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 3
@@ -15617,13 +15343,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4297095150610421528
 MeshRenderer:
@@ -15715,9 +15439,8 @@ GameObject:
   - component: {fileID: 5200158978431513171}
   - component: {fileID: 5533056470915959595}
   - component: {fileID: 756269121467110151}
-  - component: {fileID: 2660216338984507590}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15764,17 +15487,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -15792,14 +15514,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
-  facility: 0
-  facilityOn: []
-  districtOn: []
+  facility: 2
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &9160264125611730227
 MeshRenderer:
@@ -15883,36 +15603,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8457766294279288207}
   m_CullTransparentMesh: 1
---- !u!114 &2660216338984507590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8457766294279288207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8730337896383288979
 GameObject:
   m_ObjectHideFlags: 0
@@ -15929,7 +15619,7 @@ GameObject:
   - component: {fileID: 6077123252160456498}
   - component: {fileID: 1412244116395579964}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15970,18 +15660,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -16000,13 +15689,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &9143209978038722213
 MeshRenderer:
@@ -16098,7 +15785,7 @@ GameObject:
   - component: {fileID: 913739554284784875}
   - component: {fileID: 3476128187412945875}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16139,18 +15826,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 3
-  feature: 0
+  feature: 1
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 2
@@ -16169,13 +15855,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7593969099049342411
 MeshRenderer:
@@ -16267,7 +15951,7 @@ GameObject:
   - component: {fileID: 6227500684991489152}
   - component: {fileID: 8598171216065454628}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16308,18 +15992,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 0
@@ -16338,13 +16021,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &5178542171952112111
 MeshRenderer:
@@ -16436,7 +16117,7 @@ GameObject:
   - component: {fileID: 7254058986875860627}
   - component: {fileID: 1943425691538555196}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16477,18 +16158,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 5
-  feature: 0
+  feature: 4
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -16507,13 +16187,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &7281703592642106330
 MeshRenderer:
@@ -16605,7 +16283,7 @@ GameObject:
   - component: {fileID: 5986734544680672583}
   - component: {fileID: 3649432151740496450}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16647,17 +16325,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 7
@@ -16676,13 +16353,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &4561674824783378823
 MeshRenderer:
@@ -16774,7 +16449,7 @@ GameObject:
   - component: {fileID: 1121390245548117020}
   - component: {fileID: 7162657889059599418}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16816,17 +16491,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 6
@@ -16845,13 +16519,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &379041704917958492
 MeshRenderer:
@@ -16943,7 +16615,7 @@ GameObject:
   - component: {fileID: 1709240877796389804}
   - component: {fileID: 5018033649311323151}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16985,17 +16657,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainType: 5
   feature: 0
+  facilityData: {fileID: 0}
   output:
-    food: 0
-    productivity: 0
-    gold: 0
-    science: 0
     movePower: 0
   mask:
     serializedVersion: 2
     m_Bits: 0
   territory: []
+  myCenter: {fileID: 0}
   isHills: 0
+  tileInfoText: {fileID: 0}
   width: 50
   length: 50
   x: 9
@@ -17014,13 +16685,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainData: {fileID: 0}
   facility: 0
-  facilityOn: []
-  districtOn: []
   districtInput:
     productivity: 0
     gold: 0
   district: 0
-  populatuon: 0
+  canCreate: 0
   iconNum: 0
 --- !u!23 &6514553954749801463
 MeshRenderer:
