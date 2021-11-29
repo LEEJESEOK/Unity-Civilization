@@ -8,6 +8,8 @@ public class UIPanelManager : MonoBehaviour
 {
     [SerializeField]
     Animator initiallyOpen;
+    [SerializeField]
+    List<UIPanel> panels;
 
     int m_OpenParameterId;
     Animator m_Open;
@@ -25,6 +27,11 @@ public class UIPanelManager : MonoBehaviour
             return;
 
         OpenPanel(initiallyOpen);
+    }
+
+    private void Start()
+    {
+        panels = new List<UIPanel>(GetComponentsInChildren<UIPanel>(true));
     }
 
     public void OpenPanel(Animator animator)
