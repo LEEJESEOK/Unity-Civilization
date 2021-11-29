@@ -228,6 +228,7 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
+
     List<IHideable> findTargetList;
     /// <summary>
     /// Finds all visible targets and adds them to the visibleTargets list.
@@ -243,6 +244,7 @@ public class FieldOfView : MonoBehaviour
         for (int i = 0; i < findTargetList.Count; i++)
         {
             findTargetList[i].OnFOVLeaveShow();
+            findTargetList[i].OnFOVTransparency();
         }
 
 
@@ -284,12 +286,13 @@ public class FieldOfView : MonoBehaviour
                 if (isInFOV)
                 {
                     hideable.OnFOVEnterHide();
-                    //findTargetList.Add(hideable);
+                    findTargetList.Add(hideable);
                 }
                 else
                 {
                     hideable.OnFOVLeaveShow();
-                    //findTargetList.Remove(hideable);
+                    hideable.OnFOVTransparency();
+                    findTargetList.Remove(hideable);
                 }
             }
         }

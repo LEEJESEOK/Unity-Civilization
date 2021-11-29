@@ -6,4 +6,6 @@ public interface IHideable {
 
     void OnFOVEnterHide();
     void OnFOVLeaveShow();
+
+    void OnFOVTransparency();
 }

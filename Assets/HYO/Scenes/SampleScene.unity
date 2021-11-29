@@ -847,7 +847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114296133860155750, guid: dc71f2c975802cd4d96ca38942f7ac1c, type: 3}
       propertyPath: viewRadius
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114296133860155750, guid: dc71f2c975802cd4d96ca38942f7ac1c, type: 3}
       propertyPath: targetMask.m_Bits
