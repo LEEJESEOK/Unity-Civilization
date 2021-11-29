@@ -32,7 +32,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     void Start()
     {
-
+        farmBTN.SetActive(false);
+        mineBTN.SetActive(false);
+        settleBTN.SetActive(false);
     }
 
     private void Update()
@@ -45,21 +47,27 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             //int layerMask = 1 << LayerMask.NameToLayer("HexFog");
 
             // 지형레이어
-            int layerGrassLand = LayerMask.NameToLayer("GrassLand");    // 6
-            int layerPlains = LayerMask.NameToLayer("Plains");          // 7
-            int layerDesert = LayerMask.NameToLayer("Desert");          // 8
-            int layerMountain = LayerMask.NameToLayer("Mountain");      // 9
+            int layerGrassLand = LayerMask.GetMask("GrassLand");    // 6
+            int layerPlains = LayerMask.GetMask("Plains");          // 7
+            int layerDesert = LayerMask.GetMask("Desert");          // 8
+            int layerMountain = LayerMask.GetMask("Mountain");      // 9
+            int fogLayer = ~LayerMask.GetMask("HexFog");
 
-            int layerMask = 1 << layerGrassLand | 1 << layerPlains | 1 << layerDesert | 1 << layerMountain;
+            int layerMask = (layerGrassLand | layerPlains | layerDesert | layerMountain) & fogLayer;
 
             if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
             {
+
                 tileTemp = hit.transform;
+                print(tileTemp.name);
                 settleBTN.SetActive(true);
 
                 int layerNum = hit.transform.gameObject.layer;
+                layerNum = LayerMask.GetMask(LayerMask.LayerToName(layerNum));
+
                 if (layerNum == layerGrassLand || layerNum == layerPlains)
                 {
+
                     bool isHillis = hit.transform.gameObject.GetComponent<TerrainData>().isHills;
                     if (isHillis)
                     {
@@ -117,53 +125,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             }
 
 
-
-            //// 팝업으로 보려는 시도 중
-            //if (isTryShowTileInfoPopup)
-            //{
-            //    // 창을 띄우고싶다.
-            //    if (false == isTryShowTileInfoPopup)
-            //    {
-            //        StartCoroutine(tileInfo_Cour());
-            //        isTryShowTileInfoPopup = true;
-            //    }
-            //}
-            //else
-            //{
-            //    // 타일 위에 마우스 포인트가 올라왔다면
-            //    //타일이 맞으면
-            //    tileTemp = hitInfo.transform;
-            //    if (tileTemp.GetComponent<TerrainData>() != null)
-            //    {
-            //        isTryShowTileInfoPopup = true;
-            //        currentTime = 0;
-            //        mousePos = Input.mousePosition;
-            //    }
-
-            //}
-
         }
     }
 
-    //bool isTryShowTileInfoPopup;
-    //IEnumerator tileInfo_Cour()
-    //{
-
-    //    //창띄우기
-    //    tileTemp.GetComponent<TerrainData>().ShowTileInfo();
-    //    tileInfo.SetActive(true);
-    //    while (true)
-    //    {
-    //        //마우스가 움직이면
-    //        if (mousePos != Input.mousePosition)
-    //        {
-    //            //끈다
-    //            tileInfo.SetActive(false);
-    //        }
-    //        yield return 0;
-    //    }
-
-    //}
     //Create buttons
     public void OnClickFarmBtn()
     {
@@ -218,11 +182,13 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     }
     public void CreateTerritoryBtn()
     {
+        int fogLayer = LayerMask.GetMask("HexFog");
 
-        Collider[] centers = Physics.OverlapSphere(tileTemp.position, 1);
+        Collider[] centers = Physics.OverlapSphere(tileTemp.position, 1, ~fogLayer);
 
         for (int i = 0; i < centers.Length; i++)
         {
+
             if (centers[i].GetComponent<TerrainData>().myCenter != null)
             {
                 print("도시건설 불가:도시 인접지역");

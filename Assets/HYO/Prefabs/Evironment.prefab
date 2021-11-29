@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2452465402627229479}
   - component: {fileID: 8536070355104347669}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 4654203423759294743}
   - component: {fileID: 4200459082209777088}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 1098552491967728562}
   - component: {fileID: 996901232465672368}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 2212246609192389500}
   - component: {fileID: 5961637968478584165}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 3154429860232900641}
   - component: {fileID: 3357306372369035664}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 8101017401816829223}
   - component: {fileID: 8306514583501125050}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1012,7 +1012,7 @@ GameObject:
   - component: {fileID: 128414637270493389}
   - component: {fileID: 8003996590467138770}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 1551513226750988909}
   - component: {fileID: 8939943534080436690}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1344,7 +1344,7 @@ GameObject:
   - component: {fileID: 428092062435597419}
   - component: {fileID: 2762739387325048944}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1510,7 +1510,7 @@ GameObject:
   - component: {fileID: 537599802326496931}
   - component: {fileID: 426356158921399834}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1676,7 +1676,7 @@ GameObject:
   - component: {fileID: 7857803318312550802}
   - component: {fileID: 7062664854877247175}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1842,7 +1842,7 @@ GameObject:
   - component: {fileID: 6864256580586176290}
   - component: {fileID: 8322643460786751875}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2008,7 +2008,7 @@ GameObject:
   - component: {fileID: 5015158503479671640}
   - component: {fileID: 1724911410839441879}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2174,7 +2174,7 @@ GameObject:
   - component: {fileID: 6237555334966595540}
   - component: {fileID: 9192960905630612853}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2340,7 +2340,7 @@ GameObject:
   - component: {fileID: 4128678530613658664}
   - component: {fileID: 3040260037931503119}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2506,7 +2506,7 @@ GameObject:
   - component: {fileID: 6453123040296522200}
   - component: {fileID: 6158803357061591523}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2672,7 +2672,7 @@ GameObject:
   - component: {fileID: 4990783449234817288}
   - component: {fileID: 1073890286236973907}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2838,7 +2838,7 @@ GameObject:
   - component: {fileID: 1452835695829871239}
   - component: {fileID: 5033005428674609067}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3004,7 +3004,7 @@ GameObject:
   - component: {fileID: 7047249435860723740}
   - component: {fileID: 2842548543036428844}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3170,7 +3170,7 @@ GameObject:
   - component: {fileID: 5354447442334998843}
   - component: {fileID: 6818263877531012494}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3336,7 +3336,7 @@ GameObject:
   - component: {fileID: 2692575111276900755}
   - component: {fileID: 3758867694486698623}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3502,7 +3502,7 @@ GameObject:
   - component: {fileID: 188265034884964640}
   - component: {fileID: 4166628381956954251}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3668,7 +3668,7 @@ GameObject:
   - component: {fileID: 9147480094284195518}
   - component: {fileID: 2926247092884421697}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3834,7 +3834,7 @@ GameObject:
   - component: {fileID: 4284909699052308364}
   - component: {fileID: 6185462157601038302}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4000,7 +4000,7 @@ GameObject:
   - component: {fileID: 8993834222868797926}
   - component: {fileID: 5627480002150626483}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4166,7 +4166,7 @@ GameObject:
   - component: {fileID: 4119454426574057404}
   - component: {fileID: 2888804556761642049}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4332,7 +4332,7 @@ GameObject:
   - component: {fileID: 1470701157751182374}
   - component: {fileID: 6564661246611198270}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4498,7 +4498,7 @@ GameObject:
   - component: {fileID: 3431145533375060268}
   - component: {fileID: 2816660539240550497}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4664,7 +4664,7 @@ GameObject:
   - component: {fileID: 3762253963145356455}
   - component: {fileID: 8651266259004345321}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4830,7 +4830,7 @@ GameObject:
   - component: {fileID: 2434291487875262907}
   - component: {fileID: 7560827643883850297}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4996,7 +4996,7 @@ GameObject:
   - component: {fileID: 1695091539189095011}
   - component: {fileID: 8570709008401918737}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5162,7 +5162,7 @@ GameObject:
   - component: {fileID: 7925191435437845178}
   - component: {fileID: 7723190563538028352}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5328,7 +5328,7 @@ GameObject:
   - component: {fileID: 1453409889672854782}
   - component: {fileID: 8124035117633357440}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5494,7 +5494,7 @@ GameObject:
   - component: {fileID: 2352573411072726991}
   - component: {fileID: 2855217020013172051}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5660,7 +5660,7 @@ GameObject:
   - component: {fileID: 4214481786313576996}
   - component: {fileID: 7681092494875661736}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5826,7 +5826,7 @@ GameObject:
   - component: {fileID: 7335414075277074294}
   - component: {fileID: 8456842610263391678}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5992,7 +5992,7 @@ GameObject:
   - component: {fileID: 4785608717513320763}
   - component: {fileID: 276766433544002026}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6158,7 +6158,7 @@ GameObject:
   - component: {fileID: 6547691520193643504}
   - component: {fileID: 3369258952027451457}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6324,7 +6324,7 @@ GameObject:
   - component: {fileID: 2016134705901459944}
   - component: {fileID: 8784784293915991177}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6490,7 +6490,7 @@ GameObject:
   - component: {fileID: 6079694208985212437}
   - component: {fileID: 8945056724120176813}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6656,7 +6656,7 @@ GameObject:
   - component: {fileID: 8440786100587368742}
   - component: {fileID: 6692496504961312007}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6822,7 +6822,7 @@ GameObject:
   - component: {fileID: 3715237518836711411}
   - component: {fileID: 4890829477178282064}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6988,7 +6988,7 @@ GameObject:
   - component: {fileID: 230004082233158859}
   - component: {fileID: 7979933590770319802}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7154,7 +7154,7 @@ GameObject:
   - component: {fileID: 7380135803804916855}
   - component: {fileID: 1184375053813814280}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7320,7 +7320,7 @@ GameObject:
   - component: {fileID: 3026102969018281673}
   - component: {fileID: 3797039872685640540}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7486,7 +7486,7 @@ GameObject:
   - component: {fileID: 1152316160665350658}
   - component: {fileID: 9157702490176760423}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7652,7 +7652,7 @@ GameObject:
   - component: {fileID: 3890991291361563887}
   - component: {fileID: 8133804651379027747}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7818,7 +7818,7 @@ GameObject:
   - component: {fileID: 3838802233871625940}
   - component: {fileID: 5163449268234982831}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7984,7 +7984,7 @@ GameObject:
   - component: {fileID: 7393460615013346013}
   - component: {fileID: 8307561157804777133}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8150,7 +8150,7 @@ GameObject:
   - component: {fileID: 5384574769290416602}
   - component: {fileID: 2436880916429129577}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8316,7 +8316,7 @@ GameObject:
   - component: {fileID: 8189248652273316967}
   - component: {fileID: 8982978722895600563}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8482,7 +8482,7 @@ GameObject:
   - component: {fileID: 7191294104422603756}
   - component: {fileID: 1745415132853594624}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8648,7 +8648,7 @@ GameObject:
   - component: {fileID: 5312064434951689324}
   - component: {fileID: 973425087982916189}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8814,7 +8814,7 @@ GameObject:
   - component: {fileID: 5121722790031637178}
   - component: {fileID: 7356877243619645644}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8980,7 +8980,7 @@ GameObject:
   - component: {fileID: 7040340900185162837}
   - component: {fileID: 2126048715226497923}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9146,7 +9146,7 @@ GameObject:
   - component: {fileID: 6585714486393171059}
   - component: {fileID: 5463557942378557565}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9312,7 +9312,7 @@ GameObject:
   - component: {fileID: 475789368538490800}
   - component: {fileID: 6864791934134736603}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9629,7 +9629,7 @@ GameObject:
   - component: {fileID: 1918013617052233914}
   - component: {fileID: 7226934754617528717}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9795,7 +9795,7 @@ GameObject:
   - component: {fileID: 7914256983953102907}
   - component: {fileID: 6977909290972079014}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9961,7 +9961,7 @@ GameObject:
   - component: {fileID: 1193244774825039949}
   - component: {fileID: 821850303699969710}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10127,7 +10127,7 @@ GameObject:
   - component: {fileID: 3256278461516105913}
   - component: {fileID: 6666978215477805044}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10293,7 +10293,7 @@ GameObject:
   - component: {fileID: 6405754165063799178}
   - component: {fileID: 6316454165030769126}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10459,7 +10459,7 @@ GameObject:
   - component: {fileID: 768774981392151265}
   - component: {fileID: 8918926924161011819}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10625,7 +10625,7 @@ GameObject:
   - component: {fileID: 2387592492828088103}
   - component: {fileID: 3034760592317286821}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10791,7 +10791,7 @@ GameObject:
   - component: {fileID: 9014842296758887665}
   - component: {fileID: 1356593593837266280}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10957,7 +10957,7 @@ GameObject:
   - component: {fileID: 8432527266835309545}
   - component: {fileID: 4744873488839496309}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11123,7 +11123,7 @@ GameObject:
   - component: {fileID: 2945269276833321551}
   - component: {fileID: 8514190329826941342}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11289,7 +11289,7 @@ GameObject:
   - component: {fileID: 2890625615457534240}
   - component: {fileID: 6956811911279851107}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11455,7 +11455,7 @@ GameObject:
   - component: {fileID: 1391497649987601511}
   - component: {fileID: 7428160072908222147}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11621,7 +11621,7 @@ GameObject:
   - component: {fileID: 8261235081591159789}
   - component: {fileID: 3005789820742680610}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11787,7 +11787,7 @@ GameObject:
   - component: {fileID: 3600184875600221969}
   - component: {fileID: 8106584194099254337}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11953,7 +11953,7 @@ GameObject:
   - component: {fileID: 4355048777997886148}
   - component: {fileID: 110030716848434348}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12119,7 +12119,7 @@ GameObject:
   - component: {fileID: 1772139543129384126}
   - component: {fileID: 7062412034164044089}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12285,7 +12285,7 @@ GameObject:
   - component: {fileID: 8110424997889927692}
   - component: {fileID: 6724435291590300393}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12451,7 +12451,7 @@ GameObject:
   - component: {fileID: 3121038414045144722}
   - component: {fileID: 482160997337573997}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12617,7 +12617,7 @@ GameObject:
   - component: {fileID: 1633769053004966297}
   - component: {fileID: 1468566084644157926}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12783,7 +12783,7 @@ GameObject:
   - component: {fileID: 2680334071389138988}
   - component: {fileID: 1929452210802400820}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12949,7 +12949,7 @@ GameObject:
   - component: {fileID: 5670070452958881687}
   - component: {fileID: 7048754753289377640}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13115,7 +13115,7 @@ GameObject:
   - component: {fileID: 2378023016250409408}
   - component: {fileID: 8507667394449571944}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13281,7 +13281,7 @@ GameObject:
   - component: {fileID: 8584765202851284833}
   - component: {fileID: 9094054901376908456}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13447,7 +13447,7 @@ GameObject:
   - component: {fileID: 4966077547417640800}
   - component: {fileID: 2076118497865228832}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13613,7 +13613,7 @@ GameObject:
   - component: {fileID: 4639375376619727217}
   - component: {fileID: 7194599612353568849}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13779,7 +13779,7 @@ GameObject:
   - component: {fileID: 3650835445808174784}
   - component: {fileID: 6638366757885788471}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13945,7 +13945,7 @@ GameObject:
   - component: {fileID: 3145113832615669232}
   - component: {fileID: 8271152037833981360}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14111,7 +14111,7 @@ GameObject:
   - component: {fileID: 5030806906136562748}
   - component: {fileID: 4526610979336196281}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14277,7 +14277,7 @@ GameObject:
   - component: {fileID: 4728669398853415367}
   - component: {fileID: 7821369903876323043}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14443,7 +14443,7 @@ GameObject:
   - component: {fileID: 6194613449305619270}
   - component: {fileID: 1418526822960413273}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14609,7 +14609,7 @@ GameObject:
   - component: {fileID: 6206243350674062737}
   - component: {fileID: 3927502887530535525}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14775,7 +14775,7 @@ GameObject:
   - component: {fileID: 6117785308510575987}
   - component: {fileID: 7939403561458904586}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14941,7 +14941,7 @@ GameObject:
   - component: {fileID: 7106996676324822213}
   - component: {fileID: 4256042032815870766}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15107,7 +15107,7 @@ GameObject:
   - component: {fileID: 3303363367613671003}
   - component: {fileID: 4843739665129511373}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15273,7 +15273,7 @@ GameObject:
   - component: {fileID: 9189154136670893966}
   - component: {fileID: 7038458339501572909}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15440,7 +15440,7 @@ GameObject:
   - component: {fileID: 5533056470915959595}
   - component: {fileID: 756269121467110151}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15619,7 +15619,7 @@ GameObject:
   - component: {fileID: 6077123252160456498}
   - component: {fileID: 1412244116395579964}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15785,7 +15785,7 @@ GameObject:
   - component: {fileID: 913739554284784875}
   - component: {fileID: 3476128187412945875}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15951,7 +15951,7 @@ GameObject:
   - component: {fileID: 6227500684991489152}
   - component: {fileID: 8598171216065454628}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16117,7 +16117,7 @@ GameObject:
   - component: {fileID: 7254058986875860627}
   - component: {fileID: 1943425691538555196}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16283,7 +16283,7 @@ GameObject:
   - component: {fileID: 5986734544680672583}
   - component: {fileID: 3649432151740496450}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16449,7 +16449,7 @@ GameObject:
   - component: {fileID: 1121390245548117020}
   - component: {fileID: 7162657889059599418}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16615,7 +16615,7 @@ GameObject:
   - component: {fileID: 1709240877796389804}
   - component: {fileID: 5018033649311323151}
   m_Layer: 0
-  m_Name: HexTop_Pasture(Clone)
+  m_Name: HexTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
