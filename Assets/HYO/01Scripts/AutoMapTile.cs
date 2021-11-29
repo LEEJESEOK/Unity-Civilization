@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutoMapTile : MonoBehaviour
+public class AutoMapTile : Singleton<AutoMapTile>
 {
     public bool makeMap;
     public int width = 50;
@@ -12,7 +12,7 @@ public class AutoMapTile : MonoBehaviour
     public Vector2 gap = new Vector2(0, 0);
     public GameObject tileFactory;
     //Dictionary<string, GameObject> tiles = new Dictionary<string, GameObject>();
-    List<GameObject> tiles = new List<GameObject>();
+    public List<GameObject> tiles = new List<GameObject>();
 
     public List<Material> tileMaterial;
 
