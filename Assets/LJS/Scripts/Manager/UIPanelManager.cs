@@ -16,7 +16,7 @@ public class UIPanelManager : MonoBehaviour
     GameObject m_PreviouslySelected;
 
     const string k_OpenTransitionName = "Open";
-    const string k_CloseTransitionName = "Close";
+    const string k_ClosedTransitionName = "Closed";
 
 
     private void OnEnable()
@@ -89,12 +89,13 @@ public class UIPanelManager : MonoBehaviour
         while (!closedStateReached && wantToClose)
         {
             if (!animator.IsInTransition(0))
-                closedStateReached = animator.GetCurrentAnimatorStateInfo(0).IsName(k_CloseTransitionName);
+                closedStateReached = animator.GetCurrentAnimatorStateInfo(0).IsName(k_ClosedTransitionName);
 
             wantToClose = !animator.GetBool(m_OpenParameterId);
 
             yield return new WaitForEndOfFrame();
         }
+
 
         if (wantToClose)
             animator.gameObject.SetActive(false);
