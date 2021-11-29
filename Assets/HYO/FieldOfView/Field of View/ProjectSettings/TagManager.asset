@@ -11,22 +11,22 @@ TagManager:
   - 
   - Water
   - UI
-  - GrassLand
-  - Plains
-  - Desert
-  - Mountain
-  - Coast
-  - Ocean
-  - Hills
-  - HexFog
+  - 
+  - 
+  - PostProcessing
+  - Targets
   - 
   - 
   - 
   - 
   - 
   - 
-  - Unwalkable
-  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
