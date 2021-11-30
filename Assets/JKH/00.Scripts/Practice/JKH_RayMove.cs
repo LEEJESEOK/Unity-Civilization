@@ -26,6 +26,7 @@ public class JKH_RayMove : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
+            
             //Vector3 tmp = new Vector3(2 * Mathf.Sin((60 * i) * (Mathf.PI / 180)), 
             //    0, 2 * Mathf.Cos((60 * i) * (Mathf.PI / 180)));
 
@@ -35,15 +36,17 @@ public class JKH_RayMove : MonoBehaviour
             //Ray ray = new Ray(transform.position, dir);
             Quaternion rotation = originRotation * Quaternion.Euler(0, i * 60, 0);
             var pos = transform.position;
-            pos.y = .05f;
+            pos.y = -.95f;
             Ray ray = new Ray(pos, rotation * transform.forward);
 
-            int layer = 1 << LayerMask.NameToLayer("TestCube");
+            //int layer = 1 << LayerMask.NameToLayer("TestCube");
             
             if (Physics.Raycast(ray, out hitInfo, 1000))
             {
+                print("쏜다?");
                 if (hitInfo.transform.gameObject)
                 {
+                    
                     //해당 좌표를 가져온다.
                     //Script xxx =GameObject.Find("xxx").GetComponent<Script>();
                     if (hitInfo.transform.gameObject.tag == "Map")
@@ -55,7 +58,7 @@ public class JKH_RayMove : MonoBehaviour
                         print("이동력: "+hitInfo.transform.GetComponent<TerrainData>().output.movePower);
                         //print("이웃타일의 이동력: "+ hitInfo.transform.GetComponent<TerrainData>().)
 
-
+                        #region ToDo
                         //needs
                         //시작지점의 좌표 
                         //목적지의 좌표
@@ -65,13 +68,10 @@ public class JKH_RayMove : MonoBehaviour
                         //g(n)= 시작지점부터 현위치까지 이동한거리
                         //h(n)= 현위치에서 목적지까지의 거리
                         //f(n)= g(n)+h(n)
-                        
+
                         //이웃의 f(n) 점수를 합산해서 제일 낮은 위치로 이동
                         //목적지에 도달할떄 까지 반복한다.
-
-
-
-
+                        #endregion
 
                     }
 
@@ -91,7 +91,7 @@ public class JKH_RayMove : MonoBehaviour
 
             Quaternion rotation = originRotation * Quaternion.Euler(0, i * 60, 0);
             var pos=transform.position;
-            pos.y += .05f;
+            pos.y = -.95f;
             //방향에 각도를 조절해준다(각도, 방향)
             Ray ray = new Ray(pos, rotation * transform.forward);
             Debug.DrawRay(ray.origin, ray.direction * 15, Color.red);

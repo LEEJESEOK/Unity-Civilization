@@ -232,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30897478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.773, y: 0, z: -2.63}
+  m_LocalPosition: {x: -0.773, y: -1, z: -2.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1509403860}
@@ -617,7 +617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105876962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0, z: -3.21}
+  m_LocalPosition: {x: 1.82, y: 0, z: -2.13}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -810,7 +810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509403856}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.15, z: 0}
+  m_LocalPosition: {x: -1.6, y: 0.15, z: 0.11}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 30897479}
@@ -2078,7 +2078,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: e68d55909439c3c41a881463ce2a7fe7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7068,7 +7068,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: e68d55909439c3c41a881463ce2a7fe7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8508,7 +8508,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: f39422292d8b9154e9ea83833e0c6bda, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10016,7 +10016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 2
   feature: 0
   facilityData: {fileID: 0}
   output:
@@ -11664,7 +11664,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: e68d55909439c3c41a881463ce2a7fe7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16024,7 +16024,7 @@ GameObject:
   - component: {fileID: 6117785309914724341}
   - component: {fileID: 7939403560050689164}
   m_Layer: 0
-  m_Name: HexTile
+  m_Name: HexTile_KH2
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
