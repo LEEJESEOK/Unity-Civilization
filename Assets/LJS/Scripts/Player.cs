@@ -1,50 +1,58 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class Player
+public class Player : MonoBehaviour
 {
-    // 보유중인 유닛
-    public List<GameObject> units;
-    // 보유한 도시
-    public List<GameObject> cities;
-    // 연구한 기술
-    public List<Technology> technologies;
-    // 연구중인 기술
-    public Technology ongoingTechnology;
-    // 보유한 자원
-    int food, production, gold, science;
+    public PlayerInfo info;
+    public int playerId;
+    public bool isTurn;
 
-
-    public Player()
+    // Start is called before the first frame update
+    void Start()
     {
-        units = new List<GameObject>();
-        cities = new List<GameObject>();
-        technologies = new List<Technology>();
+        info = new PlayerInfo();
+        info.name = "Player " + playerId;
 
-        ongoingTechnology = new Technology();
+        gameObject.name = info.name;
+    }
 
-        food = production = gold = science = 0;
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void StartTurn()
+    {
+        isTurn = true;
+    }
+
+    public void TurnUpdate()
+    {
+
+    }
+
+    public void EndTurn()
+    {
+
     }
 
     // 유닛 생성 -> 플레이어의 유닛 리스트에 추가
     public void ConstructUnit(GameObject unit)
     {
-        units.Add(unit);
+        info.units.Add(unit);
     }
 
     // 도시 건설 -> 플레이어의 도시 리스트에 추가
     public void BuildCity(GameObject city)
     {
-        cities.Add(city);
+        info.cities.Add(city);
     }
 
     // 새로 연구할 기술 선택
     public void ChooseResearch(Technology technology)
     {
-        ongoingTechnology = technology;
+        info.ongoingTechnology = technology;
     }
-
 }

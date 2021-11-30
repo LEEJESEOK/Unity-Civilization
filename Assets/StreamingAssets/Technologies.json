@@ -1,0 +1,325 @@
+{
+    "data": [
+        {
+            "id": 40000,
+            "name": "Pottery",
+            "korean": "도예",
+            "researchCost": 25,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": []
+        },
+        {
+            "id": 40001,
+            "name": "Animal Husbandry",
+            "korean": "목축업",
+            "researchCost": 25,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": []
+        },
+        {
+            "id": 40002,
+            "name": "Mining",
+            "korean": "채광",
+            "researchCost": 25,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": []
+        },
+        {
+            "id": 40003,
+            "name": "Irrigation",
+            "korean": "관개",
+            "researchCost": 50,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                40000
+            ]
+        },
+        {
+            "id": 40004,
+            "name": "Writing",
+            "korean": "문자",
+            "researchCost": 50,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                40000
+            ]
+        },
+        {
+            "id": 40005,
+            "name": "Archery",
+            "korean": "궁술",
+            "researchCost": 50,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                40001
+            ]
+        },
+        {
+            "id": 40006,
+            "name": "Masonry",
+            "korean": "석조 기술",
+            "researchCost": 80,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                40002
+            ]
+        },
+        {
+            "id": 40007,
+            "name": "Bronze Working",
+            "korean": "청동 기술",
+            "researchCost": 80,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                40002
+            ]
+        },
+        {
+            "id": 40008,
+            "name": "Wheel",
+            "korean": "바퀴",
+            "researchCost": 80,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                40002
+            ]
+        },
+        {
+            "id": 41000,
+            "name": "Currency",
+            "korean": "화폐",
+            "researchCost": 144,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                40004
+            ]
+        },
+        {
+            "id": 41001,
+            "name": "Horseback Riding",
+            "korean": "기마술",
+            "researchCost": 144,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                40005
+            ]
+        },
+        {
+            "id": 41002,
+            "name": "Iron Working",
+            "korean": "철제 기술",
+            "researchCost": 144,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                40007
+            ]
+        },
+        {
+            "id": 41003,
+            "name": "Mathematics",
+            "korean": "수학",
+            "researchCost": 240,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                41000
+            ]
+        },
+        {
+            "id": 41004,
+            "name": "Construction",
+            "korean": "건축",
+            "researchCost": 240,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                40006,
+                41001
+            ]
+        },
+        {
+            "id": 41005,
+            "name": "Engineering",
+            "korean": "공학",
+            "researchCost": 240,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                40008
+            ]
+        },
+        {
+            "id": 42000,
+            "name": "Military Tactics",
+            "korean": "군사 전술",
+            "researchCost": 360,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                41003
+            ]
+        },
+        {
+            "id": 42001,
+            "name": "Apprenticeship",
+            "korean": "도제제도",
+            "researchCost": 360,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                41000,
+                41001
+            ]
+        },
+        {
+            "id": 42002,
+            "name": "Machinery",
+            "korean": "기계",
+            "researchCost": 360,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                41002,
+                41005
+            ]
+        },
+        {
+            "id": 42003,
+            "name": "Education",
+            "korean": "교육",
+            "researchCost": 468,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                41003,
+                42001
+            ]
+        },
+        {
+            "id": 42004,
+            "name": "Stirrups",
+            "korean": "등자",
+            "researchCost": 468,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                41001
+            ]
+        },
+        {
+            "id": 42005,
+            "name": "Military Engineering",
+            "korean": "군사 공학",
+            "researchCost": 468,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                41004
+            ]
+        },
+        {
+            "id": 42006,
+            "name": "Castles",
+            "korean": "성",
+            "researchCost": 468,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                41004
+            ]
+        },
+        {
+            "id": 43000,
+            "name": "Mass Production",
+            "korean": "대량 생산",
+            "researchCost": 720,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                42003,
+                42000
+            ]
+        },
+        {
+            "id": 43001,
+            "name": "Banking",
+            "korean": "은행업",
+            "researchCost": 720,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                42003,
+                42004
+            ]
+        },
+        {
+            "id": 43002,
+            "name": "Printing",
+            "korean": "인쇄술",
+            "researchCost": 720,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                42002
+            ]
+        },
+        {
+            "id": 43003,
+            "name": "Gunpowder",
+            "korean": "화약",
+            "researchCost": 720,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                42001,
+                42004,
+                42005
+            ]
+        },
+        {
+            "id": 43004,
+            "name": "Siege Tactics",
+            "korean": "공성 전략",
+            "researchCost": 730,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                42006
+            ]
+        },
+        {
+            "id": 43005,
+            "name": "Metal Casting",
+            "korean": "주조",
+            "researchCost": 730,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                43003
+            ]
+        },
+        {
+            "id": 43006,
+            "name": "Astronomy",
+            "korean": "천문학",
+            "researchCost": 730,
+            "isResearched": false,
+            "unlockObjectId": [],
+            "requireTechId": [
+                42003
+            ]
+        }
+    ]
+}

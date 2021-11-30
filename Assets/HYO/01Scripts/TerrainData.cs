@@ -166,7 +166,7 @@ public class TerrainData : MonoBehaviour
             case TerrainType.Ocean:
                 gameObject.layer = 11;
                 output = new OutPut(1, 0, 0, 0);
-                output.movePower = 1;
+                output.movePower = 0;
                 CheckHills();
                 break;
             default:
@@ -180,6 +180,7 @@ public class TerrainData : MonoBehaviour
         switch (feature)
         {
             case Feature.ICE:
+                output.movePower = 0;
                 break;
             case Feature.WOOD:
                 output.productivity += 1;

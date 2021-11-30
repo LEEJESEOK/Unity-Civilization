@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Map
   layers:
   - Default
   - TransparentFX
@@ -27,8 +28,8 @@ TagManager:
   - 
   - Unwalkable
   - Player
-  - 
-  - 
+  - Unit
+  - TestCube
   - 
   - 
   - 

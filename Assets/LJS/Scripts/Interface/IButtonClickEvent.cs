@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IButtonEvent<T>
 {
-    public ButtonListener<T> listener { get; set; }
+    public List<ButtonListener<T>> listenerList { get; set; }
 
     void ClickEvent(T eventType);
 }
