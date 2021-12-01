@@ -80,10 +80,7 @@ public class JKH_Move : MonoBehaviour
                 print("체력: " + Hp);
                 print("원거리공격력: " + RangeAttack);
                 print("사거리: " + Range);
-
-                //gameobj위치 기준으로 레이 조금 쏜다 
-                //만약 충돌한게 tag로 확인해서 map이 있나본다
-                //있다면, 맵의 terraindata에xy가져온다 idx를
+               
                 float radius = 0.05f;
                 Collider[] maps = Physics.OverlapSphere(transform.position, radius, ~layer);
                 if (maps.Length == 1)
@@ -109,7 +106,9 @@ public class JKH_Move : MonoBehaviour
     public void onClickMoveBtn()
     {
         canMove = true;
-        print("눌림");        
+        print("눌림"); 
+        
+        //startPos가 된다.
         
     }
 
@@ -128,9 +127,13 @@ public class JKH_Move : MonoBehaviour
             //마우스가 위치한 좌표.
             if (Physics.Raycast(ray, out hitInfo, 1000))
             {
-                print("쏘고있나");
+                
                 if (hitInfo.transform.gameObject.tag == "Map")
                 {
+                    print("맵맞추는듕");
+                    //이러면서? 마우스가 맵 위에 올리면 1) 해당 좌표랑 V 2) 이동력 계산하기 X 하면 좋겠ㄴㅔ...
+
+
                     //print("마우스에 위치한 좌표" + hitInfo.transform.GetComponent<TerrainData>().x + ", " + hitInfo.transform.GetComponent<TerrainData>().y);
                     if (Input.GetButton("Fire1"))
                     {
@@ -152,6 +155,7 @@ public class JKH_Move : MonoBehaviour
                             movePower--;
                             print("이동완료!");
 
+                            
 
                         }
 
@@ -231,4 +235,7 @@ public class JKH_Move : MonoBehaviour
     {
         //
     }
+
+    //Get From RayMove
+
 }

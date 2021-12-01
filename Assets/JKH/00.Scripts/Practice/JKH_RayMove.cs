@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class JKH_RayMove : MonoBehaviour
 {
-    //\
-    
-    //Ray 6ways
+    //수정 해야할 점?
+    //이 스크립트(이동부분) 유닛에다가 두고, 유닛이 위치한 타일의 정보를 가져오는걸 한다.
+    //레이를 쏘게하는거 
+    //즉,이 스크립트를 Move스크립트에다가 박는다. 
+
+
+    //needs
+    //타일을 건너갈수 있을지 없을지.
+    public bool canMove;
+
 
     void Start()
     {
         rayShot();
+        canMove = true;
     }
 
     void Update()
@@ -60,8 +68,8 @@ public class JKH_RayMove : MonoBehaviour
 
                         #region ToDo
                         //needs
-                        //시작지점의 좌표 
-                        //목적지의 좌표
+                        //시작지점의 좌표>> Move 스크립트에서, 버튼 눌렀을때 가져온다
+                        //목적지의 좌표>> 클릭된좌표가 목적지의 좌표가 된다. 
                         //본인의 위치의 g(n)과 이웃의 g(n) (자신의 G + 이웃의 이동력  ) 계산
                         //갈수있는 타일인가? BOOL (이미 왔던데, 벽 은 못움직이니까 제외)
                         //----
@@ -71,6 +79,8 @@ public class JKH_RayMove : MonoBehaviour
 
                         //이웃의 f(n) 점수를 합산해서 제일 낮은 위치로 이동
                         //목적지에 도달할떄 까지 반복한다.
+                        //-----------
+                        //다시 되돌아가서 계산하는거 해야하는데 이거 어케함? 나중에하자
                         #endregion
 
                     }
@@ -102,7 +112,7 @@ public class JKH_RayMove : MonoBehaviour
             //Ray ray = new Ray(transform.position, dir);
         }
     }
-
+    #region 노필요
     //private void OnDrawGizmos()
     //{
     //    for (int i = 0; i < 6; i++)
@@ -118,4 +128,5 @@ public class JKH_RayMove : MonoBehaviour
     //        Gizmos.DrawLine(transform.position, transform.position + dir);
     //    }
     //}
+    #endregion
 }
