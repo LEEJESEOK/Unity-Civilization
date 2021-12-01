@@ -27,11 +27,14 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     public Transform tileTemp;
     public GameObject centerCheck;
+    //first city center
+    public bool isFirst;
 
     bool isOpenPopup;
 
     void Start()
     {
+        isFirst = true;
         farmBTN.SetActive(false);
         mineBTN.SetActive(false);
         settleBTN.SetActive(false);
@@ -39,6 +42,12 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     private void Update()
     {
+        // 지형레이어
+        int layerGrassLand = LayerMask.GetMask("GrassLand");    // 6
+        int layerPlains = LayerMask.GetMask("Plains");          // 7
+        int layerDesert = LayerMask.GetMask("Desert");          // 8
+        int layerMountain = LayerMask.GetMask("Mountain");      // 9
+        int fogLayer = LayerMask.GetMask("HexFog");
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -46,14 +55,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             RaycastHit hit;
             //int layerMask = 1 << LayerMask.NameToLayer("HexFog");
 
-            // 지형레이어
-            int layerGrassLand = LayerMask.GetMask("GrassLand");    // 6
-            int layerPlains = LayerMask.GetMask("Plains");          // 7
-            int layerDesert = LayerMask.GetMask("Desert");          // 8
-            int layerMountain = LayerMask.GetMask("Mountain");      // 9
-            int fogLayer = ~LayerMask.GetMask("HexFog");
 
-            int layerMask = (layerGrassLand | layerPlains | layerDesert | layerMountain) & fogLayer;
+            int layerMask = (layerGrassLand | layerPlains | layerDesert | layerMountain) & ~fogLayer;
 
             if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
             {
@@ -96,7 +99,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             mousePos = Input.mousePosition;
 
 
-        if (Physics.Raycast(rayPoint, out hitInfo))
+        if (Physics.Raycast(rayPoint, out hitInfo,1000, ~fogLayer))
         {
             if (mousePos == Input.mousePosition)
             {
@@ -137,6 +140,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             CreateFacility(3);
             tileTemp = null;
 
+            farmBTN.SetActive(false);
         }
         else return;
     }
@@ -147,6 +151,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             tileTemp.GetComponent<FacilityData>().SetFacility(Facility.MINE);
             CreateFacility(4);
             tileTemp = null;
+
+            mineBTN.SetActive(false);
         }
         else return;
     }
@@ -157,6 +163,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             tileTemp.GetComponent<FacilityData>().SetDistrict(District.CAMPUS);
             CreateDistrict(0);
             tileTemp = null;
+
+            campusBTN.SetActive(false);
         }
         else return;
     }
@@ -167,6 +175,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             tileTemp.GetComponent<FacilityData>().SetDistrict(District.COMMERCAILHUB);
             CreateDistrict(1);
             tileTemp = null;
+
+            commercialHubBTN.SetActive(false);
         }
         else return;
     }
@@ -177,6 +187,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             tileTemp.GetComponent<FacilityData>().SetDistrict(District.INDUSTRIALZONE);
             CreateDistrict(2);
             tileTemp = null;
+
+            industrialZoneBTN.SetActive(false);
         }
         else return;
     }
@@ -202,6 +214,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         city.transform.localPosition = new Vector3(0, 0.1f, 0);
         city.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         tileTemp = null;
+
+        settleBTN.SetActive(false);
     }
 
 

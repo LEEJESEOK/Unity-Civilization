@@ -24,6 +24,12 @@ public class Territory : MonoBehaviour
 
     void Start()
     {
+        //first city
+        if (HYO_ConstructManager.instance.isFirst)
+        {
+            gameObject.tag = "FirstCity";
+            HYO_ConstructManager.instance.isFirst = false;
+        }
         cityCenter = gameObject;
         totalOutput = new TotalOutPut();
         data = new List<TerrainData>();
