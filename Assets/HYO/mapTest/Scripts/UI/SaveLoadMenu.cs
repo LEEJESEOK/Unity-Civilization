@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.IO;
@@ -69,7 +69,7 @@ public class SaveLoadMenu : MonoBehaviour {
 		FillList();
 	}
 
-	void FillList () {
+	public void FillList () {
 		for (int i = 0; i < listContent.childCount; i++) {
 			Destroy(listContent.GetChild(i).gameObject);
 		}
@@ -102,12 +102,13 @@ public class SaveLoadMenu : MonoBehaviour {
 		}
 	}
 
-	void Load (string path) {
+	public void Load (string path) {
 		if (!File.Exists(path)) {
 			Debug.LogError("File does not exist " + path);
 			return;
 		}
 		using (BinaryReader reader = new BinaryReader(File.OpenRead(path))) {
+			Debug.Log(path);
 			int header = reader.ReadInt32();
 			if (header <= mapFileVersion) {
 				hexGrid.Load(reader, header);

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System.Collections;
@@ -168,6 +168,13 @@ public class HexGrid : MonoBehaviour {
 		cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
 		cell.Index = i;
 		cell.ShaderData = cellShaderData;
+
+		//수정
+		cell.transform.gameObject.AddComponent<TerrainData>();
+		cell.GetComponent<TerrainData>().SetIndex(x, z);
+		MeshCollider col = cell.transform.gameObject.AddComponent<MeshCollider>();
+		col.convex = true;
+		//
 
 		if (x > 0) {
 			cell.SetNeighbor(HexDirection.W, cells[i - 1]);
