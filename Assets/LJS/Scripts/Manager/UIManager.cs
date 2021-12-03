@@ -11,10 +11,7 @@ public class UIManager : Singleton<UIManager>
     bool test;
 
     [Header("Common")]
-    bool useScience;
-    bool useCulture;
-    bool useFaith;
-    bool useGold;
+    public bool mouseCapture = true;
 
     [Header("Resources")]
     public GameObject resourcesWrapper;
@@ -37,6 +34,12 @@ public class UIManager : Singleton<UIManager>
     public GameObject technologyPanelContent;
     public GameObject technologySectorPrefab;
     public GameObject technologyButtonPrefab;
+    
+
+    bool useScience;
+    bool useCulture;
+    bool useFaith;
+    bool useGold;
 
 
     // Start is called before the first frame update
@@ -54,6 +57,10 @@ public class UIManager : Singleton<UIManager>
 
     public void InitUI()
     {
+        if(mouseCapture)
+        // 마우스 커서가 윈도우 밖으로 나가지 않도록 함
+        Cursor.lockState = CursorLockMode.Confined;
+
         InitResourcesIndicator();
 
         InitPanelState();

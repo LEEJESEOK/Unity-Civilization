@@ -14,7 +14,7 @@ public class UIPanelManager : MonoBehaviour
     [SerializeField]
     List<UIPanel> panels;
 
-    int m_OpenParameterId;
+    // int m_OpenParameterId;
     // Animator m_Open;
     UIPanel currentPanel;
     GameObject m_PreviouslySelected;

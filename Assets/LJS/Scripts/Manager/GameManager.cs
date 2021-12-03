@@ -41,9 +41,6 @@ public class GameManager : Singleton<GameManager>
 
     void InitGame()
     {
-        // 마우스 커서가 윈도우 밖으로 나가지 않도록 함
-        Cursor.lockState = CursorLockMode.Confined;
-
         InitPlyaers();
 
         UIManager.instance.InitUI();

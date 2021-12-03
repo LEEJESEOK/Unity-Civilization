@@ -20,7 +20,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (isTurn)
+            TurnUpdate();
     }
 
     public void StartTurn()
@@ -30,7 +31,6 @@ public class Player : MonoBehaviour
 
     public void TurnUpdate()
     {
-
     }
 
     public void EndTurn()
