@@ -16,6 +16,21 @@ public class JKH_Node
 	//경로저장용 == 발자취 (linked list)
 	public JKH_Node parent;
 
+	//add 12.03.
+	public JKH_Node(JKH_Node node, JKH_Node parent = null)
+    {
+		this.walkable = node.walkable;
+		this.worldPosition = node.worldPosition; //?
+
+		this.gridX = node.gridX;
+		this.gridY = node.gridY;
+
+		this.gCost = node.gCost;
+		this.hCost = node.hCost;
+
+		this.parent = parent;
+	}
+
 	public JKH_Node(bool _walkable, Vector3 _worldPos,int _gridX, int _gridY)
 	{
 		walkable = _walkable;

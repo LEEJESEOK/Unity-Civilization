@@ -137,8 +137,10 @@ public class JKH_Move : MonoBehaviour
                     print("맵맞추는듕");
                     //이러면서? 마우스가 맵 위에 올리면 1) 해당 좌표랑 V 2) 이동력 계산하기 X 하면 좋겠ㄴㅔ...
                     //PathFinding 하기, 실시간 이동력 계산 
+                    // Node[] path = pathfinding(start, end);
+                    //Matrix4x4 
+                    // path[0] path[1] ... path[count-1]
 
-                    //pathfinding> findPath().
 
                     print("마우스에 위치한 좌표" + hitInfo.transform.GetComponent<TerrainData>().x + ", " + hitInfo.transform.GetComponent<TerrainData>().y);
                     if (Input.GetButton("Fire1"))
@@ -314,4 +316,14 @@ public class JKH_Move : MonoBehaviour
         }
     }
 
+
+    // 경로 계산
+    // 인덱스 배열을 반환
+    JKH_Node FindPath(JKH_Node start, JKH_Node end)
+    {
+        JKH_Node result = new JKH_Node(start);
+
+
+        return result;
+    }
 }
