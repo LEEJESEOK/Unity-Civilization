@@ -15,15 +15,25 @@ public class mapLoadManager : MonoBehaviour
 
     private void Start()
     {
+        //if (gameMode)
+        //{
+        //    LeftPanel.SetActive(false);
+        //    RightPanel.SetActive(false);
+        //    GameLodeMap.SetActive(true);
+        //}
+        //else
+        //{
+        //    GameLodeMap.SetActive(false);
+        //}
+
         if (gameMode)
         {
-            LeftPanel.SetActive(false);
-            RightPanel.SetActive(false);
-            GameLodeMap.SetActive(true);
+            SaveLoadMenu.instance.Load(Application.persistentDataPath + "/map1.map");
         }
         else
         {
-            GameLodeMap.SetActive(false);
+
         }
+
     }
 }

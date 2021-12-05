@@ -172,6 +172,7 @@ public class HexGrid : MonoBehaviour {
 		//수정
 		cell.transform.gameObject.AddComponent<TerrainData>();
 		cell.GetComponent<TerrainData>().SetIndex(x, z);
+		cell.transform.gameObject.AddComponent<FacilityData>();
 		MeshCollider col = cell.transform.gameObject.AddComponent<MeshCollider>();
 		col.convex = true;
 		//

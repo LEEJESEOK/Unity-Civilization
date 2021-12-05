@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.IO;
 
-public class SaveLoadMenu : MonoBehaviour {
+public class SaveLoadMenu : Singleton<SaveLoadMenu> {
 
 	const int mapFileVersion = 3;
 
@@ -92,9 +92,11 @@ public class SaveLoadMenu : MonoBehaviour {
 		return Path.Combine(Application.persistentDataPath, mapName + ".map");
 	}
 
-	void Save (string path) {
+	void Save (string path)
+	{
+		print(path);
 		using (
-			BinaryWriter writer =
+		BinaryWriter writer =
 			new BinaryWriter(File.Open(path, FileMode.Create))
 		) {
 			writer.Write(mapFileVersion);
@@ -117,6 +119,7 @@ public class SaveLoadMenu : MonoBehaviour {
 			else {
 				Debug.LogWarning("Unknown map format " + header);
 			}
+			print(reader);
 		}
 	}
 }

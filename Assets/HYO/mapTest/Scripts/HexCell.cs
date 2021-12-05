@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 
@@ -252,9 +252,10 @@ public class HexCell : MonoBehaviour {
 
 	public HexCellShaderData ShaderData { get; set; }
 
-	int terrainTypeIndex;
 
-	int elevation = int.MinValue;
+	public int terrainTypeIndex;
+
+	public int elevation = int.MinValue;
 	int waterLevel;
 
 	int urbanLevel, farmLevel, plantLevel;

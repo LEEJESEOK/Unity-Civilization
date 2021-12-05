@@ -6160,7 +6160,7 @@ MonoBehaviour:
   LeftPanel: {fileID: 1801720475}
   RightPanel: {fileID: 1479395907}
   GameLodeMap: {fileID: 1987045026}
-  gameMode: 0
+  gameMode: 1
 --- !u!1 &877807799
 GameObject:
   m_ObjectHideFlags: 0
