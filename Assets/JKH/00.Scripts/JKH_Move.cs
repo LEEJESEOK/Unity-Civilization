@@ -33,7 +33,9 @@ public class JKH_Move : MonoBehaviour
     public static JKH_Move instance;
 
     //From RayMove
-    
+
+    //jkh_Grid..
+    JKH_Grid grid;
 
     private void Awake()
     {
@@ -52,6 +54,13 @@ public class JKH_Move : MonoBehaviour
     {
         canMove = false;
         cam = Camera.main;
+
+       
+
+
+        JKH_Node start = new JKH_Node(true, transform.position, 5, 2);
+        JKH_Node end = new JKH_Node(true, transform.position, 8, 3);
+        FindPath(start, end);
     }
 
     void Update()
@@ -83,7 +92,7 @@ public class JKH_Move : MonoBehaviour
                 print("체력: " + Hp);
                 print("원거리공격력: " + RangeAttack);
                 print("사거리: " + Range);
-               
+
                 //유닛이있는 타일의 정보를 가져온다.
                 float radius = 0.05f;
                 Collider[] maps = Physics.OverlapSphere(transform.position, radius, ~layer);
@@ -92,8 +101,8 @@ public class JKH_Move : MonoBehaviour
                     if (maps[0].gameObject.tag == "Map")
                     {
                         print(maps[0].GetComponent<TerrainData>().x + ", " + maps[0].GetComponent<TerrainData>().y);
-                        startPosX= maps[0].GetComponent<TerrainData>().x ;
-                        startPosY= maps[0].GetComponent<TerrainData>().y ;
+                        startPosX = maps[0].GetComponent<TerrainData>().x;
+                        startPosY = maps[0].GetComponent<TerrainData>().y;
                     }
                 }
             }
@@ -110,10 +119,10 @@ public class JKH_Move : MonoBehaviour
     public void onClickMoveBtn()
     {
         canMove = true;
-        print("눌림"); 
-        
+        print("눌림");
+
         //startPos가 된다.
-        
+
     }
 
 
@@ -131,7 +140,7 @@ public class JKH_Move : MonoBehaviour
             //마우스가 위치한 좌표.
             if (Physics.Raycast(ray, out hitInfo, 1000))
             {
-                
+
                 if (hitInfo.transform.gameObject.tag == "Map")
                 {
                     print("맵맞추는듕");
@@ -163,7 +172,7 @@ public class JKH_Move : MonoBehaviour
                             movePower--;
                             print("이동완료!");
 
-                            
+
 
                         }
 
@@ -306,7 +315,7 @@ public class JKH_Move : MonoBehaviour
     public void DrawRay()
     {
         Quaternion originRotation = transform.rotation;
-        for(int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++)
         {
             Quaternion rotation = originRotation * Quaternion.Euler(0, i * 60, 0);
             var pos = transform.position;
@@ -319,10 +328,49 @@ public class JKH_Move : MonoBehaviour
 
     // 경로 계산
     // 인덱스 배열을 반환
-    JKH_Node FindPath(JKH_Node start, JKH_Node end)
+    public JKH_Node FindPath(JKH_Node start, JKH_Node end)
     {
         JKH_Node result = new JKH_Node(start);
 
+        //내가추가-------
+        List<JKH_Node> openSet = new List<JKH_Node>();
+        HashSet<JKH_Node> closeSet = new HashSet<JKH_Node>();
+        openSet.Add(start);
+
+        while (openSet.Count > 0)
+        {
+
+            JKH_Node currentNode = openSet[0];
+            //시작지점 openSet=0
+            for (int i = 1; i < openSet.Count; i++)
+            {
+                //만족한 값으로 이동.
+                if ((openSet[i].fCost < currentNode.fCost)
+                    || (openSet[i].fCost == currentNode.fCost)
+                    && (openSet[i].hCost < currentNode.hCost))
+                {
+                    currentNode = openSet[i];
+                }
+            }
+
+            openSet.Remove(currentNode);
+            closeSet.Add(currentNode);
+
+
+
+            if (currentNode == end)
+            {
+                return result;
+            }
+
+            //이웃노드 검사한다.
+            foreach (JKH_Node neighbour in grid.GetNeighboursAdd(currentNode))
+            {
+                print("" + neighbour.gridX + ", " + neighbour.gridY);
+            }
+        }
+
+        //-------
 
         return result;
     }

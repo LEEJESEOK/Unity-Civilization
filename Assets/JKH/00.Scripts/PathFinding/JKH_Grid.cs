@@ -29,11 +29,28 @@ public class JKH_Grid : MonoBehaviour
         {
             for (int y = 0; y < gridSizeX; y++)
             {
+                //기존에 있던것@@@@
                 Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) +
                     Vector3.forward * (y * nodeDiameter + nodeRadius);
                 bool walkable = !(Physics.CheckSphere(worldPoint, nodeRadius,unwalkableMask)); //
                 //grid[x, y] = new JKH_Node(walkable, worldPoint);
                 grid[x, y] = new JKH_Node(walkable, worldPoint, x, y);
+
+
+                //새로 만든것@@@@@@@
+                //TerrainData에있는 layer 정보 넣는다(walkable, unwalkable).
+
+                //gameObject 대신 넣어야하는게 그 정보인데..? 어떻게 너ㅎ음 ㅠㅠ
+                if (gameObject.GetComponent<TerrainData>().terrainType == TerrainType.Mountain ||
+                    gameObject.GetComponent<TerrainData>().terrainType == TerrainType.Coast ||
+                    gameObject.GetComponent<TerrainData>().terrainType == TerrainType.Ocean)
+                {
+                    walkable = false;
+                }
+                else
+                    walkable = true;
+                //TerrainData에있는 x,y 좌표 넣는다.
+                x = gameObject.GetComponent<TerrainData>().x;
             }
         }
     }
@@ -46,7 +63,9 @@ public class JKH_Grid : MonoBehaviour
     #endregion
 
 
-    //들고 가야할것.@@@@@@@@@
+    //들고 가야할것.
+    //좌표 기준으로 계산한다.
+    //?: currentNode기준 주변좌표 계산. 여기서도 사용되지않나..
     public List<JKH_Node> GetNeighbours(JKH_Node node)
     {
         List<JKH_Node> neighbours = new List<JKH_Node>();
@@ -65,6 +84,34 @@ public class JKH_Grid : MonoBehaviour
                 if(checkX>=0 && checkX<gridSizeX && checkY >= 0 && checkY < gridSizeY)
                 {
                     neighbours.Add(grid[checkX, checkY]);
+                }
+            }
+        }
+        return neighbours;
+    }
+
+    //Bring Neighbours /위에거 건드려본거임. 
+    public List<JKH_Node> GetNeighboursAdd(JKH_Node node)
+    {
+        List<JKH_Node> neighbours = new List<JKH_Node>();
+
+        RaycastHit hitInfo;
+        Quaternion originRotation = transform.rotation;
+        
+        //검사
+        for(int i = 0; i < 6; i++)
+        {
+            Quaternion rotation = originRotation * Quaternion.Euler(0, i * 60, 0);
+            var pos = transform.position;
+            pos.y = -0.95f;
+            Ray ray = new Ray(pos, rotation * transform.forward);
+
+            if(Physics.Raycast(ray,out hitInfo, 1000))
+            {
+                if (hitInfo.transform.gameObject.tag == "Map")
+                {
+                    //해당 x,y좌표 저장
+                    neighbours.Add(grid[hitInfo.transform.GetComponent<TerrainData>().x, hitInfo.transform.GetComponent<TerrainData>().y]);
                 }
             }
         }

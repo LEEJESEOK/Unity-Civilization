@@ -51,7 +51,6 @@ public class JKH_RayMove : MonoBehaviour
             
             if (Physics.Raycast(ray, out hitInfo, 1000))
             {
-                print("쏜다?");
                 if (hitInfo.transform.gameObject)
                 {
                     
@@ -63,7 +62,7 @@ public class JKH_RayMove : MonoBehaviour
                             ", " + hitInfo.transform.GetComponent<TerrainData>().y);
 
                         //이웃의 이동력도 불러온다!!!
-                        print("이동력: "+hitInfo.transform.GetComponent<TerrainData>().output.movePower);
+                        //print("이동력: "+hitInfo.transform.GetComponent<TerrainData>().output.movePower);
                         //print("이웃타일의 이동력: "+ hitInfo.transform.GetComponent<TerrainData>().)
 
                         #region ToDo
