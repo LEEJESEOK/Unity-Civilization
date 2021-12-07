@@ -231,20 +231,27 @@ public class FieldOfView : MonoBehaviour
     /// <summary>
     /// Finds all visible targets and adds them to the visibleTargets list.
     /// </summary>
+    public List<Hideable> hideables = new List<Hideable>();
     void FindVisibleTargets()
     {
-        for (int i = 0; i < HexFogManager.instance.findTargetList.Count; i++)
+        if (HexFogManager.instance.findTargetList == null)
         {
-            HexFogManager.instance.findTargetList[i].OnFOVLeaveShow();
-            HexFogManager.instance.findTargetList[i].OnFOVTransparency();
+            HexFogManager.instance.findTargetList = new List<Hideable>();
         }
+
+        //for (int i = 0; i < HexFogManager.instance.findTargetList.Count; i++)
+        //{
+        //    HexFogManager.instance.findTargetList[i].OnFOVLeaveShow();
+        //    HexFogManager.instance.findTargetList[i].OnFOVTransparency();
+        //    HexFogManager.instance.findTargetList.RemoveAt(i);
+        //}
 
 
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
 
         Physics.autoSyncTransforms = false;
-
+        hideables.Clear();
         /* check normal field of view */
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
@@ -258,6 +265,7 @@ public class FieldOfView : MonoBehaviour
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
+                    print("check");
                     isInFOV = true;
                 }
             }
@@ -277,16 +285,18 @@ public class FieldOfView : MonoBehaviour
             {
                 if (isInFOV)
                 {
-                    hideable.OnFOVEnterHide();
-                    if (HexFogManager.instance.findTargetList.Contains(hideable) == false)
-                        HexFogManager.instance.findTargetList.Add(hideable);
+                    //hideable.OnFOVEnterHide();
+                    hideables.Add(hideable);
+                    //hideable.OnFOVEnterHide();
+                    //if (HexFogManager.instance.findTargetList.Contains(hideable) == false)
+                    //    HexFogManager.instance.findTargetList.Add(hideable);
                 }
                 else
                 {
-                    print("remove");
-                    hideable.OnFOVLeaveShow();
-                    hideable.OnFOVTransparency();
-                    HexFogManager.instance.findTargetList.Remove(hideable);
+                    //print("remove");
+                    //hideable.OnFOVLeaveShow();
+                    //hideable.OnFOVTransparency();
+                    //HexFogManager.instance.findTargetList.Remove(hideable);
                 }
             }
         }
