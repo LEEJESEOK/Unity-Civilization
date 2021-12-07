@@ -19,10 +19,14 @@ public class PlayerInfo
 
     [Header("Resources")]
     // 보유한 자원
-    int food;
-    int production;
-    int gold;
-    int science;
+    public int food;
+    public int production;
+    public int science;
+    public int culture;
+    public int faith;
+    public int faithChange;
+    public int gold;
+    public int goldChange;
 
 
     public PlayerInfo()
@@ -32,8 +36,11 @@ public class PlayerInfo
         technologies = new List<Technology>();
 
         ongoingTechnology = new Technology();
+    }
 
-        food = production = gold = science = 0;
+    public PlayerInfo(int startGold)
+    {
+        this.gold = startGold;
     }
 
 }

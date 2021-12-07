@@ -6,9 +6,6 @@ public class GameManager : Singleton<GameManager>
 {
     [Header("Test")]
     public bool test;
-    public float testDelay = 0.1f;
-    public int testValue = 10;
-    public int testValueChange = 1;
 
     [Header("Common")]
     public bool useScience;
@@ -20,23 +17,25 @@ public class GameManager : Singleton<GameManager>
     public GameObject playerPrefab;
     public List<Player> players;
     public int initPlayerCount;
-    public int currentPlayerIdx;
+    public int currentPlayerId;
 
-    IEnumerator testCoroutine;
+    [Header("Start Resources")]
+    public int startGold = 10;
+
 
     // Start is called before the first frame update
     void Start()
     {
         InitGame();
 
-        testCoroutine = TestCoroutine();
-        StartCoroutine(testCoroutine);
+        // 첫번째 플레이어의 차례로 시작
+        players[currentPlayerId].StartTurn();
     }
 
     // Update is called once per frame
     void Update()
     {
-        players[currentPlayerIdx].TurnUpdate();
+        players[currentPlayerId].TurnUpdate();
     }
 
     void InitGame()
@@ -55,27 +54,16 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    // 현재 플레이어의 차례를 마치고 다음 플레이어 차례 시작
     public void TurnEnd()
     {
         // 현재 플레이어의 차례 종료
-        players[currentPlayerIdx].isTurn = false;
+        players[currentPlayerId].EndTurn();
+        GameManager.instance.players[currentPlayerId].isTurn = false;
+
 
         // 다음 플레이어 차례로 전환
-        currentPlayerIdx = (currentPlayerIdx + 1) % players.Count;
-        players[currentPlayerIdx].StartTurn();
-    }
-
-    IEnumerator TestCoroutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(testDelay);
-
-            if (test)
-            {
-                testValue += testValueChange;
-                UIManager.instance.UpdateResource(testValue, 0, 0, 0, testValue, testValueChange);
-            }
-        }
+        currentPlayerId = (currentPlayerId + 1) % players.Count;
+        players[currentPlayerId].StartTurn();
     }
 }

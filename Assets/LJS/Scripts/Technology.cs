@@ -11,6 +11,7 @@ public class Technology
     public string name;
     public string korean;
     public int researchCost;
+    public int remainCost;
     public bool isResearched;
     public int[] unlockObjectId;
     public List<TechnologyId> requireTechId;
@@ -21,6 +22,7 @@ public class Technology
         id = 0;
         name = korean = "";
         researchCost = -1;
+        remainCost = -1;
         unlockObjectId = new int[] { };
         requireTechId = new List<TechnologyId>();
         
@@ -33,6 +35,7 @@ public class Technology
         this.name = name;
         this.korean = korean;
         this.researchCost = researchCost;
+        this.remainCost = this.researchCost;
         this.unlockObjectId = unlockObjectId;
         this.requireTechId = requireTechId;
 

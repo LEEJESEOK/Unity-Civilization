@@ -25,7 +25,6 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
         {
             case UIButtonId.ACTION:
                 ActionState actionState = actionButton.GetComponent<ActionButtonState>().state;
-                print(eventType + ", " + actionState);
 
                 switch (actionState)
                 {
@@ -41,6 +40,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                 break;
 
             case UIButtonId.MENU_TECH:
+                UIPanelManager.instance.OpenPanel("TECHNOLOGY_PANEL");
                 break;
         }
     }

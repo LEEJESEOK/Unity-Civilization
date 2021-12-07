@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-public class UIPanelManager : MonoBehaviour
+public class UIPanelManager : Singleton<UIPanelManager>
 {
     // [SerializeField]
     // Animator initiallyOpen;
@@ -36,6 +36,12 @@ public class UIPanelManager : MonoBehaviour
     private void Start()
     {
         panels = new List<UIPanel>(GetComponentsInChildren<UIPanel>(true));
+
+        // Close All Panel
+        for (int i = 0; i < panels.Count; ++i)
+        {
+            panels[i].gameObject.SetActive(false);
+        }
     }
 
     public void OpenPanel(UIPanel panel)
@@ -56,6 +62,18 @@ public class UIPanelManager : MonoBehaviour
 
         GameObject firstObject = FindFirstEnabledSelectable(panel.gameObject);
         SetSelected(firstObject);
+    }
+
+    public void OpenPanel(string panelName)
+    {
+        for (int i = 0; i < panels.Count; ++i)
+        {
+            if (panels[i].panelName == panelName)
+            {
+                OpenPanel(panels[i]);
+                return;
+            }
+        }
     }
 
     static GameObject FindFirstEnabledSelectable(GameObject gameObject)
