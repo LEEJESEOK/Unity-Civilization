@@ -33,13 +33,13 @@ MonoBehaviour:
     - QFSW.QC
     - AstarPathfindingProject
     - Assembly-CSharp-firstpass
+    - com.lightbug.character-controller-pro
     - QFSW.QC.Serializers
     - QFSW.QC.Grammar
     - QFSW.QC.Demo
     - QFSW.QC.Extras
     - QFSW.QC.Parsers
     - QFSW.QC.UI
-    - com.lightbug.character-controller-pro
     - QFSW.QC.Editor
     - QFSW.QC.QGUI
     - PackageToolsEditor
