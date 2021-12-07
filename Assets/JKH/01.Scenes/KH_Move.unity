@@ -216,7 +216,6 @@ GameObject:
   m_Component:
   - component: {fileID: 30897479}
   - component: {fileID: 30897481}
-  - component: {fileID: 30897480}
   m_Layer: 22
   m_Name: GameObject
   m_TagString: Untagged
@@ -239,34 +238,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &30897480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30897478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d724487d1a4b974a96404b06ba28d84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layer:
-    serializedVersion: 2
-    m_Bits: 4194304
-  moveBtn: {fileID: 1779911434}
-  isUnitClick: 0
-  canMove: 0
-  movePower: 5
-  meleeAttack: 2
-  Hp: 100
-  RangeAttack: 0
-  Range: 0
-  startPosX: 0
-  startPosY: 0
-  endPosX: 0
-  endPosY: 0
-  moveUI: {fileID: 102995279}
 --- !u!136 &30897481
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -899,7 +870,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 30897480}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: JKH_Move, Assembly-CSharp
         m_MethodName: onClickMoveBtn
         m_Mode: 1
@@ -10729,13 +10700,61 @@ GameObject:
   m_Component:
   - component: {fileID: 5352354613495384497}
   - component: {fileID: 5352354613495384496}
+  - component: {fileID: 5352354613495384513}
+  - component: {fileID: 5352354613495384512}
   m_Layer: 0
-  m_Name: Evironment
+  m_Name: Environment
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5352354613495384512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352354613495384511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579b5aca2c814414ea58ed565face7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unwalkableMask:
+    serializedVersion: 2
+    m_Bits: 0
+  gridWorldSize: {x: 200, y: 200}
+  nodeRadius: 1
+  environment: {fileID: 5352354613495384511}
+--- !u!114 &5352354613495384513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352354613495384511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d724487d1a4b974a96404b06ba28d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 4194304
+  moveBtn: {fileID: 1779911434}
+  isUnitClick: 0
+  canMove: 0
+  movePower: 5
+  meleeAttack: 2
+  Hp: 100
+  RangeAttack: 0
+  Range: 0
+  startPosX: 0
+  startPosY: 0
+  endPosX: 0
+  endPosY: 0
+  moveUI: {fileID: 102995279}
 --- !u!95 &5354447440652127165
 Animator:
   serializedVersion: 3

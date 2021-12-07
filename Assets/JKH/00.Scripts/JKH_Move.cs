@@ -36,6 +36,8 @@ public class JKH_Move : MonoBehaviour
 
     //jkh_Grid..
     JKH_Grid grid;
+    JKH_Node start;
+    JKH_Node end;
 
     private void Awake()
     {
@@ -55,12 +57,11 @@ public class JKH_Move : MonoBehaviour
         canMove = false;
         cam = Camera.main;
 
-       
+        grid = GetComponent<JKH_Grid>();
 
+        start = new JKH_Node(true, transform.position, 5, 2);
+        end = new JKH_Node(true, transform.position, 8, 3);
 
-        JKH_Node start = new JKH_Node(true, transform.position, 5, 2);
-        JKH_Node end = new JKH_Node(true, transform.position, 8, 3);
-        FindPath(start, end);
     }
 
     void Update()
@@ -70,6 +71,9 @@ public class JKH_Move : MonoBehaviour
 
         getUnitInfo();
         UnitMove();
+
+
+        FindPath(start, end);
     }
 
     public void getUnitInfo()
