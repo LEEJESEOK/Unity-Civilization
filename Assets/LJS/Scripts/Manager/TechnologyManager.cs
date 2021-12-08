@@ -10,14 +10,12 @@ public class TechnologyManager : Singleton<TechnologyManager>
     public bool isLoad;
     public string fileName;
 
-    public List<Technology> technologies;
+    public List<Technology> technologies = new List<Technology>();
 
 
     // Start is called before the first frame update
     void Start()
     {
-        technologies = new List<Technology>();
-
         #region save
         if (isSave)
         {
@@ -30,7 +28,7 @@ public class TechnologyManager : Singleton<TechnologyManager>
         {
             LoadTechnologies();
 
-            UIManager.instance.SetTechnologies(technologies);
+            UIManager.instance.SetTechnologyPanel(technologies);
         }
         #endregion
     }
