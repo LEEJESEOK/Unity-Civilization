@@ -154,7 +154,7 @@ public class JKH_Grid : MonoBehaviour
         return grid[x, y];
     }
 
-    public List<JKH_Node> path;
+    public List<JKH_Node> path = new List<JKH_Node>();
 
     //void OnDrawGizmos()
     //{

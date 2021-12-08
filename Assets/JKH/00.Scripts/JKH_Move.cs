@@ -60,13 +60,20 @@ public class JKH_Move : MonoBehaviour
 
         grid = GetComponent<JKH_Grid>();
 
-        start = new JKH_Node(true, grid.grid[startX, startY].worldPosition, startX, startY);
-        end = new JKH_Node(true, grid.grid[endX, endY].worldPosition, endX, endY);
+        //Set Coordinate
+
+        //Just Check 맞게나옴.
+        //print("start: "+start.gridX+", "+start.gridY);
+        //print("startWorldPos: "+start.worldPosition);
+        //print("end: " + end.gridX + ", " + end.gridY);
+        //print("endWorldPos: "+end.worldPosition);
 
 
-        FindPath(start, end);
 
-        for(int i = 0; i < grid.path.Count; ++i)
+        //FindPath
+
+        print(grid.path);
+        for (int i = 0; i < grid.path.Count; ++i)
         {
             print(string.Format("x : {0}, y : {1}", grid.path[i].gridX, grid.path[i].gridY));
         }
@@ -80,7 +87,10 @@ public class JKH_Move : MonoBehaviour
         getUnitInfo();
         UnitMove();
 
+        start = new JKH_Node(true, grid.grid[startX, startY].worldPosition, startX, startY);
+        end = new JKH_Node(true, grid.grid[endX, endY].worldPosition, endX, endY);
 
+        FindPath(start, end);
     }
 
     public void getUnitInfo()
@@ -347,8 +357,6 @@ public class JKH_Move : MonoBehaviour
     // 인덱스 배열을 반환
     public void FindPath(JKH_Node start, JKH_Node end)
     {
-        JKH_Node result = new JKH_Node(start);
-
         //내가추가-------
         List<JKH_Node> openSet = new List<JKH_Node>();
         HashSet<JKH_Node> closeSet = new HashSet<JKH_Node>();
@@ -356,8 +364,9 @@ public class JKH_Move : MonoBehaviour
 
         while (openSet.Count > 0)
         {
-
+            //currentNode=currentNode.
             JKH_Node currentNode = openSet[0];
+
             //시작지점 openSet=0
             for (int i = 1; i < openSet.Count; i++)
             {
@@ -373,10 +382,10 @@ public class JKH_Move : MonoBehaviour
             openSet.Remove(currentNode);
             closeSet.Add(currentNode);
 
-
-            if (currentNode == end)
+            //if (currentNode == end)
+            if (currentNode.gridX == end.gridX && currentNode.gridY == end.gridY)
             {
-                RetracePath(start, end); 
+                grid.path = RetracePath(currentNode);
 
                 return;
             }
@@ -414,8 +423,6 @@ public class JKH_Move : MonoBehaviour
         }
 
         //------
-
-        print("Done Find Path");
         return;
     }
 
@@ -435,5 +442,39 @@ public class JKH_Move : MonoBehaviour
 
     }
 
+    List<JKH_Node> RetracePath(JKH_Node end)
+    {
+        List<JKH_Node> result = new List<JKH_Node>();
 
+        JKH_Node prev = null;
+        JKH_Node current = end;
+
+        while (current != null)
+        {
+            JKH_Node next = current.parent;
+            current.parent = prev;
+            prev = current;
+            current = next;
+        }
+
+        while (prev != null)
+        {
+            result.Add(prev);
+            prev = prev.parent;
+        }
+
+        return result;
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        if (grid != null)
+            for (int i = 0; i < grid.path.Count; ++i)
+            {
+                Gizmos.DrawCube(grid.path[i].worldPosition, Vector3.one * 0.5f);
+            }
+    }
 }

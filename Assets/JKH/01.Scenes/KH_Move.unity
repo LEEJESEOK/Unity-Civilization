@@ -10785,10 +10785,10 @@ MonoBehaviour:
   endPosX: 0
   endPosY: 0
   moveUI: {fileID: 102995279}
-  startX: 5
-  startY: 2
+  startX: 3
+  startY: 3
   endX: 8
-  endY: 3
+  endY: 5
 --- !u!95 &5354447440652127165
 Animator:
   serializedVersion: 3
