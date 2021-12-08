@@ -36,6 +36,7 @@ public class JKH_Move : MonoBehaviour
 
     //jkh_Grid..
     JKH_Grid grid;
+    public int startX, startY, endX, endY;
     JKH_Node start;
     JKH_Node end;
 
@@ -59,9 +60,16 @@ public class JKH_Move : MonoBehaviour
 
         grid = GetComponent<JKH_Grid>();
 
-        start = new JKH_Node(true, transform.position, 5, 2);
-        end = new JKH_Node(true, transform.position, 8, 3);
+        start = new JKH_Node(true, grid.grid[startX, startY].worldPosition, startX, startY);
+        end = new JKH_Node(true, grid.grid[endX, endY].worldPosition, endX, endY);
 
+
+        FindPath(start, end);
+
+        for(int i = 0; i < grid.path.Count; ++i)
+        {
+            print(string.Format("x : {0}, y : {1}", grid.path[i].gridX, grid.path[i].gridY));
+        }
     }
 
     void Update()
@@ -73,7 +81,6 @@ public class JKH_Move : MonoBehaviour
         UnitMove();
 
 
-        FindPath(start, end);
     }
 
     public void getUnitInfo()
@@ -98,17 +105,7 @@ public class JKH_Move : MonoBehaviour
                 print("사거리: " + Range);
 
                 //유닛이있는 타일의 정보를 가져온다.
-                float radius = 0.05f;
-                Collider[] maps = Physics.OverlapSphere(transform.position, radius, ~layer);
-                if (maps.Length == 1)
-                {
-                    if (maps[0].gameObject.tag == "Map")
-                    {
-                        print(maps[0].GetComponent<TerrainData>().x + ", " + maps[0].GetComponent<TerrainData>().y);
-                        startPosX = maps[0].GetComponent<TerrainData>().x;
-                        startPosY = maps[0].GetComponent<TerrainData>().y;
-                    }
-                }
+                GetTileInfo();
             }
         }
 
@@ -116,6 +113,22 @@ public class JKH_Move : MonoBehaviour
         {
             //버튼이 나온다
             moveBtn.SetActive(true);
+        }
+    }
+
+    //get Tile's Info
+    public void GetTileInfo()
+    {
+        float radius = 0.05f;
+        Collider[] maps = Physics.OverlapSphere(transform.position, radius, ~layer);
+        if (maps.Length == 1)
+        {
+            if (maps[0].gameObject.tag == "Map")
+            {
+                print(maps[0].GetComponent<TerrainData>().x + ", " + maps[0].GetComponent<TerrainData>().y);
+                startPosX = maps[0].GetComponent<TerrainData>().x;
+                startPosY = maps[0].GetComponent<TerrainData>().y;
+            }
         }
     }
 
@@ -172,7 +185,7 @@ public class JKH_Move : MonoBehaviour
                             transform.position = hitInfo.transform.position;
                             //가라앉는거 수정한다.
                             canMove = false;
-                            //목표 타일에 따라 이동력 감소량 다르게 한다.
+                            //목표 타일에 따라 이동력 감소량 다르게 한다.                  
                             movePower--;
                             print("이동완료!");
 
@@ -332,7 +345,7 @@ public class JKH_Move : MonoBehaviour
 
     // 경로 계산
     // 인덱스 배열을 반환
-    public JKH_Node FindPath(JKH_Node start, JKH_Node end)
+    public void FindPath(JKH_Node start, JKH_Node end)
     {
         JKH_Node result = new JKH_Node(start);
 
@@ -361,21 +374,66 @@ public class JKH_Move : MonoBehaviour
             closeSet.Add(currentNode);
 
 
-
             if (currentNode == end)
             {
-                return result;
+                RetracePath(start, end); 
+
+                return;
             }
 
             //이웃노드 검사한다.
             foreach (JKH_Node neighbour in grid.GetNeighboursAdd(currentNode))
             {
-                print("" + neighbour.gridX + ", " + neighbour.gridY);
+                //걸을수없는 위치거나, 이웃이 closeSet에 있다면
+                if (!neighbour.walkable || closeSet.Contains(neighbour))
+                {
+                    continue;
+                }
+                //g(x)+ 현재노드와 이웃간의 거리
+                float newCostToNeighbour = currentNode.gCost + Vector3.Distance(currentNode.worldPosition, neighbour.worldPosition);
+                //int newCostToNeighbour = 옆타일의 이동력
+                //만약 이웃의 gCost가 더 크거나 이웃이 포함되어있지 않다면
+                if (newCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
+                {
+
+                    //gCost갱신
+                    neighbour.gCost = newCostToNeighbour;
+                    //hCost갱신
+                    neighbour.hCost = Vector3.Distance(neighbour.worldPosition, end.worldPosition);
+                    neighbour.parent = currentNode;
+
+                    //이웃을포함하지않는다면
+                    if (!openSet.Contains(neighbour))
+                    {
+                        //이웃을 추가한다
+                        openSet.Add(neighbour);
+
+                    }
+                }
             }
         }
 
-        //-------
+        //------
 
-        return result;
+        print("Done Find Path");
+        return;
     }
+
+    void RetracePath(JKH_Node startNode, JKH_Node endNode)
+    {
+        List<JKH_Node> path = new List<JKH_Node>();
+        JKH_Node currentNode = endNode;
+
+        while (currentNode != startNode)
+        {
+            path.Add(currentNode);
+            currentNode = currentNode.parent;
+        }
+        path.Reverse();
+
+        grid.path = path;
+
+    }
+
+
 }

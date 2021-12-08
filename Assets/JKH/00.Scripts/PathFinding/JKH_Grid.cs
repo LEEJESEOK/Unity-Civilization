@@ -8,7 +8,7 @@ public class JKH_Grid : MonoBehaviour
     public LayerMask unwalkableMask;
     public Vector2 gridWorldSize;
     public float nodeRadius;
-    JKH_Node[,] grid;
+    public JKH_Node[,] grid;
     float nodeDiameter;
     int gridSizeX, gridSizeY;
 
@@ -30,6 +30,9 @@ public class JKH_Grid : MonoBehaviour
 
     private void CreateGrid()
     {
+        #region test
+        JKH_Move move = GetComponent<JKH_Move>();
+        #endregion
         grid = new JKH_Node[gridSizeX, gridSizeY];
         //Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 -
         //    Vector3.forward * gridWorldSize.y / 2;
@@ -72,7 +75,6 @@ public class JKH_Grid : MonoBehaviour
             int y = terrainDatas[i].y;
 
             grid[x, y] = new JKH_Node(walkable, terrainDatas[i].transform.position, x, y);
-
         }
     }
 
