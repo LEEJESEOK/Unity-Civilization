@@ -2,22 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
+using System.Linq;
 
 public class Player : MonoBehaviour
 {
+    public bool isTurn;
     public int playerId;
     public PlayerInfo info;
-    public bool isTurn;
+    int techCarryCost;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        info = new PlayerInfo(GameManager.instance.startGold);
+        info = new PlayerInfo();
         info.name = "Player " + playerId;
-        print(info.gold);
-
         gameObject.name = info.name;
+
+        if (GameManager.instance.test)
+        {
+            info.gold = GameManager.instance.testStartGold;
+            info.science = GameManager.instance.testStartScience;
+        }
+
+        for (int i = 0; i < TechnologyManager.instance.technologies.Count; ++i)
+        {
+            Technology technology = new Technology(TechnologyManager.instance.technologies[i]);
+            info.technologies.Add(technology);
+        }
     }
 
     // Update is called once per frame
@@ -30,12 +42,8 @@ public class Player : MonoBehaviour
     public void StartTurn()
     {
         // UI를 플레이어의 정보로 변경
-        StringBuilder sb = new StringBuilder();
-        sb.Append("science : ");
-        sb.Append(info.science);
-        sb.Append(", gold : ");
-        sb.Append(info.gold);
-        print(sb.ToString());
+        print(string.Format("[Start Turn] {0}", name));
+        print(string.Format("science : {0}, gold : {1}", info.science, info.gold));
         // 자원
         UIManager.instance.UpdateResource(info.science, 0, 0, 0, info.gold, info.goldChange);
         // 연구
@@ -45,6 +53,7 @@ public class Player : MonoBehaviour
 
     public void TurnUpdate()
     {
+
     }
 
     // 자원 생산
@@ -68,10 +77,16 @@ public class Player : MonoBehaviour
         // 완료된 연구 반영
         // 남은 생산량은 이월
         info.ongoingTechnology.remainCost -= info.science;
+        if (techCarryCost > 0)
+        {
+            info.ongoingTechnology.remainCost -= techCarryCost;
+            techCarryCost = 0;
+        }
         // 연구 완료
         if (info.ongoingTechnology.remainCost <= 0)
         {
             info.ongoingTechnology.isResearched = true;
+            techCarryCost = -info.ongoingTechnology.remainCost;
         }
 
         // 대기중인 유닛의 체력 회복

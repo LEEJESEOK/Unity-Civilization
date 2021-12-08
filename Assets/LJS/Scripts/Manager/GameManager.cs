@@ -6,6 +6,8 @@ public class GameManager : Singleton<GameManager>
 {
     [Header("Test")]
     public bool test;
+    public int testStartScience;
+    public int testStartGold;
 
     [Header("Common")]
     public bool useScience;
@@ -17,25 +19,28 @@ public class GameManager : Singleton<GameManager>
     public GameObject playerPrefab;
     public List<Player> players;
     public int initPlayerCount;
-    public int currentPlayerId;
+    int _currentPlayerId;
+    public int currentPlayerId { get => _currentPlayerId; }
+    public Player currentPlayer { get => players[currentPlayerId]; }
 
     [Header("Start Resources")]
-    public int startGold = 10;
+    public static int startGold = 10;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        testStartGold = startGold;
+
         InitGame();
 
-        // 첫번째 플레이어의 차례로 시작
-        players[currentPlayerId].StartTurn();
+        StartCoroutine(DelayedStartCoroutine());
     }
 
     // Update is called once per frame
     void Update()
     {
-        players[currentPlayerId].TurnUpdate();
+        players[_currentPlayerId].TurnUpdate();
     }
 
     void InitGame()
@@ -57,13 +62,31 @@ public class GameManager : Singleton<GameManager>
     // 현재 플레이어의 차례를 마치고 다음 플레이어 차례 시작
     public void TurnEnd()
     {
+        if (currentPlayer.info.ongoingTechnology == null)
+        {
+            print("연구를 선택해주세요");
+            return;
+        }
+        if (currentPlayer.info.ongoingTechnology.remainCost <= 0)
+        {
+            print("새로운 연구를 선택해주세요");
+            return;
+        }
+
         // 현재 플레이어의 차례 종료
-        players[currentPlayerId].EndTurn();
-        GameManager.instance.players[currentPlayerId].isTurn = false;
+        players[_currentPlayerId].EndTurn();
+        GameManager.instance.players[_currentPlayerId].isTurn = false;
 
 
         // 다음 플레이어 차례로 전환
-        currentPlayerId = (currentPlayerId + 1) % players.Count;
-        players[currentPlayerId].StartTurn();
+        _currentPlayerId = (_currentPlayerId + 1) % players.Count;
+        players[_currentPlayerId].StartTurn();
+    }
+
+    IEnumerator DelayedStartCoroutine()
+    {
+        yield return null;
+        // 첫번째 플레이어의 차례로 시작
+        players[_currentPlayerId].StartTurn();
     }
 }

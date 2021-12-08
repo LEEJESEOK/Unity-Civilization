@@ -9,8 +9,6 @@ public class UIPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        print(panelName);
-        
         switch (panelName)
         {
             case "TECHNOLOGY_PANEL":

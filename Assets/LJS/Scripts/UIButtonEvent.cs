@@ -42,6 +42,24 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
             case UIButtonId.MENU_TECH:
                 UIPanelManager.instance.OpenPanel("TECHNOLOGY_PANEL");
                 break;
+
+            case UIButtonId.TECH:
+                print("select tech button");
+                break;
         }
+    }
+
+    public void AddUIListener(ButtonListener<UIButtonId> listener)
+    {
+        listener.AddClickCallback(ClickEvent);
+        listenerList.Add(listener);
+    }
+
+    public void SelectOngoingTechnology(TechnologyId technologyId)
+    {
+
+        Technology selectedTech = GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == technologyId);
+        GameManager.instance.currentPlayer.info.ongoingTechnology = selectedTech;
+        print(selectedTech);
     }
 }

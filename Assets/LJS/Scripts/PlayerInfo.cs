@@ -34,13 +34,5 @@ public class PlayerInfo
         units = new List<GameObject>();
         cities = new List<GameObject>();
         technologies = new List<Technology>();
-
-        ongoingTechnology = new Technology();
     }
-
-    public PlayerInfo(int startGold)
-    {
-        this.gold = startGold;
-    }
-
 }

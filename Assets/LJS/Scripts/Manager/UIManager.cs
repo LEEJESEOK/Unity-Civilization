@@ -35,6 +35,9 @@ public class UIManager : Singleton<UIManager>
     public GameObject technologySectorPrefab;
     public GameObject technologyButtonPrefab;
 
+
+    UIButtonEvent uIButtonEvent;
+
     bool useScience;
     bool useCulture;
     bool useFaith;
@@ -46,6 +49,7 @@ public class UIManager : Singleton<UIManager>
     {
         test = GameManager.instance.test;
 
+        uIButtonEvent = GetComponent<UIButtonEvent>();
     }
 
     // Update is called once per frame
@@ -112,7 +116,7 @@ public class UIManager : Singleton<UIManager>
         ResizeLayoutGroup(resourcesWrapper);
     }
 
-    public void SetTechnologies(List<Technology> technologies)
+    public void SetTechnologyPanel(List<Technology> technologies)
     {
         GameObject sector = Instantiate(technologySectorPrefab);
         int currentCost = 0;
@@ -135,9 +139,14 @@ public class UIManager : Singleton<UIManager>
     {
         GameObject technologyButton = Instantiate(technologyButtonPrefab);
         technologyButton.name = technology.name;
-
         technologyButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = technology.korean;
-        technologyButton.GetComponent<TechnologyButtonListener>().SetButtonType(technology.id);
+
+        TechnologyButtonListener technologyButtonListener = technologyButton.GetComponent<TechnologyButtonListener>();
+        technologyButtonListener.SetButtonType(technology.id);
+        technologyButtonListener.AddClickCallback(uIButtonEvent.SelectOngoingTechnology);
+
+        UIButtonListener uIButtonListener = technologyButton.GetComponent<UIButtonListener>();
+        uIButtonEvent.AddUIListener(uIButtonListener);
 
         return technologyButton;
     }

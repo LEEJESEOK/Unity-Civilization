@@ -25,7 +25,7 @@ public class Technology
         remainCost = -1;
         unlockObjectId = new int[] { };
         requireTechId = new List<TechnologyId>();
-        
+
         isResearched = false;
     }
 
@@ -40,6 +40,18 @@ public class Technology
         this.requireTechId = requireTechId;
 
         isResearched = false;
+    }
+
+    public Technology(Technology technology)
+    {
+        this.id = technology.id;
+        this.name = technology.name;
+        this.korean = technology.korean;
+        this.researchCost = technology.researchCost;
+        this.remainCost = technology.remainCost;
+        this.isResearched = technology.isResearched;
+        this.unlockObjectId = technology.unlockObjectId;
+        this.requireTechId = technology.requireTechId;
     }
 
     public override string ToString()
