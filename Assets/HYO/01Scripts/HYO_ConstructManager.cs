@@ -76,8 +76,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     {
         if (Input.GetMouseButtonDown(0) && isUnitSelected)
         {
-            //tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
-            SelectTile(); //나중에지워
+            tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
+            //SelectTile(); 
         }
         else if (Input.GetMouseButtonDown(0) && isUnitSelected == false)
         {
@@ -323,8 +323,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         empty.transform.parent = tileTemp;
         empty.transform.position = tileTemp.position;
         empty.transform.localPosition = new Vector3(0, 0.109f, 0);
-        empty.transform.localEulerAngles = new Vector3(0, -90, 0);
-        empty.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        //empty.transform.localEulerAngles = new Vector3(0, -90, 0);
+        empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
 
     }
     public void CreateDistrict(int chooseIndex)
@@ -337,8 +337,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         empty.transform.parent = tileTemp;
         empty.transform.position = tileTemp.position;
         empty.transform.localPosition = new Vector3(0, 0.109f, 0);//constrMng.iconPos[chooseIndex];
-        empty.transform.localEulerAngles = new Vector3(90, 0, 0);
-        empty.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        //empty.transform.localEulerAngles = new Vector3(90, 0, 0);
+        //empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
     }
 
 }
