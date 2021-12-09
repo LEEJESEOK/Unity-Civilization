@@ -8,17 +8,17 @@ public enum UIButtonId
 
     #region SYSTEM
     ACTION,
+    NOTICE,
+
 
     MENU_TECH,
     MENU_CIVIC,
     MENU_GREATPEOPLE,
 
-
-
-
-    NOTICE,
-
     MENU,
+    HELP,
+
+    TECH,
     #endregion
 
     #region UNIT COMMAND

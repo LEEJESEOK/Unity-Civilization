@@ -11,10 +11,7 @@ public class UIManager : Singleton<UIManager>
     bool test;
 
     [Header("Common")]
-    bool useScience;
-    bool useCulture;
-    bool useFaith;
-    bool useGold;
+    public bool mouseCapture = true;
 
     [Header("Resources")]
     public GameObject resourcesWrapper;
@@ -39,11 +36,20 @@ public class UIManager : Singleton<UIManager>
     public GameObject technologyButtonPrefab;
 
 
+    UIButtonEvent uIButtonEvent;
+
+    bool useScience;
+    bool useCulture;
+    bool useFaith;
+    bool useGold;
+
+
     // Start is called before the first frame update
     void Start()
     {
         test = GameManager.instance.test;
 
+        uIButtonEvent = GetComponent<UIButtonEvent>();
     }
 
     // Update is called once per frame
@@ -54,10 +60,11 @@ public class UIManager : Singleton<UIManager>
 
     public void InitUI()
     {
+        if (mouseCapture)
+            // 마우스 커서가 윈도우 밖으로 나가지 않도록 함
+            Cursor.lockState = CursorLockMode.Confined;
+
         InitResourcesIndicator();
-
-        InitPanelState();
-
     }
 
     void InitResourcesIndicator()
@@ -109,12 +116,7 @@ public class UIManager : Singleton<UIManager>
         ResizeLayoutGroup(resourcesWrapper);
     }
 
-    void InitPanelState()
-    {
-        technologyPanel.SetActive(false);
-    }
-
-    public void SetTechnologies(List<Technology> technologies)
+    public void SetTechnologyPanel(List<Technology> technologies)
     {
         GameObject sector = Instantiate(technologySectorPrefab);
         int currentCost = 0;
@@ -133,13 +135,18 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
-    public GameObject GetTechnologyButton(Technology technology)
+    GameObject GetTechnologyButton(Technology technology)
     {
         GameObject technologyButton = Instantiate(technologyButtonPrefab);
         technologyButton.name = technology.name;
-
         technologyButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = technology.korean;
-        technologyButton.GetComponent<TechnologyButtonListener>().SetButtonType(technology.id);
+
+        TechnologyButtonListener technologyButtonListener = technologyButton.GetComponent<TechnologyButtonListener>();
+        technologyButtonListener.SetButtonType(technology.id);
+        technologyButtonListener.AddClickCallback(uIButtonEvent.SelectOngoingTechnology);
+
+        UIButtonListener uIButtonListener = technologyButton.GetComponent<UIButtonListener>();
+        uIButtonEvent.AddUIListener(uIButtonListener);
 
         return technologyButton;
     }
@@ -182,9 +189,10 @@ public class UIManager : Singleton<UIManager>
 
 
             sb.Clear();
+            sb.Append("+");
             sb.Append(goldChange);
             goldChangeTMP.text = sb.ToString();
-            if (goldChange > 0)
+            if (goldChange >= 0)
                 goldChangeTMP.color = defaultGoldColor;
             else
                 goldChangeTMP.color = Color.red;
