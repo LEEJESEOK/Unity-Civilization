@@ -39,7 +39,7 @@ public class JKH_Pathfinding : MonoBehaviour
         JKH_Node startNode = grid.NodeFromWorldPoint(startPos);
         JKH_Node targetNode = grid.NodeFromWorldPoint(targetPos);
 
-        
+
 
 
 
@@ -89,7 +89,7 @@ public class JKH_Pathfinding : MonoBehaviour
                     continue;
                 }
                 //g(x)+ 현재노드와 이웃간의 거리
-                int newCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
+                float newCostToNeighbour = currentNode.gCost + (float)GetDistance(currentNode, neighbour);
                 //int newCostToNeighbour = 옆타일의 이동력
                 //만약 이웃의 gCost가 더 크거나 이웃이 포함되어있지 않다면
                 if (newCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
@@ -97,7 +97,7 @@ public class JKH_Pathfinding : MonoBehaviour
                     //gCost갱신
                     neighbour.gCost = newCostToNeighbour;
                     //hCost갱신
-                    neighbour.hCost = GetDistance(neighbour, targetNode);
+                    neighbour.hCost = (float)GetDistance(neighbour, targetNode);
                     neighbour.parent = currentNode;
 
                     //이웃을포함하지않는다면

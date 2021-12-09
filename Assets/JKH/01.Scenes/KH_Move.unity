@@ -216,7 +216,6 @@ GameObject:
   m_Component:
   - component: {fileID: 30897479}
   - component: {fileID: 30897481}
-  - component: {fileID: 30897480}
   m_Layer: 22
   m_Name: GameObject
   m_TagString: Untagged
@@ -232,41 +231,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30897478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.773, y: 0, z: -2.63}
+  m_LocalPosition: {x: -3.27, y: -1, z: -2.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1509403860}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &30897480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30897478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d724487d1a4b974a96404b06ba28d84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layer:
-    serializedVersion: 2
-    m_Bits: 4194304
-  moveBtn: {fileID: 1779911434}
-  isUnitClick: 0
-  canMove: 0
-  movePower: 5
-  meleeAttack: 2
-  Hp: 100
-  RangeAttack: 0
-  Range: 0
-  startPosX: 0
-  startPosY: 0
-  endPosX: 0
-  endPosY: 0
-  moveUI: {fileID: 102995279}
 --- !u!136 &30897481
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -527,6 +498,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &897364131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 897364132}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &897364132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897364131}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5, y: -1, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1105876962
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +618,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105876962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0, z: -3.21}
+  m_LocalPosition: {x: -0.83, y: -0.74, z: -0.8}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -810,7 +811,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509403856}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.15, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 30897479}
@@ -899,7 +900,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 30897480}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: JKH_Move, Assembly-CSharp
         m_MethodName: onClickMoveBtn
         m_Mode: 1
@@ -2078,7 +2079,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: e68d55909439c3c41a881463ce2a7fe7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4517,11 +4518,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955581766391604366}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b36a0516464081d4a9e475a751e110a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 0
 --- !u!4 &1997354029276902366
 Transform:
   m_ObjectHideFlags: 0
@@ -6358,13 +6360,27 @@ GameObject:
   - component: {fileID: 8700657564077189644}
   - component: {fileID: 1453409891208975992}
   - component: {fileID: 8124035119442062342}
+  - component: {fileID: 2994273555809270542}
   m_Layer: 0
-  m_Name: HexTile
+  m_Name: HexTile_KH2
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2994273555809270542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994273555809270541}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b36a0516464081d4a9e475a751e110a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canMove: 0
 --- !u!114 &2997834692758351206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6743,7 +6759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainType: 0
-  feature: 0
+  feature: 4
   facilityData: {fileID: 0}
   output:
     movePower: 0
@@ -8508,7 +8524,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: f39422292d8b9154e9ea83833e0c6bda, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10016,8 +10032,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
-  feature: 0
+  terrainType: 2
+  feature: 4
   facilityData: {fileID: 0}
   output:
     movePower: 0
@@ -10714,13 +10730,67 @@ GameObject:
   m_Component:
   - component: {fileID: 5352354613495384497}
   - component: {fileID: 5352354613495384496}
+  - component: {fileID: 5352354613495384512}
+  - component: {fileID: 5352354613495384513}
   m_Layer: 0
-  m_Name: Evironment
+  m_Name: Environment
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5352354613495384512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352354613495384511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579b5aca2c814414ea58ed565face7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unwalkableMask:
+    serializedVersion: 2
+    m_Bits: 0
+  gridWorldSize: {x: 200, y: 200}
+  nodeRadius: 1
+  environment: {fileID: 5352354613495384511}
+--- !u!114 &5352354613495384513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352354613495384511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d724487d1a4b974a96404b06ba28d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 4194304
+  moveBtn: {fileID: 1779911434}
+  isUnitClick: 0
+  canMove: 0
+  movePower: 5
+  meleeAttack: 2
+  Hp: 100
+  RangeAttack: 0
+  Range: 0
+  startPosX: 0
+  startPosY: 0
+  endPosX: 0
+  endPosY: 0
+  moveUI: {fileID: 102995279}
+  startX: 4
+  startY: 3
+  endX: 8
+  endY: 6
+  requiredMovePower: 0
+  moveResult: 0
 --- !u!95 &5354447440652127165
 Animator:
   serializedVersion: 3
@@ -11664,7 +11734,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0971ddc3dcc3f514bb964d389799c7dc, type: 2}
+  - {fileID: 2100000, guid: e68d55909439c3c41a881463ce2a7fe7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12992,7 +13062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d26244ef6d0843a59a1971c8c875e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainType: 0
+  terrainType: 2
   feature: 4
   facilityData: {fileID: 0}
   output:
@@ -15080,7 +15150,7 @@ GameObject:
   - component: {fileID: 3650835446276865094}
   - component: {fileID: 6638366759302392753}
   m_Layer: 0
-  m_Name: HexTile
+  m_Name: HexTile - start
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16024,7 +16094,7 @@ GameObject:
   - component: {fileID: 6117785309914724341}
   - component: {fileID: 7939403560050689164}
   m_Layer: 0
-  m_Name: HexTile
+  m_Name: HexTile_KH2
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
