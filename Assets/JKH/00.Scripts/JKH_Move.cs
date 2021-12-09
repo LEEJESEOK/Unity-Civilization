@@ -36,7 +36,7 @@ public class JKH_Move : MonoBehaviour
 
     //jkh_Grid..
     JKH_Grid grid;
-    public int startX, startY, endX, endY;
+    public int startX, startY, endX, endY, requiredMovePower;
     JKH_Node start;
     JKH_Node end;
 
@@ -77,6 +77,13 @@ public class JKH_Move : MonoBehaviour
         {
             print(string.Format("x : {0}, y : {1}", grid.path[i].gridX, grid.path[i].gridY));
         }
+
+        start = new JKH_Node(true, grid.grid[startX, startY].worldPosition, startX, startY, grid.grid[startX, startY].requiredMovePower);
+        end = new JKH_Node(true, grid.grid[endX, endY].worldPosition, endX, endY, grid.grid[endX,endY].requiredMovePower);
+
+
+        StartCoroutine(DelayedStartFindPath());
+
     }
 
     void Update()
@@ -87,10 +94,7 @@ public class JKH_Move : MonoBehaviour
         getUnitInfo();
         UnitMove();
 
-        start = new JKH_Node(true, grid.grid[startX, startY].worldPosition, startX, startY);
-        end = new JKH_Node(true, grid.grid[endX, endY].worldPosition, endX, endY);
 
-        FindPath(start, end);
     }
 
     public void getUnitInfo()
@@ -355,6 +359,10 @@ public class JKH_Move : MonoBehaviour
 
     // 경로 계산
     // 인덱스 배열을 반환
+
+    //필요변수: 이동력 소모하기 위한 값
+    public float moveResult;
+
     public void FindPath(JKH_Node start, JKH_Node end)
     {
         //내가추가-------
@@ -362,26 +370,35 @@ public class JKH_Move : MonoBehaviour
         HashSet<JKH_Node> closeSet = new HashSet<JKH_Node>();
         openSet.Add(start);
 
+        print("시작좌표이동력" + start.requiredMovePower);
+        float requiredMovePower = 0;
+        requiredMovePower -= start.requiredMovePower;
+
         while (openSet.Count > 0)
         {
             //currentNode=currentNode.
             JKH_Node currentNode = openSet[0];
 
-            //이동력 합 구하기 전.
-            int requiredMovePower = 0;
-             
+            //도착할때까지 이동력 합 계속더하기
+
+            //requiredMovePower += openSet[0].requiredMovePower;
+            //print("요구되는 이동력= " + requiredMovePower);
 
             //시작지점 openSet=0
             for (int i = 1; i < openSet.Count; i++)
             {
                 //만족한 값으로 이동.
                 if ((openSet[i].fCost < currentNode.fCost)
-                    || (openSet[i].fCost == currentNode.fCost)
-                    && (openSet[i].hCost < currentNode.hCost))
+                    || ((openSet[i].fCost == currentNode.fCost) && (openSet[i].hCost < currentNode.hCost)))
                 {
                     currentNode = openSet[i];
+
                 }
             }
+            //추가 //여기가 맞냐 제발... //근데 시작 좌표에서는 계산하면 안됨요.
+            //print("추가되는 이동력: " + currentNode.requiredMovePower);
+            requiredMovePower += currentNode.requiredMovePower;
+            print("요구되는 이동력= " + requiredMovePower);
 
             openSet.Remove(currentNode);
             closeSet.Add(currentNode);
@@ -390,6 +407,16 @@ public class JKH_Move : MonoBehaviour
             if (currentNode.gridX == end.gridX && currentNode.gridY == end.gridY)
             {
                 grid.path = RetracePath(currentNode);
+                //moveResult = requiredMovePower; //최종값.
+
+                moveResult = 0;
+                for (int i = 0; i < grid.path.Count; ++i)
+                {
+                    print(grid.path[i]);
+                    //print(string.Format("{0}, {1} : {2}", grid.path[i].gridX, grid.path[i].gridY, grid.path[i].requiredMovePower));
+                    moveResult += grid.path[i].requiredMovePower;
+                }
+                print("최종값: " + moveResult);
 
                 return;
             }
@@ -424,12 +451,16 @@ public class JKH_Move : MonoBehaviour
                     }
                 }
             }
+
         }
-        
-        
+
+
         //------
+        //print("시작좌표이동력" + start.requiredMovePower);
+
         return;
     }
+
 
     void RetracePath(JKH_Node startNode, JKH_Node endNode)
     {
@@ -481,5 +512,13 @@ public class JKH_Move : MonoBehaviour
             {
                 Gizmos.DrawCube(grid.path[i].worldPosition, Vector3.one * 0.5f);
             }
+    }
+
+    IEnumerator DelayedStartFindPath()
+    {
+        yield return null;
+
+        FindPath(start, end);
+
     }
 }

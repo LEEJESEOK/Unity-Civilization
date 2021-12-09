@@ -73,9 +73,13 @@ public class JKH_Grid : MonoBehaviour
             int y = terrainDatas[i].y;
 
             //해당 타일의 이동력.
-            int movePower= terrainDatas[i].output.movePower; 
-            
-            grid[x, y] = new JKH_Node(walkable, terrainDatas[i].transform.position, x, y); //movepower지움.
+            int requiredMovePower = terrainDatas[i].output.movePower;
+            if(x == 7 && y == 4)
+            {
+
+            }
+
+            grid[x, y] = new JKH_Node(walkable, terrainDatas[i].transform.position, x, y, requiredMovePower); //movepower지움.
         }
     }
 

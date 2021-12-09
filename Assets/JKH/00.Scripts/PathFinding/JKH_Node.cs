@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text;
 
 public class JKH_Node
 {
@@ -15,8 +16,8 @@ public class JKH_Node
     public float hCost;
 
     //movePower 이동력 추가
-    public float movePower;
-    
+    public float requiredMovePower;
+
     //경로저장용 == 발자취 (linked list)
     public JKH_Node parent;
 
@@ -25,14 +26,14 @@ public class JKH_Node
         parent = null;
     }
 
-    public JKH_Node(bool _walkable, Vector3 _worldPos, int _gridX, int _gridY)
+    public JKH_Node(bool _walkable, Vector3 _worldPos, int _gridX, int _gridY, float _requiredMovePower)
     {
         walkable = _walkable;
         worldPosition = _worldPos;
         gridX = _gridX;
         gridY = _gridY;
-        //movePower = _movePower;
-        
+        requiredMovePower = _requiredMovePower;
+
     }
 
     public float fCost
@@ -41,6 +42,13 @@ public class JKH_Node
         {
             return gCost + hCost;
         }
+    }
+
+    public override string ToString()
+    {
+        string result = JsonUtility.ToJson(this, true);
+       
+        return result;
     }
 }
 
