@@ -13,6 +13,10 @@ public class JKH_Node
 
     public float gCost;
     public float hCost;
+
+    //movePower 이동력 추가
+    public float movePower;
+    
     //경로저장용 == 발자취 (linked list)
     public JKH_Node parent;
 
@@ -27,6 +31,8 @@ public class JKH_Node
         worldPosition = _worldPos;
         gridX = _gridX;
         gridY = _gridY;
+        //movePower = _movePower;
+        
     }
 
     public float fCost

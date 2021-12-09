@@ -28,6 +28,7 @@ public class JKH_Grid : MonoBehaviour
         CreateGrid();
     }
 
+    //원래 private
     private void CreateGrid()
     {
         #region test
@@ -50,9 +51,6 @@ public class JKH_Grid : MonoBehaviour
 
         //        //새로 만든것@@@@@@@
         //        //TerrainData에있는 layer 정보 넣는다(walkable, unwalkable).
-
-
-
         //    }
         //}
         for (int i = 0; i < terrainDatas.Length; i++)
@@ -74,7 +72,10 @@ public class JKH_Grid : MonoBehaviour
             int x = terrainDatas[i].x;
             int y = terrainDatas[i].y;
 
-            grid[x, y] = new JKH_Node(walkable, terrainDatas[i].transform.position, x, y);
+            //해당 타일의 이동력.
+            int movePower= terrainDatas[i].output.movePower; 
+            
+            grid[x, y] = new JKH_Node(walkable, terrainDatas[i].transform.position, x, y); //movepower지움.
         }
     }
 

@@ -367,6 +367,10 @@ public class JKH_Move : MonoBehaviour
             //currentNode=currentNode.
             JKH_Node currentNode = openSet[0];
 
+            //이동력 합 구하기 전.
+            int requiredMovePower = 0;
+             
+
             //시작지점 openSet=0
             for (int i = 1; i < openSet.Count; i++)
             {
@@ -421,7 +425,8 @@ public class JKH_Move : MonoBehaviour
                 }
             }
         }
-
+        
+        
         //------
         return;
     }
