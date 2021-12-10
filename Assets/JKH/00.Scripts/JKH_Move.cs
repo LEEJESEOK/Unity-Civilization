@@ -105,11 +105,15 @@ public class JKH_Move : MonoBehaviour
         //마우스 클릭한다
         if (Input.GetButton("Fire1"))
         {
+            
             if (Physics.Raycast(ray, out hitInfo, 1000, layer))
             {
+
                 //unitMove
                 JKH_Move um = hitInfo.transform.GetComponent<JKH_Move>();
-                um.isUnitClick = true;
+
+                print(hitInfo.transform.gameObject.name);
+                //um.isUnitClick = true;
 
                 // 유닛 정보 출력(확인용)
                 print("이동력: " + movePower);
@@ -229,26 +233,6 @@ public class JKH_Move : MonoBehaviour
 
                     print(AutoMapTile.instance.tiles[0].GetComponent<TerrainData>().x + " ," +
                     AutoMapTile.instance.tiles[0].GetComponent<TerrainData>().y);
-
-
-                    // 목적지 클릭했다. 대신에 무브 버튼을 누른다음에 마우스가 가르키는 타일의 거리 구한다
-                    // ==현재위치에서 목적지까지에 필요한 이동력을 계산한다
-                    // == 이동력 얼마나 소모하는지 표시한다
-                    // ↓↓↓↓↓↓↓↓↓↓
-                    // ★ A* 알고리즘 이용 ★
-                    // Needs
-                    // 각 타일의 좌표 및 정보(eg.이동력 소모값, 이동할수있는 타일인가 아닌가(벽같은개념)) 
-                    // -타일의 좌표
-                    // 클릭한타일을 지정해서 가져온다.
-                    // 시작점(시작점 제외)에서 목적지까지의 최단거리를 구한다(위내용과 같음)
-                    // 시작점(시작점 제외)에서 목적지까지의 거쳐간 길들의 이동력을 더한다                    
-                    // @@@@@@
-                    // 만약 계산된 이동력이 0보다 크다면 이동한다
-                    // 계산된 이동력이 0뵤다 작다면 이동하지 않는다
-                    //
-                    //
-
-
                     //이동량이 있다. (이동하는것)
                     if (movePower > 0)
                     {
@@ -397,8 +381,8 @@ public class JKH_Move : MonoBehaviour
             }
             //추가 //여기가 맞냐 제발... //근데 시작 좌표에서는 계산하면 안됨요.
             //print("추가되는 이동력: " + currentNode.requiredMovePower);
-            requiredMovePower += currentNode.requiredMovePower;
-            print("요구되는 이동력= " + requiredMovePower);
+            //requiredMovePower += currentNode.requiredMovePower;
+            //print("요구되는 이동력= " + requiredMovePower);
 
             openSet.Remove(currentNode);
             closeSet.Add(currentNode);
@@ -461,7 +445,7 @@ public class JKH_Move : MonoBehaviour
         return;
     }
 
-
+    
     void RetracePath(JKH_Node startNode, JKH_Node endNode)
     {
         List<JKH_Node> path = new List<JKH_Node>();
@@ -475,6 +459,8 @@ public class JKH_Move : MonoBehaviour
         path.Reverse();
 
         grid.path = path;
+
+        
 
     }
 
