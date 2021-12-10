@@ -42,9 +42,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     //first city center
     public bool isFirst;
 
-
-
-
     bool isOpenPopup;
 
     // 지형레이어
@@ -74,15 +71,38 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isUnitSelected)
-        {
-            tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
-            //SelectTile(); 
-        }
-        else if (Input.GetMouseButtonDown(0) && isUnitSelected == false)
+        if (Input.GetMouseButtonDown(0))
         {
             SelectUnit();
+
+            if (isUnitSelected)
+            {
+                tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
+
+                if(tileTemp.GetComponent<TerrainData>().myCenter == null)
+                {
+                    tileTemp = null;
+
+                    farmBTN.SetActive(false);
+                    mineBTN.SetActive(false);
+                    campusBTN.SetActive(false);
+                    commercialHubBTN.SetActive(false);
+                    industrialZoneBTN.SetActive(false);
+                }
+
+            }
         }
+
+        //if (Input.GetMouseButtonDown(0) && isUnitSelected)
+        //{
+
+        //    tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
+        //    //SelectTile(); 
+        //}
+        //else if (Input.GetMouseButtonDown(0) && isUnitSelected == false)
+        //{
+        //    SelectUnit();
+        //}
 
         TileInfoPopUp();
     }
@@ -98,13 +118,16 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
         {
             unitInfo = hit.transform.gameObject;
+
+            //이동할때로 옮겨 나중에
             unitInfo.GetComponent<NonCombatUnit>().CheckMyPos();
+
             unitType = unitInfo.GetComponent<NonCombatUnit>().non_CombatUnitType;
             isUnitSelected = true;
 
-            if(unitType == Non_CombatUnitType.Settler)
+            if (unitType == Non_CombatUnitType.Settler)
             {
-                settleBTN.SetActive(true);       
+                settleBTN.SetActive(true);
             }
             else if (unitType == Non_CombatUnitType.Builder)
             {
@@ -312,6 +335,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     public void CreateFacility(int chooseIndex)
     {
+        tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
+
         GameObject empty = Instantiate(icons[chooseIndex]);
         unitInfo.GetComponent<NonCombatUnit>().buildCount += 1;
         Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.gameObject.GetComponent<Territory>();
@@ -330,6 +355,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     }
     public void CreateDistrict(int chooseIndex)
     {
+        tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
+
         GameObject empty = Instantiate(icons[chooseIndex]);
         unitInfo.GetComponent<NonCombatUnit>().buildCount += 1;
         Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.gameObject.GetComponent<Territory>();
