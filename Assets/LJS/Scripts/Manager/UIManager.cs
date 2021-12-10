@@ -148,8 +148,9 @@ public class UIManager : Singleton<UIManager>
     GameObject GetTechnologyButton(Technology technology)
     {
         GameObject technologyButton = Instantiate(technologyButtonPrefab);
-        technologyButton.name = technology.name;
-        technologyButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = technology.korean;
+        Sprite sprite = Resources.Load<Sprite>("Image/Technology/" + technology.name);
+        TechnologyButtonSetter technologyButtonSetter = technologyButton.GetComponent<TechnologyButtonSetter>();
+        technologyButtonSetter.SetTechnologyButton(technology.korean, sprite, "");
 
         TechnologyButtonListener technologyButtonListener = technologyButton.GetComponent<TechnologyButtonListener>();
         technologyButtonListener.SetButtonType(technology.id);
@@ -232,7 +233,6 @@ public class UIManager : Singleton<UIManager>
         // name(korean)
         selectedTechnologyName.text = technology.korean;
         // image
-        print(technology.name);
         selectedTechnologyImage.sprite = Resources.Load<Sprite>("Image/Technology/" + technology.name);
         // unlockObject
         // remainCost -> turn
