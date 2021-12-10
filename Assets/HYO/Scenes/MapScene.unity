@@ -3414,6 +3414,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TT_Settler
       objectReference: {fileID: 0}
+    - target: {fileID: 9173185916814592734, guid: cc1d9ae112f9093468713bfc446711b2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9173185916814890686, guid: cc1d9ae112f9093468713bfc446711b2, type: 3}
       propertyPath: m_RootOrder
       value: 8

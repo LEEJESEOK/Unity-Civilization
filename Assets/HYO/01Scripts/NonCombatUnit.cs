@@ -44,6 +44,7 @@ public class NonCombatUnit : MonoBehaviour
         }
     }
 
+    //이동하면 검사
     public void CheckMyPos()
     {
         int fogLayer = LayerMask.GetMask("HexFog");
@@ -54,6 +55,7 @@ public class NonCombatUnit : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 1,~fogLayer))
         {
             myTilePos = hit.transform.gameObject;
+
             posX = myTilePos.GetComponent<TerrainData>().x;
             posY = myTilePos.GetComponent<TerrainData>().y;
         }
