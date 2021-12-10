@@ -43,7 +43,7 @@ public class NonCombatUnit : MonoBehaviour
             }
         }
     }
-    //이동할때 불러
+
     public void CheckMyPos()
     {
         int fogLayer = LayerMask.GetMask("HexFog");

@@ -292,8 +292,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         city.transform.position = tileTemp.position;
         city.transform.localPosition = new Vector3(0, 0.1f, 0);
         city.transform.localEulerAngles = new Vector3(-90, 0, 90);
-        city.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        city.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
         GameObject fov = Instantiate(fovPre);
+
         fov.transform.parent = city.transform;
         fov.transform.position = city.transform.position;
 
