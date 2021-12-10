@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7585198393296644599}
-  - component: {fileID: 3202118272132762695}
+  - component: {fileID: 5141870961832575572}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3202118272132762695
+--- !u!114 &5141870961832575572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,9 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7585198393296644598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486b31149fcc72d438f24690c7456f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c22f9dd5a1e6d143b68d445636810e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTurn: 0
+  playerId: 0
   info:
     name: 
     units: []
@@ -53,8 +55,15 @@ MonoBehaviour:
       name: 
       korean: 
       researchCost: -1
+      remainCost: -1
       isResearched: 0
       unlockObjectId: 
       requireTechId: 
-  playerId: 0
-  isTurn: 0
+    food: 0
+    production: 0
+    science: 0
+    culture: 0
+    faith: 0
+    faithChange: 0
+    gold: 0
+    goldChange: 0
