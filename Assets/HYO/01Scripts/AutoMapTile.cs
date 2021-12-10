@@ -26,6 +26,7 @@ public class AutoMapTile : Singleton<AutoMapTile>
                 for (int x = 0; x < length; x++)
                 {
                     GameObject tile = Instantiate(tileFactory);
+                    tile.tag = "Map";
 
                     if (z == 0 || z == length - 1)
                     {
