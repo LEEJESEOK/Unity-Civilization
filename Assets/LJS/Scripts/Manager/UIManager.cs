@@ -13,6 +13,7 @@ public class UIManager : Singleton<UIManager>
     [Header("Common")]
     public bool mouseCapture = true;
 
+    #region Resources
     [Header("Resources")]
     public GameObject resourcesWrapper;
     public GameObject scienceGroup;
@@ -28,13 +29,22 @@ public class UIManager : Singleton<UIManager>
     public Color defaultGoldColor;
     public TextMeshProUGUI goldTMP;
     public TextMeshProUGUI goldChangeTMP;
+    #endregion
 
+    #region Technology
     [Header("Technology Panel")]
     public GameObject technologyPanel;
     public GameObject technologyPanelContent;
     public GameObject technologySectorPrefab;
     public GameObject technologyButtonPrefab;
 
+    [Header("SelectedTechnology")]
+    public TextMeshProUGUI selectedTechnologyName;
+    public Image selectedTechnologyImage;
+    public TextMeshProUGUI selectedTechnologyRemainTurn;
+
+
+    #endregion
 
     UIButtonEvent uIButtonEvent;
 
@@ -151,6 +161,13 @@ public class UIManager : Singleton<UIManager>
         return technologyButton;
     }
 
+    void ResizeLayoutGroup(GameObject layoutObject)
+    {
+        LayoutGroup[] layoutGroups = layoutObject.GetComponentsInChildren<LayoutGroup>();
+        for (int i = 0; i < layoutGroups.Length; ++i)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroups[i].GetComponent<RectTransform>());
+    }
+
     public void UpdateResource(int science, int culture, int faith, int faithChange, int gold, int goldChange)
     {
         StringBuilder sb = new StringBuilder();
@@ -186,10 +203,11 @@ public class UIManager : Singleton<UIManager>
             sb.Append(gold);
             goldTMP.text = sb.ToString();
 
-
-
             sb.Clear();
-            sb.Append("+");
+            if (goldChange > 0)
+                sb.Append("+");
+            else if (goldChange < 0)
+                sb.Append("-");
             sb.Append(goldChange);
             goldChangeTMP.text = sb.ToString();
             if (goldChange >= 0)
@@ -198,14 +216,31 @@ public class UIManager : Singleton<UIManager>
                 goldChangeTMP.color = Color.red;
         }
 
-
         ResizeLayoutGroup(resourcesWrapper);
     }
 
-    void ResizeLayoutGroup(GameObject layoutObject)
+    public void InitSelectedTechnology()
     {
-        LayoutGroup[] layoutGroups = layoutObject.GetComponentsInChildren<LayoutGroup>();
-        for (int i = 0; i < layoutGroups.Length; ++i)
-            LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroups[i].GetComponent<RectTransform>());
+        selectedTechnologyName.text = "연구 선택";
+        // TODO 연구 기본 선택 이미지
+        selectedTechnologyImage.sprite = Resources.Load<Sprite>("Image/WhiteCircle");
+        selectedTechnologyRemainTurn.text = "";
+    }
+
+    public void UpdateSelectedTechnology(Technology technology)
+    {
+        // name(korean)
+        selectedTechnologyName.text = technology.korean;
+        // image
+        print(technology.name);
+        selectedTechnologyImage.sprite = Resources.Load<Sprite>("Image/Technology/" + technology.name);
+        // unlockObject
+        // remainCost -> turn
+        int remainTurn = Mathf.CeilToInt((float)technology.remainCost / GameManager.instance.currentPlayer.info.science);
+        if (remainTurn > 0)
+            selectedTechnologyRemainTurn.text = "턴 : " + System.Environment.NewLine
+             + remainTurn;
+        else
+            selectedTechnologyRemainTurn.text = System.Environment.NewLine + "방금 완성";
     }
 }

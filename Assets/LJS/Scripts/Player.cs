@@ -42,11 +42,17 @@ public class Player : MonoBehaviour
     public void StartTurn()
     {
         // UI를 플레이어의 정보로 변경
+        // 자원
         print(string.Format("[Start Turn] {0}", name));
         print(string.Format("science : {0}, gold : {1}", info.science, info.gold));
-        // 자원
         UIManager.instance.UpdateResource(info.science, 0, 0, 0, info.gold, info.goldChange);
         // 연구
+        if (info.ongoingTechnology != null)
+            UIManager.instance.UpdateSelectedTechnology(info.ongoingTechnology);
+        else
+        {
+            UIManager.instance.InitSelectedTechnology();
+        }
 
         isTurn = true;
     }

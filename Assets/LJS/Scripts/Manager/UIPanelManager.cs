@@ -7,8 +7,6 @@ using UnityEngine.EventSystems;
 
 public class UIPanelManager : Singleton<UIPanelManager>
 {
-    // [SerializeField]
-    // Animator initiallyOpen;
     [SerializeField]
     UIPanel initiallyOpen;
     [SerializeField]
@@ -19,14 +17,9 @@ public class UIPanelManager : Singleton<UIPanelManager>
     UIPanel currentPanel;
     GameObject m_PreviouslySelected;
 
-    // const string k_OpenTransitionName = "Open";
-    // const string k_ClosedTransitionName = "Closed";
-
 
     private void OnEnable()
     {
-        // m_OpenParameterId = Animator.StringToHash(k_OpenTransitionName);
-
         if (initiallyOpen == null)
             return;
 
@@ -66,14 +59,7 @@ public class UIPanelManager : Singleton<UIPanelManager>
 
     public void OpenPanel(string panelName)
     {
-        for (int i = 0; i < panels.Count; ++i)
-        {
-            if (panels[i].panelName == panelName)
-            {
-                OpenPanel(panels[i]);
-                return;
-            }
-        }
+        OpenPanel(panels.Find(panel => panel.panelName == panelName));
     }
 
     static GameObject FindFirstEnabledSelectable(GameObject gameObject)
