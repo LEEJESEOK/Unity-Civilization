@@ -16,6 +16,7 @@ public class AutoMapTile : Singleton<AutoMapTile>
 
     public List<Material> tileMaterial;
 
+
     void Start()
     {
         if (makeMap)
@@ -35,6 +36,7 @@ public class AutoMapTile : Singleton<AutoMapTile>
                     tile.AddComponent<TerrainData>();
                     tile.GetComponent<TerrainData>().SetIndex(x, z);
 
+                    //tiles.Add((x + z * width).ToString(), tile);
                     tiles.Add(tile);
                     tile.transform.parent = transform;
                     MeshCollider col = tile.transform.gameObject.AddComponent<MeshCollider>();
@@ -47,6 +49,7 @@ public class AutoMapTile : Singleton<AutoMapTile>
             for (int i = 0; i < transform.childCount; ++i)
             {
                 tiles.Add(transform.GetChild(i).gameObject);
+                //tiles.Add((x + z * width).ToString(), transform.GetChild(i).gameObject);
             }
 
         }
@@ -61,14 +64,13 @@ public class AutoMapTile : Singleton<AutoMapTile>
         {
             for (int z = 0; z < length; z++)
             {
-                GameObject tile = tiles[(x + z * width)];
+                GameObject tile = tiles[(x + z * width)]; //.ToString()
                 float fz = z;
                 if (x % 2 == 1)
                 {
                     fz += tileSize.y * 0.5f;
                 }
                 tile.transform.localPosition = new Vector3(cx + x + gap.x * x, 0, cz + fz + gap.y * z);
-
             }
         }
     }

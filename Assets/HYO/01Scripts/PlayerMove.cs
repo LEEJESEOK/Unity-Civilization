@@ -10,8 +10,8 @@ public class PlayerMove : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        Vector3 dirAD = transform.right * h;
-        Vector3 dirWS = transform.forward * v;
+        Vector3 dirAD = -transform.right * h;
+        Vector3 dirWS = -transform.forward * v;
         Vector3 dir = dirAD + dirWS;
         dir.Normalize();
 
