@@ -114,11 +114,15 @@ public class TerrainData : MonoBehaviour
 
     public int x, y;
 
+    private void Awake()
+    {
+        InitTerrainType();
+        InitTerrainFeature();
+    }
+
     private void Start()
     {
         facilityData = gameObject.GetComponent<FacilityData>();
-        InitTerrainType();
-        InitTerrainFeature();
     }
 
     public void SetIndex(int x, int y)

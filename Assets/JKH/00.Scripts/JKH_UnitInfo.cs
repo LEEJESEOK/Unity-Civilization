@@ -43,9 +43,7 @@ public class JKH_UnitInfo : MonoBehaviour
         Army,
         Navy,
         AirForce
-            // Warrior
-            //Scout
-            //
+        
     }
 
     #region 병종
@@ -198,7 +196,7 @@ public class JKH_UnitInfo : MonoBehaviour
     }
 
    
-    
+    //@@@@@@@@@@@@@@@@@@
     void Start()
     {
         
