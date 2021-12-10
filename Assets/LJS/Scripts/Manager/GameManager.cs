@@ -41,6 +41,12 @@ public class GameManager : Singleton<GameManager>
     void Update()
     {
         players[_currentPlayerId].TurnUpdate();
+
+        // esc
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UIPanelManager.instance.CloseCurrent();
+        }
     }
 
     void InitGame()
