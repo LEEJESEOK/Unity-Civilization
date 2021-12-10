@@ -36,7 +36,7 @@ public class JKH_Move : MonoBehaviour
 
     //jkh_Grid..
     JKH_Grid grid;
-    public int startX, startY, endX, endY, requiredMovePower;
+    public int startX, startY, endX, endY;
     JKH_Node start;
     JKH_Node end;
 
@@ -78,8 +78,6 @@ public class JKH_Move : MonoBehaviour
             print(string.Format("x : {0}, y : {1}", grid.path[i].gridX, grid.path[i].gridY));
         }
 
-        start = new JKH_Node(true, grid.grid[startX, startY].worldPosition, startX, startY, grid.grid[startX, startY].requiredMovePower);
-        end = new JKH_Node(true, grid.grid[endX, endY].worldPosition, endX, endY, grid.grid[endX,endY].requiredMovePower);
 
 
         StartCoroutine(DelayedStartFindPath());
@@ -360,6 +358,7 @@ public class JKH_Move : MonoBehaviour
 
         while (openSet.Count > 0)
         {
+            print("cycle");
             //currentNode=currentNode.
             JKH_Node currentNode = openSet[0];
 
@@ -390,6 +389,7 @@ public class JKH_Move : MonoBehaviour
             //if (currentNode == end)
             if (currentNode.gridX == end.gridX && currentNode.gridY == end.gridY)
             {
+                print("done");
                 grid.path = RetracePath(currentNode);
                 //moveResult = requiredMovePower; //최종값.
 
@@ -503,6 +503,8 @@ public class JKH_Move : MonoBehaviour
     IEnumerator DelayedStartFindPath()
     {
         yield return null;
+        start = new JKH_Node(true, grid.grid[startX, startY].worldPosition, startX, startY, grid.grid[startX, startY].requiredMovePower);
+        end = new JKH_Node(true, grid.grid[endX, endY].worldPosition, endX, endY, grid.grid[endX, endY].requiredMovePower);
 
         FindPath(start, end);
 

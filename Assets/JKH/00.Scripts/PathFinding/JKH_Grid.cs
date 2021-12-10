@@ -13,17 +13,20 @@ public class JKH_Grid : MonoBehaviour
     int gridSizeX, gridSizeY;
 
     //
-    public GameObject environment;
     TerrainData[] terrainDatas;
     //
 
-    private void Start()
+    private void Awake()
     {
         nodeDiameter = nodeRadius * 2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
         gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
+        grid = new JKH_Node[gridSizeX, gridSizeY];
+    }
 
-        terrainDatas = environment.GetComponentsInChildren<TerrainData>();
+    private void Start()
+    {
+        terrainDatas = GetComponentsInChildren<TerrainData>();
 
         CreateGrid();
     }
@@ -34,7 +37,6 @@ public class JKH_Grid : MonoBehaviour
         #region test
         JKH_Move move = GetComponent<JKH_Move>();
         #endregion
-        grid = new JKH_Node[gridSizeX, gridSizeY];
         //Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 -
         //    Vector3.forward * gridWorldSize.y / 2;
         //for (int x = 0; x < gridSizeX; x++)

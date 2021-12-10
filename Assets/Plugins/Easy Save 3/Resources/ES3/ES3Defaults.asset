@@ -30,8 +30,8 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp
-    - QFSW.QC
     - AstarPathfindingProject
+    - QFSW.QC
     - Assembly-CSharp-firstpass
     - QFSW.QC.Serializers
     - QFSW.QC.Grammar
@@ -39,10 +39,10 @@ MonoBehaviour:
     - QFSW.QC.Extras
     - QFSW.QC.Parsers
     - QFSW.QC.UI
-    - QFSW.QC.Editor
-    - QFSW.QC.QGUI
     - PackageToolsEditor
     - AstarPathfindingProjectEditor
+    - QFSW.QC.Editor
+    - QFSW.QC.QGUI
     - QFSW.QC.Editor.Tools
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
