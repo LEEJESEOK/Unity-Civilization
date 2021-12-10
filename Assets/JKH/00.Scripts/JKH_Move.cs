@@ -91,7 +91,7 @@ public class JKH_Move : MonoBehaviour
         moveUI.text = "남은이동력: " + movePower;
 
 
-        getUnitInfo();
+        //getUnitInfo();
         UnitMove();
 
 
@@ -116,11 +116,11 @@ public class JKH_Move : MonoBehaviour
                 //um.isUnitClick = true;
 
                 // 유닛 정보 출력(확인용)
-                print("이동력: " + movePower);
-                print("공격력: " + meleeAttack);
-                print("체력: " + Hp);
-                print("원거리공격력: " + RangeAttack);
-                print("사거리: " + Range);
+                //print("이동력: " + movePower);
+                //print("공격력: " + meleeAttack);
+                //print("체력: " + Hp);
+                //print("원거리공격력: " + RangeAttack);
+                //print("사거리: " + Range);
 
                 //유닛이있는 타일의 정보를 가져온다.
                 GetTileInfo();
@@ -346,7 +346,7 @@ public class JKH_Move : MonoBehaviour
 
     //필요변수: 이동력 소모하기 위한 값
     public float moveResult;
-
+    
     public void FindPath(JKH_Node start, JKH_Node end)
     {
         //내가추가-------

@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 30897479}
   - component: {fileID: 30897481}
+  - component: {fileID: 30897480}
   m_Layer: 22
   m_Name: GameObject
   m_TagString: Untagged
@@ -231,13 +232,40 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30897478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.27, y: -1, z: -2.14}
+  m_LocalPosition: {x: -1.6, y: -1, z: -2.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1509403860}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &30897480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30897478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f625fe622a6098f42b554a800750a1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 4194304
+  moveBtn: {fileID: 1779911434}
+  movePower: 2
+  meleeAttack: 0
+  Hp: 0
+  RangeAttack: 0
+  Range: 0
+  startPosX: 0
+  startPosY: 0
+  endPosX: 0
+  endPosY: 0
+  isUnitClick: 0
+  canMove: 0
 --- !u!136 &30897481
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -900,8 +928,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: JKH_Move, Assembly-CSharp
+      - m_Target: {fileID: 30897480}
+        m_TargetAssemblyTypeName: JKH_UnitMove, Assembly-CSharp
         m_MethodName: onClickMoveBtn
         m_Mode: 1
         m_Arguments:
