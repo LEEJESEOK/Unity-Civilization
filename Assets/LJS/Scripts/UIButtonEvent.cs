@@ -53,6 +53,12 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                 UIPanelManager.instance.OpenPanel("HELP_PANEL");
                 break;
 
+            case UIButtonId.COMMAND_BUILD_CITY:
+                break;
+            case UIButtonId.COMMAND_BUILD_FARM:
+                break;
+            case UIButtonId.COMMAND_BUILD_MINE:
+                break;
         }
     }
 

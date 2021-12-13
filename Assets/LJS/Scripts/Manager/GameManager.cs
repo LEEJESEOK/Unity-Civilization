@@ -45,6 +45,9 @@ public class GameManager : Singleton<GameManager>
     {
         players[_currentPlayerId].TurnUpdate();
 
+        
+
+
         // esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -54,6 +57,7 @@ public class GameManager : Singleton<GameManager>
 
     void InitGame()
     {
+        Destroy(Camera.main);
         InitPlyaers();
 
         UIManager.instance.InitUI();
