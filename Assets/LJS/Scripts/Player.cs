@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
         if (GameManager.instance.test)
         {
             info.gold = GameManager.instance.testStartGold;
+            info.goldChange = GameManager.instance.testGoldChange;
             info.science = GameManager.instance.testStartScience;
         }
 
@@ -29,6 +30,25 @@ public class Player : MonoBehaviour
         {
             Technology technology = new Technology(TechnologyManager.instance.technologies[i]);
             info.technologies.Add(technology);
+        }
+
+        for (int i = 0; i < GameManager.instance.initialUnits.Count; ++i)
+        {
+            GameObject unit = Instantiate(GameManager.instance.initialUnits[i]);
+
+            #region  test
+            if (i == 0)
+                unit.transform.position = new Vector3(-1.6f, -0.9f, -0.25f);
+            else
+                unit.transform.position = new Vector3(1.8f, -0.9f, -0.25f);
+            #endregion
+            unit.transform.rotation = Quaternion.Euler(0, 180f, 0);
+
+            info.units.Add(unit);
+
+            HexFogManager.instance.fieldOfViews.Add(unit.GetComponentInChildren<FieldOfView>());
+
+            unit.SetActive(false);
         }
     }
 
@@ -52,6 +72,13 @@ public class Player : MonoBehaviour
         else
         {
             UIManager.instance.InitSelectedTechnology();
+        }
+
+        // 유닛 변경
+        if (GameManager.instance.test)
+        {
+            for (int i = 0; i < info.units.Count; ++i)
+                info.units[i].SetActive(true);
         }
 
         isTurn = true;
@@ -99,6 +126,13 @@ public class Player : MonoBehaviour
         for (int i = 0; i < info.units.Count; ++i)
         {
 
+        }
+
+        // test 테스트
+        if (GameManager.instance.test)
+        {
+            for (int i = 0; i < info.units.Count; ++i)
+                info.units[i].SetActive(false);
         }
     }
 

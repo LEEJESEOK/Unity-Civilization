@@ -125,6 +125,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             unitType = unitInfo.GetComponent<NonCombatUnit>().non_CombatUnitType;
             isUnitSelected = true;
 
+            UIPanelManager.instance.OpenPanel("UNIT_PANEL");
             if (unitType == Non_CombatUnitType.Settler)
             {
                 settleBTN.SetActive(true);

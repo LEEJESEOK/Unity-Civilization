@@ -7,13 +7,13 @@ public class HexFogManager : Singleton<HexFogManager>
     [SerializeField]
     public List<Hideable> findTargetList;
 
-    public FieldOfView[] fieldOfViews;
+    public List<FieldOfView> fieldOfViews;
 
     public List<Hideable> allHideables = new List<Hideable>();
 
     private void Start()
     {
-        fieldOfViews = FindObjectsOfType<FieldOfView>();
+        fieldOfViews = new List<FieldOfView>();
         findTargetList = new List<Hideable>();
     }
 
@@ -27,7 +27,7 @@ public class HexFogManager : Singleton<HexFogManager>
     {
         allHideables.Clear();
 
-        for(int i =0; i < fieldOfViews.Length; i++)
+        for(int i =0; i < fieldOfViews.Count; i++)
         {
             for(int j =0; j<fieldOfViews[i].hideables.Count; j++)
             {

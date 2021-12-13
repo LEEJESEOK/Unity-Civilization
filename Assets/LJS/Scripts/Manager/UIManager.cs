@@ -129,6 +129,7 @@ public class UIManager : Singleton<UIManager>
     public void SetTechnologyPanel(List<Technology> technologies)
     {
         GameObject sector = Instantiate(technologySectorPrefab);
+        Destroy(sector);
         int currentCost = 0;
         for (int i = 0; i < technologies.Count; ++i)
         {
