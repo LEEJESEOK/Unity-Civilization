@@ -6,7 +6,7 @@ public class JKH_UnitMove : MonoBehaviour
 {
     Camera cam;
     public GameObject moveBtn;
-
+    public LayerMask layer;
     //Unit's Stat
     public int movePower;
     public int meleeAttack;
@@ -48,13 +48,11 @@ public class JKH_UnitMove : MonoBehaviour
         if (Input.GetButton("Fire1"))
         {
 
-            if (Physics.Raycast(ray, out hitInfo, 1000, gameObject.layer))
+            if (Physics.Raycast(ray, out hitInfo, 1000, layer))
             {
 
                 //unitMove
                 JKH_UnitMove um = hitInfo.transform.GetComponent<JKH_UnitMove>();
-
-                print(hitInfo.transform.gameObject.name);
                 um.isUnitClick = true;
 
                 // 유닛 정보 출력(확인용)
@@ -105,9 +103,10 @@ public class JKH_UnitMove : MonoBehaviour
     //바닥클릭하면 이동력을 소모하고 이동한다
     public void UnitMove()
     {
-        if (canMove)
+        if (isUnitClick)
         {
             print("canMove");
+            //JKH_Move.instance.FindPath();
             checkAbleToGo();
 
             //JKH_Move.instance.FindPath();
@@ -214,7 +213,7 @@ public class JKH_UnitMove : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = new Color(0, 1, 0, 0.5f);
-        Gizmos.DrawSphere(transform.position, movePower);
+        Gizmos.DrawSphere(transform.position, .95f * movePower);
     }
 
 
@@ -225,23 +224,37 @@ public class JKH_UnitMove : MonoBehaviour
 
         Collider[] cols = Physics.OverlapSphere(transform.position, movePower, layerMask);
         //float[] x = new float[cols.Length];
+
+        KeyValuePair<int, int> mypos = CheckMyPos();
+        JKH_Node start = new JKH_Node(JKH_Move.instance.grid.grid[mypos.Key, mypos.Value].walkable,
+            transform.position, mypos.Key, mypos.Value, JKH_Move.instance.grid.grid[mypos.Key, mypos.Value].requiredMovePower);
+
         for (int i = 0; i < cols.Length; i++)
         {
-            //나의이동력이 결과값보다 크다면?
-            if (movePower > cols[i].GetComponent<JKH_Move>().moveResult)
-            {
 
-                print(CheckMyPos());
+            TerrainData terrainData = cols[i].GetComponent<TerrainData>();
+            //print(CheckMyPos());
+            int x = terrainData.x;
+            int y = terrainData.y;
 
+            JKH_Node end = new JKH_Node(JKH_Move.instance.grid.grid[x, y].walkable,
+                JKH_Move.instance.grid.grid[x, y].worldPosition, x, y, JKH_Move.instance.grid.grid[x, y].requiredMovePower);
 
-                //표시하기.ㅍ
+            JKH_Node path = JKH_Move.instance.FindPath(start, end);
+            float movePower = 0;
+            
+            print(string.Format("-> x : {0}, y : {1}", path.gridX, path.gridY));
 
-                //그 그림이나 큐브위치(표시를 해주기위한.)=cols[i].transform.position
-            }
+            //while (path.parent != null)
+            //    movePower += path.requiredMovePower;
+
+            print(movePower);
+            if (movePower > this.movePower)
+                print(string.Format("-> x : {0}, y : {1}", x, y));
         }
     }
 
-    public Vector2 CheckMyPos()
+    public KeyValuePair<int, int> CheckMyPos()
     {
         Vector2 pos = new Vector2();
         int fogLayer = LayerMask.GetMask("HexFog");
@@ -256,7 +269,7 @@ public class JKH_UnitMove : MonoBehaviour
             pos.y = myTilePos.GetComponent<TerrainData>().y;
         }
 
-        return pos;
+        return new KeyValuePair<int, int>((int)pos.x, (int)pos.y);
 
     }
 }

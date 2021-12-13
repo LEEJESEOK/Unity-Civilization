@@ -17,15 +17,6 @@ public class JKH_Move : MonoBehaviour
 
     //Unit's Stat
     public int movePower;
-    public int meleeAttack;
-    public int Hp;
-    public int RangeAttack;
-    public int Range;
-
-    public int startPosX;
-    public int startPosY;
-    public int endPosX;
-    public int endPosY;
 
     //UI
     public Text moveUI;
@@ -35,7 +26,7 @@ public class JKH_Move : MonoBehaviour
     //From RayMove
 
     //jkh_Grid..
-    JKH_Grid grid;
+    public JKH_Grid grid;
     public int startX, startY, endX, endY;
     JKH_Node start;
     JKH_Node end;
@@ -72,14 +63,6 @@ public class JKH_Move : MonoBehaviour
 
         //FindPath
 
-        print(grid.path);
-        for (int i = 0; i < grid.path.Count; ++i)
-        {
-            print(string.Format("x : {0}, y : {1}", grid.path[i].gridX, grid.path[i].gridY));
-        }
-
-
-
         StartCoroutine(DelayedStartFindPath());
 
     }
@@ -89,7 +72,7 @@ public class JKH_Move : MonoBehaviour
         moveUI.text = "남은이동력: " + movePower;
 
 
-        //getUnitInfo();
+        getUnitInfo();
         UnitMove();
 
 
@@ -103,14 +86,13 @@ public class JKH_Move : MonoBehaviour
         //마우스 클릭한다
         if (Input.GetButton("Fire1"))
         {
-            
+
             if (Physics.Raycast(ray, out hitInfo, 1000, layer))
             {
 
                 //unitMove
                 JKH_Move um = hitInfo.transform.GetComponent<JKH_Move>();
 
-                print(hitInfo.transform.gameObject.name);
                 //um.isUnitClick = true;
 
                 // 유닛 정보 출력(확인용)
@@ -121,7 +103,6 @@ public class JKH_Move : MonoBehaviour
                 //print("사거리: " + Range);
 
                 //유닛이있는 타일의 정보를 가져온다.
-                GetTileInfo();
             }
         }
 
@@ -129,22 +110,6 @@ public class JKH_Move : MonoBehaviour
         {
             //버튼이 나온다
             moveBtn.SetActive(true);
-        }
-    }
-
-    //get Tile's Info
-    public void GetTileInfo()
-    {
-        float radius = 0.05f;
-        Collider[] maps = Physics.OverlapSphere(transform.position, radius, ~layer);
-        if (maps.Length == 1)
-        {
-            if (maps[0].gameObject.tag == "Map")
-            {
-                print(maps[0].GetComponent<TerrainData>().x + ", " + maps[0].GetComponent<TerrainData>().y);
-                startPosX = maps[0].GetComponent<TerrainData>().x;
-                startPosY = maps[0].GetComponent<TerrainData>().y;
-            }
         }
     }
 
@@ -176,25 +141,13 @@ public class JKH_Move : MonoBehaviour
 
                 if (hitInfo.transform.gameObject.tag == "Map")
                 {
-                    print("맵맞추는듕");
-                    //이러면서? 마우스가 맵 위에 올리면 1) 해당 좌표랑 V 2) 이동력 계산하기 X 하면 좋겠ㄴㅔ...
-                    //PathFinding 하기, 실시간 이동력 계산 
-                    // Node[] path = pathfinding(start, end);
-                    //Matrix4x4 
-                    // path[0] path[1] ... path[count-1]
+                    print("맵맞추는중");            
 
 
                     print("마우스에 위치한 좌표" + hitInfo.transform.GetComponent<TerrainData>().x + ", " + hitInfo.transform.GetComponent<TerrainData>().y);
                     if (Input.GetButton("Fire1"))
                     {
-                        endPosX = hitInfo.transform.GetComponent<TerrainData>().x;
-                        endPosY = hitInfo.transform.GetComponent<TerrainData>().y;
-                        print("EndNewPos" + endPosX + ", " + endPosY);
-                        print("StartNewPos" + startPosX + ", " + startPosY);
-
                         //Start
-
-
                         //이동량이 있다. (이동하는것)
                         if (movePower > 0)
                         {
@@ -344,26 +297,23 @@ public class JKH_Move : MonoBehaviour
 
     //필요변수: 이동력 소모하기 위한 값
     public float moveResult;
-    
-    public void FindPath(JKH_Node start, JKH_Node end)
+
+    public JKH_Node FindPath(JKH_Node start, JKH_Node end)
     {
-        //내가추가-------
+        
+
         List<JKH_Node> openSet = new List<JKH_Node>();
         HashSet<JKH_Node> closeSet = new HashSet<JKH_Node>();
         openSet.Add(start);
 
-        print("시작좌표이동력" + start.requiredMovePower);
         float requiredMovePower = 0;
         requiredMovePower -= start.requiredMovePower;
 
         while (openSet.Count > 0)
         {
-            print("cycle");
-            //currentNode=currentNode.
+            
             JKH_Node currentNode = openSet[0];
-
-            //도착할때까지 이동력 합 계속더하기
-
+            //도착할때까지 이동력 합 계속더한다
             //requiredMovePower += openSet[0].requiredMovePower;
             //print("요구되는 이동력= " + requiredMovePower);
 
@@ -389,20 +339,16 @@ public class JKH_Move : MonoBehaviour
             //if (currentNode == end)
             if (currentNode.gridX == end.gridX && currentNode.gridY == end.gridY)
             {
-                print("done");
                 grid.path = RetracePath(currentNode);
                 //moveResult = requiredMovePower; //최종값.
 
                 moveResult = 0;
                 for (int i = 0; i < grid.path.Count; ++i)
                 {
-                    print(grid.path[i]);
-                    //print(string.Format("{0}, {1} : {2}", grid.path[i].gridX, grid.path[i].gridY, grid.path[i].requiredMovePower));
                     moveResult += grid.path[i].requiredMovePower;
                 }
                 print("최종값: " + moveResult);
-
-                return;
+                return grid.path[0];
             }
 
             //이웃노드 검사한다.
@@ -442,10 +388,10 @@ public class JKH_Move : MonoBehaviour
         //------
         //print("시작좌표이동력" + start.requiredMovePower);
 
-        return;
+        return null;
     }
 
-    
+
     void RetracePath(JKH_Node startNode, JKH_Node endNode)
     {
         List<JKH_Node> path = new List<JKH_Node>();
@@ -460,7 +406,7 @@ public class JKH_Move : MonoBehaviour
 
         grid.path = path;
 
-        
+
 
     }
 
@@ -483,6 +429,11 @@ public class JKH_Move : MonoBehaviour
         {
             result.Add(prev);
             prev = prev.parent;
+        }
+
+        for (int i = 0; i < result.Count; ++i)
+        {
+            print(result[i]);
         }
 
         return result;

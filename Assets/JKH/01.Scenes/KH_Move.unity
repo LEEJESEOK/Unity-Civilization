@@ -252,6 +252,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveBtn: {fileID: 1779911434}
+  layer:
+    serializedVersion: 2
+    m_Bits: 4194304
   movePower: 2
   meleeAttack: 0
   Hp: 0
@@ -850,6 +853,7 @@ MonoBehaviour:
   endPosX: 0
   endPosY: 0
   moveUI: {fileID: 102995279}
+  grid: {fileID: 0}
   startX: 4
   startY: 3
   endX: 8
