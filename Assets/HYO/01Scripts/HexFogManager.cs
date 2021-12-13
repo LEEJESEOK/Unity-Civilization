@@ -59,5 +59,10 @@ public class HexFogManager : Singleton<HexFogManager>
             }
         }
     }
+
+    public void RemoveFOV(FieldOfView fov)
+    {
+
+    }
     
 }

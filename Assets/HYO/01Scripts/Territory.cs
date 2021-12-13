@@ -78,7 +78,7 @@ public class Territory : MonoBehaviour
         }
     }
 
-
+    //Food=15+8*(n−1)+(n−1)^1.5
     public void RequestedFood()
     {
         //인구 증가 요구 식량
