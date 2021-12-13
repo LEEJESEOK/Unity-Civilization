@@ -137,6 +137,7 @@ public class UIManager : Singleton<UIManager>
             {
                 currentCost = technology.researchCost;
                 sector = Instantiate(technologySectorPrefab);
+                sector.name = "Science " + currentCost;
                 sector.transform.SetParent(technologyPanelContent.transform);
             }
 
@@ -148,6 +149,8 @@ public class UIManager : Singleton<UIManager>
     GameObject GetTechnologyButton(Technology technology)
     {
         GameObject technologyButton = Instantiate(technologyButtonPrefab);
+        technologyButton.name = technology.name;
+
         Sprite sprite = Resources.Load<Sprite>("Image/Technology/" + technology.name);
         TechnologyButtonSetter technologyButtonSetter = technologyButton.GetComponent<TechnologyButtonSetter>();
         technologyButtonSetter.SetTechnologyButton(technology.korean, sprite, "");
