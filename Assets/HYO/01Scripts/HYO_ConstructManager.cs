@@ -79,16 +79,16 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             {
                 tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
 
-                if(tileTemp.GetComponent<TerrainData>().myCenter == null)
-                {
-                    tileTemp = null;
+                //if(tileTemp.GetComponent<TerrainData>().myCenter == null)
+                //{
+                //    tileTemp = null;
 
-                    farmBTN.SetActive(false);
-                    mineBTN.SetActive(false);
-                    campusBTN.SetActive(false);
-                    commercialHubBTN.SetActive(false);
-                    industrialZoneBTN.SetActive(false);
-                }
+                //    farmBTN.SetActive(false);
+                //    mineBTN.SetActive(false);
+                //    campusBTN.SetActive(false);
+                //    commercialHubBTN.SetActive(false);
+                //    industrialZoneBTN.SetActive(false);
+                //}
 
             }
         }
