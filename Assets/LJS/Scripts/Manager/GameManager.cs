@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
     public bool test;
     public int testStartScience;
     public int testStartGold;
+    public int testGoldChange;
 
     [Header("Common")]
     public bool useScience;
@@ -17,11 +18,13 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Player")]
     public GameObject playerPrefab;
-    public List<Player> players;
     public int initPlayerCount;
+    public List<Player> players;
     int _currentPlayerId;
     public int currentPlayerId { get => _currentPlayerId; }
     public Player currentPlayer { get => players[currentPlayerId]; }
+
+    public List<GameObject> initialUnits;
 
     [Header("Start Resources")]
     public static int startGold = 10;
@@ -41,6 +44,12 @@ public class GameManager : Singleton<GameManager>
     void Update()
     {
         players[_currentPlayerId].TurnUpdate();
+
+        // esc
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UIPanelManager.instance.CloseCurrent();
+        }
     }
 
     void InitGame()

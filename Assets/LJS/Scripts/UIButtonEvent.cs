@@ -44,8 +44,15 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                 break;
 
             case UIButtonId.TECH:
-                print("select tech button");
                 break;
+
+            case UIButtonId.MENU:
+                UIPanelManager.instance.OpenPanel("MENU_PANEL");
+                break;
+            case UIButtonId.HELP:
+                UIPanelManager.instance.OpenPanel("HELP_PANEL");
+                break;
+
         }
     }
 
@@ -57,9 +64,11 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
 
     public void SelectOngoingTechnology(TechnologyId technologyId)
     {
-
         Technology selectedTech = GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == technologyId);
+        if (selectedTech.isResearched)
+            return;
+
         GameManager.instance.currentPlayer.info.ongoingTechnology = selectedTech;
-        print(selectedTech);
+        UIManager.instance.UpdateSelectedTechnology(selectedTech);
     }
 }

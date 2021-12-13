@@ -13,6 +13,7 @@ public class UIPanel : MonoBehaviour
         {
             case "TECHNOLOGY_PANEL":
                 // 스크롤 위치 초기화
+                // 현재 선택한 연구의 위치
                 GetComponentInChildren<ScrollRect>();
                 break;
         }
