@@ -71,7 +71,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!UIManager.IsPointerOverUIObject()&& Input.GetMouseButtonDown(0))
         {
             SelectUnit();
 
@@ -367,7 +367,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         empty.transform.position = tileTemp.position;
         empty.transform.localPosition = new Vector3(0, 0.109f, 0);//constrMng.iconPos[chooseIndex];
         //empty.transform.localEulerAngles = new Vector3(90, 0, 0);
-        //empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+        empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
     }
 
 }

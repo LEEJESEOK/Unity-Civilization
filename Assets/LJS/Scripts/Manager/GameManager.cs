@@ -45,6 +45,9 @@ public class GameManager : Singleton<GameManager>
     {
         players[_currentPlayerId].TurnUpdate();
 
+        
+
+
         // esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {
