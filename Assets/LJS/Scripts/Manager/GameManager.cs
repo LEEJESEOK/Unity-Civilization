@@ -57,7 +57,6 @@ public class GameManager : Singleton<GameManager>
 
     void InitGame()
     {
-        Destroy(Camera.main);
         InitPlyaers();
 
         UIManager.instance.InitUI();
