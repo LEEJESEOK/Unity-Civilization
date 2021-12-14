@@ -71,7 +71,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     private void Update()
     {
-        if (!UIManager.IsPointerOverUIObject()&& Input.GetMouseButtonDown(0))
+        if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
         {
             SelectUnit();
 
