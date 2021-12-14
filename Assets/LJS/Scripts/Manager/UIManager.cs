@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Text;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class UIManager : Singleton<UIManager>
@@ -66,6 +67,24 @@ public class UIManager : Singleton<UIManager>
     void Update()
     {
 
+    }
+
+    void ResizeLayoutGroup(GameObject layoutObject)
+    {
+        LayoutGroup[] layoutGroups = layoutObject.GetComponentsInChildren<LayoutGroup>();
+        for (int i = 0; i < layoutGroups.Length; ++i)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroups[i].GetComponent<RectTransform>());
+    }
+
+    public static bool IsPointerOverUIObject()
+    {
+        PointerEventData currentEventData = new PointerEventData(EventSystem.current);
+        currentEventData.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(currentEventData, results);
+
+        return results.Count > 0;
     }
 
     public void InitUI()
@@ -166,13 +185,6 @@ public class UIManager : Singleton<UIManager>
         return technologyButton;
     }
 
-    void ResizeLayoutGroup(GameObject layoutObject)
-    {
-        LayoutGroup[] layoutGroups = layoutObject.GetComponentsInChildren<LayoutGroup>();
-        for (int i = 0; i < layoutGroups.Length; ++i)
-            LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroups[i].GetComponent<RectTransform>());
-    }
-
     public void UpdateResource(int science, int culture, int faith, int faithChange, int gold, int goldChange)
     {
         StringBuilder sb = new StringBuilder();
@@ -229,6 +241,9 @@ public class UIManager : Singleton<UIManager>
         selectedTechnologyName.text = "연구 선택";
         // TODO 연구 기본 선택 이미지
         selectedTechnologyImage.sprite = Resources.Load<Sprite>("Image/WhiteCircle");
+        Color color = selectedTechnologyImage.color;
+        color.a = 0;
+        selectedTechnologyImage.color = color;
         selectedTechnologyRemainTurn.text = "";
     }
 
@@ -238,6 +253,9 @@ public class UIManager : Singleton<UIManager>
         selectedTechnologyName.text = technology.korean;
         // image
         selectedTechnologyImage.sprite = Resources.Load<Sprite>("Image/Technology/" + technology.name);
+        Color color = selectedTechnologyImage.color;
+        color.a = 1;
+        selectedTechnologyImage.color = color;
         // unlockObject
         // remainCost -> turn
         int remainTurn = Mathf.CeilToInt((float)technology.remainCost / GameManager.instance.currentPlayer.info.science);

@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     public bool isTurn;
     public int playerId;
+    public Camera playerCamera;
     public PlayerInfo info;
     int techCarryCost;
 
@@ -62,6 +63,9 @@ public class Player : MonoBehaviour
     public void StartTurn()
     {
         // UI를 플레이어의 정보로 변경
+        // 카메라
+        playerCamera.gameObject.SetActive(true);
+
         // 자원
         print(string.Format("[Start Turn] {0}", name));
         print(string.Format("science : {0}, gold : {1}", info.science, info.gold));
@@ -95,6 +99,9 @@ public class Player : MonoBehaviour
     // 유닛 회복
     public void EndTurn()
     {
+        // 카메라
+        playerCamera.gameObject.SetActive(false);
+
         // 생산 골드만큼 소지골드에 추가
         info.gold += info.goldChange;
 
