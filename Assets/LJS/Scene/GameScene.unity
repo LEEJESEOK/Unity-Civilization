@@ -9778,7 +9778,7 @@ MonoBehaviour:
   useFaith: 0
   useGold: 1
   cameraMoveSpeed: 5
-  cameraZoomSpeed: 5
+  cameraZoomSpeed: 100
   playerPrefab: {fileID: 7585198393296644598, guid: 6d9edde85b9247d4ea1adc5799c85a2d, type: 3}
   initPlayerCount: 2
   players: []

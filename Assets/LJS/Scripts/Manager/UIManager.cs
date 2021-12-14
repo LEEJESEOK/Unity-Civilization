@@ -78,13 +78,14 @@ public class UIManager : Singleton<UIManager>
 
     public static bool IsPointerOverUIObject()
     {
-        PointerEventData currentEventData = new PointerEventData(EventSystem.current);
-        currentEventData.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        // PointerEventData currentEventData = new PointerEventData(EventSystem.current);
+        // currentEventData.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(currentEventData, results);
+        // List<RaycastResult> results = new List<RaycastResult>();
+        // EventSystem.current.RaycastAll(currentEventData, results);
 
-        return results.Count > 0;
+        // return results.Count > 0;
+        return EventSystem.current.IsPointerOverGameObject();
     }
 
     public void InitUI()
@@ -267,31 +268,42 @@ public class UIManager : Singleton<UIManager>
     }
 
     // 화면 가장자리로 마우스 이동했을 때 화면 이동
+    // TODO 우클릭 드래그했을 때 화면 이동
     public void CameraMove(Camera cam)
     {
-        if(cam == null) return;
+        if (cam == null) return;
 
         Vector3 cameraDir = Vector3.zero;
 
         // left
-        if (Input.mousePosition.x <= 5)
+        if ((Input.mousePosition.x <= 5) && Input.mousePosition.x > -5)
             cameraDir = Vector3.left;
         // right
-        if (Input.mousePosition.x >= Screen.width - 5)
+        if ((Input.mousePosition.x >= Screen.width - 5) && Input.mousePosition.x < Screen.width + 5)
             cameraDir = Vector3.right;
         // forward
-        if (Input.mousePosition.y >= Screen.height - 5)
+        if ((Input.mousePosition.y >= Screen.height - 5) && (Input.mousePosition.y < Screen.height + 5))
             cameraDir = Vector3.forward;
         // back
-        if (Input.mousePosition.y <= 5)
+        if ((Input.mousePosition.y <= 5) && (Input.mousePosition.y > -5))
             cameraDir = Vector3.back;
 
         cam.transform.position += cameraDir * GameManager.instance.cameraMoveSpeed * Time.deltaTime;
     }
 
     // 마우스 휠 입력으로 화면 줌
+    // Field of View 조절(30~90, default : 60)
     public void CameraZoom(Camera cam)
     {
-        
+        float wheelInput = Input.GetAxis("Mouse ScrollWheel");
+
+        // zoom in
+        if (wheelInput > 0)
+            cam.fieldOfView -= GameManager.instance.cameraZoomSpeed * Time.deltaTime;
+        // zoom out
+        if (wheelInput < 0)
+            cam.fieldOfView += GameManager.instance.cameraZoomSpeed * Time.deltaTime;
+
+        cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, 30f, 90f);
     }
 }
