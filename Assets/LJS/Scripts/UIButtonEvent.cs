@@ -56,8 +56,10 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
             case UIButtonId.COMMAND_BUILD_CITY:
                 break;
             case UIButtonId.COMMAND_BUILD_FARM:
+                HYO_ConstructManager.instance.CreateFacility(3);
                 break;
             case UIButtonId.COMMAND_BUILD_MINE:
+                HYO_ConstructManager.instance.CreateFacility(4);
                 break;
         }
     }

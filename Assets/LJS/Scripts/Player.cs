@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public int playerId;
     public Camera playerCamera;
     public PlayerInfo info;
+    public HYO_ConstructManager constr;
     int techCarryCost;
 
 
@@ -110,6 +111,10 @@ public class Player : MonoBehaviour
         // 남은 생산량은 이월됨
         for (int i = 0; i < info.cities.Count; ++i)
         {
+            Territory territory = info.cities[i].GetComponent<Territory>();
+            print(territory.totalOutput);
+
+
 
         }
 

@@ -11,10 +11,50 @@ public enum TotalOutPutType
 [Serializable]
 public class TotalOutPut
 {
-    public int totalfood;
-    public int totalProductivity;
-    public int totalGold;
-    public int totalScience;
+    public int _totalfood;
+    public int _totalProductivity;
+    public int _totalGold;
+    public int _totalScience;
+
+    public Action<TotalOutPutType, int> worldCallback;
+
+    public int Totalfood
+    {
+        get { return _totalfood; }
+        set
+        {
+            if (worldCallback != null) { worldCallback(TotalOutPutType.TOTALFOOD, value - _totalfood); }
+            _totalfood = value;
+        }
+    }
+    public int TotalProductivity
+    {
+        get { return _totalProductivity; }
+        set
+        {
+            if (worldCallback != null) { worldCallback(TotalOutPutType.TOTALPRODUCTIVITY, value - _totalProductivity); }
+            _totalProductivity = value;
+        }
+    }
+    public int TotalGold
+    {
+        get { return _totalGold; }
+        set
+        {
+            if (worldCallback != null) { worldCallback(TotalOutPutType.TOTALGOLD, value - _totalGold); }
+            _totalGold = value;
+        }
+    }
+    public int TotalScience
+    {
+        get { return _totalScience; }
+        set
+        {
+            if (worldCallback != null) { worldCallback(TotalOutPutType.TOTALSCIENCE, value - _totalScience); }
+            _totalScience = value;
+        }
+    }
+
 }
 
 public class Territory : MonoBehaviour
@@ -27,6 +67,11 @@ public class Territory : MonoBehaviour
     //보유 특수지구
     public List<GameObject> districtOn = new List<GameObject>();
 
+    private void Awake()
+    {
+        totalOutput = new TotalOutPut();
+    }
+
     void Start()
     {
         //first city
@@ -36,7 +81,7 @@ public class Territory : MonoBehaviour
             HYO_ConstructManager.instance.isFirst = false;
         }
         cityCenter = gameObject;
-        totalOutput = new TotalOutPut();
+        
         data = new List<TerrainData>();
 
        
@@ -50,10 +95,10 @@ public class Territory : MonoBehaviour
             if (td != null)
             {
                 data.Add(td);
-                totalOutput.totalfood += td.output.food;
-                totalOutput.totalProductivity += td.output.productivity;
-                totalOutput.totalGold += td.output.gold;
-                totalOutput.totalScience += td.output.science;
+                totalOutput.Totalfood += td.output.food;
+                totalOutput.TotalProductivity += td.output.productivity;
+                totalOutput.TotalGold += td.output.gold;
+                totalOutput.TotalScience += td.output.science;
 
                 td.output.callback = MyCallback;
                 td.myCenter = cityCenter;
@@ -76,10 +121,10 @@ public class Territory : MonoBehaviour
     {
         switch (otype)
         {
-            case OutPutType.FOOD: totalOutput.totalfood += amount; break;
-            case OutPutType.PRODUCTIVITY: totalOutput.totalProductivity += amount; break;
-            case OutPutType.GOLD: totalOutput.totalGold += amount; break;
-            case OutPutType.SCIENCE: totalOutput.totalScience += amount; break;
+            case OutPutType.FOOD: totalOutput.Totalfood += amount; break;
+            case OutPutType.PRODUCTIVITY: totalOutput.TotalProductivity += amount; break;
+            case OutPutType.GOLD: totalOutput.TotalGold += amount; break;
+            case OutPutType.SCIENCE: totalOutput.TotalScience += amount; break;
         }
     }
 
@@ -89,7 +134,7 @@ public class Territory : MonoBehaviour
         //인구 증가 요구 식량
         float pow = Mathf.Pow(population - 1, 1.5f);
 
-        if(totalOutput.totalfood == 8 * population + 7 + (int)Mathf.Floor(pow))
+        if(totalOutput.Totalfood == 8 * population + 7 + (int)Mathf.Floor(pow))
         {
             population += 1;
         }
