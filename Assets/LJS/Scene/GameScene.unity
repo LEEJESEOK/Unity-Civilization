@@ -1822,7 +1822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76ee3a2b5d01e741acfd2d11a9b950c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseCapture: 0
+  mouseCapture: 1
   resourcesWrapper: {fileID: 643601407}
   scienceGroup: {fileID: 810817057}
   cultureGroup: {fileID: 2075095987}
@@ -9777,6 +9777,8 @@ MonoBehaviour:
   useCulture: 0
   useFaith: 0
   useGold: 1
+  cameraMoveSpeed: 5
+  cameraZoomSpeed: 5
   playerPrefab: {fileID: 7585198393296644598, guid: 6d9edde85b9247d4ea1adc5799c85a2d, type: 3}
   initPlayerCount: 2
   players: []

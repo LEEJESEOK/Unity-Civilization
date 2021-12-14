@@ -68,7 +68,6 @@ public class Player : MonoBehaviour
 
         // 자원
         print(string.Format("[Start Turn] {0}", name));
-        print(string.Format("science : {0}, gold : {1}", info.science, info.gold));
         UIManager.instance.UpdateResource(info.science, 0, 0, 0, info.gold, info.goldChange);
         // 연구
         if (info.ongoingTechnology != null)
@@ -90,7 +89,9 @@ public class Player : MonoBehaviour
 
     public void TurnUpdate()
     {
-
+        // 화면 조작
+        UIManager.instance.CameraMove(playerCamera);
+        UIManager.instance.CameraZoom(playerCamera);
     }
 
     // 자원 생산

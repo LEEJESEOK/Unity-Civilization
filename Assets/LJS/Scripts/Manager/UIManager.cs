@@ -265,4 +265,33 @@ public class UIManager : Singleton<UIManager>
         else
             selectedTechnologyRemainTurn.text = System.Environment.NewLine + "방금 완성";
     }
+
+    // 화면 가장자리로 마우스 이동했을 때 화면 이동
+    public void CameraMove(Camera cam)
+    {
+        if(cam == null) return;
+
+        Vector3 cameraDir = Vector3.zero;
+
+        // left
+        if (Input.mousePosition.x <= 5)
+            cameraDir = Vector3.left;
+        // right
+        if (Input.mousePosition.x >= Screen.width - 5)
+            cameraDir = Vector3.right;
+        // forward
+        if (Input.mousePosition.y >= Screen.height - 5)
+            cameraDir = Vector3.forward;
+        // back
+        if (Input.mousePosition.y <= 5)
+            cameraDir = Vector3.back;
+
+        cam.transform.position += cameraDir * GameManager.instance.cameraMoveSpeed * Time.deltaTime;
+    }
+
+    // 마우스 휠 입력으로 화면 줌
+    public void CameraZoom(Camera cam)
+    {
+        
+    }
 }
