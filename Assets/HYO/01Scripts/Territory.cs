@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
+public enum TotalOutPutType
+{
+    TOTALFOOD, TOTALPRODUCTIVITY, TOTALGOLD, TOTALSCIENCE
+}
+
 [Serializable]
 public class TotalOutPut
 {

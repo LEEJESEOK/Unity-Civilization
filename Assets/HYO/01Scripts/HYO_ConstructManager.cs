@@ -1,10 +1,68 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+[Serializable]
+public class WorldOutPut
+{
+    int _worldFood;
+    int _worldProductivity;
+    int _worldGold;
+    int _worldScience;
+
+    public Action<TotalOutPutType, int> worldCallback;
+
+    public int WorldFood
+    {
+        get { return _worldFood; }
+        set
+        {
+            // Food의 값이 변화가 되는 순간
+            if (worldCallback != null) { worldCallback(TotalOutPutType.TOTALFOOD, value - _worldFood); }
+            _worldFood = value;
+        }
+    }
+    public int WorldProductivity
+    {
+        get { return _worldFood; }
+        set
+        {
+            // Food의 값이 변화가 되는 순간
+            if (worldCallback != null) { worldCallback(TotalOutPutType.TOTALPRODUCTIVITY, value - _worldProductivity); }
+            _worldProductivity = value;
+        }
+    }
+    public int WorldGold
+    {
+        get { return _worldFood; }
+        set
+        {
+            // Food의 값이 변화가 되는 순간
+            if (worldCallback != null) { worldCallback(TotalOutPutType.TOTALGOLD, value - _worldGold); }
+            _worldGold = value;
+        }
+    }
+    public int WorldScience
+    {
+        get { return _worldFood; }
+        set
+        {
+            // Food의 값이 변화가 되는 순간
+            if (worldCallback != null) { worldCallback(TotalOutPutType.TOTALSCIENCE, value - _worldScience); }
+            _worldScience = value;
+        }
+    }
+
+}
+
+
 public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 {
+    //전체 도시
+    public List<GameObject> worldCity = new List<GameObject>();
+
     //prefab & icon
     public GameObject[] icons;
     public GameObject emptyPre;
@@ -254,6 +312,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         }
         else return;
     }
+
     public void OnClickCampusBtn()
     {
         if (tileTemp.GetComponent<FacilityData>().district == District.NONE && tileTemp.GetComponent<TerrainData>().myCenter.GetComponent<Territory>().distric_limit)
@@ -311,6 +370,10 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             }
         }
         tileTemp.gameObject.AddComponent<Territory>();
+        
+        //전체 도시 리스트에 저장
+        worldCity.Add(tileTemp.transform.gameObject);
+
         GameObject city = Instantiate(cityGate);
         city.transform.parent = tileTemp;
         city.transform.position = tileTemp.position;
@@ -354,6 +417,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
 
     }
+
     public void CreateDistrict(int chooseIndex)
     {
         tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
