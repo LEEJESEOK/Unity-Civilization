@@ -9,8 +9,6 @@ using TMPro;
 
 public class UIManager : Singleton<UIManager>
 {
-    bool test;
-
     [Header("Common")]
     public bool mouseCapture = true;
 
@@ -47,6 +45,7 @@ public class UIManager : Singleton<UIManager>
 
     #endregion
 
+    RectTransform rect;
     UIButtonEvent uIButtonEvent;
 
     bool useScience;
@@ -54,12 +53,14 @@ public class UIManager : Singleton<UIManager>
     bool useFaith;
     bool useGold;
 
+    Vector2 prevMousePosition;
+    bool isRightPressed;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        test = GameManager.instance.test;
-
+        rect = GetComponent<RectTransform>();
         uIButtonEvent = GetComponent<UIButtonEvent>();
     }
 
@@ -78,6 +79,7 @@ public class UIManager : Singleton<UIManager>
 
     public static bool IsPointerOverUIObject()
     {
+        #region old
         // PointerEventData currentEventData = new PointerEventData(EventSystem.current);
         // currentEventData.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
@@ -85,6 +87,7 @@ public class UIManager : Singleton<UIManager>
         // EventSystem.current.RaycastAll(currentEventData, results);
 
         // return results.Count > 0;
+        #endregion
         return EventSystem.current.IsPointerOverGameObject();
     }
 
@@ -267,6 +270,30 @@ public class UIManager : Singleton<UIManager>
             selectedTechnologyRemainTurn.text = System.Environment.NewLine + "방금 완성";
     }
 
+    // 위치한 모서리에 따라 Vector3 형태로 반환
+    // left : (-1, 0, 0)
+    // right : (1, 0, 0)
+    // up : (0, 0, 1)
+    // down : (0, 0, -1)
+    Vector3 OnScreenEdge(Vector2 position)
+    {
+        Vector3 result = Vector3.zero;
+        // left
+        if ((position.x <= 10))
+            result.x = -1;
+        // right
+        else if ((position.x >= Screen.width - 10))
+            result.x = 1;
+        // up
+        if ((position.y >= Screen.height - 10))
+            result.z = 1;
+        // down
+        else if ((position.y <= 10))
+            result.z = -1;
+
+        return result;
+    }
+
     // 화면 가장자리로 마우스 이동했을 때 화면 이동
     // TODO 우클릭 드래그했을 때 화면 이동
     public void CameraMove(Camera cam)
@@ -275,26 +302,48 @@ public class UIManager : Singleton<UIManager>
 
         Vector3 cameraDir = Vector3.zero;
 
-        // left
-        if ((Input.mousePosition.x <= 5) && Input.mousePosition.x > -5)
-            cameraDir = Vector3.left;
-        // right
-        if ((Input.mousePosition.x >= Screen.width - 5) && Input.mousePosition.x < Screen.width + 5)
-            cameraDir = Vector3.right;
-        // forward
-        if ((Input.mousePosition.y >= Screen.height - 5) && (Input.mousePosition.y < Screen.height + 5))
-            cameraDir = Vector3.forward;
-        // back
-        if ((Input.mousePosition.y <= 5) && (Input.mousePosition.y > -5))
-            cameraDir = Vector3.back;
+        Vector2 mousePosition = Input.mousePosition;
 
-        cam.transform.position += cameraDir * GameManager.instance.cameraMoveSpeed * Time.deltaTime;
+        // 마우스 커서가 화면 범위에 있는지 검사
+        if (RectTransformUtility.RectangleContainsScreenPoint(rect, mousePosition))
+        {
+            // 모서리
+            cameraDir = OnScreenEdge(mousePosition);
+
+            // 우클릭 드래그
+            if (Input.GetMouseButtonDown(1))
+            {
+                isRightPressed = true;
+                prevMousePosition = mousePosition;
+            }
+            if ((isRightPressed == true)
+            && ((mousePosition != prevMousePosition) || cameraDir != Vector3.zero))
+            {
+                Vector2 value = mousePosition - prevMousePosition;
+                prevMousePosition = mousePosition;
+                if (cameraDir != Vector3.zero)
+                    value = new Vector2(cameraDir.x, cameraDir.z);
+
+                cameraDir = new Vector3(-value.x, 0, -value.y);
+            }
+            if (Input.GetMouseButtonUp(1))
+            {
+                isRightPressed = false;
+                prevMousePosition = mousePosition;
+            }
+
+
+            cameraDir.Normalize();
+            cam.transform.position += cameraDir * GameManager.instance.cameraMoveSpeed * Time.deltaTime;
+        }
     }
 
     // 마우스 휠 입력으로 화면 줌
     // Field of View 조절(30~90, default : 60)
     public void CameraZoom(Camera cam)
     {
+        if (UIPanelManager.instance.currentPanel != null) return;
+
         float wheelInput = Input.GetAxis("Mouse ScrollWheel");
 
         // zoom in

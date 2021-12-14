@@ -70,8 +70,8 @@ public class FacilityData : MonoBehaviour
                 districtInput = new DistrictInPut(54, 1);
                 terrainData.output.science = terrainData.myCenter.GetComponent<Territory>().population * 2;
                 break;
-                iconNum = 1;
             case District.COMMERCAILHUB:
+                iconNum = 1;
                 districtInput = new DistrictInPut(54, 1);
                 terrainData.output.gold = terrainData.myCenter.GetComponent<Territory>().population * 4;
                 break;

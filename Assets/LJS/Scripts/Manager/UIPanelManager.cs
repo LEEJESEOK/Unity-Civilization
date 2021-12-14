@@ -14,7 +14,8 @@ public class UIPanelManager : Singleton<UIPanelManager>
 
     // int m_OpenParameterId;
     // Animator m_Open;
-    UIPanel currentPanel;
+    UIPanel _currentPanel;
+    public UIPanel currentPanel { get => _currentPanel; }
     GameObject m_PreviouslySelected;
 
 
@@ -39,7 +40,7 @@ public class UIPanelManager : Singleton<UIPanelManager>
 
     public void OpenPanel(UIPanel panel)
     {
-        if (currentPanel == panel)
+        if (_currentPanel == panel)
             return;
 
         panel.gameObject.SetActive(true);
@@ -51,7 +52,7 @@ public class UIPanelManager : Singleton<UIPanelManager>
 
         m_PreviouslySelected = newPreviouslySelected;
 
-        currentPanel = panel;
+        _currentPanel = panel;
 
         GameObject firstObject = FindFirstEnabledSelectable(panel.gameObject);
         SetSelected(firstObject);
@@ -80,12 +81,12 @@ public class UIPanelManager : Singleton<UIPanelManager>
 
     public void CloseCurrent()
     {
-        if (currentPanel == null)
+        if (_currentPanel == null)
             return;
 
         SetSelected(m_PreviouslySelected);
-        currentPanel.gameObject.SetActive(false);
-        currentPanel = null;
+        _currentPanel.gameObject.SetActive(false);
+        _currentPanel = null;
     }
 
     void SetSelected(GameObject gameObject)

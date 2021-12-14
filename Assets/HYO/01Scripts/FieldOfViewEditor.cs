@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(FieldOfView))]
-public class FieldOfViewEditor : Editor {
+public class FieldOfViewEditor : Editor
+{
 
-	public override void OnInspectorGUI() {
+    public override void OnInspectorGUI()
+    {
 
         FieldOfView fov = (FieldOfView)target;
 
@@ -12,7 +15,8 @@ public class FieldOfViewEditor : Editor {
         EditorGUILayout.PropertyField(serializedObject.FindProperty("viewAngle"));
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("hasPeripheralVision"));
-        if (fov.hasPeripheralVision) {
+        if (fov.hasPeripheralVision)
+        {
             EditorGUILayout.PropertyField(serializedObject.FindProperty("viewRadiusPeripheralVision"));
         }
 
@@ -24,9 +28,11 @@ public class FieldOfViewEditor : Editor {
         EditorGUILayout.PropertyField(serializedObject.FindProperty("obstacleMask"));
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("visualizeFieldOfView"));
-        if (fov.visualizeFieldOfView) {
+        if (fov.visualizeFieldOfView)
+        {
             EditorGUILayout.PropertyField(serializedObject.FindProperty("meshResolution"));
-            if (fov.hasPeripheralVision) {
+            if (fov.hasPeripheralVision)
+            {
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("meshResolutionPeripheralVision"));
             }
             EditorGUILayout.PropertyField(serializedObject.FindProperty("viewMeshFilter"));
@@ -36,3 +42,4 @@ public class FieldOfViewEditor : Editor {
         serializedObject.ApplyModifiedProperties();
     }
 }
+#endif

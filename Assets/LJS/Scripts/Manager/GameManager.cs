@@ -46,11 +46,6 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
-        players[_currentPlayerId].TurnUpdate();
-
-
-
-
         // esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {
