@@ -37,12 +37,18 @@ public class UIManager : Singleton<UIManager>
     public GameObject technologySectorPrefab;
     public GameObject technologyButtonPrefab;
 
-    [Header("SelectedTechnology")]
+    [Header("Selected Technology")]
     public TextMeshProUGUI selectedTechnologyName;
     public Image selectedTechnologyImage;
     public TextMeshProUGUI selectedTechnologyRemainTurn;
+    #endregion
 
-
+    #region City Production
+    [Header("City Production Panel")]
+    public GameObject productObjectButtonPrefab;
+    public GameObject goldObjectButtonPrefab;
+    public GameObject productionPage;
+    public GameObject goldPage;
     #endregion
 
     RectTransform rect;
@@ -70,7 +76,7 @@ public class UIManager : Singleton<UIManager>
 
     }
 
-    void ResizeLayoutGroup(GameObject layoutObject)
+    public static void ResizeLayoutGroup(GameObject layoutObject)
     {
         LayoutGroup[] layoutGroups = layoutObject.GetComponentsInChildren<LayoutGroup>();
         for (int i = 0; i < layoutGroups.Length; ++i)
@@ -275,30 +281,30 @@ public class UIManager : Singleton<UIManager>
     // right : (1, 0, 0)
     // up : (0, 0, 1)
     // down : (0, 0, -1)
-    Vector3 OnScreenEdge(Vector2 position)
-    {
-        Vector3 result = Vector3.zero;
-        // left
-        if ((position.x <= 10))
-            result.x = -1;
-        // right
-        else if ((position.x >= Screen.width - 10))
-            result.x = 1;
-        // up
-        if ((position.y >= Screen.height - 10))
-            result.z = 1;
-        // down
-        else if ((position.y <= 10))
-            result.z = -1;
+    // Vector3 OnScreenEdge(Vector2 position)
+    // {
+    //     Vector3 result = Vector3.zero;
+    //     // left
+    //     if ((position.x <= 10))
+    //         result.x = -1;
+    //     // right
+    //     else if ((position.x >= Screen.width - 10))
+    //         result.x = 1;
+    //     // up
+    //     if ((position.y >= Screen.height - 10))
+    //         result.z = 1;
+    //     // down
+    //     else if ((position.y <= 10))
+    //         result.z = -1;
 
-        return result;
-    }
+    //     return result;
+    // }
 
-    // 화면 가장자리로 마우스 이동했을 때 화면 이동
-    // TODO 우클릭 드래그했을 때 화면 이동
+    // 드래그했을 때 화면 이동
     public void CameraMove(Camera cam)
     {
         if (cam == null) return;
+        if (UIManager.IsPointerOverUIObject()) return;
 
         Vector3 cameraDir = Vector3.zero;
 
@@ -307,34 +313,24 @@ public class UIManager : Singleton<UIManager>
         // 마우스 커서가 화면 범위에 있는지 검사
         if (RectTransformUtility.RectangleContainsScreenPoint(rect, mousePosition))
         {
-            // 모서리
-            cameraDir = OnScreenEdge(mousePosition);
-
-            // 우클릭 드래그
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0))
             {
                 isRightPressed = true;
                 prevMousePosition = mousePosition;
             }
-            if ((isRightPressed == true)
-            && ((mousePosition != prevMousePosition) || cameraDir != Vector3.zero))
+            if ((isRightPressed == true) && (mousePosition != prevMousePosition))
             {
                 Vector2 value = mousePosition - prevMousePosition;
                 prevMousePosition = mousePosition;
-                if (cameraDir != Vector3.zero)
-                    value = new Vector2(cameraDir.x, cameraDir.z);
 
                 cameraDir = new Vector3(-value.x, 0, -value.y);
             }
-            if (Input.GetMouseButtonUp(1))
+            if (Input.GetMouseButtonUp(0))
             {
                 isRightPressed = false;
-                prevMousePosition = mousePosition;
             }
 
-
-            cameraDir.Normalize();
-            cam.transform.position += cameraDir * GameManager.instance.cameraMoveSpeed * Time.deltaTime;
+            cam.transform.position += cameraDir * Time.deltaTime;
         }
     }
 
@@ -348,10 +344,10 @@ public class UIManager : Singleton<UIManager>
 
         // zoom in
         if (wheelInput > 0)
-            cam.fieldOfView -= GameManager.instance.cameraZoomSpeed * Time.deltaTime;
+            cam.fieldOfView -= GameManager.instance.cameraZoomSpeed;
         // zoom out
         if (wheelInput < 0)
-            cam.fieldOfView += GameManager.instance.cameraZoomSpeed * Time.deltaTime;
+            cam.fieldOfView += GameManager.instance.cameraZoomSpeed;
 
         cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, 30f, 90f);
     }

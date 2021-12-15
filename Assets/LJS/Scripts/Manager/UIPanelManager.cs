@@ -17,6 +17,7 @@ public class UIPanelManager : Singleton<UIPanelManager>
     UIPanel _currentPanel;
     public UIPanel currentPanel { get => _currentPanel; }
     GameObject m_PreviouslySelected;
+    Stack<UIPanel> openedPanel;
 
 
     private void OnEnable()
@@ -36,6 +37,22 @@ public class UIPanelManager : Singleton<UIPanelManager>
         {
             panels[i].gameObject.SetActive(false);
         }
+    }
+
+    static GameObject FindFirstEnabledSelectable(GameObject gameObject)
+    {
+        GameObject findObject = null;
+        Selectable[] selectables = gameObject.GetComponentsInChildren<Selectable>(true);
+        for (int i = 0; i < selectables.Length; ++i)
+        {
+            if (selectables[i].IsActive() && selectables[i].IsInteractable())
+            {
+                findObject = selectables[i].gameObject;
+                break;
+            }
+        }
+
+        return findObject;
     }
 
     public void OpenPanel(UIPanel panel)
@@ -63,20 +80,13 @@ public class UIPanelManager : Singleton<UIPanelManager>
         OpenPanel(panels.Find(panel => panel.panelName == panelName));
     }
 
-    static GameObject FindFirstEnabledSelectable(GameObject gameObject)
+    public void ClosePanel(UIPanel panel)
     {
-        GameObject findObject = null;
-        Selectable[] selectables = gameObject.GetComponentsInChildren<Selectable>(true);
-        for (int i = 0; i < selectables.Length; ++i)
-        {
-            if (selectables[i].IsActive() && selectables[i].IsInteractable())
-            {
-                findObject = selectables[i].gameObject;
-                break;
-            }
-        }
+        if(_currentPanel == null) return;
 
-        return findObject;
+        panel.gameObject.SetActive(false);
+        _currentPanel = m_PreviouslySelected.GetComponent<UIPanel>();
+        SetSelected(m_PreviouslySelected);
     }
 
     public void CloseCurrent()

@@ -20,6 +20,24 @@ TextureImporter:
   - first:
       213: 1848216903799394968
     second: faith
+  - first:
+      213: -6307406724769728823
+    second: gold
+  - first:
+      213: -8128829300044331776
+    second: culture
+  - first:
+      213: -5896463276957937750
+    second: production
+  - first:
+      213: 6392244393456207660
+    second: food
+  - first:
+      213: 8839126622966745359
+    second: science
+  - first:
+      213: 3748355922590288299
+    second: faith
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,10 +154,10 @@ TextureImporter:
       name: gold
       rect:
         serializedVersion: 2
-        x: 12
-        y: 80
-        width: 49
-        height: 49
+        x: 0
+        y: 70
+        width: 70
+        height: 70
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,8 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a33ebe8e7236b27a0800000000000000
-      internalID: -6400913422314380486
+      spriteID: 9c6b03c70079778a0800000000000000
+      internalID: -6307406724769728823
       vertices: []
       indices: 
       edges: []
@@ -157,10 +175,10 @@ TextureImporter:
       name: culture
       rect:
         serializedVersion: 2
-        x: 82
-        y: 81
-        width: 48
-        height: 49
+        x: 70
+        y: 70
+        width: 70
+        height: 70
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,8 +186,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1490e5b6fa55e3d10800000000000000
-      internalID: 2107215887564933441
+      spriteID: 005021be1d8903f80800000000000000
+      internalID: -8128829300044331776
       vertices: []
       indices: 
       edges: []
@@ -178,10 +196,10 @@ TextureImporter:
       name: production
       rect:
         serializedVersion: 2
-        x: 151
-        y: 81
-        width: 49
-        height: 49
+        x: 140
+        y: 70
+        width: 70
+        height: 70
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,8 +207,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c701e6a770d9891e0800000000000000
-      internalID: -2190828563271380868
+      spriteID: aaf49c1f3ed8b2ea0800000000000000
+      internalID: -5896463276957937750
       vertices: []
       indices: 
       edges: []
@@ -199,10 +217,10 @@ TextureImporter:
       name: food
       rect:
         serializedVersion: 2
-        x: 11
-        y: 10
-        width: 48
-        height: 49
+        x: 0
+        y: 0
+        width: 70
+        height: 70
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,8 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6e68faf20b2d3d60800000000000000
-      internalID: 7871495015514009198
+      spriteID: c2780758860d5b850800000000000000
+      internalID: 6392244393456207660
       vertices: []
       indices: 
       edges: []
@@ -220,10 +238,10 @@ TextureImporter:
       name: science
       rect:
         serializedVersion: 2
-        x: 80
-        y: 12
-        width: 49
-        height: 48
+        x: 70
+        y: 0
+        width: 70
+        height: 70
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,8 +249,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6683b88761a4fa8a0800000000000000
-      internalID: -6291728694041167770
+      spriteID: f0981a6f4d2eaaa70800000000000000
+      internalID: 8839126622966745359
       vertices: []
       indices: 
       edges: []
@@ -241,10 +259,10 @@ TextureImporter:
       name: faith
       rect:
         serializedVersion: 2
-        x: 151
-        y: 13
-        width: 49
-        height: 48
+        x: 140
+        y: 0
+        width: 70
+        height: 70
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,8 +270,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 892d5d25b7f26a910800000000000000
-      internalID: 1848216903799394968
+      spriteID: ba9c9b91ad5d40430800000000000000
+      internalID: 3748355922590288299
       vertices: []
       indices: 
       edges: []
