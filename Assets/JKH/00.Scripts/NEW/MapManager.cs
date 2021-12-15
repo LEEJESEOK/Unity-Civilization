@@ -94,7 +94,7 @@ public class MapManager : Singleton<MapManager>
 
                 //유닛이있는 타일의 정보를 가져온다.
 
-
+                CheckAbleToGo();
             }
         }
     }
@@ -231,17 +231,15 @@ public class MapManager : Singleton<MapManager>
             int x = terrainData.x;
             int y = terrainData.y;
 
-            JKH_Node end = nodeMap[x * mapWidth + y]; // 이거맞나? ㅠㅠ
+            JKH_Node end = nodeMap[x * mapWidth + y]; 
 
-            List<JKH_Node> path = FindPath(start, end); // 제거함.
-            float movePower = 0; // ?    
+            List<JKH_Node> path = FindPath(start, end); 
+            float movePower = 0;   
             for (int j = 0; j < path.Count; ++j)
             {
                 movePower += path[j].requiredMovePower;
             }
 
-            //while (path.parent != null)
-            //    movePower += path.requiredMovePower;
 
             print(movePower);
 
