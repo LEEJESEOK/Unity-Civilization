@@ -17,6 +17,7 @@ public enum District
     CAMPUS, COMMERCAILHUB, INDUSTRIALZONE, NONE
 }
 
+
 [Serializable]
 public class DistrictInPut
 {
@@ -36,7 +37,9 @@ public class FacilityData : MonoBehaviour
     public Facility facility;
 
     public DistrictInPut districtInput;
+
     public District district;
+
     public bool canCreate;
     //이미지
     public int iconNum;
@@ -49,11 +52,6 @@ public class FacilityData : MonoBehaviour
 
         facility = Facility.NONE;
         district = District.NONE;
-
-    }
-    private void Update()
-    {
-
     }
 
     public void SetDistrict(District next)

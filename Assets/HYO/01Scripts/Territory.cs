@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
+
+[Serializable]
+public class DistrictUnderway
+{
+    public District id;
+    public Transform pos;
+    public DistrictInPut input;
+    public int remain;
+}
 public enum TotalOutPutType
 {
     TOTALFOOD, TOTALPRODUCTIVITY, TOTALGOLD, TOTALSCIENCE
@@ -66,6 +75,8 @@ public class Territory : MonoBehaviour
     public bool distric_limit = true;
     //보유 특수지구
     public List<GameObject> districtOn = new List<GameObject>();
+    public DistrictUnderway districtUnderway = new DistrictUnderway();
+    int carryRemain;
 
     private void Awake()
     {
@@ -115,7 +126,20 @@ public class Territory : MonoBehaviour
         }
             
     }
-
+    public void DistrictProcess()
+    {
+        districtUnderway.input.productivity -= totalOutput._totalProductivity;
+        if(carryRemain > 0)
+        {
+            districtUnderway.input.productivity -= totalOutput._totalProductivity;
+            carryRemain = 0;
+        }
+        else if(carryRemain <= 0)
+        {
+            HYO_ConstructManager.instance.CreateDistrict(districtUnderway.id, districtUnderway.pos);
+            carryRemain = -districtUnderway.input.productivity;
+        }
+    }
 
     void MyCallback(OutPutType otype, int amount)
     {

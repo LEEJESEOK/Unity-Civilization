@@ -13,18 +13,9 @@ public class WorldOutPut
     public int WorldScience;
 }
 
-public class DistrictInfo
-{
-    public District id;
-    public Transform pos;
-    public DistrictInPut input;
-}
-
 
 public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 {
-    //전체 도시
-    public List<GameObject> worldCity = new List<GameObject>();
 
     public WorldOutPut worldOutPut;
 
@@ -34,15 +25,10 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public GameObject cityGate;
     public GameObject fovPre;
     public Vector3[] iconPos;
-    public Transform evironment;
 
-    public Facility facility;
 
     //button UI
     public GameObject settleBTN;
-
-    public GameObject farmBTN;
-    public GameObject mineBTN;
     public GameObject campusBTN;
     public GameObject commercialHubBTN;
     public GameObject industrialZoneBTN;
@@ -64,20 +50,18 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     //first city center
     public bool isFirst;
-
     bool isOpenPopup;
+    bool selectTile;
+    District selectDistrict;
 
     TerrainData td;
     FacilityData fd;
 
-    DistrictInfo districtInfo;
-
-    // 지형레이어
-    //필요없음
-    //int layerGrassLand;  // 6
-    //int layerPlains;     // 7
-    //int layerDesert;     // 8
-    //int layerMountain;   // 9
+    //지형 레이어
+    int layerGrassLand;  // 6
+    int layerPlains;     // 7
+    int layerDesert;     // 8
+    int layerMountain;   // 9
     int fogLayer;
     //유닛 레이어
     int layerUnit;
@@ -85,14 +69,12 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     void Start()
     {
         isFirst = true;
-        farmBTN.SetActive(false);
-        mineBTN.SetActive(false);
         settleBTN.SetActive(false);
 
-        //layerGrassLand = LayerMask.GetMask("GrassLand");
-        //layerPlains = LayerMask.GetMask("Plains");
-        //layerDesert = LayerMask.GetMask("Desert");
-        //layerMountain = LayerMask.GetMask("Mountain");
+        layerGrassLand = LayerMask.GetMask("GrassLand");
+        layerPlains = LayerMask.GetMask("Plains");
+        layerDesert = LayerMask.GetMask("Desert");
+        layerMountain = LayerMask.GetMask("Mountain");
         fogLayer = LayerMask.GetMask("HexFog");
         layerUnit = LayerMask.GetMask("Unit");
        
@@ -111,6 +93,21 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     private void Update()
     {
+        if (selectTile)
+        {
+            if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
+            {
+                SelectTile();
+
+                if (tileTemp != null)
+                {
+                    SetDistrictInfo(selectDistrict);
+                }
+
+                selectTile = false;
+            }
+        }
+       
         if (!UIManager.IsPointerOverUIObject()&& Input.GetMouseButtonDown(0))
         {
             SelectUnit();
@@ -154,54 +151,198 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             else if (unitType == Non_CombatUnitType.Builder)
             {
                 unitLimit = unitInfo.GetComponent<NonCombatUnit>().buildCount;
-
-                farmBTN.SetActive(true);
-                mineBTN.SetActive(true);
-                campusBTN.SetActive(true);
-                commercialHubBTN.SetActive(true);
-                industrialZoneBTN.SetActive(true);
             }
         }
     }
-    //public void SelectTile()
-    //{
+    public void SelectTile()
+    {
 
-    //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //    RaycastHit hit;
-    //    //int layerMask = 1 << LayerMask.NameToLayer("HexFog");
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        //int layerMask = 1 << LayerMask.NameToLayer("HexFog");
 
 
-    //    int layerMask = (layerGrassLand | layerPlains | layerDesert | layerMountain) & ~fogLayer & ~layerUnit;
+        int layerMask = (layerGrassLand | layerPlains | layerDesert | layerMountain) & ~fogLayer & ~layerUnit;
 
-    //    if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
-    //    {
+        if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
+        {
 
-    //        tileTemp = hit.transform;
-    //        print(tileTemp.name);
-    //        //settleBTN.SetActive(true);
+            tileTemp = hit.transform;
+            print(tileTemp.name);
+            //settleBTN.SetActive(true);
 
-    //        int layerNum = hit.transform.gameObject.layer;
-    //        layerNum = LayerMask.GetMask(LayerMask.LayerToName(layerNum));
+            int layerNum = hit.transform.gameObject.layer;
+            layerNum = LayerMask.GetMask(LayerMask.LayerToName(layerNum));
 
-    //        if (layerNum == layerGrassLand || layerNum == layerPlains)
-    //        {
+            if (layerNum == layerGrassLand || layerNum == layerPlains)
+            {
 
-    //            bool isHillis = hit.transform.gameObject.GetComponent<TerrainData>().isHills;
-    //            if (isHillis)
-    //            {
-    //                farmBTN.SetActive(false);
-    //            }
-    //            else
-    //            {
-    //                mineBTN.SetActive(false);
-    //            }
-    //        }
-    //    }
-    //}
+                bool isHillis = hit.transform.gameObject.GetComponent<TerrainData>().isHills;
+                if (isHillis)
+                {
+                    //버튼끄기
+                }
+                else
+                {
+                    //버튼끄기
+                }
+            }
+        }
+    }
+
+
+    //Create buttons
+    public void CreateTerritoryBtn()
+    {
+
+        Collider[] centers = Physics.OverlapSphere(tileTemp.position, 1, ~fogLayer & ~layerUnit);
+
+        for (int i = 0; i < centers.Length; i++)
+        {
+
+            if (centers[i].GetComponent<TerrainData>().myCenter != null)
+            {
+                print("도시건설 불가:도시 인접지역");
+                return;
+            }
+        }
+        Territory tt = tileTemp.gameObject.AddComponent<Territory>();
+
+        //전체 도시 리스트에 저장
+        GameManager.instance.currentPlayer.info.cities.Add(tileTemp.transform.gameObject);
+
+
+        worldOutPut.WorldFood += tt.totalOutput.Totalfood;
+        worldOutPut.WorldProductivity += tt.totalOutput.TotalProductivity;
+        worldOutPut.WorldGold += tt.totalOutput.TotalGold;
+        worldOutPut.WorldScience += tt.totalOutput.TotalScience;
+
+        tt.totalOutput.worldCallback = WorldCallback;
+
+
+        GameObject city = Instantiate(cityGate);
+        city.transform.parent = tileTemp;
+        city.transform.position = tileTemp.position;
+        city.transform.localPosition = new Vector3(0, 0.1f, 0);
+        city.transform.localEulerAngles = new Vector3(-90, 0, 90);
+        city.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+        GameObject fov = Instantiate(fovPre);
+
+        fov.transform.parent = city.transform;
+        fov.transform.position = city.transform.position;
+
+        tileTemp = null;
+
+        settleBTN.SetActive(false);
+
+        //선택된 유닛 제거 후 초기화
+        isUnitSelected = false;
+
+        Destroy(unitInfo);
+        unitInfo = null;
+    }
+
+
+    public void CreateFacility(Facility id)
+    {
+        if (fd.facility == Facility.NONE)
+        {
+            fd.SetFacility(id);
+
+            tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
+            print(tileTemp);
+            GameObject empty = Instantiate(icons[(int)id + 3]);
+            unitInfo.GetComponent<NonCombatUnit>().buildCount += 1;
+            Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.gameObject.GetComponent<Territory>();
+            //FacilityData fd = tileTemp.GetComponent<FacilityData>();
+
+            if ((int)id + 3 == -1)
+            {
+                return;
+            }
+            empty.transform.parent = tileTemp;
+            empty.transform.position = tileTemp.position;
+            empty.transform.localPosition = new Vector3(0, 0.109f, 0);
+            //empty.transform.localEulerAngles = new Vector3(0, -90, 0);
+            empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+
+            tileTemp = null;
+            isUnitSelected = false;
+        }
+        else return;
+       
+    }
+
+
+
+    public void OnClickCampusBtn()
+    {
+        if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
+        {
+            selectTile = true;
+            selectDistrict = District.CAMPUS;
+        }
+        else return;
+    }
+    public void OnClickCommercialHubBtn()
+    {
+        if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
+        {
+            selectTile = true;
+            selectDistrict = District.COMMERCAILHUB;
+        }
+        else return;
+    }
+    public void OnclickIndustrialZoneBtn()
+    {
+        if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
+        {
+            selectTile = true;
+            selectDistrict = District.INDUSTRIALZONE;
+        }
+        else return;
+    }
+
+    // TODO
+    // parameter : 타일 x, y 좌표, 선택한 건물
+    // 선택한 타일에 건물 모델 생성, 타일의 산출량 변경
+    public void SetDistrictInfo(District id)
+    {
+        Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.GetComponent<Territory>();
+        tt.districtUnderway.pos = tileTemp.transform;
+        tt.districtUnderway.id = id;
+        tt.districtUnderway.input = fd.districtInput;
+
+        tileTemp = null;   
+    }
+
+    //건설 완료하면 불러
+    public void CreateDistrict(District id,Transform pos)
+    {
+        GameObject empty = Instantiate(icons[(int)id]);
+        pos.GetComponent<FacilityData>().SetDistrict(id);
+        pos.GetComponent<TerrainData>().myCenter.GetComponent<Territory>().AddDistrict(empty);
+        empty.transform.parent = pos;
+        empty.transform.position = pos.position;
+        empty.transform.localPosition = new Vector3(0, 0.109f, 0);       
+        empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+
+        //GameObject empty = Instantiate(icons[(int)id]);
+        //unitInfo.GetComponent<NonCombatUnit>().buildCount += 1;
+        //Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.gameObject.GetComponent<Territory>();
+        //tt.AddDistrict(empty);
+
+        //empty.transform.parent = tileTemp;
+        //empty.transform.position = tileTemp.position;
+        //empty.transform.localPosition = new Vector3(0, 0.109f, 0);
+        // //empty.transform.localEulerAngles = new Vector3(90, 0, 0);
+        //empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+    }
+
     //tileInfo popup
     public void TileInfoPopUp()
     {
-        if(Camera.main == null)
+        if (Camera.main == null)
         {
             return;
         }
@@ -255,192 +396,4 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
         }
     }
-
-    //Create buttons
-    public void OnClickFarmBtn()
-    {
-        if (fd.facility == Facility.NONE)
-        {
-            fd.SetFacility(Facility.FARM);
-            CreateFacility(3);
-            tileTemp = null;
-            isUnitSelected = false;
-
-        }
-        else return;
-    }
-    public void OnClickMineBtn()
-    {
-        if (fd.facility == Facility.NONE)
-        {
-            fd.SetFacility(Facility.MINE);
-            CreateFacility(4);
-            tileTemp = null;
-
-            mineBTN.SetActive(false);
-
-            isUnitSelected = false;
-        }
-        else return;
-    }
-
-    public void OnClickCampusBtn()
-    {
-        if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
-        {
-            tileTemp.GetComponent<FacilityData>().SetDistrict(District.CAMPUS);
-            //CreateDistrict(0);
-            CreateDistrict(District.CAMPUS);
-            tileTemp = null;
-
-            campusBTN.SetActive(false);
-
-            isUnitSelected = false;
-        }
-        else return;
-    }
-    public void OnClickCommercialHubBtn()
-    {
-        if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
-        {
-            fd.SetDistrict(District.COMMERCAILHUB);
-            //CreateDistrict(1);
-            CreateDistrict(District.COMMERCAILHUB);
-            tileTemp = null;
-
-            commercialHubBTN.SetActive(false);
-
-            isUnitSelected = false;
-        }
-        else return;
-    }
-    public void OnclickIndustrialZoneBtn()
-    {
-        if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
-        {
-            fd.SetDistrict(District.INDUSTRIALZONE);
-            //CreateDistrict(2);
-            CreateDistrict(District.INDUSTRIALZONE);
-            tileTemp = null;
-
-            industrialZoneBTN.SetActive(false);
-
-            isUnitSelected = false;
-        }
-        else return;
-    }
-    public void CreateTerritoryBtn()
-    {
-
-        Collider[] centers = Physics.OverlapSphere(tileTemp.position, 1, ~fogLayer & ~layerUnit);
-
-        for (int i = 0; i < centers.Length; i++)
-        {
-
-            if (centers[i].GetComponent<TerrainData>().myCenter != null)
-            {
-                print("도시건설 불가:도시 인접지역");
-                return;
-            }
-        }
-        Territory tt = tileTemp.gameObject.AddComponent<Territory>();
-
-        //전체 도시 리스트에 저장
-        //worldCity.Add(tileTemp.transform.gameObject);
-        GameManager.instance.currentPlayer.info.cities.Add(tileTemp.transform.gameObject);
-
-         
-        worldOutPut.WorldFood += tt.totalOutput.Totalfood;
-        worldOutPut.WorldProductivity += tt.totalOutput.TotalProductivity;
-        worldOutPut.WorldGold += tt.totalOutput.TotalGold;
-        worldOutPut.WorldScience += tt.totalOutput.TotalScience;
-
-        tt.totalOutput.worldCallback = WorldCallback;
-
-
-        GameObject city = Instantiate(cityGate);
-        city.transform.parent = tileTemp;
-        city.transform.position = tileTemp.position;
-        city.transform.localPosition = new Vector3(0, 0.1f, 0);
-        city.transform.localEulerAngles = new Vector3(-90, 0, 90);
-        city.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
-        GameObject fov = Instantiate(fovPre);
-
-        fov.transform.parent = city.transform;
-        fov.transform.position = city.transform.position;
-
-        tileTemp = null;
-
-        settleBTN.SetActive(false);
-
-        //선택된 유닛 제거 후 초기화
-        isUnitSelected = false;
-
-        Destroy(unitInfo);
-        unitInfo = null;
-    }
-
-
-    public void CreateFacility(int chooseIndex)
-    {
-        tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
-        print(tileTemp);
-        GameObject empty = Instantiate(icons[chooseIndex]);
-        unitInfo.GetComponent<NonCombatUnit>().buildCount += 1;
-        Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.gameObject.GetComponent<Territory>();
-        //FacilityData fd = tileTemp.GetComponent<FacilityData>();
-
-        if (chooseIndex == -1)
-        {
-            return;
-        }
-        empty.transform.parent = tileTemp;
-        empty.transform.position = tileTemp.position;
-        empty.transform.localPosition = new Vector3(0, 0.109f, 0);
-        //empty.transform.localEulerAngles = new Vector3(0, -90, 0);
-        empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
-
-        tileTemp = null;
-        isUnitSelected = false;
-
-    }
-
-    // TODO
-    // parameter : 타일 x, y 좌표, 선택한 건물
-    // 선택한 타일에 건물 모델 생성, 타일의 산출량 변경
-    public void CreateDistrict(District id)
-    {
-        tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
-
-        districtInfo.pos = tileTemp;
-        districtInfo.id = id;
-        districtInfo.input = fd.districtInput;
-
-        GameObject empty = Instantiate(icons[(int)id]);
-        unitInfo.GetComponent<NonCombatUnit>().buildCount += 1;
-        Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.gameObject.GetComponent<Territory>();
-        tt.AddDistrict(empty);
-
-        empty.transform.parent = tileTemp;
-        empty.transform.position = tileTemp.position;
-        empty.transform.localPosition = new Vector3(0, 0.109f, 0);
-        empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
-    }
-
-    //public void CreateDistrict(int chooseIndex)
-    //{
-    //    tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
-
-    //    GameObject empty = Instantiate(icons[chooseIndex]);
-    //    unitInfo.GetComponent<NonCombatUnit>().buildCount += 1;
-    //    Territory td.myCenter.GetComponent<Territory>() = tileTemp.GetComponent<TerrainData>().myCenter.gameObject.GetComponent<Territory>();
-    //    td.myCenter.GetComponent<Territory>().AddDistrict(empty);
-
-    //    empty.transform.parent = tileTemp;
-    //    empty.transform.position = tileTemp.position;
-    //    empty.transform.localPosition = new Vector3(0, 0.109f, 0);//constrMng.iconPos[chooseIndex];
-    //    //empty.transform.localEulerAngles = new Vector3(90, 0, 0);
-    //    empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
-    //}
-
 }
