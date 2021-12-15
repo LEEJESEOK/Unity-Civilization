@@ -10,18 +10,16 @@ public class MapManager : Singleton<MapManager>
     public int mapWidth, mapHeight;
     List<TerrainData> terrainDataMap;
     List<JKH_Node> nodeMap;
-    //public JKH_Grid grid;
-    
+
     //FindPath()'s variable
     float moveResult = 0;
 
-    //path
-    public List<JKH_Node> path= new List<JKH_Node>();
-
     //createGrid
     TerrainData[] terrainDatas;
-    //public bool walkable;
 
+    #region test
+    List<JKH_Node> testAbleGoList = new List<JKH_Node>();
+    #endregion
 
     void Start()
     {
@@ -30,13 +28,9 @@ public class MapManager : Singleton<MapManager>
 
         //grid = GetComponent<JKH_Grid>();        
 
-    
+
     }
 
-    private void Awake()
-    {
-        //grid = new JKH_Node[gridSizeX, gridSizeY];
-    }
     void Update()
     {
         getUnitInfo();
@@ -44,13 +38,15 @@ public class MapManager : Singleton<MapManager>
 
     private void InitNodeMap()
     {
+
+        nodeMap = new List<JKH_Node>();
         for (int i = 0; i < terrainDataMap.Count; ++i)
         {
             TerrainData data = terrainDataMap[i];
 
             TerrainType terrainType = data.terrainType;
             bool walkable = false;
-            //gameObject 대신 넣어야하는게 그 정보인데..? 어떻게 너ㅎ음 ㅠㅠ
+
             if (terrainType == TerrainType.Mountain ||
                 terrainType == TerrainType.Coast ||
                 terrainType == TerrainType.Ocean)
@@ -62,9 +58,9 @@ public class MapManager : Singleton<MapManager>
                 walkable = true;
             }
 
-            JKH_Node node = new JKH_Node(walkable, data.transform.position ,data.x, data.y, data.output.movePower);
+            JKH_Node node = new JKH_Node(walkable, data.transform.position, data.x, data.y, data.output.movePower);
             nodeMap.Add(node);
-        }        
+        }
     }
 
 
@@ -97,14 +93,14 @@ public class MapManager : Singleton<MapManager>
                 print("체력: " + selectedUnit.Hp);
 
                 //유닛이있는 타일의 정보를 가져온다.
-                 
+
 
             }
         }
     }
 
     // FindPath
-    public JKH_Node FindPath(JKH_Node start, JKH_Node end)
+    public List<JKH_Node> FindPath(JKH_Node start, JKH_Node end)
     {
         List<JKH_Node> openSet = new List<JKH_Node>();
         HashSet<JKH_Node> closeSet = new HashSet<JKH_Node>();
@@ -119,7 +115,7 @@ public class MapManager : Singleton<MapManager>
         {
             JKH_Node currentNode = openSet[0];
 
-            for(int i = 1; i < openSet.Count; i++)
+            for (int i = 1; i < openSet.Count; i++)
             {
                 //만족한 값으로 이동
                 if ((openSet[i].fCost < currentNode.fCost)
@@ -135,7 +131,7 @@ public class MapManager : Singleton<MapManager>
             //if (currentNode == end)
             if (currentNode.gridX == end.gridX && currentNode.gridY == end.gridY)
             {
-                path = RetracePath(currentNode);
+                List<JKH_Node> path = RetracePath(currentNode);
                 //moveResult = requiredMovePower; //최종값
 
                 moveResult = 0;
@@ -144,7 +140,7 @@ public class MapManager : Singleton<MapManager>
                     moveResult += path[i].requiredMovePower;
                 }
                 print("최종값: " + moveResult);
-                return path[0];
+                return path;
             }
 
             //이웃노드 검사한다.
@@ -210,9 +206,9 @@ public class MapManager : Singleton<MapManager>
         return result;
     }
 
-
-
+    //need to call    
     // 선택한 유닛의 movePower만큼 Physics.OverlapSphere 각각 FindPath
+
     public void CheckAbleToGo()
     {
         LayerMask layerMask = LayerMask.GetMask("GrassLand") | LayerMask.GetMask("Plains") | LayerMask.GetMask("Desert");
@@ -221,9 +217,9 @@ public class MapManager : Singleton<MapManager>
         //float[] x = new float[cols.Length];
 
 
-        KeyValuePair<int, int> mypos = CheckMyPos(); //클릭한유닛의 좌표.
-        JKH_Node start = nodeMap[mypos.Key * mapWidth + mypos.Value];
-        
+        KeyValuePair<int, int> myPos = CheckMyPos(); //클릭한유닛의 좌표.
+        JKH_Node start = nodeMap[myPos.Key * mapWidth + myPos.Value];
+
         //JKH_Node start = new JKH_Node(JKH_Move.instance.grid.grid[mypos.Key, mypos.Value].walkable,
         //transform.position, mypos.Key, mypos.Value, JKH_Move.instance.grid.grid[mypos.Key, mypos.Value].requiredMovePower);
 
@@ -235,21 +231,37 @@ public class MapManager : Singleton<MapManager>
             int x = terrainData.x;
             int y = terrainData.y;
 
-         
-            JKH_Node path = JKH_Move.instance.FindPath(start, end);
-            float movePower = 0;
+            JKH_Node end = nodeMap[x * mapWidth + y]; // 이거맞나? ㅠㅠ
 
-            print(string.Format("-> x : {0}, y : {1}", path.gridX, path.gridY));
+            List<JKH_Node> path = FindPath(start, end); // 제거함.
+            float movePower = 0; // ?    
+            for (int j = 0; j < path.Count; ++j)
+            {
+                movePower += path[j].requiredMovePower;
+            }
 
             //while (path.parent != null)
             //    movePower += path.requiredMovePower;
 
             print(movePower);
-            if (movePower > selectedUnit.movePower)
-                print(string.Format("-> x : {0}, y : {1}", x, y));
+
+            if (selectedUnit.movePower > moveResult)
+            {
+                print("x= " + x + "y= " + y);
+                //그려주기해야함
+                testAbleGoList.Add(end);
+            }
+
         }
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        //Gizmos.DrawCube();
+        for (int i = 0; i < testAbleGoList.Count; ++i)
+            Gizmos.DrawCube(testAbleGoList[i].worldPosition, Vector3.one * .5f);
 
+    }
 
 
     public List<JKH_Node> GetNeighboursAdd(JKH_Node node)
@@ -303,14 +315,10 @@ public class MapManager : Singleton<MapManager>
         }
 
         return new KeyValuePair<int, int>(posX, posY);
-    }      
+    }
 
-    
+
     // 결과 이동력이 유닛의 이동력보다 낮으면 이번 턴에 이동할 수 있는 타일
     // -> 해당하는 타일 print로 출력 -> OnDrawGizmo
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        //
-    }
+
 }
