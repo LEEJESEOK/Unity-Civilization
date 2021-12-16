@@ -77,7 +77,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         layerMountain = LayerMask.GetMask("Mountain");
         fogLayer = LayerMask.GetMask("HexFog");
         layerUnit = LayerMask.GetMask("Unit");
-       
+
     }
 
     void WorldCallback(TotalOutPutType toType, int totalAmount)
@@ -107,8 +107,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                 selectTile = false;
             }
         }
-       
-        if (!UIManager.IsPointerOverUIObject()&& Input.GetMouseButtonDown(0))
+
+        if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
         {
             SelectUnit();
 
@@ -270,7 +270,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             isUnitSelected = false;
         }
         else return;
-       
+
     }
 
 
@@ -313,18 +313,18 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         tt.districtUnderway.id = id;
         tt.districtUnderway.input = fd.districtInput;
 
-        tileTemp = null;   
+        tileTemp = null;
     }
 
     //건설 완료하면 불러
-    public void CreateDistrict(District id,Transform pos)
+    public void CreateDistrict(District id, Transform pos)
     {
         GameObject empty = Instantiate(icons[(int)id]);
         pos.GetComponent<FacilityData>().SetDistrict(id);
         pos.GetComponent<TerrainData>().myCenter.GetComponent<Territory>().AddDistrict(empty);
         empty.transform.parent = pos;
         empty.transform.position = pos.position;
-        empty.transform.localPosition = new Vector3(0, 0.109f, 0);       
+        empty.transform.localPosition = new Vector3(0, 0.109f, 0);
         empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
 
         //GameObject empty = Instantiate(icons[(int)id]);
