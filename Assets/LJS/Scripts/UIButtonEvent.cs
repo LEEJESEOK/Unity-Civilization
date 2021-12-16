@@ -69,10 +69,25 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
     public void SelectOngoingTechnology(TechnologyId technologyId)
     {
         Technology selectedTech = GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == technologyId);
+        // 이미 완료한 연구인지 검사
         if (selectedTech.isResearched)
+        {
+            print(string.Format("이미 완료한 연구입니다.({0})", selectedTech.korean));
             return;
+        }
+        // 선행 연구를 완료했는지 검사
+        for (int i = 0; i < selectedTech.requireTechId.Count; ++i)
+        {
+            Technology tech = GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == selectedTech.requireTechId[i]);
+            if (tech.isResearched == false)
+            {
+                print(string.Format("{0}을/를 연구하지 않았습니다.", tech.korean));
+                return;
+            }
+        }
 
         GameManager.instance.currentPlayer.info.ongoingTechnology = selectedTech;
         UIManager.instance.UpdateSelectedTechnology(selectedTech);
+        print(string.Format("{0} 선택", selectedTech.korean));
     }
 }
