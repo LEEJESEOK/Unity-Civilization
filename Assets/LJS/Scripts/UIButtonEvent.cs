@@ -54,6 +54,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                 break;
 
             case UIButtonId.COMMAND_BUILD_CITY:
+                HYO_ConstructManager.instance.CreateTerritory();
                 break;
             case UIButtonId.COMMAND_BUILD_FARM:
                 HYO_ConstructManager.instance.CreateFacility(Facility.FARM);
@@ -61,6 +62,15 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
             case UIButtonId.COMMAND_BUILD_MINE:
                 HYO_ConstructManager.instance.CreateFacility(Facility.MINE);
                 break;
+            case UIButtonId.COMMAND_BUILD_CAMPUS:
+                if(HYO_ConstructManager.instance.CheckDistrict(District.CAMPUS))
+                    HYO_ConstructManager.instance.SetDistrictInfo(District.CAMPUS);
+                break;
+            case UIButtonId.COMMAND_BUILD_COMMERCIALHUB:
+                break;
+            case UIButtonId.COMMAND_BUILD_INDUSTRIALZONE:
+                break;
+
         }
     }
 

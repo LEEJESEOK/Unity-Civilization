@@ -99,4 +99,9 @@ public class GameManager : Singleton<GameManager>
         // 첫번째 플레이어의 차례로 시작
         players[_currentPlayerId].StartTurn();
     }
+
+    public void DestroyUnit(int playerId, GameObject unit)
+    {
+        players[playerId].info.units.Remove(unit);
+    }
 }

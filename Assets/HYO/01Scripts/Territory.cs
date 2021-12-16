@@ -9,8 +9,18 @@ public class DistrictUnderway
 {
     public District id;
     public Transform pos;
-    public DistrictInPut input;
     public int remain;
+}
+[Serializable]
+public class DistrictInPut
+{
+    public int productivity;
+    public int gold;
+    public DistrictInPut(int productivity, int gold)
+    {
+        this.productivity = productivity;
+        this.gold = gold;
+    }
 }
 public enum TotalOutPutType
 {
@@ -74,13 +84,16 @@ public class Territory : MonoBehaviour
     public GameObject cityCenter;
     public bool distric_limit = true;
     //보유 특수지구
-    public List<GameObject> districtOn = new List<GameObject>();
+    public List<District> districtOn = new List<District>();
     public DistrictUnderway districtUnderway = new DistrictUnderway();
+    public DistrictInPut districtInput = new DistrictInPut(54, 1);
+    int maintenanceCost;
     int carryRemain;
 
     private void Awake()
     {
         totalOutput = new TotalOutPut();
+        districtUnderway.id = District.NONE;
     }
 
     void Start()
@@ -117,7 +130,7 @@ public class Territory : MonoBehaviour
         }
     }
 
-    public void AddDistrict(GameObject add)
+    public void AddDistrict(District add)
     {
         districtOn.Add(add);
         if (districtOn != null)
@@ -128,17 +141,27 @@ public class Territory : MonoBehaviour
     }
     public void DistrictProcess()
     {
-        districtUnderway.input.productivity -= totalOutput._totalProductivity;
+        districtUnderway.remain -= totalOutput._totalProductivity;
         if(carryRemain > 0)
         {
-            districtUnderway.input.productivity -= totalOutput._totalProductivity;
+            districtUnderway.remain -= carryRemain;
             carryRemain = 0;
         }
-        else if(carryRemain <= 0)
+        //건설 완료
+        else if(districtUnderway.remain <= 0)
         {
             HYO_ConstructManager.instance.CreateDistrict(districtUnderway.id, districtUnderway.pos);
-            carryRemain = -districtUnderway.input.productivity;
+            carryRemain = -districtUnderway.remain;
         }
+
+        //특수지구 유지비
+        if (districtOn == null) return;
+        for(int i =0; i < districtOn.Count; i++)
+        {
+            maintenanceCost += districtInput.gold;
+        }
+        totalOutput.TotalGold -= maintenanceCost;
+
     }
 
     void MyCallback(OutPutType otype, int amount)

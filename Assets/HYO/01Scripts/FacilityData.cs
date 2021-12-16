@@ -17,26 +17,11 @@ public enum District
     CAMPUS, COMMERCAILHUB, INDUSTRIALZONE, NONE
 }
 
-
-[Serializable]
-public class DistrictInPut
-{
-    public int productivity;
-    public int gold;
-    public DistrictInPut(int productivity, int gold)
-    {
-        this.productivity = productivity;
-        this.gold = gold;
-    }
-}
-
 public class FacilityData : MonoBehaviour
 {
     public TerrainData terrainData;
     //보유시설
     public Facility facility;
-
-    public DistrictInPut districtInput;
 
     public District district;
 
@@ -65,21 +50,18 @@ public class FacilityData : MonoBehaviour
         {
             case District.CAMPUS:
                 iconNum = 0;
-                districtInput = new DistrictInPut(54, 1);
+                //districtInput = new DistrictInPut(54, 1);
                 terrainData.output.science = terrainData.myCenter.GetComponent<Territory>().population * 2;
                 break;
             case District.COMMERCAILHUB:
                 iconNum = 1;
-                districtInput = new DistrictInPut(54, 1);
                 terrainData.output.gold = terrainData.myCenter.GetComponent<Territory>().population * 4;
                 break;
             case District.INDUSTRIALZONE:
                 iconNum = 2;
-                districtInput = new DistrictInPut(54, 1);
                 terrainData.output.productivity = terrainData.myCenter.GetComponent<Territory>().population * 2;
                 break;
             case District.NONE:
-                districtInput = new DistrictInPut(0, 0);
                 break;
         }
     }

@@ -16,6 +16,8 @@ public class WorldOutPut
 
 public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 {
+    // test
+    public int TEST_REMAIN_PRODUCT = 54;
 
     public WorldOutPut worldOutPut;
 
@@ -51,12 +53,13 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     //first city center
     public bool isFirst;
     bool isOpenPopup;
-    bool selectTile;
-    District selectDistrict;
+    public bool selectTile;
+    public District selectDistrict;
 
     TerrainData td;
     FacilityData fd;
 
+    int layerUI;
     //지형 레이어
     int layerGrassLand;  // 6
     int layerPlains;     // 7
@@ -69,8 +72,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     void Start()
     {
         isFirst = true;
-        settleBTN.SetActive(false);
+        selectTile = false;
 
+        layerUI = LayerMask.GetMask("UI");
         layerGrassLand = LayerMask.GetMask("GrassLand");
         layerPlains = LayerMask.GetMask("Plains");
         layerDesert = LayerMask.GetMask("Desert");
@@ -110,12 +114,10 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
         if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
         {
-            SelectUnit();
-
-            if (isUnitSelected)
+            if (SelectUnit())
             {
                 tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
-                td = tileTemp.GetComponent<TerrainData>();
+                //td = tileTemp.GetComponent<TerrainData>();
                 fd = tileTemp.GetComponent<FacilityData>();
 
             }
@@ -126,12 +128,13 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
 
     //select
-    public void SelectUnit()
+    public bool SelectUnit()
     {
+        print("selectUnit");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        int layerMask = layerUnit & ~fogLayer;
+        int layerMask = layerUnit;
 
         if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
         {
@@ -146,17 +149,22 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             UIPanelManager.instance.OpenPanel("UNIT_PANEL");
             if (unitType == Non_CombatUnitType.Settler)
             {
-                settleBTN.SetActive(true);
+                //settleBTN.SetActive(true);
             }
             else if (unitType == Non_CombatUnitType.Builder)
             {
-                unitLimit = unitInfo.GetComponent<NonCombatUnit>().buildCount;
+                //건설 버튼
             }
+
+            return true;
         }
+        else
+            return false;
+
     }
     public void SelectTile()
     {
-
+        print("selectTile");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         //int layerMask = 1 << LayerMask.NameToLayer("HexFog");
@@ -192,11 +200,11 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
 
     //Create buttons
-    public void CreateTerritoryBtn()
+    public void CreateTerritory()
     {
 
         Collider[] centers = Physics.OverlapSphere(tileTemp.position, 1, ~fogLayer & ~layerUnit);
-
+        
         for (int i = 0; i < centers.Length; i++)
         {
 
@@ -206,6 +214,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                 return;
             }
         }
+        print(tileTemp.gameObject.GetComponent<TerrainData>().x);
+        print(tileTemp.gameObject.GetComponent<TerrainData>().y);
         Territory tt = tileTemp.gameObject.AddComponent<Territory>();
 
         //전체 도시 리스트에 저장
@@ -233,15 +243,11 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
         tileTemp = null;
 
-        settleBTN.SetActive(false);
-
         //선택된 유닛 제거 후 초기화
-        isUnitSelected = false;
-
         Destroy(unitInfo);
+        isUnitSelected = false;
         unitInfo = null;
     }
-
 
     public void CreateFacility(Facility id)
     {
@@ -274,44 +280,59 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     }
 
 
-
-    public void OnClickCampusBtn()
-    {
-        if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
-        {
-            selectTile = true;
-            selectDistrict = District.CAMPUS;
-        }
-        else return;
-    }
-    public void OnClickCommercialHubBtn()
-    {
-        if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
-        {
-            selectTile = true;
-            selectDistrict = District.COMMERCAILHUB;
-        }
-        else return;
-    }
-    public void OnclickIndustrialZoneBtn()
-    {
-        if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
-        {
-            selectTile = true;
-            selectDistrict = District.INDUSTRIALZONE;
-        }
-        else return;
-    }
+    //public void OnClickCampusBtn()
+    //{
+    //    if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
+    //    {
+    //        selectTile = true;
+    //        selectDistrict = District.CAMPUS;
+    //    }
+    //    else return;
+    //}
+    //public void OnClickCommercialHubBtn()
+    //{
+    //    if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
+    //    {
+    //        selectTile = true;
+    //        selectDistrict = District.COMMERCAILHUB;
+    //    }
+    //    else return;
+    //}
+    //public void OnclickIndustrialZoneBtn()
+    //{
+    //    if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
+    //    {
+    //        selectTile = true;
+    //        selectDistrict = District.INDUSTRIALZONE;
+    //    }
+    //    else return;
+    //}
 
     // TODO
     // parameter : 타일 x, y 좌표, 선택한 건물
     // 선택한 타일에 건물 모델 생성, 타일의 산출량 변경
+    public bool CheckDistrict(District district)
+    {
+        //if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
+        selectTile = true;
+        selectDistrict = district;
+
+        if (tileTemp != null)
+        {
+            return true;
+        }
+        else
+            return false;
+
+    }
+
     public void SetDistrictInfo(District id)
     {
         Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.GetComponent<Territory>();
+        // todo
+        tt.districtUnderway.remain = TEST_REMAIN_PRODUCT;
         tt.districtUnderway.pos = tileTemp.transform;
         tt.districtUnderway.id = id;
-        tt.districtUnderway.input = fd.districtInput;
 
         tileTemp = null;
     }
@@ -321,23 +342,15 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     {
         GameObject empty = Instantiate(icons[(int)id]);
         pos.GetComponent<FacilityData>().SetDistrict(id);
-        pos.GetComponent<TerrainData>().myCenter.GetComponent<Territory>().AddDistrict(empty);
+        pos.GetComponent<TerrainData>().myCenter.GetComponent<Territory>().AddDistrict(id);
         empty.transform.parent = pos;
         empty.transform.position = pos.position;
         empty.transform.localPosition = new Vector3(0, 0.109f, 0);
         empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
-
-        //GameObject empty = Instantiate(icons[(int)id]);
-        //unitInfo.GetComponent<NonCombatUnit>().buildCount += 1;
-        //Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.gameObject.GetComponent<Territory>();
-        //tt.AddDistrict(empty);
-
-        //empty.transform.parent = tileTemp;
-        //empty.transform.position = tileTemp.position;
-        //empty.transform.localPosition = new Vector3(0, 0.109f, 0);
-        // //empty.transform.localEulerAngles = new Vector3(90, 0, 0);
-        //empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+ 
     }
+
+  
 
     //tileInfo popup
     public void TileInfoPopUp()
@@ -347,7 +360,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             return;
         }
 
-        //레이쏴서
         Ray rayPoint = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
 
@@ -374,10 +386,11 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                 {
                     isOpenPopup = true;
 
-                    tileTemp = hitInfo.transform;
+                    Transform tileTemp = hitInfo.transform;
                     if (tileTemp.GetComponent<TerrainData>() != null)
                     {
                         tileTemp.GetComponent<TerrainData>().ShowTileInfo();
+                        tileInfo.transform.position = new Vector3(mousePos.x, mousePos.y);
                         tileInfo.SetActive(true);
                     }
                     currentTime = 0;

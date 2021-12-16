@@ -33,6 +33,12 @@ public enum UIButtonId
     // builder
     COMMAND_BUILD_FARM,
     COMMAND_BUILD_MINE,
+
+    //district
+    COMMAND_BUILD_CAMPUS,
+    COMMAND_BUILD_COMMERCIALHUB,
+    COMMAND_BUILD_INDUSTRIALZONE
+
     #endregion
 
 }
