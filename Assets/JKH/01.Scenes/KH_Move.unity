@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 30897481}
   - component: {fileID: 30897480}
   m_Layer: 22
-  m_Name: GameObject
+  m_Name: Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30897478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6, y: -1, z: -2.15}
+  m_LocalPosition: {x: -1.6, y: -0.7, z: -2.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1509403860}
@@ -267,7 +267,7 @@ CapsuleCollider:
   m_Radius: 0.1
   m_Height: 0.4
   m_Direction: 1
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &102995277
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,50 +813,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5352354613962040121, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
   m_PrefabInstance: {fileID: 276801341}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &276801343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276801342}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d724487d1a4b974a96404b06ba28d84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layer:
-    serializedVersion: 2
-    m_Bits: 4194304
-  moveBtn: {fileID: 1779911434}
-  isUnitClick: 0
-  canMove: 0
-  movePower: 5
-  moveUI: {fileID: 102995279}
-  grid: {fileID: 0}
-  startX: 4
-  startY: 3
-  endX: 8
-  endY: 6
-  moveResult: 0
---- !u!114 &276801344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276801342}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 579b5aca2c814414ea58ed565face7dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unwalkableMask:
-    serializedVersion: 2
-    m_Bits: 0
-  gridWorldSize: {x: 200, y: 200}
-  nodeRadius: 1
-  path: []
 --- !u!114 &276801347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,11 +826,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedUnit: {fileID: 0}
-  mapWidth: 0
-  mapHeight: 0
+  mapWidth: 10
+  mapHeight: 10
   myTilePos: {fileID: 0}
-  posX: 0
-  posY: 0
 --- !u!1 &321137416
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,7 +907,7 @@ GameObject:
   - component: {fileID: 402134909}
   - component: {fileID: 402134908}
   m_Layer: 22
-  m_Name: GameObject (3)
+  m_Name: Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -987,7 +941,7 @@ CapsuleCollider:
   m_Radius: 0.1
   m_Height: 0.4
   m_Direction: 1
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &402134910
 Transform:
   m_ObjectHideFlags: 0
@@ -996,7 +950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402134907}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.43, y: -1, z: 0.25}
+  m_LocalPosition: {x: -2.43, y: -0.7, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1522722035}
@@ -1015,7 +969,7 @@ GameObject:
   - component: {fileID: 439378756}
   - component: {fileID: 439378755}
   m_Layer: 22
-  m_Name: GameObject (2)
+  m_Name: Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1049,7 +1003,7 @@ CapsuleCollider:
   m_Radius: 0.1
   m_Height: 0.4
   m_Direction: 1
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &439378757
 Transform:
   m_ObjectHideFlags: 0
@@ -1058,7 +1012,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439378754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.21, y: -1, z: -1.11}
+  m_LocalPosition: {x: 0.21, y: -0.7, z: -1.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1360097374}
@@ -1077,7 +1031,7 @@ GameObject:
   - component: {fileID: 584991753}
   - component: {fileID: 584991752}
   m_Layer: 22
-  m_Name: GameObject (1)
+  m_Name: Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1111,7 +1065,7 @@ CapsuleCollider:
   m_Radius: 0.1
   m_Height: 0.4
   m_Direction: 1
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &584991754
 Transform:
   m_ObjectHideFlags: 0
@@ -1120,7 +1074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584991751}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.72, y: -1, z: -0.66}
+  m_LocalPosition: {x: -0.72, y: -0.7, z: -0.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 737115236}
