@@ -16,6 +16,9 @@ public class GameManager : Singleton<GameManager>
     public bool useFaith;
     public bool useGold;
 
+    public float cameraMoveSpeed;
+    public float cameraZoomSpeed;
+
     [Header("Player")]
     public GameObject playerPrefab;
     public int initPlayerCount;
@@ -43,11 +46,6 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
-        players[_currentPlayerId].TurnUpdate();
-
-        
-
-
         // esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {
