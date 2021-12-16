@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 8262429042136033028}
   - component: {fileID: 8262429042136033029}
   m_Layer: 5
-  m_Name: GoldImage
+  m_Name: CostImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7687742983173014390, guid: 340d7d291efd62d4089f9a6466008f39, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 8262429042791035338}
   - component: {fileID: 8262429042791035339}
   m_Layer: 5
-  m_Name: GoldObjectButton
+  m_Name: ObjectProductionButtonBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 8262429042978251681}
   - component: {fileID: 8262429042978251686}
   m_Layer: 5
-  m_Name: GoldText
+  m_Name: CostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00
+  m_text: 000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4eafa30e88ec4714c9741e4e247145f7, type: 2}
   m_sharedMaterial: {fileID: -6253245364172973253, guid: 4eafa30e88ec4714c9741e4e247145f7, type: 2}
