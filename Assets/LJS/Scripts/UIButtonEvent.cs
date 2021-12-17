@@ -63,12 +63,13 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                 HYO_ConstructManager.instance.CreateFacility(Facility.MINE);
                 break;
             case UIButtonId.COMMAND_BUILD_CAMPUS:
-                if(HYO_ConstructManager.instance.CheckDistrict(District.CAMPUS))
                     HYO_ConstructManager.instance.SetDistrictInfo(District.CAMPUS);
                 break;
             case UIButtonId.COMMAND_BUILD_COMMERCIALHUB:
+                HYO_ConstructManager.instance.SetDistrictInfo(District.COMMERCAILHUB);
                 break;
             case UIButtonId.COMMAND_BUILD_INDUSTRIALZONE:
+                HYO_ConstructManager.instance.SetDistrictInfo(District.INDUSTRIALZONE);
                 break;
 
         }

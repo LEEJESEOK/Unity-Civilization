@@ -28,13 +28,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public GameObject fovPre;
     public Vector3[] iconPos;
 
-
-    //button UI
-    public GameObject settleBTN;
-    public GameObject campusBTN;
-    public GameObject commercialHubBTN;
-    public GameObject industrialZoneBTN;
-
     //TileInfo UI
     public GameObject tileInfo;
     public Vector3 mousePos;
@@ -54,7 +47,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public bool isFirst;
     bool isOpenPopup;
     public bool selectTile;
-    public District selectDistrict;
+
 
     TerrainData td;
     FacilityData fd;
@@ -81,7 +74,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         layerMountain = LayerMask.GetMask("Mountain");
         fogLayer = LayerMask.GetMask("HexFog");
         layerUnit = LayerMask.GetMask("Unit");
-
     }
 
     void WorldCallback(TotalOutPutType toType, int totalAmount)
@@ -97,20 +89,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     private void Update()
     {
-        if (selectTile)
-        {
-            if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
-            {
-                SelectTile();
-
-                if (tileTemp != null)
-                {
-                    SetDistrictInfo(selectDistrict);
-                }
-
-                selectTile = false;
-            }
-        }
 
         if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
         {
@@ -120,6 +98,23 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                 //td = tileTemp.GetComponent<TerrainData>();
                 fd = tileTemp.GetComponent<FacilityData>();
 
+            }
+            else if (SelectTile())
+            {
+                td = tileTemp.GetComponent<TerrainData>();
+                fd = tileTemp.GetComponent<FacilityData>();
+                if (tileTemp.GetComponent<TerrainData>().myCenter)
+                {                    
+                    if (fd.district != District.NONE || td.myCenter.GetComponent<Territory>().distric_limit == false)
+                    {
+                        tileTemp = null;
+                        print("!:특수지구 건설 불가");
+                    }
+                }
+                else
+                {
+                    print("!:영토 아님");
+                }
             }
         }
 
@@ -162,7 +157,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             return false;
 
     }
-    public void SelectTile()
+
+    public bool SelectTile()
     {
         print("selectTile");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -195,11 +191,13 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                     //버튼끄기
                 }
             }
+            return true;
         }
+        else
+            return false;
     }
 
-
-    //Create buttons
+    //create
     public void CreateTerritory()
     {
 
@@ -280,51 +278,10 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     }
 
 
-    //public void OnClickCampusBtn()
-    //{
-    //    if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
-    //    {
-    //        selectTile = true;
-    //        selectDistrict = District.CAMPUS;
-    //    }
-    //    else return;
-    //}
-    //public void OnClickCommercialHubBtn()
-    //{
-    //    if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
-    //    {
-    //        selectTile = true;
-    //        selectDistrict = District.COMMERCAILHUB;
-    //    }
-    //    else return;
-    //}
-    //public void OnclickIndustrialZoneBtn()
-    //{
-    //    if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
-    //    {
-    //        selectTile = true;
-    //        selectDistrict = District.INDUSTRIALZONE;
-    //    }
-    //    else return;
-    //}
-
     // TODO
     // parameter : 타일 x, y 좌표, 선택한 건물
     // 선택한 타일에 건물 모델 생성, 타일의 산출량 변경
-    public bool CheckDistrict(District district)
-    {
-        //if (fd.district == District.NONE && td.myCenter.GetComponent<Territory>().distric_limit)
-        selectTile = true;
-        selectDistrict = district;
 
-        if (tileTemp != null)
-        {
-            return true;
-        }
-        else
-            return false;
-
-    }
 
     public void SetDistrictInfo(District id)
     {
@@ -345,12 +302,10 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         pos.GetComponent<TerrainData>().myCenter.GetComponent<Territory>().AddDistrict(id);
         empty.transform.parent = pos;
         empty.transform.position = pos.position;
-        empty.transform.localPosition = new Vector3(0, 0.109f, 0);
+        empty.transform.localPosition = new Vector3(0, 0.179f, 0);
         empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
  
     }
-
-  
 
     //tileInfo popup
     public void TileInfoPopUp()
