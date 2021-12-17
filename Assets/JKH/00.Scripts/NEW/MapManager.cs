@@ -21,6 +21,9 @@ public class MapManager : Singleton<MapManager>
     List<JKH_Node> testAbleGoList = new List<JKH_Node>();
     #endregion
 
+
+    public bool ableToMove = false;
+
     void Start()
     {
         terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
@@ -29,7 +32,9 @@ public class MapManager : Singleton<MapManager>
 
     void Update()
     {
+        //set
         getUnitInfo();
+        SelectedUnitMove();
     }
 
     private void InitNodeMap()
@@ -206,7 +211,7 @@ public class MapManager : Singleton<MapManager>
 
     //need to call    
     // 선택한 유닛의 movePower만큼 Physics.OverlapSphere 각각 FindPath
-
+    public float movePower = 0;
     public void CheckAbleToGo()
     {
         LayerMask layerMask = LayerMask.GetMask("GrassLand") | LayerMask.GetMask("Plains") | LayerMask.GetMask("Desert");
@@ -227,7 +232,7 @@ public class MapManager : Singleton<MapManager>
 
             List<JKH_Node> path = FindPath(startPos.x, startPos.y, endPos.x, endPos.y);
 
-            float movePower = 0;
+            movePower = 0;
             string pathStr = string.Format("({0}, {1})", path[0].gridX, path[0].gridY);
             for (int j = 1; j < path.Count; ++j)
             {
@@ -242,10 +247,70 @@ public class MapManager : Singleton<MapManager>
             if (selectedUnit.movePower >= movePower)
             {
                 //그려주기해야함
-                testAbleGoList.Add(path[path.Count - 1]);
+                testAbleGoList.Add(path[path.Count - 1]);  //-1을 하는 이유?
             }
 
+
+
+            //[ToDo] 여기다가 UnitMove를 넣어야하는가?
+            //이동할수있는타일을 gizmos를 통하여 알려준다. 
+            //표시된 타일을 클릭할수있게한다. bool? 이런걸로?
+            //만약 그 부분을 누른다면?
+            //+(확인버튼만들던가)
+            //(유닛의 이동력- 이동하기까지 이동력)을 한 후에 이동한다   
+
         }
+
+        // TODO
+        ableToMove = true;
+    }
+
+    //Move Selected Unit 
+    //move버튼 클릭
+    //-> OnClick 함수
+    //bool 변수 / true 
+
+    //마우스가위치한 타일의 경로를 표시
+
+    //Input.GetMouseButtonDown
+    //타일로 이동
+    public void SelectedUnitMove()
+    {
+        if (ableToMove)
+        {
+
+            print("Get Selected Function");
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitInfo;
+
+            if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
+                if (Physics.Raycast(ray, out hitInfo, 1000))
+                {
+                    if (hitInfo.transform.gameObject.tag == "Map")
+                    {
+                        print(movePower);
+                        //마우스포인터가 위치한 좌표 말해주기? 
+                        {
+                            //선택된 유닛의 이동력이, [해당 타일까지 가는데 요구되는 이동력]*****보다 크거나 같다면?
+                            if (selectedUnit.movePower >= movePower)
+                            {
+
+                                selectedUnit.transform.position = hitInfo.transform.position;
+                                selectedUnit.movePower -= (int)movePower;
+                                ableToMove = false;
+                                print("moveFinished");
+                            }
+
+                            else
+                            {
+                                print("moveFailed");
+                                ableToMove = false;
+                            }
+                        }
+                    }
+                }
+        }
+
     }
 
 
@@ -312,4 +377,7 @@ public class MapManager : Singleton<MapManager>
         for (int i = 0; i < testAbleGoList.Count; ++i)
             Gizmos.DrawCube(testAbleGoList[i].worldPosition, Vector3.one * .5f);
     }
+
+
+
 }

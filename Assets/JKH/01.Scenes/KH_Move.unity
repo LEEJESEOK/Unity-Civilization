@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
-  movePower: 2
+  movePower: 3
   Hp: 0
 --- !u!136 &30897481
 CapsuleCollider:
@@ -828,6 +828,8 @@ MonoBehaviour:
   selectedUnit: {fileID: 0}
   mapWidth: 10
   mapHeight: 10
+  ableToMove: 0
+  movePower: 0
   myTilePos: {fileID: 0}
 --- !u!1 &321137416
 GameObject:
@@ -1636,7 +1638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1779911435
 RectTransform:
   m_ObjectHideFlags: 0
