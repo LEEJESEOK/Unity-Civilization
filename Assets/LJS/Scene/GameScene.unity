@@ -10820,6 +10820,10 @@ PrefabInstance:
       propertyPath: tileInfoText
       value: 
       objectReference: {fileID: 1826975997}
+    - target: {fileID: 4392363256436301656, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4401812878870047072, guid: 77e0c7625ec98724297c340e8aeafc79, type: 3}
       propertyPath: tileInfoText
       value: 
@@ -15644,6 +15648,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1285563418228951228, guid: 1c941795f679ef14787da7b8e9df2503, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 770e7bb25a6c7c14c96de3050a9cca12, type: 2}
     - target: {fileID: 1363941794371648775, guid: 1c941795f679ef14787da7b8e9df2503, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -15694,7 +15702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1363941794371648777, guid: 1c941795f679ef14787da7b8e9df2503, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c941795f679ef14787da7b8e9df2503, type: 3}

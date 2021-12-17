@@ -113,6 +113,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                 }
                 else
                 {
+                    tileTemp = null;
                     print("!:영토 아님");
                 }
             }
