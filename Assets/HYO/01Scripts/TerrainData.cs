@@ -184,7 +184,7 @@ public class TerrainData : MonoBehaviour
         switch (feature)
         {
             case Feature.ICE:
-                output.movePower = 0;
+                output.movePower += 0;
                 break;
             case Feature.WOOD:
                 output.productivity += 1;

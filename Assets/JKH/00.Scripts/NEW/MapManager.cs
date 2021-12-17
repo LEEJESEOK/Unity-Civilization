@@ -96,12 +96,14 @@ public class MapManager : Singleton<MapManager>
     }
 
     // FindPath
-    public List<JKH_Node> FindPath(ref JKH_Node start, ref JKH_Node end)
+    public List<JKH_Node> FindPath(int startX, int startY, int endX, int endY)
     {
         InitNodeMap();
 
         List<JKH_Node> openSet = new List<JKH_Node>();
         HashSet<JKH_Node> closeSet = new HashSet<JKH_Node>();
+        JKH_Node start = nodeMap[startX + startY * mapWidth];
+        JKH_Node end = nodeMap[endX + endY * mapWidth];
         openSet.Add(start);
 
         //calcualting required MovePower
@@ -127,6 +129,7 @@ public class MapManager : Singleton<MapManager>
             //if (currentNode.gridX == end.gridX && currentNode.gridY == end.gridY)
             if (currentNode == end)
             {
+
                 List<JKH_Node> path = RetracePath(currentNode);
 
                 return path;
@@ -211,23 +214,21 @@ public class MapManager : Singleton<MapManager>
         List<Collider> cols = new List<Collider>(Physics.OverlapSphere(selectedUnit.transform.position, selectedUnit.movePower, layerMask));
 
         Vector2Int startPos = CheckMyPos(); //클릭한유닛의 좌표.
-        JKH_Node start = nodeMap[startPos.x + startPos.y * mapWidth];
         testAbleGoList.Clear();
 
         for (int i = 0; i < cols.Count; i++)
         {
             TerrainData terrainData = cols[i].GetComponent<TerrainData>();
             Vector2Int endPos = new Vector2Int(terrainData.x, terrainData.y);
-            JKH_Node end = nodeMap[endPos.x + endPos.y * mapWidth];
             //if (start.gridX == end.gridX && start.gridY == end.gridY)
             //    print("equal");
-            if (start == end)
+            if (startPos == endPos)
                 continue;
 
-            List<JKH_Node> path = FindPath(ref start, ref end);
+            List<JKH_Node> path = FindPath(startPos.x, startPos.y, endPos.x, endPos.y);
 
             float movePower = 0;
-            string pathStr = string.Format("({0}, {1})", start.gridX, start.gridY);
+            string pathStr = string.Format("({0}, {1})", path[0].gridX, path[0].gridY);
             for (int j = 1; j < path.Count; ++j)
             {
                 movePower += path[j].requiredMovePower;
@@ -241,7 +242,7 @@ public class MapManager : Singleton<MapManager>
             if (selectedUnit.movePower >= movePower)
             {
                 //그려주기해야함
-                testAbleGoList.Add(end);
+                testAbleGoList.Add(path[path.Count - 1]);
             }
 
         }
