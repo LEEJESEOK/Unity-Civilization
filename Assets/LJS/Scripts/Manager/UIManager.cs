@@ -9,6 +9,10 @@ using TMPro;
 
 public class UIManager : Singleton<UIManager>
 {
+    [Header("Test")]
+    public Image sample;
+    public List<Sprite> samples;
+
     [Header("Common")]
     public bool mouseCapture = true;
 
@@ -66,6 +70,10 @@ public class UIManager : Singleton<UIManager>
     // Start is called before the first frame update
     void Start()
     {
+        #region Test
+        samples = new List<Sprite>(Resources.LoadAll<Sprite>("Image/Sample"));
+        #endregion
+
         rect = GetComponent<RectTransform>();
         uIButtonEvent = GetComponent<UIButtonEvent>();
     }
@@ -73,7 +81,18 @@ public class UIManager : Singleton<UIManager>
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            sample.gameObject.SetActive(!sample.gameObject.activeSelf);
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            sample.sprite = samples[(samples.IndexOf(sample.sprite) + 1) % samples.Count];
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            sample.sprite = samples[(samples.IndexOf(sample.sprite) - 1 + samples.Count) % samples.Count];
+        }
     }
 
     public static void ResizeLayoutGroup(GameObject layoutObject)

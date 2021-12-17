@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum Non_CombatUnitType
 {
-    Settler=TypeIdBase.UNIT,
+    Settler = TypeIdBase.UNIT,
     Builder
 }
 public class NonCombatUnit : MonoBehaviour
@@ -26,9 +26,9 @@ public class NonCombatUnit : MonoBehaviour
     {
         switch (non_CombatUnitType)
         {
-            case Non_CombatUnitType.Settler:             
+            case Non_CombatUnitType.Settler:
                 break;
-            case Non_CombatUnitType.Builder:                
+            case Non_CombatUnitType.Builder:
                 break;
             default:
                 break;
@@ -37,12 +37,12 @@ public class NonCombatUnit : MonoBehaviour
 
     private void Update()
     {
-         if(non_CombatUnitType == Non_CombatUnitType.Builder)
+        if (non_CombatUnitType == Non_CombatUnitType.Builder)
         {
-            if(buildCount == 3)
+            if (buildCount == 3)
             {
                 //FOV 제거
-                
+
                 Destroy(gameObject);
             }
         }
@@ -56,7 +56,7 @@ public class NonCombatUnit : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(transform.position, transform.up * -1);
         Debug.DrawRay(transform.position, transform.up * -1, Color.red);
-        if (Physics.Raycast(ray, out hit, 1,~fogLayer))
+        if (Physics.Raycast(ray, out hit, 1, ~fogLayer))
         {
             myTilePos = hit.transform.gameObject;
 
@@ -69,6 +69,7 @@ public class NonCombatUnit : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.instance.DestroyUnit(playerId, gameObject);
+        if (GameManager.instance != null)
+            GameManager.instance.DestroyUnit(playerId, gameObject);
     }
 }

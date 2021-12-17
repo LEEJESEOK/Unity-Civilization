@@ -130,7 +130,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     //select
     public bool SelectUnit()
     {
-        print("selectUnit");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
