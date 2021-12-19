@@ -290,34 +290,44 @@ public class MapManager : Singleton<MapManager>
             print("Get Selected Function");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
-            print(movePower);
+            //print(movePower);
+            
+            //이동가능한좌표 표시하기
+            for(int j = 0; j < testAbleGoList.Count ; j++)
+            {
+                print("ableToMove"+j+"번째: "+"x: " +testAbleGoList[j].gridX+ ", y: "+testAbleGoList[j].gridY);
+            }
             
             if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
                 if (Physics.Raycast(ray, out hitInfo, 1000))
                 {
-                    //for (int i = 0; i < testAbleGoList.Count - 1;i++) 
-                    if (hitInfo.transform.gameObject.tag == "Map")  // && testAbleGoList.Contains(hitInfo) -- testAbleGoList에 포함되어있는가.?
+                    for(int i=0; i < testAbleGoList.Count; i++)
                     {
-                        //마우스포인터가 위치한 좌표 말해주기? 
+                        if (hitInfo.transform.gameObject.tag == "Map" && testAbleGoList[i].worldPosition == hitInfo.transform.position)  // && testAbleGoList.Contains(hitInfo) -- testAbleGoList에 포함되어있는가.?
                         {
-                            
-                            //선택된 유닛의 이동력이, [해당 타일까지 가는데 요구되는 이동력]*****보다 크거나 같다면?
-                            //movePower 미리 설정된것같은데 Selected의 movePower를 가져와야하지 않을까?@@@@
-                            if (selectedUnit.movePower >=  movePower)
+                            //마우스포인터가 위치한 좌표 말해주기? 
                             {
-                                selectedUnit.transform.position = hitInfo.transform.position;
-                                selectedUnit.movePower -= (int)movePower;
-                                ableToMove = false;
-                                print("moveFinished");
-                            }
 
-                            else
-                            {
-                                print("moveFailed");
-                                ableToMove = false;
+                                //선택된 유닛의 이동력이, [해당 타일까지 가는데 요구되는 이동력]*****보다 크거나 같다면?
+                                //movePower 미리 설정된것같은데 Selected의 movePower를 가져와야하지 않을까?@@@@
+                                if (selectedUnit.movePower >= testAbleGoList[i].requiredMovePower)
+                                {
+                                    selectedUnit.transform.position = hitInfo.transform.position;
+                                    print("내이동력: " + selectedUnit.movePower + ", 목적지까지의 이동력: " + testAbleGoList[i].requiredMovePower);
+                                    selectedUnit.movePower -= (int)testAbleGoList[i].requiredMovePower;
+                                    ableToMove = false;
+                                    print("moveFinished");
+                                }
+
+                                else
+                                {
+                                    print("moveFailed");
+                                    ableToMove = false;
+                                }
                             }
                         }
                     }
+                    
                 }
         }
 
