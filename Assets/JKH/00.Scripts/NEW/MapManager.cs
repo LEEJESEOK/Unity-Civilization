@@ -247,7 +247,7 @@ public class MapManager : Singleton<MapManager>
             if (selectedUnit.movePower >= movePower)
             {
                 //그려주기해야함
-                testAbleGoList.Add(path[path.Count - 1]);  //-1을 하는 이유?
+                testAbleGoList.Add(path[path.Count - 1]);  
             }
 
 
@@ -262,18 +262,26 @@ public class MapManager : Singleton<MapManager>
         }
 
         // TODO
-        ableToMove = true;
+        //ableToMove = true;
     }
 
-    //Move Selected Unit 
-    //move버튼 클릭
-    //-> OnClick 함수
-    //bool 변수 / true 
-
-    //마우스가위치한 타일의 경로를 표시
+    //Move Selected Unit 0
+    //move버튼 클릭 0
+    //-> OnClick 함수 0
+    //bool 변수 / true  0
+    //마우스가위치한 타일의 경로를 표시 x
 
     //Input.GetMouseButtonDown
     //타일로 이동
+    public void onClickMove()
+    {
+        //NullCheck
+        if (selectedUnit != null)
+        {
+            ableToMove = true;
+        }
+    }
+
     public void SelectedUnitMove()
     {
         if (ableToMove)
@@ -282,19 +290,21 @@ public class MapManager : Singleton<MapManager>
             print("Get Selected Function");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
-
+            print(movePower);
+            
             if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
                 if (Physics.Raycast(ray, out hitInfo, 1000))
                 {
-                    if (hitInfo.transform.gameObject.tag == "Map")
+                    //for (int i = 0; i < testAbleGoList.Count - 1;i++) 
+                    if (hitInfo.transform.gameObject.tag == "Map")  // && testAbleGoList.Contains(hitInfo) -- testAbleGoList에 포함되어있는가.?
                     {
-                        print(movePower);
                         //마우스포인터가 위치한 좌표 말해주기? 
                         {
+                            
                             //선택된 유닛의 이동력이, [해당 타일까지 가는데 요구되는 이동력]*****보다 크거나 같다면?
-                            if (selectedUnit.movePower >= movePower)
+                            //movePower 미리 설정된것같은데 Selected의 movePower를 가져와야하지 않을까?@@@@
+                            if (selectedUnit.movePower >=  movePower)
                             {
-
                                 selectedUnit.transform.position = hitInfo.transform.position;
                                 selectedUnit.movePower -= (int)movePower;
                                 ableToMove = false;
@@ -373,7 +383,6 @@ public class MapManager : Singleton<MapManager>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-
         for (int i = 0; i < testAbleGoList.Count; ++i)
             Gizmos.DrawCube(testAbleGoList[i].worldPosition, Vector3.one * .5f);
     }
