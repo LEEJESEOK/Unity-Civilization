@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIButtonEvent : ButtonEvent<UIButtonId>
 {
-    public GameObject actionButton;
+    GameObject actionButton;
 
     // Start is called before the first frame update
     void Start()
@@ -13,6 +13,8 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
         listenerList = new List<ButtonListener<UIButtonId>>(GetComponentsInChildren<ButtonListener<UIButtonId>>());
         for (int i = 0; i < listenerList.Count; ++i)
             listenerList[i].AddClickCallback(ClickEvent);
+
+        actionButton = GetComponentInChildren<ActionButtonState>().gameObject;
     }
 
     public override void ClickEvent(UIButtonId eventType)
@@ -59,12 +61,13 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                 HYO_ConstructManager.instance.CreateFacility(Facility.MINE);
                 break;
             case UIButtonId.COMMAND_BUILD_CAMPUS:
-                if(HYO_ConstructManager.instance.CheckDistrict(District.CAMPUS))
                     HYO_ConstructManager.instance.SetDistrictInfo(District.CAMPUS);
                 break;
             case UIButtonId.COMMAND_BUILD_COMMERCIALHUB:
+                HYO_ConstructManager.instance.SetDistrictInfo(District.COMMERCAILHUB);
                 break;
             case UIButtonId.COMMAND_BUILD_INDUSTRIALZONE:
+                HYO_ConstructManager.instance.SetDistrictInfo(District.INDUSTRIALZONE);
                 break;
 
         }

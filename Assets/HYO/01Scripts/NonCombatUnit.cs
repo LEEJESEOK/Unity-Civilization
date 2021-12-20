@@ -62,8 +62,6 @@ public class NonCombatUnit : MonoBehaviour
 
             posX = myTilePos.GetComponent<TerrainData>().x;
             posY = myTilePos.GetComponent<TerrainData>().y;
-
-            print(string.Format("{0} : {1}, {2}", hit.transform.name, posX, posY));
         }
     }
 
