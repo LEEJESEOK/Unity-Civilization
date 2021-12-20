@@ -37,6 +37,10 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                 }
                 break;
 
+            case UIButtonId.CLOSE_CURRENT_PANEL:
+                UIPanelManager.instance.CloseCurrent();
+                break;
+
             case UIButtonId.MENU_TECH:
                 UIPanelManager.instance.OpenPanel("TECHNOLOGY_PANEL");
                 break;
