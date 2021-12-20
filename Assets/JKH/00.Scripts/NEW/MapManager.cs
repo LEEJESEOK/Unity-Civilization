@@ -21,6 +21,8 @@ public class MapManager : Singleton<MapManager>
     List<JKH_Node> testAbleGoList = new List<JKH_Node>();
     #endregion
 
+    JKH_Node temp;
+
 
     public bool ableToMove = false;
 
@@ -39,8 +41,11 @@ public class MapManager : Singleton<MapManager>
 
     private void InitNodeMap()
     {
+        if (nodeMap != null)
+            nodeMap.Clear();
+        else
+            nodeMap = new List<JKH_Node>();
 
-        nodeMap = new List<JKH_Node>();
         for (int i = 0; i < terrainDataMap.Count; ++i)
         {
             TerrainData data = terrainDataMap[i];
@@ -229,10 +234,12 @@ public class MapManager : Singleton<MapManager>
             //    print("equal");
             if (startPos == endPos)
                 continue;
-
+            print(startPos);
+            print(endPos);
             List<JKH_Node> path = FindPath(startPos.x, startPos.y, endPos.x, endPos.y);
 
             movePower = 0;
+            //path값 Null...
             string pathStr = string.Format("({0}, {1})", path[0].gridX, path[0].gridY);
             for (int j = 1; j < path.Count; ++j)
             {
@@ -247,7 +254,7 @@ public class MapManager : Singleton<MapManager>
             if (selectedUnit.movePower >= movePower)
             {
                 //그려주기해야함
-                testAbleGoList.Add(path[path.Count - 1]);  
+                testAbleGoList.Add(path[0]);
             }
 
 
@@ -291,48 +298,113 @@ public class MapManager : Singleton<MapManager>
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
             //print(movePower);
-            
+
             //이동가능한좌표 표시하기
-            for(int j = 0; j < testAbleGoList.Count ; j++)
+            for (int j = 0; j < testAbleGoList.Count; j++)
             {
-                print("ableToMove"+j+"번째: "+"x: " +testAbleGoList[j].gridX+ ", y: "+testAbleGoList[j].gridY);
+                //JKH_Node dest = testAbleGoList[j][testAbleGoList[j].Count-1];
+                JKH_Node dest = testAbleGoList[j];
+                while (dest.parent != null)
+                {
+                    dest = dest.parent;
+                }
+
+                print("ableToMove" + j + "번째: " + "x: " + dest.gridX + ", y: " + dest.gridY);
             }
-            
-            if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
+
+            if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject()&& selectedUnit.movePower>0)
                 if (Physics.Raycast(ray, out hitInfo, 1000))
                 {
-                    for(int i=0; i < testAbleGoList.Count; i++)
+                    if (hitInfo.transform.gameObject.tag =="Map") //tag가 맵으로?
                     {
-                        if (hitInfo.transform.gameObject.tag == "Map" && testAbleGoList[i].worldPosition == hitInfo.transform.position)  // && testAbleGoList.Contains(hitInfo) -- testAbleGoList에 포함되어있는가.?
+                        //만약 이동하려는 좌표를 gameObj를 대신해 누른다면? 
+                        //target= 내가 찍은 맵 좌표
+                        int targetX = hitInfo.transform.gameObject.GetComponent<TerrainData>().x;
+                        int targetY = hitInfo.transform.gameObject.GetComponent<TerrainData>().y;
+                        JKH_Node target = nodeMap[targetX + mapWidth * targetY];
+                        for (int i = 0; i < testAbleGoList.Count; i++)
                         {
-                            //마우스포인터가 위치한 좌표 말해주기? 
+
+                            LayerMask unitLayer = LayerMask.GetMask("Unit");
+                            Collider[] tileOnObj = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
+
+                            if (tileOnObj.Length > 0)
                             {
-
-                                //선택된 유닛의 이동력이, [해당 타일까지 가는데 요구되는 이동력]*****보다 크거나 같다면?
-                                //movePower 미리 설정된것같은데 Selected의 movePower를 가져와야하지 않을까?@@@@
-                                if (selectedUnit.movePower >= testAbleGoList[i].requiredMovePower)
-                                {
-                                    selectedUnit.transform.position = hitInfo.transform.position;
-                                    print("내이동력: " + selectedUnit.movePower + ", 목적지까지의 이동력: " + testAbleGoList[i].requiredMovePower);
-                                    selectedUnit.movePower -= (int)testAbleGoList[i].requiredMovePower;
-                                    ableToMove = false;
-                                    print("moveFinished");
-                                }
-
-                                else
-                                {
-                                    print("moveFailed");
-                                    ableToMove = false;
-                                }
+                                print("can not go");
+                                return;
                             }
+                            JKH_Node dest = testAbleGoList[i];
+                            float movePower = 0;
+                            while (dest.parent != null)
+                            {
+                                movePower += dest.requiredMovePower;
+                                dest = dest.parent;
+                            }
+
+                            
+                            // 이동력 검사 ++ 해당타일에 다른 gameObj가 없다면?
+                            //hitinfo 타일에 gameObj있나 없나 검사하기. 
+                            if ((target == dest) && (movePower <= selectedUnit.movePower))
+                            {
+                                // 플레이어 오브젝트 위치 이동 칸대로 이동하기   @@@@@@@@@@???                         
+                                Vector3 pos = hitInfo.transform.position;
+                                pos.y = -0.7f;
+                                selectedUnit.transform.position = pos;
+
+                                // 좌표 이동, 이동력 감소
+                                selectedUnit.movePower -= (int)movePower;
+                                print("Success");
+                                //bool off
+                                ableToMove = false;
+                            }
+
                         }
+
+                        // 이동할 수 없는 타일을 선택했을 경우
+                        if (ableToMove == true)
+                            print("Failed");
                     }
+
+                    else
+                        print("Click Another One");
                     
                 }
         }
-
     }
 
+    //            for (int i = 0; i < testAbleGoList.Count; i++)
+    //            {
+
+    //                if (hitInfo.transform.gameObject.tag == "Map" && testAbleGoList[i].worldPosition == hitInfo.transform.position)  // && testAbleGoList.Contains(hitInfo) -- testAbleGoList에 포함되어있는가.?
+    //                {
+    //                    //마우스포인터가 위치한 좌표 말해주기? 
+    //                    {
+
+    //                        //선택된 유닛의 이동력이, [해당 타일까지 가는데 요구되는 이동력]*****보다 크거나 같다면?
+    //                        //movePower 미리 설정된것같은데 Selected의 movePower를 가져와야하지 않을까?@@@@
+    //                        //testAbleGoList[i].requiredMovePower <- 수정
+    //                        if (selectedUnit.movePower >= testAbleGoList[i].requiredMovePower)
+    //                        {
+    //                            selectedUnit.transform.position = hitInfo.transform.position;
+    //                            print("내이동력: " + selectedUnit.movePower + ", 목적지까지의 이동력: " + testAbleGoList[i].requiredMovePower);
+    //                            //목표좌표만 깎임. 자취를 더해준다..
+
+    //                            selectedUnit.movePower -= (int)testAbleGoList[i].requiredMovePower;
+    //                            ableToMove = false;
+    //                            print("moveFinished");
+    //                        }
+
+    //                        else
+    //                        {
+    //                            print("moveFailed");
+    //                            ableToMove = false;
+    //                        }
+    //                    }
+    //                }
+    //            }
+
+    //        }
+    //}
 
     public List<JKH_Node> GetNeighboursAdd(JKH_Node node)
     {
@@ -390,12 +462,14 @@ public class MapManager : Singleton<MapManager>
     // -> 해당하는 타일 print로 출력 -> OnDrawGizmo
 
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        for (int i = 0; i < testAbleGoList.Count; ++i)
-            Gizmos.DrawCube(testAbleGoList[i].worldPosition, Vector3.one * .5f);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    for (int i = 0; i < testAbleGoList.Count; ++i)
+    //    {
+    //        Gizmos.DrawCube(testAbleGoList[i].worldPosition, Vector3.one * .5f);
+    //    }
+    //}
 
 
 
