@@ -1608,7 +1608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05b1357b95019045b2e5e3c4f2f4ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonType: 3
+  _buttonType: 4
 --- !u!114 &228608525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6068,6 +6068,7 @@ GameObject:
   - component: {fileID: 973301793}
   - component: {fileID: 973301792}
   - component: {fileID: 973301791}
+  - component: {fileID: 973301794}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -6138,9 +6139,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 427787636}
-        m_TargetAssemblyTypeName: UIPanelManager, Assembly-CSharp
-        m_MethodName: CloseCurrent
+      - m_Target: {fileID: 973301794}
+        m_TargetAssemblyTypeName: ButtonListener`1[[UIButtonId, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6188,6 +6189,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973301789}
   m_CullTransparentMesh: 1
+--- !u!114 &973301794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973301789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05b1357b95019045b2e5e3c4f2f4ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonType: 1
 --- !u!1 &992206191
 GameObject:
   m_ObjectHideFlags: 0
@@ -6730,7 +6744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05b1357b95019045b2e5e3c4f2f4ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonType: 15
+  _buttonType: 16
 --- !u!114 &1094146480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7682,7 +7696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05b1357b95019045b2e5e3c4f2f4ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonType: 7
+  _buttonType: 8
 --- !u!114 &1221336477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8167,7 +8181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05b1357b95019045b2e5e3c4f2f4ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonType: 10
+  _buttonType: 11
 --- !u!114 &1257057288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8604,6 +8618,7 @@ GameObject:
   - component: {fileID: 1285057727}
   - component: {fileID: 1285057726}
   - component: {fileID: 1285057725}
+  - component: {fileID: 1285057728}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -8674,9 +8689,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 427787636}
-        m_TargetAssemblyTypeName: UIPanelManager, Assembly-CSharp
-        m_MethodName: CloseCurrent
+      - m_Target: {fileID: 973301794}
+        m_TargetAssemblyTypeName: ButtonListener`1[[UIButtonId, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8724,6 +8739,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285057723}
   m_CullTransparentMesh: 1
+--- !u!114 &1285057728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285057723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05b1357b95019045b2e5e3c4f2f4ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonType: 1
 --- !u!1 &1307041396
 GameObject:
   m_ObjectHideFlags: 0
@@ -9098,7 +9126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05b1357b95019045b2e5e3c4f2f4ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonType: 1
+  _buttonType: 2
 --- !u!114 &1333164585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9345,6 +9373,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1388564717}
   - component: {fileID: 1388564718}
+  - component: {fileID: 1388564720}
+  - component: {fileID: 1388564719}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -9383,6 +9413,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388564716}
   m_CullTransparentMesh: 1
+--- !u!114 &1388564719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388564716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05b1357b95019045b2e5e3c4f2f4ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonType: 4
+--- !u!114 &1388564720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388564716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 681943401}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1394318924
 GameObject:
   m_ObjectHideFlags: 0
@@ -11096,7 +11183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05b1357b95019045b2e5e3c4f2f4ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonType: 9
+  _buttonType: 10
 --- !u!114 &1586242678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11809,7 +11896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05b1357b95019045b2e5e3c4f2f4ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonType: 11
+  _buttonType: 12
 --- !u!114 &1617748712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12913,7 +13000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05b1357b95019045b2e5e3c4f2f4ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonType: 6
+  _buttonType: 7
 --- !u!114 &1720651188
 MonoBehaviour:
   m_ObjectHideFlags: 0
