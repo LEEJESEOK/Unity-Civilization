@@ -48,11 +48,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     bool isOpenPopup;
     public bool selectTile;
 
-
     TerrainData td;
     FacilityData fd;
 
-    int layerUI;
     //지형 레이어
     int layerGrassLand;  // 6
     int layerPlains;     // 7
@@ -61,6 +59,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     int fogLayer;
     //유닛 레이어
     int layerUnit;
+    int layerMask;
+    //UI 레이어
+    int layerUI;
 
     void Start()
     {
@@ -74,6 +75,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         layerMountain = LayerMask.GetMask("Mountain");
         fogLayer = LayerMask.GetMask("HexFog");
         layerUnit = LayerMask.GetMask("Unit");
+
+        layerMask = (layerGrassLand | layerPlains | layerDesert | layerMountain) & ~fogLayer & ~layerUnit & ~layerUI;
     }
 
     void WorldCallback(TotalOutPutType toType, int totalAmount)
@@ -130,9 +133,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        int layerMask = layerUnit;
-
-        if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
+        if (Physics.Raycast(ray, out hit, float.MaxValue, layerUnit))
         {
             unitInfo = hit.transform.gameObject;
 
@@ -165,9 +166,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         //int layerMask = 1 << LayerMask.NameToLayer("HexFog");
-
-
-        int layerMask = (layerGrassLand | layerPlains | layerDesert | layerMountain) & ~fogLayer & ~layerUnit;
 
         if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
         {
@@ -282,12 +280,10 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     // TODO
     // parameter : 타일 x, y 좌표, 선택한 건물
     // 선택한 타일에 건물 모델 생성, 타일의 산출량 변경
-
-
     public void SetDistrictInfo(District id)
     {
         Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.GetComponent<Territory>();
-        // todo
+
         tt.districtUnderway.remain = TEST_REMAIN_PRODUCT;
         tt.districtUnderway.pos = tileTemp.transform;
         tt.districtUnderway.id = id;
@@ -295,7 +291,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         tileTemp = null;
     }
 
-    //건설 완료하면 불러
     public void CreateDistrict(District id, Transform pos)
     {
         GameObject empty = Instantiate(icons[(int)id]);
@@ -308,7 +303,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
  
     }
 
-    //tileInfo popup
     public void TileInfoPopUp()
     {
         if (Camera.main == null)
@@ -325,7 +319,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
               3. 마우스의 위치에 타일이 있는지 검사하고싶다.
               4. 만약 타일이 있다면 팝업을 띄우고싶다.
           1.2 그렇지않고 팝업을 보여주는 중이라면 팝업을 끄고싶다.
-
         */
 
 
@@ -333,7 +326,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             mousePos = Input.mousePosition;
 
 
-        if (Physics.Raycast(rayPoint, out hitInfo, 1000, ~fogLayer))
+        if (Physics.Raycast(rayPoint, out hitInfo, 1000, layerMask))
         {
             if (mousePos == Input.mousePosition)
             {
@@ -343,25 +336,22 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                     isOpenPopup = true;
 
                     Transform tileTemp = hitInfo.transform;
-                    if (tileTemp.GetComponent<TerrainData>() != null)
+                    if (tileTemp.GetComponent<TerrainData>() != null && !UIManager.IsPointerOverUIObject())
                     {
                         tileTemp.GetComponent<TerrainData>().ShowTileInfo();
                         tileInfo.transform.position = new Vector3(mousePos.x, mousePos.y);
                         tileInfo.SetActive(true);
                     }
                     currentTime = 0;
+
                 }
             }
-            else
+            else if (tileInfo.activeSelf == true)
             {
-                if (tileInfo.activeSelf == true)
-                {
-                    isOpenPopup = false;
+                isOpenPopup = false;
 
-                    tileInfo.SetActive(false);
-                }
+                tileInfo.SetActive(false);
             }
-
 
         }
     }

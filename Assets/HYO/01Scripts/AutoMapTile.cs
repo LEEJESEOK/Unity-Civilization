@@ -37,6 +37,7 @@ public class AutoMapTile : Singleton<AutoMapTile>
                     }
                     tile.AddComponent<TerrainData>();
                     tile.GetComponent<TerrainData>().SetIndex(x, z);
+                    tile.AddComponent<FacilityData>();
 
                     //tiles.Add((x + z * width).ToString(), tile);
                     tiles.Add(tile);
