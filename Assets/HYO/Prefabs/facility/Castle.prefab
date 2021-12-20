@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5994332032442285181}
   - component: {fileID: 5994332032438893661}
   - component: {fileID: 5994332032439860893}
-  m_Layer: 0
+  - component: {fileID: 49071190086661341}
+  m_Layer: 14
   m_Name: Castle
-  m_TagString: Untagged
+  m_TagString: City
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &49071190086661341
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5994332032441786461}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.060579, y: 8.056874, z: 10.6713085}
+  m_Center: {x: 0.05851388, y: 0.0041359663, z: 4.809269}
