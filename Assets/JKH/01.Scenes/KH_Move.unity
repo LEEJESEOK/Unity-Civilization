@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
-  movePower: 2
+  movePower: 3
   Hp: 0
 --- !u!136 &30897481
 CapsuleCollider:
@@ -828,6 +828,8 @@ MonoBehaviour:
   selectedUnit: {fileID: 0}
   mapWidth: 10
   mapHeight: 10
+  ableToMove: 0
+  movePower: 0
   myTilePos: {fileID: 0}
 --- !u!1 &321137416
 GameObject:
@@ -988,7 +990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
-  movePower: 3
+  movePower: 2
   Hp: 0
 --- !u!136 &439378756
 CapsuleCollider:
@@ -1636,7 +1638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1779911435
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1701,9 +1703,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: JKH_UnitMove, Assembly-CSharp
-        m_MethodName: onClickMoveBtn
+      - m_Target: {fileID: 276801347}
+        m_TargetAssemblyTypeName: MapManager, Assembly-CSharp
+        m_MethodName: onClickMove
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
