@@ -47,6 +47,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public bool isFirst;
     bool isOpenPopup;
     public bool selectTile;
+    public Territory cityTemp;
 
     TerrainData td;
     FacilityData fd;
@@ -98,7 +99,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             if (SelectUnit())
             {
                 tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
-                //td = tileTemp.GetComponent<TerrainData>();
                 fd = tileTemp.GetComponent<FacilityData>();
 
             }
@@ -106,6 +106,12 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             {
                 td = tileTemp.GetComponent<TerrainData>();
                 fd = tileTemp.GetComponent<FacilityData>();
+
+                if (tileTemp.GetComponent<Territory>())
+                {
+
+                }
+
                 if (tileTemp.GetComponent<TerrainData>().myCenter)
                 {                    
                     if (fd.district != District.NONE || td.myCenter.GetComponent<Territory>().distric_limit == false)
@@ -159,22 +165,56 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     }
 
-    public bool SelectTile()
+    public bool SelectCity()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        //int layerMask = 1 << LayerMask.NameToLayer("HexFog");
 
         if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
         {
-            tileTemp = hit.transform;
+            if (hit.transform.GetComponent<Territory>())
+            {
+                cityTemp = hit.transform.GetComponent<Territory>();
+
+                for(int i=0; i < cityTemp.data.Count; i++)
+                {
+                    cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
+                }
+               
+            }
+           
+            return true;
+        }
+        else
+            return false;
+    }
+    public bool SelectTile()
+    {
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
+        {
+            if (SelectCity())
+            {                
+                for (int i = 0; i < cityTemp.data.Count; i++)
+                {
+                    if(cityTemp.data[i].gameObject == hit.transform.gameObject)
+                    {
+                        tileTemp = hit.transform;
+                        cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+                   
+                    }
+                }
+
+            }
 
             int layerNum = hit.transform.gameObject.layer;
             layerNum = LayerMask.GetMask(LayerMask.LayerToName(layerNum));
 
             if (layerNum == layerGrassLand || layerNum == layerPlains)
             {
-
                 bool isHillis = hit.transform.gameObject.GetComponent<TerrainData>().isHills;
                 if (isHillis)
                 {
@@ -268,7 +308,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     }
 
-
     // TODO
     // parameter : 타일 x, y 좌표, 선택한 건물
     // 선택한 타일에 건물 모델 생성, 타일의 산출량 변경
@@ -312,7 +351,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
               4. 만약 타일이 있다면 팝업을 띄우고싶다.
           1.2 그렇지않고 팝업을 보여주는 중이라면 팝업을 끄고싶다.
         */
-
 
         if (isOpenPopup == false)
             mousePos = Input.mousePosition;

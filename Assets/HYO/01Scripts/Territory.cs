@@ -78,15 +78,22 @@ public class TotalOutPut
 
 public class Territory : MonoBehaviour
 {
-    public List<TerrainData> data;
     public TotalOutPut totalOutput;
-    public int population =1;
+
+    public List<TerrainData> data;
+
     public GameObject cityCenter;
-    public bool distric_limit = true;
+
+    public int population =1;
+
+
     //보유 특수지구
     public List<District> districtOn = new List<District>();
     public DistrictUnderway districtUnderway = new DistrictUnderway();
     public DistrictInPut districtInput = new DistrictInPut(54, 1);
+    public bool distric_limit = true;
+
+    //특수지구 건설
     int maintenanceCost;
     int carryRemain;
 
@@ -147,6 +154,7 @@ public class Territory : MonoBehaviour
             districtUnderway.remain -= carryRemain;
             carryRemain = 0;
         }
+
         //건설 완료
         else if(districtUnderway.remain <= 0)
         {
