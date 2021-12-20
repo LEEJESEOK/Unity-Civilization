@@ -27,17 +27,13 @@ public class GameManager : Singleton<GameManager>
     public int currentPlayerId { get => _currentPlayerId; }
     public Player currentPlayer { get => players[currentPlayerId]; }
 
+    // 게임 시작시 기본 제공 유닛
     public List<GameObject> initialUnits;
-
-    [Header("Start Resources")]
-    public static int startGold = 10;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        testStartGold = startGold;
-
         InitGame();
 
         StartCoroutine(DelayedStartCoroutine());

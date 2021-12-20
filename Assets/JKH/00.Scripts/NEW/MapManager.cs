@@ -21,19 +21,20 @@ public class MapManager : Singleton<MapManager>
     List<JKH_Node> testAbleGoList = new List<JKH_Node>();
     #endregion
 
+
+    public bool ableToMove = false;
+
     void Start()
     {
         terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
         InitNodeMap(); //前 createGrid
-
-        //grid = GetComponent<JKH_Grid>();        
-
-
     }
 
     void Update()
     {
+        //set
         getUnitInfo();
+        SelectedUnitMove();
     }
 
     private void InitNodeMap()
@@ -79,7 +80,7 @@ public class MapManager : Singleton<MapManager>
         //LayerMask layer = 1 << LayerMask.NameToLayer("Unit");
 
         //마우스 클릭한다
-        if (Input.GetButton("Fire1") && !UIManager.IsPointerOverUIObject())
+        if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
         {
             if (Physics.Raycast(ray, out hitInfo, 1000, layer))
             {
@@ -100,17 +101,18 @@ public class MapManager : Singleton<MapManager>
     }
 
     // FindPath
-    public List<JKH_Node> FindPath(JKH_Node start, JKH_Node end)
+    public List<JKH_Node> FindPath(int startX, int startY, int endX, int endY)
     {
+        InitNodeMap();
+
         List<JKH_Node> openSet = new List<JKH_Node>();
         HashSet<JKH_Node> closeSet = new HashSet<JKH_Node>();
+        JKH_Node start = nodeMap[startX + startY * mapWidth];
+        JKH_Node end = nodeMap[endX + endY * mapWidth];
         openSet.Add(start);
 
         //calcualting required MovePower
-        float requiredMovePower = 0;
         //subtract first Node
-        requiredMovePower -= start.requiredMovePower;
-
         while (openSet.Count > 0)
         {
             JKH_Node currentNode = openSet[0];
@@ -119,7 +121,7 @@ public class MapManager : Singleton<MapManager>
             {
                 //만족한 값으로 이동
                 if ((openSet[i].fCost < currentNode.fCost)
-                    || ((openSet[i].fCost == currentNode.fCost) && (openSet[i].hCost < currentNode.hCost)))
+                    || (openSet[i].fCost == currentNode.fCost) && (openSet[i].hCost < currentNode.hCost))
                 {
                     currentNode = openSet[i];
 
@@ -129,17 +131,12 @@ public class MapManager : Singleton<MapManager>
             closeSet.Add(currentNode);
 
             //if (currentNode == end)
-            if (currentNode.gridX == end.gridX && currentNode.gridY == end.gridY)
+            //if (currentNode.gridX == end.gridX && currentNode.gridY == end.gridY)
+            if (currentNode == end)
             {
-                List<JKH_Node> path = RetracePath(currentNode);
-                //moveResult = requiredMovePower; //최종값
 
-                moveResult = 0;
-                for (int i = 0; i < path.Count; ++i)
-                {
-                    moveResult += path[i].requiredMovePower;
-                }
-                print("최종값: " + moveResult);
+                List<JKH_Node> path = RetracePath(currentNode);
+
                 return path;
             }
 
@@ -147,7 +144,7 @@ public class MapManager : Singleton<MapManager>
             foreach (JKH_Node neighbour in GetNeighboursAdd(currentNode)) //getneighboursAdd
             {
                 //걸을수없는 위치거나, 이웃이 closeSet에 있다면
-                if (!neighbour.walkable || closeSet.Contains(neighbour))
+                if (neighbour.walkable == false || closeSet.Contains(neighbour))
                 {
                     continue;
                 }
@@ -174,6 +171,7 @@ public class MapManager : Singleton<MapManager>
                 }
             }
         }
+        print("error");
         return null;
     }
 
@@ -198,66 +196,140 @@ public class MapManager : Singleton<MapManager>
             prev = prev.parent;
         }
 
-        for (int i = 0; i < result.Count; ++i)
-        {
-            print(result[i]);
-        }
-
         return result;
     }
 
+    void InitNodeParent()
+    {
+        for (int i = 0; i < nodeMap.Count; ++i)
+        {
+            nodeMap[i].parent = null;
+        }
+    }
+
+
+
     //need to call    
     // 선택한 유닛의 movePower만큼 Physics.OverlapSphere 각각 FindPath
-
+    public float movePower = 0;
     public void CheckAbleToGo()
     {
         LayerMask layerMask = LayerMask.GetMask("GrassLand") | LayerMask.GetMask("Plains") | LayerMask.GetMask("Desert");
 
-        Collider[] cols = Physics.OverlapSphere(transform.position, selectedUnit.movePower, layerMask);
-        //float[] x = new float[cols.Length];
+        List<Collider> cols = new List<Collider>(Physics.OverlapSphere(selectedUnit.transform.position, selectedUnit.movePower, layerMask));
 
+        Vector2Int startPos = CheckMyPos(); //클릭한유닛의 좌표.
+        testAbleGoList.Clear();
 
-        KeyValuePair<int, int> myPos = CheckMyPos(); //클릭한유닛의 좌표.
-        JKH_Node start = nodeMap[myPos.Key * mapWidth + myPos.Value];
-
-        //JKH_Node start = new JKH_Node(JKH_Move.instance.grid.grid[mypos.Key, mypos.Value].walkable,
-        //transform.position, mypos.Key, mypos.Value, JKH_Move.instance.grid.grid[mypos.Key, mypos.Value].requiredMovePower);
-
-        for (int i = 0; i < cols.Length; i++)
+        for (int i = 0; i < cols.Count; i++)
         {
-
             TerrainData terrainData = cols[i].GetComponent<TerrainData>();
-            //print(CheckMyPos());
-            int x = terrainData.x;
-            int y = terrainData.y;
+            Vector2Int endPos = new Vector2Int(terrainData.x, terrainData.y);
+            //if (start.gridX == end.gridX && start.gridY == end.gridY)
+            //    print("equal");
+            if (startPos == endPos)
+                continue;
 
-            JKH_Node end = nodeMap[x * mapWidth + y]; 
+            List<JKH_Node> path = FindPath(startPos.x, startPos.y, endPos.x, endPos.y);
 
-            List<JKH_Node> path = FindPath(start, end); 
-            float movePower = 0;   
-            for (int j = 0; j < path.Count; ++j)
+            movePower = 0;
+            string pathStr = string.Format("({0}, {1})", path[0].gridX, path[0].gridY);
+            for (int j = 1; j < path.Count; ++j)
             {
                 movePower += path[j].requiredMovePower;
+                pathStr += string.Format("-> ({0}, {1})", path[j].gridX, path[j].gridY);
             }
+            pathStr += "(이동력 :" + movePower + ")";
+            print(pathStr);
+            // TODO
 
 
-            print(movePower);
-
-            if (selectedUnit.movePower > moveResult)
+            if (selectedUnit.movePower >= movePower)
             {
-                print("x= " + x + "y= " + y);
                 //그려주기해야함
-                testAbleGoList.Add(end);
+                testAbleGoList.Add(path[path.Count - 1]);  
             }
+
+
+
+            //[ToDo] 여기다가 UnitMove를 넣어야하는가?
+            //이동할수있는타일을 gizmos를 통하여 알려준다. 
+            //표시된 타일을 클릭할수있게한다. bool? 이런걸로?
+            //만약 그 부분을 누른다면?
+            //+(확인버튼만들던가)
+            //(유닛의 이동력- 이동하기까지 이동력)을 한 후에 이동한다   
 
         }
+
+        // TODO
+        //ableToMove = true;
     }
-    private void OnDrawGizmos()
+
+    //Move Selected Unit 0
+    //move버튼 클릭 0
+    //-> OnClick 함수 0
+    //bool 변수 / true  0
+    //마우스가위치한 타일의 경로를 표시 x
+
+    //Input.GetMouseButtonDown
+    //타일로 이동
+    public void onClickMove()
     {
-        Gizmos.color = Color.red;
-        //Gizmos.DrawCube();
-        for (int i = 0; i < testAbleGoList.Count; ++i)
-            Gizmos.DrawCube(testAbleGoList[i].worldPosition, Vector3.one * .5f);
+        //NullCheck
+        if (selectedUnit != null)
+        {
+            ableToMove = true;
+        }
+    }
+
+    public void SelectedUnitMove()
+    {
+        if (ableToMove)
+        {
+
+            print("Get Selected Function");
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitInfo;
+            //print(movePower);
+            
+            //이동가능한좌표 표시하기
+            for(int j = 0; j < testAbleGoList.Count ; j++)
+            {
+                print("ableToMove"+j+"번째: "+"x: " +testAbleGoList[j].gridX+ ", y: "+testAbleGoList[j].gridY);
+            }
+            
+            if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
+                if (Physics.Raycast(ray, out hitInfo, 1000))
+                {
+                    for(int i=0; i < testAbleGoList.Count; i++)
+                    {
+                        if (hitInfo.transform.gameObject.tag == "Map" && testAbleGoList[i].worldPosition == hitInfo.transform.position)  // && testAbleGoList.Contains(hitInfo) -- testAbleGoList에 포함되어있는가.?
+                        {
+                            //마우스포인터가 위치한 좌표 말해주기? 
+                            {
+
+                                //선택된 유닛의 이동력이, [해당 타일까지 가는데 요구되는 이동력]*****보다 크거나 같다면?
+                                //movePower 미리 설정된것같은데 Selected의 movePower를 가져와야하지 않을까?@@@@
+                                if (selectedUnit.movePower >= testAbleGoList[i].requiredMovePower)
+                                {
+                                    selectedUnit.transform.position = hitInfo.transform.position;
+                                    print("내이동력: " + selectedUnit.movePower + ", 목적지까지의 이동력: " + testAbleGoList[i].requiredMovePower);
+                                    selectedUnit.movePower -= (int)testAbleGoList[i].requiredMovePower;
+                                    ableToMove = false;
+                                    print("moveFinished");
+                                }
+
+                                else
+                                {
+                                    print("moveFailed");
+                                    ableToMove = false;
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+        }
 
     }
 
@@ -267,7 +339,7 @@ public class MapManager : Singleton<MapManager>
         List<JKH_Node> neighbours = new List<JKH_Node>();
 
         RaycastHit hitInfo;
-        Quaternion originRotation = transform.rotation;
+        Quaternion originRotation = selectedUnit.transform.rotation;
 
         //검사
         for (int i = 0; i < 6; i++)
@@ -275,7 +347,7 @@ public class MapManager : Singleton<MapManager>
             Quaternion rotation = originRotation * Quaternion.Euler(0, i * 60, 0);
             var pos = node.worldPosition;
             pos.y = -0.95f;
-            Ray ray = new Ray(pos, rotation * transform.forward);
+            Ray ray = new Ray(pos, rotation * selectedUnit.transform.forward);
 
             if (Physics.Raycast(ray, out hitInfo, 1000))
             {
@@ -294,29 +366,37 @@ public class MapManager : Singleton<MapManager>
 
     //unit tilePos
     public GameObject myTilePos;
-    public int posX, posY;
-
-    public KeyValuePair<int, int> CheckMyPos()
+    public Vector2Int CheckMyPos()
     {
         //transform.pos대신 선택된유닛의 위치로 바꾼다.
         int fogLayer = LayerMask.GetMask("HexFog");
 
+        Ray ray = new Ray(selectedUnit.transform.position, transform.up * -1);
         RaycastHit hit;
-        Ray ray = new Ray(transform.position, transform.up * -1);
-        Debug.DrawRay(transform.position, transform.up * -1, Color.red);
+        Vector2Int result = new Vector2Int();
         if (Physics.Raycast(ray, out hit, 1, ~fogLayer))
         {
             myTilePos = hit.transform.gameObject;
 
-            posX = myTilePos.GetComponent<TerrainData>().x;
-            posY = myTilePos.GetComponent<TerrainData>().y;
+            result.x = myTilePos.GetComponent<TerrainData>().x;
+            result.y = myTilePos.GetComponent<TerrainData>().y;
         }
 
-        return new KeyValuePair<int, int>(posX, posY);
+        return result;
     }
 
 
     // 결과 이동력이 유닛의 이동력보다 낮으면 이번 턴에 이동할 수 있는 타일
     // -> 해당하는 타일 print로 출력 -> OnDrawGizmo
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        for (int i = 0; i < testAbleGoList.Count; ++i)
+            Gizmos.DrawCube(testAbleGoList[i].worldPosition, Vector3.one * .5f);
+    }
+
+
 
 }

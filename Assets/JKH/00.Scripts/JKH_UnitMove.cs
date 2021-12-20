@@ -23,6 +23,8 @@ public class JKH_UnitMove : MonoBehaviour
     public bool isUnitClick;
     public bool canMove;
 
+    //유닛이 갈수 있는가 없는가 체크한다.
+    //public bool ableMove;
 
 
     void Start()
@@ -252,6 +254,8 @@ public class JKH_UnitMove : MonoBehaviour
             if (movePower > this.movePower)
                 print(string.Format("-> x : {0}, y : {1}", x, y));
         }
+
+             
     }
 
     public KeyValuePair<int, int> CheckMyPos()

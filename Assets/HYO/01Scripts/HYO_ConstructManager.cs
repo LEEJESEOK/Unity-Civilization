@@ -129,7 +129,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     //select
     public bool SelectUnit()
     {
-        print("selectUnit");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -162,17 +161,13 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     public bool SelectTile()
     {
-        print("selectTile");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         //int layerMask = 1 << LayerMask.NameToLayer("HexFog");
 
         if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
         {
-
             tileTemp = hit.transform;
-            print(tileTemp.name);
-            //settleBTN.SetActive(true);
 
             int layerNum = hit.transform.gameObject.layer;
             layerNum = LayerMask.GetMask(LayerMask.LayerToName(layerNum));
@@ -211,8 +206,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                 return;
             }
         }
-        print(tileTemp.gameObject.GetComponent<TerrainData>().x);
-        print(tileTemp.gameObject.GetComponent<TerrainData>().y);
         Territory tt = tileTemp.gameObject.AddComponent<Territory>();
 
         //전체 도시 리스트에 저장
@@ -253,7 +246,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             fd.SetFacility(id);
 
             tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
-            print(tileTemp);
             GameObject empty = Instantiate(icons[(int)id + 3]);
             unitInfo.GetComponent<NonCombatUnit>().buildCount += 1;
             Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.gameObject.GetComponent<Territory>();

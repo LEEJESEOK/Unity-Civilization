@@ -7,6 +7,7 @@ public enum ActionState
     NEXT_TURN,
     NEXT_UNIT,
     CHOOSE_TECH_RESEARCH,
+    CHOOSE_CITY_PRODUCTION,
 }
 
 public class ActionButtonState : MonoBehaviour
