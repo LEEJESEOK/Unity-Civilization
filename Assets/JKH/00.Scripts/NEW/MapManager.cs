@@ -291,6 +291,12 @@ public class MapManager : Singleton<MapManager>
 
     public void SelectedUnitMove()
     {
+        if (ableToMove && selectedUnit.movePower == 0)
+        {
+            print("can not move");
+            ableToMove = false;
+        }
+
         if (ableToMove)
         {
 
@@ -298,6 +304,7 @@ public class MapManager : Singleton<MapManager>
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
             //print(movePower);
+            
 
             //이동가능한좌표 표시하기
             for (int j = 0; j < testAbleGoList.Count; j++)
