@@ -92,6 +92,7 @@ public class MapManager : Singleton<MapManager>
 
                 //unitMove
                 selectedUnit = hitInfo.transform.GetComponent<Unit>();
+                ableToMove = false;
 
                 // 유닛 정보 출력(확인용) 
                 print(selectedUnit.gameObject.name);
@@ -154,7 +155,8 @@ public class MapManager : Singleton<MapManager>
                     continue;
                 }
                 //g(x)+ 현재노드와 이웃간의 거리
-                float newCostToNeighbour = currentNode.gCost + Vector3.Distance(currentNode.worldPosition, neighbour.worldPosition);
+                //float newCostToNeighbour = currentNode.gCost + Vector3.Distance(currentNode.worldPosition, neighbour.worldPosition);
+                float newCostToNeighbour = currentNode.gCost + neighbour.requiredMovePower;
                 //int newCostToNeighbour = 옆타일의 이동력
                 //만약 이웃의 gCost가 더 크거나 이웃이 포함되어있지 않다면
                 if (newCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
@@ -291,20 +293,16 @@ public class MapManager : Singleton<MapManager>
 
     public void SelectedUnitMove()
     {
-        if (ableToMove && selectedUnit.movePower == 0)
-        {
-            print("can not move");
-            ableToMove = false;
-        }
 
-        if (ableToMove)
+
+        if (ableToMove && selectedUnit.movePower > 0) //movePower여기맞나?
         {
 
             print("Get Selected Function");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
             //print(movePower);
-            
+
 
             //이동가능한좌표 표시하기
             for (int j = 0; j < testAbleGoList.Count; j++)
@@ -319,16 +317,17 @@ public class MapManager : Singleton<MapManager>
                 print("ableToMove" + j + "번째: " + "x: " + dest.gridX + ", y: " + dest.gridY);
             }
 
-            if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject()&& selectedUnit.movePower>0)
+            if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject() && selectedUnit.movePower > 0)
                 if (Physics.Raycast(ray, out hitInfo, 1000))
                 {
-                    if (hitInfo.transform.gameObject.tag =="Map") //tag가 맵으로?
+                    if (hitInfo.transform.gameObject.tag == "Map") //tag가 맵으로?
                     {
                         //만약 이동하려는 좌표를 gameObj를 대신해 누른다면? 
                         //target= 내가 찍은 맵 좌표
                         int targetX = hitInfo.transform.gameObject.GetComponent<TerrainData>().x;
                         int targetY = hitInfo.transform.gameObject.GetComponent<TerrainData>().y;
                         JKH_Node target = nodeMap[targetX + mapWidth * targetY];
+
                         for (int i = 0; i < testAbleGoList.Count; i++)
                         {
 
@@ -348,7 +347,7 @@ public class MapManager : Singleton<MapManager>
                                 dest = dest.parent;
                             }
 
-                            
+
                             // 이동력 검사 ++ 해당타일에 다른 gameObj가 없다면?
                             //hitinfo 타일에 gameObj있나 없나 검사하기. 
                             if ((target == dest) && (movePower <= selectedUnit.movePower))
@@ -360,6 +359,11 @@ public class MapManager : Singleton<MapManager>
 
                                 // 좌표 이동, 이동력 감소
                                 selectedUnit.movePower -= (int)movePower;
+                                if(selectedUnit.movePower <= 0)
+                                {
+                                    print("유닛 선택 해제");
+                                    selectedUnit = null;
+                                }
                                 print("Success");
                                 //bool off
                                 ableToMove = false;
@@ -374,7 +378,7 @@ public class MapManager : Singleton<MapManager>
 
                     else
                         print("Click Another One");
-                    
+
                 }
         }
     }

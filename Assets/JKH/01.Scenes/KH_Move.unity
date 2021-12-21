@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
-  movePower: 9
+  movePower: 2
   Hp: 0
 --- !u!136 &30897481
 CapsuleCollider:
