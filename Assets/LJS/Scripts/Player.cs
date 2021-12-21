@@ -27,9 +27,9 @@ public class Player : MonoBehaviour
             info.science = GameManager.instance.testStartScience;
         }
 
-        for (int i = 0; i < TechnologyManager.instance.technologies.Count; ++i)
+        for (int i = 0; i < TechnologyDataManager.instance.technologies.Count; ++i)
         {
-            Technology technology = new Technology(TechnologyManager.instance.technologies[i]);
+            Technology technology = new Technology(TechnologyDataManager.instance.technologies[i]);
             info.technologies.Add(technology);
         }
 

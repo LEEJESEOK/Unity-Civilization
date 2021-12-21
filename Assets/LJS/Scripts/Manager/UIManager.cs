@@ -47,12 +47,12 @@ public class UIManager : Singleton<UIManager>
     public TextMeshProUGUI selectedTechnologyRemainTurn;
     #endregion
 
-    #region City Production
-    [Header("City Production Panel")]
+    #region City Product
+    [Header("City Product Panel")]
     public GameObject productObjectButtonPrefab;
     public GameObject goldObjectButtonPrefab;
-    public GameObject productionPage;
-    public GameObject goldPage;
+    public GameObject productContent;
+    public GameObject goldContent;
     #endregion
 
     RectTransform rect;
@@ -64,14 +64,22 @@ public class UIManager : Singleton<UIManager>
     bool useGold;
 
     Vector2 prevMousePosition;
-    bool isRightPressed;
+    bool isLeftPressed;
 
 
     // Start is called before the first frame update
     void Start()
     {
         #region Test
-        samples = new List<Sprite>(Resources.LoadAll<Sprite>("Image/Sample"));
+        if (GameManager.instance.test)
+        {
+            // load sample images
+            samples = new List<Sprite>(Resources.LoadAll<Sprite>("Image/Sample"));
+        }
+        else
+        {
+            mouseCapture = true;
+        }
         #endregion
 
         rect = GetComponent<RectTransform>();
@@ -81,17 +89,22 @@ public class UIManager : Singleton<UIManager>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (GameManager.instance.test)
         {
-            sample.gameObject.SetActive(!sample.gameObject.activeSelf);
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            sample.sprite = samples[(samples.IndexOf(sample.sprite) + 1) % samples.Count];
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            sample.sprite = samples[(samples.IndexOf(sample.sprite) - 1 + samples.Count) % samples.Count];
+            #region sample image
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                sample.gameObject.SetActive(!sample.gameObject.activeSelf);
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                sample.sprite = samples[(samples.IndexOf(sample.sprite) + 1) % samples.Count];
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                sample.sprite = samples[(samples.IndexOf(sample.sprite) - 1 + samples.Count) % samples.Count];
+            }
+            #endregion
         }
     }
 
@@ -174,46 +187,6 @@ public class UIManager : Singleton<UIManager>
         ResizeLayoutGroup(resourcesWrapper);
     }
 
-    public void SetTechnologyPanel(List<Technology> technologies)
-    {
-        GameObject sector = Instantiate(technologySectorPrefab);
-        Destroy(sector);
-        int currentCost = 0;
-        for (int i = 0; i < technologies.Count; ++i)
-        {
-            Technology technology = technologies[i];
-            if (technology.researchCost > currentCost)
-            {
-                currentCost = technology.researchCost;
-                sector = Instantiate(technologySectorPrefab);
-                sector.name = "Science " + currentCost;
-                sector.transform.SetParent(technologyPanelContent.transform);
-            }
-
-            GameObject technologyButton = GetTechnologyButton(technology);
-            technologyButton.transform.SetParent(sector.transform);
-        }
-    }
-
-    GameObject GetTechnologyButton(Technology technology)
-    {
-        GameObject technologyButton = Instantiate(technologyButtonPrefab);
-        technologyButton.name = technology.name;
-
-        Sprite sprite = Resources.Load<Sprite>("Image/Technology/" + technology.name);
-        TechnologyButtonSetter technologyButtonSetter = technologyButton.GetComponent<TechnologyButtonSetter>();
-        technologyButtonSetter.SetTechnologyButton(technology.korean, sprite, "");
-
-        TechnologyButtonListener technologyButtonListener = technologyButton.GetComponent<TechnologyButtonListener>();
-        technologyButtonListener.SetButtonType(technology.id);
-        technologyButtonListener.AddClickCallback(uIButtonEvent.SelectOngoingTechnology);
-
-        UIButtonListener uIButtonListener = technologyButton.GetComponent<UIButtonListener>();
-        uIButtonEvent.AddUIListener(uIButtonListener);
-
-        return technologyButton;
-    }
-
     public void UpdateResource(int science, int culture, int faith, int faithChange, int gold, int goldChange)
     {
         StringBuilder sb = new StringBuilder();
@@ -265,36 +238,6 @@ public class UIManager : Singleton<UIManager>
         ResizeLayoutGroup(resourcesWrapper);
     }
 
-    public void InitSelectedTechnology()
-    {
-        selectedTechnologyName.text = "연구 선택";
-        // TODO 연구 기본 선택 이미지
-        selectedTechnologyImage.sprite = Resources.Load<Sprite>("Image/WhiteCircle");
-        Color color = selectedTechnologyImage.color;
-        color.a = 0;
-        selectedTechnologyImage.color = color;
-        selectedTechnologyRemainTurn.text = "";
-    }
-
-    public void UpdateSelectedTechnology(Technology technology)
-    {
-        // name(korean)
-        selectedTechnologyName.text = technology.korean;
-        // image
-        selectedTechnologyImage.sprite = Resources.Load<Sprite>("Image/Technology/" + technology.name);
-        Color color = selectedTechnologyImage.color;
-        color.a = 1;
-        selectedTechnologyImage.color = color;
-        // unlockObject
-        // remainCost -> turn
-        int remainTurn = Mathf.CeilToInt((float)technology.remainCost / GameManager.instance.currentPlayer.info.science);
-        if (remainTurn > 0)
-            selectedTechnologyRemainTurn.text = "턴 : " + System.Environment.NewLine
-             + remainTurn;
-        else
-            selectedTechnologyRemainTurn.text = System.Environment.NewLine + "방금 완성";
-    }
-
     // 위치한 모서리에 따라 Vector3 형태로 반환
     // left : (-1, 0, 0)
     // right : (1, 0, 0)
@@ -334,10 +277,10 @@ public class UIManager : Singleton<UIManager>
         {
             if (Input.GetMouseButtonDown(0))
             {
-                isRightPressed = true;
+                isLeftPressed = true;
                 prevMousePosition = mousePosition;
             }
-            if ((isRightPressed == true) && (mousePosition != prevMousePosition))
+            if ((isLeftPressed == true) && (mousePosition != prevMousePosition))
             {
                 Vector2 value = mousePosition - prevMousePosition;
                 prevMousePosition = mousePosition;
@@ -346,7 +289,7 @@ public class UIManager : Singleton<UIManager>
             }
             if (Input.GetMouseButtonUp(0))
             {
-                isRightPressed = false;
+                isLeftPressed = false;
             }
 
             cam.transform.position += cameraDir * Time.deltaTime;
@@ -369,5 +312,81 @@ public class UIManager : Singleton<UIManager>
             cam.fieldOfView += GameManager.instance.cameraZoomSpeed;
 
         cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, 30f, 90f);
+    }
+
+    public void SetTechnologyPanel(List<Technology> technologies)
+    {
+        GameObject sector = Instantiate(technologySectorPrefab);
+        Destroy(sector);
+        int currentCost = 0;
+        for (int i = 0; i < technologies.Count; ++i)
+        {
+            Technology technology = technologies[i];
+            if (technology.researchCost > currentCost)
+            {
+                currentCost = technology.researchCost;
+                sector = Instantiate(technologySectorPrefab);
+                sector.name = "Science " + currentCost;
+                sector.transform.SetParent(technologyPanelContent.transform);
+            }
+
+            GameObject technologyButton = GetTechnologyButton(technology);
+            technologyButton.transform.SetParent(sector.transform);
+        }
+    }
+
+    GameObject GetTechnologyButton(Technology technology)
+    {
+        GameObject technologyButton = Instantiate(technologyButtonPrefab);
+        technologyButton.name = technology.name;
+
+        Sprite sprite = Resources.Load<Sprite>("Image/Technology/" + technology.name);
+        TechnologyButtonSetter technologyButtonSetter = technologyButton.GetComponent<TechnologyButtonSetter>();
+        technologyButtonSetter.SetTechnologyButton(technology.korean, sprite, technology.koreanDesc, null);
+
+        TechnologyButtonListener technologyButtonListener = technologyButton.GetComponent<TechnologyButtonListener>();
+        technologyButtonListener.SetButtonType(technology.id);
+        technologyButtonListener.AddClickCallback(uIButtonEvent.SelectOngoingTechnology);
+
+        UIButtonListener uIButtonListener = technologyButton.GetComponent<UIButtonListener>();
+        uIButtonEvent.AddUIListener(uIButtonListener);
+
+        return technologyButton;
+    }
+
+    public void InitSelectedTechnology()
+    {
+        selectedTechnologyName.text = "연구 선택";
+        // TODO 연구 기본 선택 이미지
+        selectedTechnologyImage.sprite = Resources.Load<Sprite>("Image/WhiteCircle");
+        Color color = selectedTechnologyImage.color;
+        color.a = 0;
+        selectedTechnologyImage.color = color;
+        selectedTechnologyRemainTurn.text = "";
+    }
+
+    public void UpdateSelectedTechnology(Technology technology)
+    {
+        // name(korean)
+        selectedTechnologyName.text = technology.korean;
+        // image
+        selectedTechnologyImage.sprite = Resources.Load<Sprite>("Image/Technology/" + technology.name);
+        Color color = selectedTechnologyImage.color;
+        color.a = 1;
+        selectedTechnologyImage.color = color;
+        // unlockObject
+        // remainCost -> turn
+        int remainTurn = Mathf.CeilToInt((float)technology.remainCost / GameManager.instance.currentPlayer.info.science);
+        if (remainTurn > 0)
+            selectedTechnologyRemainTurn.text = "턴 : " + System.Environment.NewLine
+             + remainTurn;
+        else
+            selectedTechnologyRemainTurn.text = System.Environment.NewLine + "방금 완성";
+    }
+
+    // 생산 가능한 건물, 유닛으로 내용 변경
+    public void UpdateCityProductPanel()
+    {
+
     }
 }

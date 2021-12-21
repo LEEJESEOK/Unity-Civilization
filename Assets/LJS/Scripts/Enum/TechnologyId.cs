@@ -5,6 +5,8 @@ using UnityEngine;
 // 4xxxx
 public enum TechnologyId
 {
+    NONE,
+    
     POTTERY = TypeIdBase.TECHNOLOGY + EraId.ANCIENT,
     ANIMAL_HUSBANDRY,
     MINING,

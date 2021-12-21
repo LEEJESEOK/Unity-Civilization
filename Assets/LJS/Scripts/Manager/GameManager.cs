@@ -31,6 +31,14 @@ public class GameManager : Singleton<GameManager>
     public List<GameObject> initialUnits;
 
 
+    private void Awake()
+    {
+        #region test
+        if (Application.platform != RuntimePlatform.WindowsEditor)
+            test = false;
+        #endregion
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -23,8 +23,6 @@ public class UIPanelManager : Singleton<UIPanelManager>
     {
         if (initiallyOpen == null)
             return;
-
-        OpenPanel(initiallyOpen);
     }
 
     private void Start()
@@ -36,6 +34,8 @@ public class UIPanelManager : Singleton<UIPanelManager>
         {
             panels[i].gameObject.SetActive(false);
         }
+
+        OpenPanel(initiallyOpen);
     }
 
     static GameObject FindFirstEnabledSelectable(GameObject gameObject)

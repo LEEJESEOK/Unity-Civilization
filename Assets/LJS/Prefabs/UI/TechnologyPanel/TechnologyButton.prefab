@@ -280,6 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameTMP: {fileID: 8773651001596830447}
   image: {fileID: 7826461885547494469}
+  descTMP: {fileID: 5873053410225241006}
 --- !u!1 &5572730249942433256
 GameObject:
   m_ObjectHideFlags: 0

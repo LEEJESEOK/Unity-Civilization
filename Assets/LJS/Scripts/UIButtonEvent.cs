@@ -10,7 +10,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
     // Start is called before the first frame update
     void Start()
     {
-        listenerList = new List<ButtonListener<UIButtonId>>(GetComponentsInChildren<ButtonListener<UIButtonId>>());
+        listenerList = new List<ButtonListener<UIButtonId>>(GetComponentsInChildren<ButtonListener<UIButtonId>>(true));
         for (int i = 0; i < listenerList.Count; ++i)
             listenerList[i].AddClickCallback(ClickEvent);
 
@@ -31,8 +31,10 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                         break;
                     case ActionState.CHOOSE_TECH_RESEARCH:
                         // Open TechPanel
+                        UIPanelManager.instance.OpenPanel("TECHNOLOGY_PANEL");
                         break;
                     case ActionState.NEXT_UNIT:
+                        // Open UnitPanel
                         break;
                 }
                 break;

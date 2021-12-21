@@ -1,0 +1,125 @@
+{
+    "data": [
+        {
+            "id": 30000,
+            "type": 30000,
+            "name": "Campus",
+            "korean": "캠퍼스",
+            "productCost": 54,
+            "goldCost": 0,
+            "maintenanceCost": 1,
+            "remainCost": 54,
+            "requireTechId": 40004
+        },
+        {
+            "id": 30001,
+            "type": 30000,
+            "name": "Commercial Hub",
+            "korean": "상업 중심지",
+            "productCost": 54,
+            "goldCost": 0,
+            "maintenanceCost": 0,
+            "remainCost": 54,
+            "requireTechId": 41000
+        },
+        {
+            "id": 30002,
+            "type": 30000,
+            "name": "Industrial Zone",
+            "korean": "산업구역",
+            "productCost": 54,
+            "goldCost": 0,
+            "maintenanceCost": 1,
+            "remainCost": 54,
+            "requireTechId": 42001
+        },
+        {
+            "id": 10000,
+            "type": 10000,
+            "name": "Settler",
+            "korean": "개척자",
+            "productCost": 80,
+            "goldCost": 320,
+            "maintenanceCost": 0,
+            "remainCost": 80,
+            "requireTechId": 0
+        },
+        {
+            "id": 10001,
+            "type": 10000,
+            "name": "Builder",
+            "korean": "건설자",
+            "productCost": 50,
+            "goldCost": 200,
+            "maintenanceCost": 0,
+            "remainCost": 50,
+            "requireTechId": 0
+        },
+        {
+            "id": 10002,
+            "type": 10000,
+            "name": "Scout",
+            "korean": "정찰병",
+            "productCost": 30,
+            "goldCost": 120,
+            "maintenanceCost": 0,
+            "remainCost": 30,
+            "requireTechId": 0
+        },
+        {
+            "id": 10003,
+            "type": 10000,
+            "name": "Warrior",
+            "korean": "전사",
+            "productCost": 40,
+            "goldCost": 160,
+            "maintenanceCost": 0,
+            "remainCost": 40,
+            "requireTechId": 0
+        },
+        {
+            "id": 10004,
+            "type": 10000,
+            "name": "Slinger",
+            "korean": "투석병사",
+            "productCost": 35,
+            "goldCost": 140,
+            "maintenanceCost": 0,
+            "remainCost": 35,
+            "requireTechId": 0
+        },
+        {
+            "id": 10005,
+            "type": 10000,
+            "name": "Archer",
+            "korean": "궁수",
+            "productCost": 60,
+            "goldCost": 240,
+            "maintenanceCost": 1,
+            "remainCost": 60,
+            "requireTechId": 40005
+        },
+        {
+            "id": 10006,
+            "type": 10000,
+            "name": "Spearman",
+            "korean": "창병",
+            "productCost": 65,
+            "goldCost": 260,
+            "maintenanceCost": 1,
+            "remainCost": 65,
+            "requireTechId": 40007
+        },
+        {
+            "id": 10007,
+            "type": 10000,
+            "name": "Heavy Chariot",
+            "korean": "중전차",
+            "productCost": 65,
+            "goldCost": 260,
+            "maintenanceCost": 1,
+            "remainCost": 65,
+            "requireTechId": 40008
+        }
+    ]
+}
