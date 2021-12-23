@@ -9,7 +9,7 @@ public class Unit : MonoBehaviour
     public bool isSelected;
 
     //Unit's stat
-    public int movePower = 2;
+    public float movePower = 2;
     public int hp = 100;
 
 
