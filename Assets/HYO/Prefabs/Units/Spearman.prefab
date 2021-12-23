@@ -3032,6 +3032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7824755127954059493}
   - component: {fileID: 7824755127961007919}
+  - component: {fileID: -6018541797398902821}
   m_Layer: 0
   m_Name: Spearman
   m_TagString: Untagged
@@ -3134,6 +3135,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6018541797398902821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7824755127953727937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85494d9dfd50a3a4196fd20bab048f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerId: 0
+  isSelected: 0
+  movePower: 2
+  hp: 100
+  meleeAttack: 0
+  rangeAttack: 0
+  range: 0
 --- !u!1 &7824755127953727969
 GameObject:
   m_ObjectHideFlags: 0

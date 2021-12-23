@@ -97,7 +97,7 @@ public class MapManager : Singleton<MapManager>
                 // 유닛 정보 출력(확인용) 
                 print(selectedUnit.gameObject.name);
                 print("이동력: " + selectedUnit.movePower);
-                print("체력: " + selectedUnit.Hp);
+                print("체력: " + selectedUnit.hp);
 
                 //유닛이있는 타일의 정보를 가져온다.
 

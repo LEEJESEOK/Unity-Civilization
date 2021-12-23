@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    
+    public int playerId;   
 
     public bool isSelected;
 
     //Unit's stat
-    public int movePower;
-    public int Hp;
+    public int movePower = 2;
+    public int hp = 100;
 
 
     
     void Start()
     {
-        Hp = 100;
     }
 
     void Update()
