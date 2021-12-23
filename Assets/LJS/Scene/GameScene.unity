@@ -6972,6 +6972,7 @@ MonoBehaviour:
   unitLimit: 0
   isFirst: 0
   selectTile: 0
+  cityTemp: {fileID: 0}
 --- !u!4 &1142719484
 Transform:
   m_ObjectHideFlags: 0
@@ -16651,7 +16652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1363941794371648777, guid: 1c941795f679ef14787da7b8e9df2503, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c941795f679ef14787da7b8e9df2503, type: 3}
