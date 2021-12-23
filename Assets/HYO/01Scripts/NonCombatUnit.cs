@@ -7,7 +7,8 @@ public enum Non_CombatUnitType
     Settler = TypeIdBase.UNIT,
     Builder
 }
-public class NonCombatUnit : MonoBehaviour
+
+public class NonCombatUnit : Unit
 {
     public Non_CombatUnitType non_CombatUnitType;
     //public Facility facility;
@@ -19,7 +20,6 @@ public class NonCombatUnit : MonoBehaviour
     public int posX, posY;
 
     public int playerId;
-
 
 
     public void NonCambatUnitCase()
@@ -34,6 +34,12 @@ public class NonCombatUnit : MonoBehaviour
                 break;
         }
     }
+
+    private void Start()
+    {
+        
+    }
+
 
     private void Update()
     {
