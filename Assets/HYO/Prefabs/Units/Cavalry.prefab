@@ -7007,7 +7007,7 @@ GameObject:
   - component: {fileID: 7875038894457256660}
   - component: {fileID: 7875038894450247116}
   m_Layer: 0
-  m_Name: TT_Cavalry
+  m_Name: Cavalry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

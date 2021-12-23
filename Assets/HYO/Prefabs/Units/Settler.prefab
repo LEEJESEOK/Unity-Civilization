@@ -6527,7 +6527,7 @@ GameObject:
   - component: {fileID: 5295071921012585522}
   - component: {fileID: 1502978021}
   m_Layer: 22
-  m_Name: TT_Settler
+  m_Name: Settler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
