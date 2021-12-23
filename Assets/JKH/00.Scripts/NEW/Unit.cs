@@ -16,11 +16,12 @@ public class Unit : MonoBehaviour
     
     void Start()
     {
-        
+        Hp = 100;
     }
 
     void Update()
     {
         
     }
+
 }
