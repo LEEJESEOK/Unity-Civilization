@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class UIButtonEvent : ButtonEvent<UIButtonId>
 {
-    public GameObject actionButton;
-
-    UIPanelManager uIPanelManager;
+    GameObject actionButton;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +14,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
         for (int i = 0; i < listenerList.Count; ++i)
             listenerList[i].AddClickCallback(ClickEvent);
 
-        uIPanelManager = GetComponent<UIPanelManager>();
+        actionButton = GetComponentInChildren<ActionButtonState>().gameObject;
     }
 
     public override void ClickEvent(UIButtonId eventType)
@@ -54,6 +52,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                 break;
 
             case UIButtonId.COMMAND_BUILD_CITY:
+                HYO_ConstructManager.instance.CreateTerritory();
                 break;
             case UIButtonId.COMMAND_BUILD_FARM:
                 HYO_ConstructManager.instance.CreateFacility(Facility.FARM);
@@ -61,6 +60,16 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
             case UIButtonId.COMMAND_BUILD_MINE:
                 HYO_ConstructManager.instance.CreateFacility(Facility.MINE);
                 break;
+            case UIButtonId.COMMAND_BUILD_CAMPUS:
+                    HYO_ConstructManager.instance.SetDistrictInfo(District.CAMPUS);
+                break;
+            case UIButtonId.COMMAND_BUILD_COMMERCIALHUB:
+                HYO_ConstructManager.instance.SetDistrictInfo(District.COMMERCAILHUB);
+                break;
+            case UIButtonId.COMMAND_BUILD_INDUSTRIALZONE:
+                HYO_ConstructManager.instance.SetDistrictInfo(District.INDUSTRIALZONE);
+                break;
+
         }
     }
 
@@ -73,10 +82,25 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
     public void SelectOngoingTechnology(TechnologyId technologyId)
     {
         Technology selectedTech = GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == technologyId);
+        // 이미 완료한 연구인지 검사
         if (selectedTech.isResearched)
+        {
+            print(string.Format("이미 완료한 연구입니다.({0})", selectedTech.korean));
             return;
+        }
+        // 선행 연구를 완료했는지 검사
+        for (int i = 0; i < selectedTech.requireTechId.Count; ++i)
+        {
+            Technology tech = GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == selectedTech.requireTechId[i]);
+            if (tech.isResearched == false)
+            {
+                print(string.Format("{0}을/를 연구하지 않았습니다.", tech.korean));
+                return;
+            }
+        }
 
         GameManager.instance.currentPlayer.info.ongoingTechnology = selectedTech;
         UIManager.instance.UpdateSelectedTechnology(selectedTech);
+        print(string.Format("{0} 선택", selectedTech.korean));
     }
 }

@@ -24,15 +24,19 @@ public enum UIButtonId
     #region UNIT COMMAND
     COMMAND_REST,
     COMMAND_MOVE,
-    COMMAND_ATTACK,
-    COMMAND_DESTROY,
-
     // settler
     COMMAND_BUILD_CITY,
+    COMMAND_DESTROY,
 
     // builder
     COMMAND_BUILD_FARM,
     COMMAND_BUILD_MINE,
+
+    //district
+    COMMAND_BUILD_CAMPUS,
+    COMMAND_BUILD_COMMERCIALHUB,
+    COMMAND_BUILD_INDUSTRIALZONE
+
     #endregion
 
 }

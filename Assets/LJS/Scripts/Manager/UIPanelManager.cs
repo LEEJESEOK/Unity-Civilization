@@ -17,7 +17,6 @@ public class UIPanelManager : Singleton<UIPanelManager>
     UIPanel _currentPanel;
     public UIPanel currentPanel { get => _currentPanel; }
     GameObject m_PreviouslySelected;
-    Stack<UIPanel> openedPanel;
 
 
     private void OnEnable()
@@ -78,15 +77,6 @@ public class UIPanelManager : Singleton<UIPanelManager>
     public void OpenPanel(string panelName)
     {
         OpenPanel(panels.Find(panel => panel.panelName == panelName));
-    }
-
-    public void ClosePanel(UIPanel panel)
-    {
-        if(_currentPanel == null) return;
-
-        panel.gameObject.SetActive(false);
-        _currentPanel = m_PreviouslySelected.GetComponent<UIPanel>();
-        SetSelected(m_PreviouslySelected);
     }
 
     public void CloseCurrent()

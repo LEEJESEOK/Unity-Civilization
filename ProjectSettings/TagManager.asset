@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Map
   - FirstCity
+  - City
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Ocean
   - Hills
   - HexFog
-  - 
+  - City
   - 
   - 
   - 

@@ -1300,6 +1300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1363941794371648775}
   - component: {fileID: 1363941794371648774}
+  - component: {fileID: 1655497744}
   m_Layer: 13
   m_Name: fog
   m_TagString: Untagged
@@ -1439,8 +1440,24 @@ MonoBehaviour:
   tileSize: {x: 1, y: 1}
   gap: {x: -0.15, y: -0.05}
   tileFactory: {fileID: 7559356577450251420, guid: 3008b5bf88439874ba0b6e2f3f489868, type: 3}
+  tiles: []
   tileMaterial:
   - {fileID: 2100000, guid: 95691847fc5146b49adf60cdc5df94f9, type: 2}
+--- !u!114 &1655497744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363941794371648777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed08da5d5aafe4c4caad6ca1cdee3295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  findTargetList: []
+  fieldOfViews: []
+  allHideables: []
 --- !u!1 &1542637191415031993
 GameObject:
   m_ObjectHideFlags: 0
