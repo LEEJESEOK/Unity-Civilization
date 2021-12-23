@@ -19,8 +19,6 @@ public class NonCombatUnit : Unit
     public GameObject myTilePos;
     public int posX, posY;
 
-    public int playerId;
-
 
     public void NonCambatUnitCase()
     {
@@ -34,12 +32,6 @@ public class NonCombatUnit : Unit
                 break;
         }
     }
-
-    private void Start()
-    {
-        
-    }
-
 
     private void Update()
     {
