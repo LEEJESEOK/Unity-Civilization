@@ -116,7 +116,6 @@ public class Player : MonoBehaviour
             
         }
 
-
         // 선택한 연구 진행(과학량)
         // 완료된 연구 반영
         // 남은 생산량은 이월

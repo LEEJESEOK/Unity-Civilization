@@ -21,12 +21,12 @@ public enum InGameObjectId
     ARCHER, 
     
     // Anti-Cavalry
-    SPEARMAN,
+    SPEARMAN, 
     
     // Light Cavalry
 
     // Heavy Cavalry
-    HEAVY_CHARIOT,
+    HEAVY_CHARIOT, 
     #endregion
 
     // 2xxxx

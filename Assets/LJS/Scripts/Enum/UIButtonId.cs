@@ -24,6 +24,8 @@ public enum UIButtonId
     #region UNIT COMMAND
     COMMAND_REST,
     COMMAND_MOVE,
+    COMMAND_FORTIFICATION, 
+
     // settler
     COMMAND_BUILD_CITY,
     COMMAND_DESTROY,
@@ -35,5 +37,6 @@ public enum UIButtonId
     // district
     BUILD_DISTRICT,
     PRODUCT_UNIT,
+    BUY_UNIT,
     #endregion
 }
