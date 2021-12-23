@@ -44,6 +44,7 @@ public class UIManager : Singleton<UIManager>
     [Header("Selected Technology")]
     public TextMeshProUGUI selectedTechnologyName;
     public Image selectedTechnologyImage;
+    public Image selectedTechnologyMeter;
     public TextMeshProUGUI selectedTechnologyRemainTurn;
     #endregion
 
@@ -362,6 +363,7 @@ public class UIManager : Singleton<UIManager>
         Color color = selectedTechnologyImage.color;
         color.a = 0;
         selectedTechnologyImage.color = color;
+        selectedTechnologyMeter.fillAmount = 0f;
         selectedTechnologyRemainTurn.text = "";
     }
 
@@ -374,8 +376,10 @@ public class UIManager : Singleton<UIManager>
         Color color = selectedTechnologyImage.color;
         color.a = 1;
         selectedTechnologyImage.color = color;
+        selectedTechnologyMeter.fillAmount = ((float)(technology.researchCost - technology.remainCost)) / technology.researchCost;
+
         // unlockObject
-        // remainCost -> turn
+
         int remainTurn = Mathf.CeilToInt((float)technology.remainCost / GameManager.instance.currentPlayer.info.science);
         if (remainTurn > 0)
             selectedTechnologyRemainTurn.text = "턴 : " + System.Environment.NewLine

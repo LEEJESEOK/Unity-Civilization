@@ -76,12 +76,9 @@ public class GameManager : Singleton<GameManager>
     // 현재 플레이어의 차례를 마치고 다음 플레이어 차례 시작
     public void TurnEnd()
     {
-        if (currentPlayer.info.ongoingTechnology == null)
-        {
-            print("연구를 선택해주세요");
-            return;
-        }
-        if (currentPlayer.info.ongoingTechnology.remainCost <= 0)
+        // 연구를 선택하지 않은 경우
+        // 기존 연구가 완료된 경우
+        if ((currentPlayer.info.ongoingTechnology == null) || (currentPlayer.info.ongoingTechnology.remainCost <= 0))
         {
             print("새로운 연구를 선택해주세요");
             return;
