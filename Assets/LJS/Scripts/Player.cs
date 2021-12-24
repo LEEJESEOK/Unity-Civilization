@@ -113,9 +113,8 @@ public class Player : MonoBehaviour
         // 남은 생산량은 이월됨
         for (int i = 0; i < info.cities.Count; ++i)
         {
-            Territory tt = info.cities[i].GetComponent<Territory>();
-            tt.DistrictProcess();
-            
+            // Territory tt = info.cities[i].GetComponent<Territory>();
+            // tt.DistrictProcess();
         }
 
         // 선택한 연구 진행(과학량)

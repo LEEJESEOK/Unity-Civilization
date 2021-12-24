@@ -239,6 +239,7 @@ public class UIManager : Singleton<UIManager>
         ResizeLayoutGroup(resourcesWrapper);
     }
 
+    #region Camera
     // 위치한 모서리에 따라 Vector3 형태로 반환
     // left : (-1, 0, 0)
     // right : (1, 0, 0)
@@ -314,7 +315,9 @@ public class UIManager : Singleton<UIManager>
 
         cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, 30f, 90f);
     }
+    #endregion
 
+    #region TechnologyPanel
     public void SetTechnologyPanel(List<Technology> technologies)
     {
         GameObject sector = Instantiate(technologySectorPrefab);
@@ -343,7 +346,7 @@ public class UIManager : Singleton<UIManager>
 
         Sprite sprite = Resources.Load<Sprite>("Image/Technology/" + technology.name);
         TechnologyButtonSetter technologyButtonSetter = technologyButton.GetComponent<TechnologyButtonSetter>();
-        technologyButtonSetter.SetTechnologyButton(technology.korean, sprite, technology.koreanDesc, null);
+        technologyButtonSetter.SetTechnologyButton(technology.korean, sprite, technology.koreanDesc, technology.unlockObjectId);
 
         TechnologyButtonListener technologyButtonListener = technologyButton.GetComponent<TechnologyButtonListener>();
         technologyButtonListener.SetButtonType(technology.id);
@@ -354,7 +357,9 @@ public class UIManager : Singleton<UIManager>
 
         return technologyButton;
     }
+    #endregion
 
+    #region SelectedTechnology
     public void InitSelectedTechnology()
     {
         selectedTechnologyName.text = "연구 선택";
@@ -387,10 +392,58 @@ public class UIManager : Singleton<UIManager>
         else
             selectedTechnologyRemainTurn.text = System.Environment.NewLine + "방금 완성";
     }
+    #endregion
 
-    // 생산 가능한 건물, 유닛으로 내용 변경
-    public void UpdateCityProductPanel()
+    #region CityProductPanel
+    // ProductObjectData의 item들을 버튼으로 생성
+    public void InitCityProductPanelData(List<ProductObject> productObjects)
     {
+        for (int i = 0; i < productObjects.Count; ++i)
+        {
+            GameObject productObjectButton = GetCityProductButton(productObjects[i]);
 
+            // TODO 생성한 버튼 생산 탭에 추가
+        }
     }
+
+    GameObject GetCityProductButton(ProductObject productObject)
+    {
+        GameObject productObjectButton = Instantiate(productObjectButtonPrefab);
+        productObjectButton.name = productObject.name;
+
+        string path = "";
+        switch (productObject.type)
+        {
+            case TypeIdBase.UNIT:
+                path = "Image/UI/";
+                break;
+            case TypeIdBase.DISTRICT:
+                break;
+        }
+        // TODO fail to load sprite
+        Sprite sprite = Resources.Load<Sprite>(path + productObject.name);
+        ProductObjectButtonSetter productObjectButtonSetter = productObjectButton.GetComponent<ProductObjectButtonSetter>();
+        productObjectButtonSetter.SetProductObjectButton(productObject.korean, sprite, productObject.productCost);
+
+        ProductObjectButtonListener productObjectButtonListener = productObjectButton.GetComponent<ProductObjectButtonListener>();
+        productObjectButtonListener.SetButtonType(productObject.id);
+
+        UIButtonListener uIButtonListener = productObjectButton.GetComponent<UIButtonListener>();
+        uIButtonEvent.AddUIListener(uIButtonListener);
+
+        return productObjectButton;
+    }
+
+    // 도시 선택했을 때 호출
+    // 생산 가능한 건물, 유닛 최신화
+    public void UpdateCityProductPanelData(Territory territory)
+    {
+        // 연구 진행으로 추가된 건물 표시
+        // 선택한 도시가 건설 가능한 건물만 활성화
+        // 건설 불가능한 건물은 비활성화(이미 건설한 건물)
+
+        // 생산 가능한 유닛 표시(연구)
+        // 생산 불가능한 유닛들은 표시하지 않음
+    }
+    #endregion
 }

@@ -6,12 +6,12 @@ using TMPro;
 
 public class ProductObjectButtonSetter : MonoBehaviour
 {
-    public Image objectImage;
     public TextMeshProUGUI nameTMP;
+    public Image objectImage;
     public TextMeshProUGUI costTMP;
 
 
-    public void SetProductObjectButton(Sprite sprite, string name, int productCost)
+    public void SetProductObjectButton(string name, Sprite sprite, int productCost)
     {
         objectImage.sprite = sprite;
         nameTMP.text = name;
