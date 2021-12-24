@@ -160,7 +160,7 @@ TextureImporter:
     second: UnitActions256_51
   - first:
       213: -3055345845661756091
-    second: UnitActions256_52
+    second: UnitActions256_Fortification
   - first:
       213: 1739498038488153499
     second: UnitActions256_53
@@ -514,7 +514,7 @@ TextureImporter:
       name: UnitActions256_Plantation
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 1539
         y: 2816
         width: 256
         height: 256
@@ -1477,7 +1477,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UnitActions256_52
+      name: UnitActions256_Fortification
       rect:
         serializedVersion: 2
         x: 1280

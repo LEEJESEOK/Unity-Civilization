@@ -27,9 +27,9 @@ public class Player : MonoBehaviour
             info.science = GameManager.instance.testStartScience;
         }
 
-        for (int i = 0; i < TechnologyManager.instance.technologies.Count; ++i)
+        for (int i = 0; i < TechnologyDataManager.instance.technologies.Count; ++i)
         {
-            Technology technology = new Technology(TechnologyManager.instance.technologies[i]);
+            Technology technology = new Technology(TechnologyDataManager.instance.technologies[i]);
             info.technologies.Add(technology);
         }
 
@@ -115,7 +115,6 @@ public class Player : MonoBehaviour
             tt.DistrictProcess();
             
         }
-
 
         // 선택한 연구 진행(과학량)
         // 완료된 연구 반영

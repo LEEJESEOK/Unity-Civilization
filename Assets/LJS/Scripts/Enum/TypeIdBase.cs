@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+// x0000
 [Serializable]
 public enum TypeIdBase
 {
-    Era = 0,
+    ERA = 0,
     UNIT = 10000,
     FACILITY = 20000,
     DISTRICT = 30000,
