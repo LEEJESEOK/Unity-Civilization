@@ -8,11 +8,6 @@ public class CombatUnit : Unit
     public int rangeAttack;
     public int range;
 
-    protected override void Start()
-    {
-        base.Start();
-    }
-
     // Update is called once per frame
     void Update()
     {

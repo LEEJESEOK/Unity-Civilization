@@ -113,4 +113,9 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
         UIManager.instance.UpdateSelectedTechnology(selectedTech);
         print(string.Format("{0} 선택", selectedTech.korean));
     }
+
+    public void SelectCityProduct(InGameObjectId objectId)
+    {
+        
+    }
 }

@@ -11,8 +11,14 @@ public class Unit : MonoBehaviour
     //Unit's stat
     public float movePower = 2;
     public int hp = 100;
+    
 
-    virtual protected void Start()
+    void Update()
+    {
+
+    }
+    
+    public void SetObjectColor()
     {
         List<MeshRenderer> mesh = new List<MeshRenderer>(GetComponentsInChildren<MeshRenderer>(true));
         List<SkinnedMeshRenderer> skinnedMesh = new List<SkinnedMeshRenderer>(GetComponentsInChildren<SkinnedMeshRenderer>(true));
@@ -28,12 +34,5 @@ public class Unit : MonoBehaviour
             Material mat = ColorManager.instance.unitMat[playerId];
             skinnedMesh[i].material = mat;
         }
-
     }
-
-    void Update()
-    {
-
-    }
-
 }
