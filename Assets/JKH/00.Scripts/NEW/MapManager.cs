@@ -1,4 +1,5 @@
 using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -308,13 +309,16 @@ public class MapManager : Singleton<MapManager>
             for (int j = 0; j < testAbleGoList.Count; j++)
             {
                 //JKH_Node dest = testAbleGoList[j][testAbleGoList[j].Count-1];
+                float cost = 0;
                 JKH_Node dest = testAbleGoList[j];
                 while (dest.parent != null)
                 {
                     dest = dest.parent;
+                    cost += dest.requiredMovePower;
                 }
 
-                print("ableToMove" + j + "번째: " + "x: " + dest.gridX + ", y: " + dest.gridY);
+                print("ableToMove" + j + "번째: " + "x: " + dest.gridX + ", y: " + dest.gridY + ", cost : " + cost);
+
             }
 
             if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject() && selectedUnit.movePower > 0)
@@ -343,13 +347,14 @@ public class MapManager : Singleton<MapManager>
                             float movePower = 0;
                             while (dest.parent != null)
                             {
-                                movePower += dest.requiredMovePower;
                                 dest = dest.parent;
+                                movePower += dest.requiredMovePower;
                             }
 
 
                             // 이동력 검사 ++ 해당타일에 다른 gameObj가 없다면?
                             //hitinfo 타일에 gameObj있나 없나 검사하기. 
+                            print(movePower);
                             if ((target == dest) && (movePower <= selectedUnit.movePower))
                             {
                                 // 플레이어 오브젝트 위치 이동 칸대로 이동하기   @@@@@@@@@@???                         
@@ -358,8 +363,8 @@ public class MapManager : Singleton<MapManager>
                                 selectedUnit.transform.position = pos;
 
                                 // 좌표 이동, 이동력 감소
-                                selectedUnit.movePower -= (int)movePower;
-                                if(selectedUnit.movePower <= 0)
+                                selectedUnit.movePower -= movePower;
+                                if (selectedUnit.movePower <= 0)
                                 {
                                     print("유닛 선택 해제");
                                     selectedUnit = null;
@@ -481,6 +486,24 @@ public class MapManager : Singleton<MapManager>
     //        Gizmos.DrawCube(testAbleGoList[i].worldPosition, Vector3.one * .5f);
     //    }
     //}
+
+
+    //데미지 계산하기 (ToDo 상성[병종, 사거리 등])@@@@@
+    //임의 변수
+    public int unitDmg = 26;
+    public int enemyDmg = 25;
+    float damageDealt;
+    float damageRecieved;
+    
+    public void UnitCombat()
+    {
+        
+        //Todo
+        //상성계산, 
+        float rand = Random.Range(8.0f, 1.2f);
+        damageDealt = 30 * Mathf.Exp(0.04f * unitDmg - enemyDmg) * rand;
+        damageDealt = Mathf.Round(damageDealt);
+    }
 
 
 
