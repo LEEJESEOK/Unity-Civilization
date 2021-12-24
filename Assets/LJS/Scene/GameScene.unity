@@ -7090,7 +7090,7 @@ MonoBehaviour:
     m_Right: 10
     m_Top: 3
     m_Bottom: 3
-  m_ChildAlignment: 3
+  m_ChildAlignment: 4
   m_Spacing: 3
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
@@ -7942,7 +7942,7 @@ MonoBehaviour:
     m_Right: 10
     m_Top: 3
     m_Bottom: 3
-  m_ChildAlignment: 3
+  m_ChildAlignment: 4
   m_Spacing: 3
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
@@ -10007,7 +10007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f3cf020dc546c4e9987f1b406fb4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelName: CITY_PRODUCTION_PANEL
+  panelName: CITY_PRODUCT_PANEL
 --- !u!1001 &1181455007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11290,7 +11290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aff8911e5dc6c94491f319cf4e42edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 1
+  test: 0
   testStartScience: 10
   testStartGold: 10
   testGoldChange: 3
@@ -12098,7 +12098,7 @@ MonoBehaviour:
     m_Right: 10
     m_Top: 3
     m_Bottom: 3
-  m_ChildAlignment: 3
+  m_ChildAlignment: 4
   m_Spacing: 3
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0

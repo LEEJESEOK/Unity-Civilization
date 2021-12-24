@@ -107,6 +107,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             }
             else if (SelectCity())
             {
+                #region city product panel test
+                UIPanelManager.instance.OpenPanel("CITY_PRODUCT_PANEL");
+                #endregion
                 //selectTile:
                 //if (tileTemp != null && SelectTile())
                 //{
