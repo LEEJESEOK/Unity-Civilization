@@ -106,34 +106,38 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
             }
             else if (SelectCity())
-            {               
-
-                //if (SelectTile())
+            {
+                //selectTile:
+                //if (tileTemp != null && SelectTile())
                 //{
-                //    td = tileTemp.GetComponent<TerrainData>();
-                //    fd = tileTemp.GetComponent<FacilityData>();
-
                 //    for (int i = 0; i < cityTemp.data.Count; i++)
                 //    {
-                //        cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
-                //    }
+                //        if (cityTemp.data[i].gameObject == tileTemp.gameObject)
+                //        {
+                //            fd = tileTemp.GetComponent<FacilityData>();
+                //            td = tileTemp.GetComponent<TerrainData>();
 
-                //    cityTemp = null;
+                //            for (int j = 0; j < cityTemp.data.Count; j++)
+                //            {
+                //                cityTemp.data[j].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+                //            }
 
-                //    if (tileTemp.GetComponent<TerrainData>().myCenter)
-                //    {
-                //        if (fd.district != District.NONE || td.myCenter.GetComponent<Territory>().distric_limit == false)
+                //            if (fd.district != District.NONE || td.myCenter.GetComponent<Territory>().distric_limit == false)
+                //            {
+                //                tileTemp = null;
+                //                print("!:특수지구 건설 불가");
+                //            }
+                //        }
+                //        else
                 //        {
                 //            tileTemp = null;
-                //            print("!:특수지구 건설 불가");
+                //            print("!:영토 아님");
                 //        }
                 //    }
-                //    else
-                //    {
-                //        tileTemp = null;
-                //        print("!:영토 아님");
-                //    }
-                //}               
+                //}
+                //else
+                //    goto selectTile;
+
             }
         }
 
@@ -186,45 +190,12 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
             cityTemp = hit.transform.GetComponentInParent<Territory>();
 
-            for(int i=0; i < cityTemp.data.Count; i++)
+            for (int i = 0; i < cityTemp.data.Count; i++)
             {
                 cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
             }
 
-            while (tileTemp.GetComponent<TerrainData>() == null)
-            {
-                if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
-                {
-                    SelectTile();
-                }
-            }
-
-            td = tileTemp.GetComponent<TerrainData>();
-            fd = tileTemp.GetComponent<FacilityData>();
-
-            for (int i = 0; i < cityTemp.data.Count; i++)
-            {
-                cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
-            }
-
-            cityTemp = null;
-
-            if (tileTemp.GetComponent<TerrainData>().myCenter)
-            {
-                if (fd.district != District.NONE || td.myCenter.GetComponent<Territory>().distric_limit == false)
-                {
-                    tileTemp = null;
-                    print("!:특수지구 건설 불가");
-                }
-            }
-            else
-            {
-                tileTemp = null;
-                print("!:영토 아님");
-            }
-
-
-                return true;
+            return true;
         }
         else
             return false;
