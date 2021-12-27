@@ -161,6 +161,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                 cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
             }
 
+            UIPanelManager.instance.OpenPanel("CITY_PRODUCT_PANEL");
+
             SelectTile(cityTemp);
         }
 
