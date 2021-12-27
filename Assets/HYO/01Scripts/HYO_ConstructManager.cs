@@ -158,7 +158,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
             for (int i = 0; i < cityTemp.data.Count; i++)
             {
-                cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
+                // 영역 내 외곽선 그리기
+                cityTemp.data[i].gameObject.GetComponent<Outline>().OutlineWidth = 5;
+                // cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
             }
 
             UIPanelManager.instance.OpenPanel("CITY_PRODUCT_PANEL");
@@ -168,8 +170,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     }
     public void SelectTile(Territory cityTemp)
-
-
     {
         if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
         {
@@ -189,22 +189,19 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                             fd = tileTemp.GetComponent<FacilityData>();
                             td = tileTemp.GetComponent<TerrainData>();
 
-                            for (int j = 0; j < cityTemp.data.Count; j++)
-                            {
-                                cityTemp.data[j].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
-                            }
-
                             if (fd.district != District.NONE || td.myCenter.GetComponent<Territory>().distric_limit == false)
                             {
                                 tileTemp = null;
                                 print("!:특수지구 건설 불가");
                             }
                         }
-                        //else
-                        //{
-                        //    tileTemp = null;
-                        //    print("!:영토 아님");
-                        //}
+                    }
+
+                    for (int i = 0; i < cityTemp.data.Count; i++)
+                    {
+                        // 그린 외곽선 해제
+                        cityTemp.data[i].gameObject.GetComponent<Outline>().OutlineWidth = 0;
+                        // cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
                     }
 
                     this.cityTemp = null;

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1733140668953697375}
   - component: {fileID: 2452465402627229479}
   - component: {fileID: 8536070355104347669}
+  - component: {fileID: 6445014977368908025}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -72,6 +73,7 @@ MonoBehaviour:
   length: 50
   x: 4
   y: 1
+  tileMats: []
 --- !u!114 &5604899301564149072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +165,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6445014977368908025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221448489129883263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &464642824616623471
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +198,7 @@ GameObject:
   - component: {fileID: 5839387165412847531}
   - component: {fileID: 4654203423759294743}
   - component: {fileID: 4200459082209777088}
+  - component: {fileID: 4805383726450709210}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -235,6 +256,7 @@ MonoBehaviour:
   length: 50
   x: 6
   y: 4
+  tileMats: []
 --- !u!114 &4740248375434494716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +348,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &4805383726450709210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464642824616623471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &542086453236922540
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +381,7 @@ GameObject:
   - component: {fileID: 8985506983803727057}
   - component: {fileID: 1098552491967728562}
   - component: {fileID: 996901232465672368}
+  - component: {fileID: 8703498974491815218}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -398,6 +439,7 @@ MonoBehaviour:
   length: 50
   x: 6
   y: 5
+  tileMats: []
 --- !u!114 &2549109684979708425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,6 +531,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8703498974491815218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542086453236922540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &602452236580881795
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +564,7 @@ GameObject:
   - component: {fileID: 457860609038828174}
   - component: {fileID: 2212246609192389500}
   - component: {fileID: 5961637968478584165}
+  - component: {fileID: 3102957875989330593}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -561,6 +622,7 @@ MonoBehaviour:
   length: 50
   x: 2
   y: 3
+  tileMats: []
 --- !u!114 &373493242665672175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,6 +714,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &3102957875989330593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602452236580881795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &611642084523128254
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,6 +747,7 @@ GameObject:
   - component: {fileID: 1216033401957949146}
   - component: {fileID: 3154429860232900641}
   - component: {fileID: 3357306372369035664}
+  - component: {fileID: 8287029731465356813}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -724,6 +805,7 @@ MonoBehaviour:
   length: 50
   x: 0
   y: 9
+  tileMats: []
 --- !u!114 &6173958641598643125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -815,6 +897,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8287029731465356813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611642084523128254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &740613067338533882
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,6 +930,7 @@ GameObject:
   - component: {fileID: 690549467963123442}
   - component: {fileID: 8101017401816829223}
   - component: {fileID: 8306514583501125050}
+  - component: {fileID: 4602305047267927271}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -887,6 +988,7 @@ MonoBehaviour:
   length: 50
   x: 8
   y: 2
+  tileMats: []
 --- !u!114 &5454530292253305062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,6 +1080,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &4602305047267927271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740613067338533882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &892647935995134417
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +1113,7 @@ GameObject:
   - component: {fileID: 2202244812525594064}
   - component: {fileID: 128414637270493389}
   - component: {fileID: 8003996590467138770}
+  - component: {fileID: 5266677036540462099}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -1050,6 +1171,7 @@ MonoBehaviour:
   length: 50
   x: 5
   y: 4
+  tileMats: []
 --- !u!114 &1421133869888868987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,6 +1263,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &5266677036540462099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892647935995134417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1120900172139210285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,6 +1296,7 @@ GameObject:
   - component: {fileID: 6397902307853021367}
   - component: {fileID: 1551513226750988909}
   - component: {fileID: 8939943534080436690}
+  - component: {fileID: 4764707425677206511}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -1213,6 +1354,7 @@ MonoBehaviour:
   length: 50
   x: 1
   y: 3
+  tileMats: []
 --- !u!114 &1320805401138617380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1304,6 +1446,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &4764707425677206511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120900172139210285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1158737145743306064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,6 +1479,7 @@ GameObject:
   - component: {fileID: 7912664521370021295}
   - component: {fileID: 428092062435597419}
   - component: {fileID: 2762739387325048944}
+  - component: {fileID: 3636627346792536293}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -1376,6 +1537,7 @@ MonoBehaviour:
   length: 50
   x: 2
   y: 4
+  tileMats: []
 --- !u!114 &3230149284071593123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1467,6 +1629,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &3636627346792536293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158737145743306064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1185317311622625834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,6 +1662,7 @@ GameObject:
   - component: {fileID: 2700927439007664536}
   - component: {fileID: 537599802326496931}
   - component: {fileID: 426356158921399834}
+  - component: {fileID: 5648798973537270435}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -1539,6 +1720,7 @@ MonoBehaviour:
   length: 50
   x: 7
   y: 5
+  tileMats: []
 --- !u!114 &5075479671776053894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1630,6 +1812,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &5648798973537270435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185317311622625834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1236964747710821658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,6 +1845,7 @@ GameObject:
   - component: {fileID: 7540908271123503570}
   - component: {fileID: 7857803318312550802}
   - component: {fileID: 7062664854877247175}
+  - component: {fileID: 8830914570137369596}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -1702,6 +1903,7 @@ MonoBehaviour:
   length: 50
   x: 0
   y: 8
+  tileMats: []
 --- !u!114 &8090920966670462801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1793,6 +1995,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8830914570137369596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236964747710821658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1521611961759501198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,6 +2028,7 @@ GameObject:
   - component: {fileID: 1518242667957104543}
   - component: {fileID: 6864256580586176290}
   - component: {fileID: 8322643460786751875}
+  - component: {fileID: 5581211643412308541}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -1865,6 +2086,7 @@ MonoBehaviour:
   length: 50
   x: 1
   y: 2
+  tileMats: []
 --- !u!114 &918749450001494467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1956,6 +2178,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &5581211643412308541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521611961759501198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1573695792668735159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,6 +2211,7 @@ GameObject:
   - component: {fileID: 4167568558494120447}
   - component: {fileID: 5015158503479671640}
   - component: {fileID: 1724911410839441879}
+  - component: {fileID: 33712697760099424}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -2028,6 +2269,7 @@ MonoBehaviour:
   length: 50
   x: 7
   y: 2
+  tileMats: []
 --- !u!114 &6262260352206681253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2119,6 +2361,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &33712697760099424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573695792668735159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1592872795732760181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,6 +2394,7 @@ GameObject:
   - component: {fileID: 7409782671637433296}
   - component: {fileID: 6237555334966595540}
   - component: {fileID: 9192960905630612853}
+  - component: {fileID: 6152738559398871680}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -2191,6 +2452,7 @@ MonoBehaviour:
   length: 50
   x: 6
   y: 0
+  tileMats: []
 --- !u!114 &5158392128751096396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2282,6 +2544,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6152738559398871680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592872795732760181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1719715733529756064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2297,6 +2577,7 @@ GameObject:
   - component: {fileID: 7830850145296971829}
   - component: {fileID: 4128678530613658664}
   - component: {fileID: 3040260037931503119}
+  - component: {fileID: 8769974351815371096}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -2354,6 +2635,7 @@ MonoBehaviour:
   length: 50
   x: 8
   y: 3
+  tileMats: []
 --- !u!114 &7442291955002086761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2445,6 +2727,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8769974351815371096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719715733529756064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1940868719109670790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,6 +2760,7 @@ GameObject:
   - component: {fileID: 3895710575410347145}
   - component: {fileID: 6453123040296522200}
   - component: {fileID: 6158803357061591523}
+  - component: {fileID: 9102555749356317022}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -2517,6 +2818,7 @@ MonoBehaviour:
   length: 50
   x: 2
   y: 6
+  tileMats: []
 --- !u!114 &1459315853688681066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2608,6 +2910,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &9102555749356317022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940868719109670790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1955581764989685256
 GameObject:
   m_ObjectHideFlags: 0
@@ -2623,6 +2943,7 @@ GameObject:
   - component: {fileID: 3497594241143731575}
   - component: {fileID: 4990783449234817288}
   - component: {fileID: 1073890286236973907}
+  - component: {fileID: 4575385007668061832}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -2680,6 +3001,7 @@ MonoBehaviour:
   length: 50
   x: 2
   y: 1
+  tileMats: []
 --- !u!114 &1758376461561812186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2771,6 +3093,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &4575385007668061832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955581764989685256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2145105753170066720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2786,6 +3126,7 @@ GameObject:
   - component: {fileID: 5754502760528025063}
   - component: {fileID: 1452835695829871239}
   - component: {fileID: 5033005428674609067}
+  - component: {fileID: 7614884629426343212}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -2843,6 +3184,7 @@ MonoBehaviour:
   length: 50
   x: 3
   y: 1
+  tileMats: []
 --- !u!114 &4341345065518459405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2934,6 +3276,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &7614884629426343212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145105753170066720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2159503928886523697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2949,6 +3309,7 @@ GameObject:
   - component: {fileID: 5613759215317041902}
   - component: {fileID: 7047249435860723740}
   - component: {fileID: 2842548543036428844}
+  - component: {fileID: 481942354839079217}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -3006,6 +3367,7 @@ MonoBehaviour:
   length: 50
   x: 1
   y: 4
+  tileMats: []
 --- !u!114 &2515968519633364860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3097,6 +3459,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &481942354839079217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2159503928886523697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2177979603888471409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,6 +3492,7 @@ GameObject:
   - component: {fileID: 8128838302696848742}
   - component: {fileID: 5354447442334998843}
   - component: {fileID: 6818263877531012494}
+  - component: {fileID: 7037866057107510627}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -3169,6 +3550,7 @@ MonoBehaviour:
   length: 50
   x: 3
   y: 8
+  tileMats: []
 --- !u!114 &4515733597339852489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3260,6 +3642,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &7037866057107510627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177979603888471409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2232869668279508848
 GameObject:
   m_ObjectHideFlags: 0
@@ -3275,6 +3675,7 @@ GameObject:
   - component: {fileID: 3166477125626900238}
   - component: {fileID: 2692575111276900755}
   - component: {fileID: 3758867694486698623}
+  - component: {fileID: 6031920316107600553}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -3332,6 +3733,7 @@ MonoBehaviour:
   length: 50
   x: 7
   y: 8
+  tileMats: []
 --- !u!114 &1282264395152232512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3423,6 +3825,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6031920316107600553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232869668279508848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2248335344672609433
 GameObject:
   m_ObjectHideFlags: 0
@@ -3438,6 +3858,7 @@ GameObject:
   - component: {fileID: 5549572891522842084}
   - component: {fileID: 188265034884964640}
   - component: {fileID: 4166628381956954251}
+  - component: {fileID: 5322808836017455808}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -3495,6 +3916,7 @@ MonoBehaviour:
   length: 50
   x: 7
   y: 0
+  tileMats: []
 --- !u!114 &8993863887762713934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3586,6 +4008,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &5322808836017455808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2248335344672609433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2368236588535454803
 GameObject:
   m_ObjectHideFlags: 0
@@ -3601,6 +4041,7 @@ GameObject:
   - component: {fileID: 1944105438649221629}
   - component: {fileID: 9147480094284195518}
   - component: {fileID: 2926247092884421697}
+  - component: {fileID: 5868071659175494967}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -3658,6 +4099,7 @@ MonoBehaviour:
   length: 50
   x: 8
   y: 5
+  tileMats: []
 --- !u!114 &8440519320033878605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3749,6 +4191,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &5868071659175494967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2368236588535454803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2497018917943350490
 GameObject:
   m_ObjectHideFlags: 0
@@ -3764,6 +4224,7 @@ GameObject:
   - component: {fileID: 2193391507663110926}
   - component: {fileID: 4284909699052308364}
   - component: {fileID: 6185462157601038302}
+  - component: {fileID: 8498023593862820570}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -3821,6 +4282,7 @@ MonoBehaviour:
   length: 50
   x: 9
   y: 4
+  tileMats: []
 --- !u!114 &9044901484504556302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3912,6 +4374,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8498023593862820570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2497018917943350490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2508187195501053321
 GameObject:
   m_ObjectHideFlags: 0
@@ -3927,6 +4407,7 @@ GameObject:
   - component: {fileID: 4815343716132135559}
   - component: {fileID: 8993834222868797926}
   - component: {fileID: 5627480002150626483}
+  - component: {fileID: 7217037660716073697}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -3984,6 +4465,7 @@ MonoBehaviour:
   length: 50
   x: 2
   y: 8
+  tileMats: []
 --- !u!114 &8560706210574452958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4075,6 +4557,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &7217037660716073697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508187195501053321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2658694695737287438
 GameObject:
   m_ObjectHideFlags: 0
@@ -4090,6 +4590,7 @@ GameObject:
   - component: {fileID: 8141405263974694245}
   - component: {fileID: 4119454426574057404}
   - component: {fileID: 2888804556761642049}
+  - component: {fileID: 2462545665104492690}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -4147,6 +4648,7 @@ MonoBehaviour:
   length: 50
   x: 4
   y: 8
+  tileMats: []
 --- !u!114 &1336444542790285324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4238,6 +4740,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &2462545665104492690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2658694695737287438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2671159453044453941
 GameObject:
   m_ObjectHideFlags: 0
@@ -4253,6 +4773,7 @@ GameObject:
   - component: {fileID: 4149930478397854802}
   - component: {fileID: 1470701157751182374}
   - component: {fileID: 6564661246611198270}
+  - component: {fileID: 849201260430234447}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -4310,6 +4831,7 @@ MonoBehaviour:
   length: 50
   x: 6
   y: 6
+  tileMats: []
 --- !u!114 &6860883823641900764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4401,6 +4923,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &849201260430234447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2671159453044453941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2736597049430440141
 GameObject:
   m_ObjectHideFlags: 0
@@ -4416,6 +4956,7 @@ GameObject:
   - component: {fileID: 1324451389365079809}
   - component: {fileID: 3431145533375060268}
   - component: {fileID: 2816660539240550497}
+  - component: {fileID: 2867013277527080609}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -4473,6 +5014,7 @@ MonoBehaviour:
   length: 50
   x: 6
   y: 8
+  tileMats: []
 --- !u!114 &7946681496610589482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4564,6 +5106,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &2867013277527080609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2736597049430440141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2786011395412499593
 GameObject:
   m_ObjectHideFlags: 0
@@ -4579,6 +5139,7 @@ GameObject:
   - component: {fileID: 8678700377159654599}
   - component: {fileID: 3762253963145356455}
   - component: {fileID: 8651266259004345321}
+  - component: {fileID: 4824669553782935560}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -4636,6 +5197,7 @@ MonoBehaviour:
   length: 50
   x: 8
   y: 9
+  tileMats: []
 --- !u!114 &9193485986546489560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4727,6 +5289,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &4824669553782935560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786011395412499593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2837789076258003485
 GameObject:
   m_ObjectHideFlags: 0
@@ -4742,6 +5322,7 @@ GameObject:
   - component: {fileID: 4849617567986229088}
   - component: {fileID: 2434291487875262907}
   - component: {fileID: 7560827643883850297}
+  - component: {fileID: 5476901352395043599}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -4799,6 +5380,7 @@ MonoBehaviour:
   length: 50
   x: 9
   y: 2
+  tileMats: []
 --- !u!114 &5766745341079970156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4890,6 +5472,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &5476901352395043599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2837789076258003485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2956803641604804144
 GameObject:
   m_ObjectHideFlags: 0
@@ -4905,6 +5505,7 @@ GameObject:
   - component: {fileID: 1332203568069881560}
   - component: {fileID: 1695091539189095011}
   - component: {fileID: 8570709008401918737}
+  - component: {fileID: 8511894579134592066}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -4962,6 +5563,7 @@ MonoBehaviour:
   length: 50
   x: 2
   y: 9
+  tileMats: []
 --- !u!114 &394461527802627746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5053,6 +5655,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8511894579134592066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956803641604804144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2971932999908398803
 GameObject:
   m_ObjectHideFlags: 0
@@ -5068,6 +5688,7 @@ GameObject:
   - component: {fileID: 4826928262894214477}
   - component: {fileID: 7925191435437845178}
   - component: {fileID: 7723190563538028352}
+  - component: {fileID: 3925013148456244382}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -5125,6 +5746,7 @@ MonoBehaviour:
   length: 50
   x: 1
   y: 5
+  tileMats: []
 --- !u!114 &2495849036741483120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5216,6 +5838,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &3925013148456244382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971932999908398803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2994273555336319371
 GameObject:
   m_ObjectHideFlags: 0
@@ -5231,6 +5871,7 @@ GameObject:
   - component: {fileID: 8700657563476377738}
   - component: {fileID: 1453409889672854782}
   - component: {fileID: 8124035117633357440}
+  - component: {fileID: 8537748550094786120}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -5288,6 +5929,7 @@ MonoBehaviour:
   length: 50
   x: 4
   y: 4
+  tileMats: []
 --- !u!114 &381728480806487233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5379,6 +6021,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8537748550094786120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994273555336319371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3035235434139754689
 GameObject:
   m_ObjectHideFlags: 0
@@ -5394,6 +6054,7 @@ GameObject:
   - component: {fileID: 3201580735491670198}
   - component: {fileID: 2352573411072726991}
   - component: {fileID: 2855217020013172051}
+  - component: {fileID: 8220759735619381988}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -5451,6 +6112,7 @@ MonoBehaviour:
   length: 50
   x: 0
   y: 6
+  tileMats: []
 --- !u!114 &7914424188213808032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5542,6 +6204,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8220759735619381988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3035235434139754689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3216912607178646722
 GameObject:
   m_ObjectHideFlags: 0
@@ -5557,6 +6237,7 @@ GameObject:
   - component: {fileID: 8962450568602988479}
   - component: {fileID: 4214481786313576996}
   - component: {fileID: 7681092494875661736}
+  - component: {fileID: 1323125020693575464}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -5614,6 +6295,7 @@ MonoBehaviour:
   length: 50
   x: 6
   y: 1
+  tileMats: []
 --- !u!114 &2329606826382257703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5705,6 +6387,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &1323125020693575464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3216912607178646722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3218080906632922344
 GameObject:
   m_ObjectHideFlags: 0
@@ -5720,6 +6420,7 @@ GameObject:
   - component: {fileID: 8423273863346791395}
   - component: {fileID: 7335414075277074294}
   - component: {fileID: 8456842610263391678}
+  - component: {fileID: 3393692469795552072}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -5777,6 +6478,7 @@ MonoBehaviour:
   length: 50
   x: 4
   y: 7
+  tileMats: []
 --- !u!114 &7517555772275840510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5868,6 +6570,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &3393692469795552072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218080906632922344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3395433833940076829
 GameObject:
   m_ObjectHideFlags: 0
@@ -5883,6 +6603,7 @@ GameObject:
   - component: {fileID: 1209148958172886555}
   - component: {fileID: 4785608717513320763}
   - component: {fileID: 276766433544002026}
+  - component: {fileID: 4739537332091353080}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -5940,6 +6661,7 @@ MonoBehaviour:
   length: 50
   x: 8
   y: 8
+  tileMats: []
 --- !u!114 &6453627076968750626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6031,6 +6753,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &4739537332091353080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3395433833940076829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3404053901950379574
 GameObject:
   m_ObjectHideFlags: 0
@@ -6046,6 +6786,7 @@ GameObject:
   - component: {fileID: 6582269698414691146}
   - component: {fileID: 6547691520193643504}
   - component: {fileID: 3369258952027451457}
+  - component: {fileID: 2630048741850812447}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -6103,6 +6844,7 @@ MonoBehaviour:
   length: 50
   x: 5
   y: 3
+  tileMats: []
 --- !u!114 &6822496766581822947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6194,6 +6936,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &2630048741850812447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3404053901950379574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3461975603714112073
 GameObject:
   m_ObjectHideFlags: 0
@@ -6209,6 +6969,7 @@ GameObject:
   - component: {fileID: 8069685621585979812}
   - component: {fileID: 2016134705901459944}
   - component: {fileID: 8784784293915991177}
+  - component: {fileID: 1577981056984133702}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -6266,6 +7027,7 @@ MonoBehaviour:
   length: 50
   x: 4
   y: 3
+  tileMats: []
 --- !u!114 &2496102773771728481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6357,6 +7119,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &1577981056984133702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461975603714112073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3486925282077774940
 GameObject:
   m_ObjectHideFlags: 0
@@ -6372,6 +7152,7 @@ GameObject:
   - component: {fileID: 6925680642027281391}
   - component: {fileID: 6079694208985212437}
   - component: {fileID: 8945056724120176813}
+  - component: {fileID: 6941635075723338588}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -6429,6 +7210,7 @@ MonoBehaviour:
   length: 50
   x: 4
   y: 5
+  tileMats: []
 --- !u!114 &2444284307493158666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6520,6 +7302,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6941635075723338588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3486925282077774940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3626820878889808048
 GameObject:
   m_ObjectHideFlags: 0
@@ -6535,6 +7335,7 @@ GameObject:
   - component: {fileID: 124948108815216102}
   - component: {fileID: 8440786100587368742}
   - component: {fileID: 6692496504961312007}
+  - component: {fileID: 4028210670396707250}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -6592,6 +7393,7 @@ MonoBehaviour:
   length: 50
   x: 4
   y: 0
+  tileMats: []
 --- !u!114 &4944053923146942031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6683,6 +7485,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &4028210670396707250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626820878889808048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3832091037402372782
 GameObject:
   m_ObjectHideFlags: 0
@@ -6698,6 +7518,7 @@ GameObject:
   - component: {fileID: 2601586375802818549}
   - component: {fileID: 3715237518836711411}
   - component: {fileID: 4890829477178282064}
+  - component: {fileID: 268766603883379131}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -6755,6 +7576,7 @@ MonoBehaviour:
   length: 50
   x: 9
   y: 5
+  tileMats: []
 --- !u!114 &3848901012293885573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6846,6 +7668,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &268766603883379131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3832091037402372782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3850874365874721089
 GameObject:
   m_ObjectHideFlags: 0
@@ -6861,6 +7701,7 @@ GameObject:
   - component: {fileID: 3149730792449012494}
   - component: {fileID: 230004082233158859}
   - component: {fileID: 7979933590770319802}
+  - component: {fileID: 3330757626665065054}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -6918,6 +7759,7 @@ MonoBehaviour:
   length: 50
   x: 6
   y: 7
+  tileMats: []
 --- !u!114 &3526410768881090476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7009,6 +7851,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &3330757626665065054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3850874365874721089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4013407755013108268
 GameObject:
   m_ObjectHideFlags: 0
@@ -7024,6 +7884,7 @@ GameObject:
   - component: {fileID: 3944003473497905591}
   - component: {fileID: 7380135803804916855}
   - component: {fileID: 1184375053813814280}
+  - component: {fileID: 95489668575912152}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -7081,6 +7942,7 @@ MonoBehaviour:
   length: 50
   x: 9
   y: 1
+  tileMats: []
 --- !u!114 &6243339038206593483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7172,6 +8034,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &95489668575912152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4013407755013108268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4313351934112828252
 GameObject:
   m_ObjectHideFlags: 0
@@ -7187,6 +8067,7 @@ GameObject:
   - component: {fileID: 7234494313388406180}
   - component: {fileID: 3026102969018281673}
   - component: {fileID: 3797039872685640540}
+  - component: {fileID: 2784183889261677032}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -7244,6 +8125,7 @@ MonoBehaviour:
   length: 50
   x: 9
   y: 0
+  tileMats: []
 --- !u!114 &7340177109537503448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7335,6 +8217,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &2784183889261677032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4313351934112828252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4362502869845472154
 GameObject:
   m_ObjectHideFlags: 0
@@ -7350,6 +8250,7 @@ GameObject:
   - component: {fileID: 3896594820501202454}
   - component: {fileID: 1152316160665350658}
   - component: {fileID: 9157702490176760423}
+  - component: {fileID: 4673029448275088617}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -7407,6 +8308,7 @@ MonoBehaviour:
   length: 50
   x: 3
   y: 3
+  tileMats: []
 --- !u!114 &2806075611706982368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7498,6 +8400,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &4673029448275088617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4362502869845472154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4363776730939611290
 GameObject:
   m_ObjectHideFlags: 0
@@ -7513,6 +8433,7 @@ GameObject:
   - component: {fileID: 6249807236420218341}
   - component: {fileID: 3890991291361563887}
   - component: {fileID: 8133804651379027747}
+  - component: {fileID: 6844614285289956427}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -7570,6 +8491,7 @@ MonoBehaviour:
   length: 50
   x: 7
   y: 6
+  tileMats: []
 --- !u!114 &6903958463990237836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7661,6 +8583,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6844614285289956427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363776730939611290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4386320139206575566
 GameObject:
   m_ObjectHideFlags: 0
@@ -7676,6 +8616,7 @@ GameObject:
   - component: {fileID: 104857738357837146}
   - component: {fileID: 3838802233871625940}
   - component: {fileID: 5163449268234982831}
+  - component: {fileID: 5884114223553480504}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -7733,6 +8674,7 @@ MonoBehaviour:
   length: 50
   x: 0
   y: 3
+  tileMats: []
 --- !u!114 &6182320782207458105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7824,6 +8766,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &5884114223553480504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4386320139206575566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4392363256436301656
 GameObject:
   m_ObjectHideFlags: 0
@@ -7839,6 +8799,7 @@ GameObject:
   - component: {fileID: 5295651391978854028}
   - component: {fileID: 7393460615013346013}
   - component: {fileID: 8307561157804777133}
+  - component: {fileID: 6361127057206858555}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -7896,6 +8857,7 @@ MonoBehaviour:
   length: 50
   x: 3
   y: 0
+  tileMats: []
 --- !u!114 &2586273821994323568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7987,6 +8949,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6361127057206858555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4392363256436301656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4589193605963605833
 GameObject:
   m_ObjectHideFlags: 0
@@ -8002,6 +8982,7 @@ GameObject:
   - component: {fileID: 6664041817606575099}
   - component: {fileID: 5384574769290416602}
   - component: {fileID: 2436880916429129577}
+  - component: {fileID: 6061495787448386464}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -8059,6 +9040,7 @@ MonoBehaviour:
   length: 50
   x: 9
   y: 3
+  tileMats: []
 --- !u!114 &9098937092748428958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8150,6 +9132,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6061495787448386464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4589193605963605833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4616667045139566360
 GameObject:
   m_ObjectHideFlags: 0
@@ -8165,6 +9165,7 @@ GameObject:
   - component: {fileID: 5808437691885524344}
   - component: {fileID: 8189248652273316967}
   - component: {fileID: 8982978722895600563}
+  - component: {fileID: 5427068860113664261}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -8222,6 +9223,7 @@ MonoBehaviour:
   length: 50
   x: 5
   y: 0
+  tileMats: []
 --- !u!114 &3367442457709951547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8313,6 +9315,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &5427068860113664261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616667045139566360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4630496392835185382
 GameObject:
   m_ObjectHideFlags: 0
@@ -8328,6 +9348,7 @@ GameObject:
   - component: {fileID: 7989538838701040047}
   - component: {fileID: 7191294104422603756}
   - component: {fileID: 1745415132853594624}
+  - component: {fileID: 8240005241347599702}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -8385,6 +9406,7 @@ MonoBehaviour:
   length: 50
   x: 4
   y: 2
+  tileMats: []
 --- !u!114 &1848589829716566451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8476,6 +9498,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8240005241347599702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630496392835185382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4652902456537085361
 GameObject:
   m_ObjectHideFlags: 0
@@ -8491,6 +9531,7 @@ GameObject:
   - component: {fileID: 2228514272268416826}
   - component: {fileID: 5312064434951689324}
   - component: {fileID: 973425087982916189}
+  - component: {fileID: 8476270254534683567}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -8548,6 +9589,7 @@ MonoBehaviour:
   length: 50
   x: 7
   y: 7
+  tileMats: []
 --- !u!114 &5661876260162516841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8639,6 +9681,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8476270254534683567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652902456537085361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4692656625797827442
 GameObject:
   m_ObjectHideFlags: 0
@@ -8654,6 +9714,7 @@ GameObject:
   - component: {fileID: 8182722285755347767}
   - component: {fileID: 5121722790031637178}
   - component: {fileID: 7356877243619645644}
+  - component: {fileID: 6464369356178978635}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -8711,6 +9772,7 @@ MonoBehaviour:
   length: 50
   x: 9
   y: 8
+  tileMats: []
 --- !u!114 &8517313053515719054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8802,6 +9864,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6464369356178978635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4692656625797827442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4889496649172339958
 GameObject:
   m_ObjectHideFlags: 0
@@ -8817,6 +9897,7 @@ GameObject:
   - component: {fileID: 5827748009055302539}
   - component: {fileID: 7040340900185162837}
   - component: {fileID: 2126048715226497923}
+  - component: {fileID: 8936835253152863816}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -8874,6 +9955,7 @@ MonoBehaviour:
   length: 50
   x: 8
   y: 4
+  tileMats: []
 --- !u!114 &2705776969340980542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8965,6 +10047,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8936835253152863816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4889496649172339958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4908316492556305063
 GameObject:
   m_ObjectHideFlags: 0
@@ -8980,6 +10080,7 @@ GameObject:
   - component: {fileID: 4334870781526152305}
   - component: {fileID: 6585714486393171059}
   - component: {fileID: 5463557942378557565}
+  - component: {fileID: 8642988103704961425}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -9037,6 +10138,7 @@ MonoBehaviour:
   length: 50
   x: 5
   y: 7
+  tileMats: []
 --- !u!114 &8359860449321111790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9128,6 +10230,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8642988103704961425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908316492556305063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5084515500885202361
 GameObject:
   m_ObjectHideFlags: 0
@@ -9143,6 +10263,7 @@ GameObject:
   - component: {fileID: 8838953022236493611}
   - component: {fileID: 475789368538490800}
   - component: {fileID: 6864791934134736603}
+  - component: {fileID: 6269335826585816691}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -9200,6 +10321,7 @@ MonoBehaviour:
   length: 50
   x: 8
   y: 6
+  tileMats: []
 --- !u!114 &532703586957958641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9291,6 +10413,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6269335826585816691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5084515500885202361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5352354613962040121
 GameObject:
   m_ObjectHideFlags: 0
@@ -9458,6 +10598,7 @@ GameObject:
   - component: {fileID: 3394072248651981383}
   - component: {fileID: 1918013617052233914}
   - component: {fileID: 7226934754617528717}
+  - component: {fileID: 2187729356142993534}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -9515,6 +10656,7 @@ MonoBehaviour:
   length: 50
   x: 7
   y: 3
+  tileMats: []
 --- !u!114 &2575831038929635959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9606,6 +10748,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &2187729356142993534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5577246417234687255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5603146053062538889
 GameObject:
   m_ObjectHideFlags: 0
@@ -9621,6 +10781,7 @@ GameObject:
   - component: {fileID: 3504757034687266709}
   - component: {fileID: 7914256983953102907}
   - component: {fileID: 6977909290972079014}
+  - component: {fileID: 2707258679801144565}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -9678,6 +10839,7 @@ MonoBehaviour:
   length: 50
   x: 3
   y: 6
+  tileMats: []
 --- !u!114 &5613510137667118279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9769,6 +10931,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &2707258679801144565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603146053062538889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5641935868769409729
 GameObject:
   m_ObjectHideFlags: 0
@@ -9784,6 +10964,7 @@ GameObject:
   - component: {fileID: 1588648371904793747}
   - component: {fileID: 1193244774825039949}
   - component: {fileID: 821850303699969710}
+  - component: {fileID: 4769997104391345322}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -9841,6 +11022,7 @@ MonoBehaviour:
   length: 50
   x: 8
   y: 7
+  tileMats: []
 --- !u!114 &4857516743719674851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9932,6 +11114,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &4769997104391345322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641935868769409729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5673863508285064985
 GameObject:
   m_ObjectHideFlags: 0
@@ -9947,6 +11147,7 @@ GameObject:
   - component: {fileID: 4824495922268152686}
   - component: {fileID: 3256278461516105913}
   - component: {fileID: 6666978215477805044}
+  - component: {fileID: 721619418270156682}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -10004,6 +11205,7 @@ MonoBehaviour:
   length: 50
   x: 3
   y: 9
+  tileMats: []
 --- !u!114 &6950533735749341741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10095,6 +11297,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &721619418270156682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673863508285064985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5730248722403254234
 GameObject:
   m_ObjectHideFlags: 0
@@ -10110,6 +11330,7 @@ GameObject:
   - component: {fileID: 2778219075377373513}
   - component: {fileID: 6405754165063799178}
   - component: {fileID: 6316454165030769126}
+  - component: {fileID: 3649406346267504396}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -10167,6 +11388,7 @@ MonoBehaviour:
   length: 50
   x: 1
   y: 9
+  tileMats: []
 --- !u!114 &13878792250825065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10258,6 +11480,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &3649406346267504396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730248722403254234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5759294589814986902
 GameObject:
   m_ObjectHideFlags: 0
@@ -10273,6 +11513,7 @@ GameObject:
   - component: {fileID: 525971785781554805}
   - component: {fileID: 768774981392151265}
   - component: {fileID: 8918926924161011819}
+  - component: {fileID: 4779239342403128144}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -10330,6 +11571,7 @@ MonoBehaviour:
   length: 50
   x: 6
   y: 3
+  tileMats: []
 --- !u!114 &4666697332043653880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10421,6 +11663,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &4779239342403128144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759294589814986902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6055864658667928704
 GameObject:
   m_ObjectHideFlags: 0
@@ -10436,6 +11696,7 @@ GameObject:
   - component: {fileID: 5860979845436570289}
   - component: {fileID: 2387592492828088103}
   - component: {fileID: 3034760592317286821}
+  - component: {fileID: 6691074669598435310}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -10493,6 +11754,7 @@ MonoBehaviour:
   length: 50
   x: 2
   y: 7
+  tileMats: []
 --- !u!114 &1023205283364524946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10584,6 +11846,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6691074669598435310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055864658667928704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6123127119005456508
 GameObject:
   m_ObjectHideFlags: 0
@@ -10599,6 +11879,7 @@ GameObject:
   - component: {fileID: 621992765772439446}
   - component: {fileID: 9014842296758887665}
   - component: {fileID: 1356593593837266280}
+  - component: {fileID: 6181349730250141643}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -10656,6 +11937,7 @@ MonoBehaviour:
   length: 50
   x: 4
   y: 9
+  tileMats: []
 --- !u!114 &2361948203852336908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10747,6 +12029,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6181349730250141643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123127119005456508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6183560712235953608
 GameObject:
   m_ObjectHideFlags: 0
@@ -10762,6 +12062,7 @@ GameObject:
   - component: {fileID: 8778147157949771356}
   - component: {fileID: 8432527266835309545}
   - component: {fileID: 4744873488839496309}
+  - component: {fileID: 8861349665692465931}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -10819,6 +12120,7 @@ MonoBehaviour:
   length: 50
   x: 1
   y: 0
+  tileMats: []
 --- !u!114 &111926128455774515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10910,6 +12212,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8861349665692465931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6183560712235953608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6217786323952939807
 GameObject:
   m_ObjectHideFlags: 0
@@ -10925,6 +12245,7 @@ GameObject:
   - component: {fileID: 2421410025706542590}
   - component: {fileID: 2945269276833321551}
   - component: {fileID: 8514190329826941342}
+  - component: {fileID: 4921517078911761830}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -10982,6 +12303,7 @@ MonoBehaviour:
   length: 50
   x: 1
   y: 6
+  tileMats: []
 --- !u!114 &137868417253467926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11073,6 +12395,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &4921517078911761830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6217786323952939807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6306031724680601154
 GameObject:
   m_ObjectHideFlags: 0
@@ -11088,6 +12428,7 @@ GameObject:
   - component: {fileID: 4478922205983110341}
   - component: {fileID: 2890625615457534240}
   - component: {fileID: 6956811911279851107}
+  - component: {fileID: 1466380212036232321}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -11145,6 +12486,7 @@ MonoBehaviour:
   length: 50
   x: 8
   y: 0
+  tileMats: []
 --- !u!114 &1873082628950283515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11236,6 +12578,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &1466380212036232321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306031724680601154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6316080084551235512
 GameObject:
   m_ObjectHideFlags: 0
@@ -11251,6 +12611,7 @@ GameObject:
   - component: {fileID: 6947396231797895492}
   - component: {fileID: 1391497649987601511}
   - component: {fileID: 7428160072908222147}
+  - component: {fileID: 6001896884278616044}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -11308,6 +12669,7 @@ MonoBehaviour:
   length: 50
   x: 5
   y: 5
+  tileMats: []
 --- !u!114 &765550086385683246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11399,6 +12761,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6001896884278616044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316080084551235512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6517039651383630429
 GameObject:
   m_ObjectHideFlags: 0
@@ -11414,6 +12794,7 @@ GameObject:
   - component: {fileID: 8223198138250185198}
   - component: {fileID: 8261235081591159789}
   - component: {fileID: 3005789820742680610}
+  - component: {fileID: 7601045570970559197}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -11471,6 +12852,7 @@ MonoBehaviour:
   length: 50
   x: 0
   y: 5
+  tileMats: []
 --- !u!114 &3408447595150519469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11562,6 +12944,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &7601045570970559197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6517039651383630429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6638972749198851706
 GameObject:
   m_ObjectHideFlags: 0
@@ -11577,6 +12977,7 @@ GameObject:
   - component: {fileID: 4164497638658396903}
   - component: {fileID: 3600184875600221969}
   - component: {fileID: 8106584194099254337}
+  - component: {fileID: 1475162124353470151}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -11634,6 +13035,7 @@ MonoBehaviour:
   length: 50
   x: 2
   y: 2
+  tileMats: []
 --- !u!114 &2986451006231903790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11725,6 +13127,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &1475162124353470151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6638972749198851706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6692045335200470780
 GameObject:
   m_ObjectHideFlags: 0
@@ -11740,6 +13160,7 @@ GameObject:
   - component: {fileID: 5559175670578155767}
   - component: {fileID: 4355048777997886148}
   - component: {fileID: 110030716848434348}
+  - component: {fileID: 2526736485061482865}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -11797,6 +13218,7 @@ MonoBehaviour:
   length: 50
   x: 1
   y: 1
+  tileMats: []
 --- !u!114 &4721219219929430605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11888,6 +13310,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &2526736485061482865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6692045335200470780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6701753390316174486
 GameObject:
   m_ObjectHideFlags: 0
@@ -11903,6 +13343,7 @@ GameObject:
   - component: {fileID: 4322752130256883189}
   - component: {fileID: 1772139543129384126}
   - component: {fileID: 7062412034164044089}
+  - component: {fileID: 8116001833437118729}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -11960,6 +13401,7 @@ MonoBehaviour:
   length: 50
   x: 9
   y: 6
+  tileMats: []
 --- !u!114 &2744933367737314558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12051,6 +13493,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8116001833437118729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6701753390316174486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7142135593081785299
 GameObject:
   m_ObjectHideFlags: 0
@@ -12066,6 +13526,7 @@ GameObject:
   - component: {fileID: 7511371640890098218}
   - component: {fileID: 8110424997889927692}
   - component: {fileID: 6724435291590300393}
+  - component: {fileID: 7322079715226608311}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -12123,6 +13584,7 @@ MonoBehaviour:
   length: 50
   x: 3
   y: 4
+  tileMats: []
 --- !u!114 &2174622293143072714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12214,6 +13676,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &7322079715226608311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7142135593081785299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7242587176948623926
 GameObject:
   m_ObjectHideFlags: 0
@@ -12229,6 +13709,7 @@ GameObject:
   - component: {fileID: 8380767623070308998}
   - component: {fileID: 3121038414045144722}
   - component: {fileID: 482160997337573997}
+  - component: {fileID: 7654807827181112398}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -12286,6 +13767,7 @@ MonoBehaviour:
   length: 50
   x: 1
   y: 8
+  tileMats: []
 --- !u!114 &1644223203431586807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12377,6 +13859,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &7654807827181112398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7242587176948623926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7312097151905468639
 GameObject:
   m_ObjectHideFlags: 0
@@ -12392,6 +13892,7 @@ GameObject:
   - component: {fileID: 5553715737278394207}
   - component: {fileID: 1633769053004966297}
   - component: {fileID: 1468566084644157926}
+  - component: {fileID: 8509389909571529924}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -12449,6 +13950,7 @@ MonoBehaviour:
   length: 50
   x: 7
   y: 4
+  tileMats: []
 --- !u!114 &37388824748629457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12540,6 +14042,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8509389909571529924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7312097151905468639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7353569003415829591
 GameObject:
   m_ObjectHideFlags: 0
@@ -12555,6 +14075,7 @@ GameObject:
   - component: {fileID: 4090064330073047718}
   - component: {fileID: 2680334071389138988}
   - component: {fileID: 1929452210802400820}
+  - component: {fileID: 432942205521564682}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -12612,6 +14133,7 @@ MonoBehaviour:
   length: 50
   x: 5
   y: 8
+  tileMats: []
 --- !u!114 &9013134416842524610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12703,6 +14225,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &432942205521564682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7353569003415829591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7431760312895660841
 GameObject:
   m_ObjectHideFlags: 0
@@ -12718,6 +14258,7 @@ GameObject:
   - component: {fileID: 146611808490144957}
   - component: {fileID: 5670070452958881687}
   - component: {fileID: 7048754753289377640}
+  - component: {fileID: 1735758782550369783}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -12775,6 +14316,7 @@ MonoBehaviour:
   length: 50
   x: 7
   y: 1
+  tileMats: []
 --- !u!114 &852930739207983105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12866,6 +14408,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &1735758782550369783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7431760312895660841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7431804331013668263
 GameObject:
   m_ObjectHideFlags: 0
@@ -12881,6 +14441,7 @@ GameObject:
   - component: {fileID: 1277461125595564294}
   - component: {fileID: 2378023016250409408}
   - component: {fileID: 8507667394449571944}
+  - component: {fileID: 5708438143884280901}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -12938,6 +14499,7 @@ MonoBehaviour:
   length: 50
   x: 5
   y: 9
+  tileMats: []
 --- !u!114 &6831535680358606927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13029,6 +14591,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &5708438143884280901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7431804331013668263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7536454305035857308
 GameObject:
   m_ObjectHideFlags: 0
@@ -13044,6 +14624,7 @@ GameObject:
   - component: {fileID: 4349501679974455731}
   - component: {fileID: 8584765202851284833}
   - component: {fileID: 9094054901376908456}
+  - component: {fileID: 1118191012878549884}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -13101,6 +14682,7 @@ MonoBehaviour:
   length: 50
   x: 5
   y: 1
+  tileMats: []
 --- !u!114 &4547960322342015805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13192,6 +14774,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &1118191012878549884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7536454305035857308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7687593446789080697
 GameObject:
   m_ObjectHideFlags: 0
@@ -13207,6 +14807,7 @@ GameObject:
   - component: {fileID: 8000029750741567490}
   - component: {fileID: 4966077547417640800}
   - component: {fileID: 2076118497865228832}
+  - component: {fileID: 1670208863926855161}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -13264,6 +14865,7 @@ MonoBehaviour:
   length: 50
   x: 1
   y: 7
+  tileMats: []
 --- !u!114 &6143512075445197668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13355,6 +14957,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &1670208863926855161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7687593446789080697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7747390997697724784
 GameObject:
   m_ObjectHideFlags: 0
@@ -13370,6 +14990,7 @@ GameObject:
   - component: {fileID: 2530953548015593803}
   - component: {fileID: 4639375376619727217}
   - component: {fileID: 7194599612353568849}
+  - component: {fileID: 7111135727917631072}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -13427,6 +15048,7 @@ MonoBehaviour:
   length: 50
   x: 0
   y: 4
+  tileMats: []
 --- !u!114 &8872153791838221325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13518,6 +15140,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &7111135727917631072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747390997697724784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7783406821475543647
 GameObject:
   m_ObjectHideFlags: 0
@@ -13533,6 +15173,7 @@ GameObject:
   - component: {fileID: 7096594542264069025}
   - component: {fileID: 3650835445808174784}
   - component: {fileID: 6638366757885788471}
+  - component: {fileID: 5940684710866643346}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -13590,6 +15231,7 @@ MonoBehaviour:
   length: 50
   x: 5
   y: 2
+  tileMats: []
 --- !u!114 &20115638526265010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13681,6 +15323,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &5940684710866643346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783406821475543647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7798075136853177463
 GameObject:
   m_ObjectHideFlags: 0
@@ -13696,6 +15356,7 @@ GameObject:
   - component: {fileID: 3674160807246161030}
   - component: {fileID: 3145113832615669232}
   - component: {fileID: 8271152037833981360}
+  - component: {fileID: 1770753511828970264}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -13753,6 +15414,7 @@ MonoBehaviour:
   length: 50
   x: 0
   y: 7
+  tileMats: []
 --- !u!114 &8036245111199152461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13844,6 +15506,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &1770753511828970264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7798075136853177463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7809334422479959843
 GameObject:
   m_ObjectHideFlags: 0
@@ -13859,6 +15539,7 @@ GameObject:
   - component: {fileID: 5599059900024592159}
   - component: {fileID: 5030806906136562748}
   - component: {fileID: 4526610979336196281}
+  - component: {fileID: 2747427719925875976}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -13916,6 +15597,7 @@ MonoBehaviour:
   length: 50
   x: 2
   y: 0
+  tileMats: []
 --- !u!114 &6392844418803866606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14007,6 +15689,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &2747427719925875976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7809334422479959843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7970777419209786810
 GameObject:
   m_ObjectHideFlags: 0
@@ -14022,6 +15722,7 @@ GameObject:
   - component: {fileID: 6232374048416891217}
   - component: {fileID: 4728669398853415367}
   - component: {fileID: 7821369903876323043}
+  - component: {fileID: 7421912184987574351}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -14079,6 +15780,7 @@ MonoBehaviour:
   length: 50
   x: 8
   y: 1
+  tileMats: []
 --- !u!114 &269936617609195626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14170,6 +15872,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &7421912184987574351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7970777419209786810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7996727705110169058
 GameObject:
   m_ObjectHideFlags: 0
@@ -14185,6 +15905,7 @@ GameObject:
   - component: {fileID: 1724605259257593304}
   - component: {fileID: 6194613449305619270}
   - component: {fileID: 1418526822960413273}
+  - component: {fileID: 8566793396935659644}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -14242,6 +15963,7 @@ MonoBehaviour:
   length: 50
   x: 3
   y: 7
+  tileMats: []
 --- !u!114 &8333288273607253091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14333,6 +16055,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8566793396935659644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996727705110169058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8015785223011686671
 GameObject:
   m_ObjectHideFlags: 0
@@ -14348,6 +16088,7 @@ GameObject:
   - component: {fileID: 4486036194016832856}
   - component: {fileID: 6206243350674062737}
   - component: {fileID: 3927502887530535525}
+  - component: {fileID: 6358842114317646010}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -14405,6 +16146,7 @@ MonoBehaviour:
   length: 50
   x: 6
   y: 2
+  tileMats: []
 --- !u!114 &3881765012736051655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14496,6 +16238,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6358842114317646010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8015785223011686671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8193195658785682762
 GameObject:
   m_ObjectHideFlags: 0
@@ -14511,6 +16271,7 @@ GameObject:
   - component: {fileID: 3423619738277626858}
   - component: {fileID: 6117785308510575987}
   - component: {fileID: 7939403561458904586}
+  - component: {fileID: 2065057990257483231}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -14568,6 +16329,7 @@ MonoBehaviour:
   length: 50
   x: 4
   y: 6
+  tileMats: []
 --- !u!114 &1306945870463922836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14659,6 +16421,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &2065057990257483231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8193195658785682762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8365169017033587766
 GameObject:
   m_ObjectHideFlags: 0
@@ -14674,6 +16454,7 @@ GameObject:
   - component: {fileID: 5513015790530323937}
   - component: {fileID: 7106996676324822213}
   - component: {fileID: 4256042032815870766}
+  - component: {fileID: 8990277028002207345}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -14731,6 +16512,7 @@ MonoBehaviour:
   length: 50
   x: 3
   y: 5
+  tileMats: []
 --- !u!114 &8862180175860360543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14822,6 +16604,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8990277028002207345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365169017033587766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8414161839419331614
 GameObject:
   m_ObjectHideFlags: 0
@@ -14837,6 +16637,7 @@ GameObject:
   - component: {fileID: 6821459782477682660}
   - component: {fileID: 3303363367613671003}
   - component: {fileID: 4843739665129511373}
+  - component: {fileID: 4083947318553008094}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -14894,6 +16695,7 @@ MonoBehaviour:
   length: 50
   x: 5
   y: 6
+  tileMats: []
 --- !u!114 &5275120867066293831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14985,6 +16787,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &4083947318553008094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414161839419331614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8417013732161819263
 GameObject:
   m_ObjectHideFlags: 0
@@ -15000,6 +16820,7 @@ GameObject:
   - component: {fileID: 4297095150610421528}
   - component: {fileID: 9189154136670893966}
   - component: {fileID: 7038458339501572909}
+  - component: {fileID: 485032512713750752}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -15057,6 +16878,7 @@ MonoBehaviour:
   length: 50
   x: 3
   y: 2
+  tileMats: []
 --- !u!114 &661419309811506964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15148,6 +16970,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &485032512713750752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8417013732161819263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8457766294279288207
 GameObject:
   m_ObjectHideFlags: 0
@@ -15164,6 +17004,7 @@ GameObject:
   - component: {fileID: 5200158978431513171}
   - component: {fileID: 5533056470915959595}
   - component: {fileID: 756269121467110151}
+  - component: {fileID: 2623786809652359023}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -15226,6 +17067,7 @@ MonoBehaviour:
   length: 50
   x: 0
   y: 0
+  tileMats: []
 --- !u!114 &8540297890037597742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15325,6 +17167,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8457766294279288207}
   m_CullTransparentMesh: 1
+--- !u!114 &2623786809652359023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8457766294279288207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8730337896383288979
 GameObject:
   m_ObjectHideFlags: 0
@@ -15340,6 +17200,7 @@ GameObject:
   - component: {fileID: 9143209978038722213}
   - component: {fileID: 6077123252160456498}
   - component: {fileID: 1412244116395579964}
+  - component: {fileID: 7397157334210129508}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -15397,6 +17258,7 @@ MonoBehaviour:
   length: 50
   x: 0
   y: 2
+  tileMats: []
 --- !u!114 &3164273874888692581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15488,6 +17350,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &7397157334210129508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8730337896383288979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8761628615467180891
 GameObject:
   m_ObjectHideFlags: 0
@@ -15503,6 +17383,7 @@ GameObject:
   - component: {fileID: 7593969099049342411}
   - component: {fileID: 913739554284784875}
   - component: {fileID: 3476128187412945875}
+  - component: {fileID: 4556021642561267707}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -15560,6 +17441,7 @@ MonoBehaviour:
   length: 50
   x: 2
   y: 5
+  tileMats: []
 --- !u!114 &7573277269610653767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15651,6 +17533,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &4556021642561267707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8761628615467180891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8771810502156138007
 GameObject:
   m_ObjectHideFlags: 0
@@ -15666,6 +17566,7 @@ GameObject:
   - component: {fileID: 5178542171952112111}
   - component: {fileID: 6227500684991489152}
   - component: {fileID: 8598171216065454628}
+  - component: {fileID: 2685947031302553181}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -15723,6 +17624,7 @@ MonoBehaviour:
   length: 50
   x: 0
   y: 1
+  tileMats: []
 --- !u!114 &2290427279738702583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15814,6 +17716,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &2685947031302553181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8771810502156138007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8984398265472880832
 GameObject:
   m_ObjectHideFlags: 0
@@ -15829,6 +17749,7 @@ GameObject:
   - component: {fileID: 7281703592642106330}
   - component: {fileID: 7254058986875860627}
   - component: {fileID: 1943425691538555196}
+  - component: {fileID: 8155519539305924310}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -15886,6 +17807,7 @@ MonoBehaviour:
   length: 50
   x: 9
   y: 7
+  tileMats: []
 --- !u!114 &2997834694437210080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15977,6 +17899,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &8155519539305924310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8984398265472880832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &9155300740356957391
 GameObject:
   m_ObjectHideFlags: 0
@@ -15992,6 +17932,7 @@ GameObject:
   - component: {fileID: 4561674824783378823}
   - component: {fileID: 5986734544680672583}
   - component: {fileID: 3649432151740496450}
+  - component: {fileID: 2952692404245613102}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -16049,6 +17990,7 @@ MonoBehaviour:
   length: 50
   x: 7
   y: 9
+  tileMats: []
 --- !u!114 &6132431688671666397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16140,6 +18082,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &2952692404245613102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9155300740356957391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &9206653646419128007
 GameObject:
   m_ObjectHideFlags: 0
@@ -16155,6 +18115,7 @@ GameObject:
   - component: {fileID: 379041704917958492}
   - component: {fileID: 1121390245548117020}
   - component: {fileID: 7162657889059599418}
+  - component: {fileID: 6727308231688791334}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -16212,6 +18173,7 @@ MonoBehaviour:
   length: 50
   x: 6
   y: 9
+  tileMats: []
 --- !u!114 &29401189902028503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16303,6 +18265,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &6727308231688791334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9206653646419128007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &9211164781589392730
 GameObject:
   m_ObjectHideFlags: 0
@@ -16318,6 +18298,7 @@ GameObject:
   - component: {fileID: 6514553954749801463}
   - component: {fileID: 1709240877796389804}
   - component: {fileID: 5018033649311323151}
+  - component: {fileID: 7479770042872201556}
   m_Layer: 0
   m_Name: HexTile
   m_TagString: Map
@@ -16375,6 +18356,7 @@ MonoBehaviour:
   length: 50
   x: 9
   y: 9
+  tileMats: []
 --- !u!114 &2921261947050699975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16466,3 +18448,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c874fa2b3ce8f8246bc08b7b8a1c6c09, type: 3}
+--- !u!114 &7479770042872201556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211164781589392730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5019608, b: 0.2, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
