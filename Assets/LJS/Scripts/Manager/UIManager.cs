@@ -52,12 +52,17 @@ public class UIManager : Singleton<UIManager>
     [Header("City Product Panel")]
     public GameObject productObjectButtonPrefab;
     public GameObject goldObjectButtonPrefab;
-    public GameObject productContent;
-    public GameObject goldContent;
+    public Transform productBuildingContent;
+    public Transform productUnitContent;
+    public Transform goldBuildingContent;
+    public Transform goldUnitContent;
     #endregion
 
     RectTransform rect;
     UIButtonEvent uIButtonEvent;
+
+
+    Dictionary<string, Sprite> spriteDict = new Dictionary<string, Sprite>();
 
     bool useScience;
     bool useCulture;
@@ -398,37 +403,65 @@ public class UIManager : Singleton<UIManager>
     // ProductObjectData의 item들을 버튼으로 생성
     public void InitCityProductPanelData(List<ProductObject> productObjects)
     {
+        #region load sprite
+        // load sprite 
+        string path = "Image/UI/UnitClass";
+        Sprite[] unitClassSprites = LoadAllSprite(path);
+        for (int i = 0; i < unitClassSprites.Length; ++i)
+            spriteDict[unitClassSprites[i].name] = unitClassSprites[i];
+
+        path = "Image/District";
+        Sprite[] districtSprites = LoadAllSprite(path);
+        for (int i = 0; i < districtSprites.Length; ++i)
+            spriteDict[districtSprites[i].name] = districtSprites[i];
+        #endregion
+
+        // product
         for (int i = 0; i < productObjects.Count; ++i)
         {
-            GameObject productObjectButton = GetCityProductButton(productObjects[i]);
+            GameObject productObjectButton = GetCityProductButton(productObjects[i], productObjectButtonPrefab);
 
-            // TODO 생성한 버튼 생산 탭에 추가
+            switch (productObjects[i].type)
+            {
+                case TypeIdBase.DISTRICT:
+                    productObjectButton.transform.SetParent(productBuildingContent);
+                    break;
+                case TypeIdBase.UNIT:
+                    productObjectButton.transform.SetParent(productUnitContent);
+                    break;
+            }
         }
+
+        // gold
+        for (int i = 0; i < productObjects.Count; ++i)
+        {
+            GameObject productObjectButton = GetCityProductButton(productObjects[i], goldObjectButtonPrefab);
+
+            switch (productObjects[i].type)
+            {
+                case TypeIdBase.DISTRICT:
+                    productObjectButton.transform.SetParent(goldBuildingContent);
+                    break;
+                case TypeIdBase.UNIT:
+                    productObjectButton.transform.SetParent(goldUnitContent);
+                    break;
+            }
+        }
+
+
     }
 
-    GameObject GetCityProductButton(ProductObject productObject)
+    GameObject GetCityProductButton(ProductObject productObject, GameObject buttonPrefab)
     {
-        GameObject productObjectButton = Instantiate(productObjectButtonPrefab);
+        GameObject productObjectButton = Instantiate(buttonPrefab);
         productObjectButton.name = productObject.name;
+        ProductObjectButtonSetter productObjectButtonSetter = productObjectButton.GetComponentInChildren<ProductObjectButtonSetter>();
+        productObjectButtonSetter.SetProductObjectButton(productObject.korean, spriteDict[productObject.name], productObject.productCost);
 
-        string path = "";
-        switch (productObject.type)
-        {
-            case TypeIdBase.UNIT:
-                path = "Image/UI/";
-                break;
-            case TypeIdBase.DISTRICT:
-                break;
-        }
-        // TODO fail to load sprite
-        Sprite sprite = Resources.Load<Sprite>(path + productObject.name);
-        ProductObjectButtonSetter productObjectButtonSetter = productObjectButton.GetComponent<ProductObjectButtonSetter>();
-        productObjectButtonSetter.SetProductObjectButton(productObject.korean, sprite, productObject.productCost);
-
-        ProductObjectButtonListener productObjectButtonListener = productObjectButton.GetComponent<ProductObjectButtonListener>();
+        ProductObjectButtonListener productObjectButtonListener = productObjectButton.GetComponentInChildren<ProductObjectButtonListener>();
         productObjectButtonListener.SetButtonType(productObject.id);
 
-        UIButtonListener uIButtonListener = productObjectButton.GetComponent<UIButtonListener>();
+        UIButtonListener uIButtonListener = productObjectButton.GetComponentInChildren<UIButtonListener>();
         uIButtonEvent.AddUIListener(uIButtonListener);
 
         return productObjectButton;
@@ -436,6 +469,7 @@ public class UIManager : Singleton<UIManager>
 
     // 도시 선택했을 때 호출
     // 생산 가능한 건물, 유닛 최신화
+    // 도시의 생산력에 따라 남은 턴수 표시
     public void UpdateCityProductPanelData(Territory territory)
     {
         // 연구 진행으로 추가된 건물 표시
@@ -446,4 +480,10 @@ public class UIManager : Singleton<UIManager>
         // 생산 불가능한 유닛들은 표시하지 않음
     }
     #endregion
+
+    // TODO Sprite[] LoadAllSprite(path)
+    Sprite[] LoadAllSprite(string path)
+    {
+        return Resources.LoadAll<Sprite>(path);
+    }
 }
