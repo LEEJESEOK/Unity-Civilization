@@ -11,8 +11,8 @@ public enum Non_CombatUnitType
 public class NonCombatUnit : Unit
 {
     public Non_CombatUnitType non_CombatUnitType;
-    //public Facility facility;
 
+    //public Facility facility;
     public int buildCount;
 
     //unit tilePos

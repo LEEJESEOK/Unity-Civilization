@@ -77,6 +77,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
             //     HYO_ConstructManager.instance.SetDistrictInfo(District.INDUSTRIALZONE);
             //     break;
             case UIButtonId.BUILD_DISTRICT:
+                HYO_ConstructManager.instance.SetDistrictInfo(District.CAMPUS);
                 break;
             case UIButtonId.PRODUCT_UNIT:
                 break;
@@ -116,6 +117,6 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
 
     public void SelectCityProduct(InGameObjectId objectId)
     {
-        
+
     }
 }
