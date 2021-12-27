@@ -14,7 +14,7 @@ public class WorldOutPut
 }
 
 
-public class HYO_ConstructManager : Singleton<HYO_ConstructManager> 
+public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 {
     // test
     public int TEST_REMAIN_PRODUCT = 54;
@@ -105,40 +105,14 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                 fd = tileTemp.GetComponent<FacilityData>();
 
             }
-            else if (SelectCity())
-            {
-                //selectTile:
-                //if (tileTemp != null && SelectTile())
-                //{
-                //    for (int i = 0; i < cityTemp.data.Count; i++)
-                //    {
-                //        if (cityTemp.data[i].gameObject == tileTemp.gameObject)
-                //        {
-                //            fd = tileTemp.GetComponent<FacilityData>();
-                //            td = tileTemp.GetComponent<TerrainData>();
+            else
+                SelectCity();
+        }
 
-                //            for (int j = 0; j < cityTemp.data.Count; j++)
-                //            {
-                //                cityTemp.data[j].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
-                //            }
 
-                //            if (fd.district != District.NONE || td.myCenter.GetComponent<Territory>().distric_limit == false)
-                //            {
-                //                tileTemp = null;
-                //                print("!:특수지구 건설 불가");
-                //            }
-                //        }
-                //        else
-                //        {
-                //            tileTemp = null;
-                //            print("!:영토 아님");
-                //        }
-                //    }
-                //}
-                //else
-                //    goto selectTile;
-
-            }
+        if (cityTemp != null)
+        {
+            SelectTile(cityTemp);
         }
 
         TileInfoPopUp();
@@ -177,7 +151,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             return false;
 
     }
-    public bool SelectCity()
+    public void SelectCity()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -195,49 +169,55 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                 cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
             }
 
-            return true;
+            SelectTile(cityTemp);
         }
-        else
-            return false;
+
     }
-    public bool SelectTile()
+    public void SelectTile(Territory cityTemp)
     {
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
+        if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
         {
-            if (hit.transform.GetComponent<Territory>() == null)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
             {
-                for (int i = 0; i < cityTemp.data.Count; i++)
+                if (hit.transform.GetComponent<Territory>() == null)
                 {
-                    if (cityTemp.data[i].gameObject == hit.transform.gameObject)
+                    for (int i = 0; i < cityTemp.data.Count; i++)
                     {
-                        tileTemp = hit.transform;
+                        if (cityTemp.data[i].gameObject == hit.transform.gameObject)
+                        {
+                            tileTemp = hit.transform;
+
+                            fd = tileTemp.GetComponent<FacilityData>();
+                            td = tileTemp.GetComponent<TerrainData>();
+
+                            for (int j = 0; j < cityTemp.data.Count; j++)
+                            {
+                                cityTemp.data[j].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+                            }
+
+                            if (fd.district != District.NONE || td.myCenter.GetComponent<Territory>().distric_limit == false)
+                            {
+                                tileTemp = null;
+                                print("!:특수지구 건설 불가");
+                            }
+                         
+
+
+                        }
+                        //else
+                        //{
+                        //    tileTemp = null;
+                        //    print("!:영토 아님");
+                        //}
                     }
+
+                    this.cityTemp = null;
                 }
             }
-
-            int layerNum = hit.transform.gameObject.layer;
-            layerNum = LayerMask.GetMask(LayerMask.LayerToName(layerNum));
-
-            if (layerNum == layerGrassLand || layerNum == layerPlains)
-            {
-                bool isHillis = hit.transform.gameObject.GetComponent<TerrainData>().isHills;
-                if (isHillis)
-                {
-                    //버튼끄기
-                }
-                else
-                {
-                    //버튼끄기
-                }
-            }
-            return true;
         }
-        else
-            return false;
     }
 
 
@@ -246,7 +226,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     {
 
         Collider[] centers = Physics.OverlapSphere(tileTemp.position, 1, ~fogLayer & ~layerUnit);
-        
+
         for (int i = 0; i < centers.Length; i++)
         {
 
@@ -366,7 +346,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         empty.transform.position = pos.position;
         empty.transform.localPosition = new Vector3(0, 0.179f, 0);
         empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
- 
+
     }
 
 
