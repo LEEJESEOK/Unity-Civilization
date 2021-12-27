@@ -44,7 +44,6 @@ public class NonCombatUnit : Unit
             if (buildCount == 3)
             {
                 //FOV 제거
-
                 Destroy(gameObject);
             }
         }

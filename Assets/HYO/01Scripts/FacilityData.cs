@@ -50,7 +50,6 @@ public class FacilityData : MonoBehaviour
         {
             case District.CAMPUS:
                 iconNum = 0;
-                //districtInput = new DistrictInPut(54, 1);
                 terrainData.output.science = terrainData.myCenter.GetComponent<Territory>().population * 2;
                 break;
             case District.COMMERCAILHUB:
@@ -88,10 +87,4 @@ public class FacilityData : MonoBehaviour
         }
     }
 
-
-    public void Constr_Condition()
-    {
-        //int resize = (terrainData.myCenter.GetComponent<Territory>().population * 3) - 2;
-        //Array.Resize(ref districtOn, resize);
-    }
 }

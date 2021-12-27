@@ -67,6 +67,12 @@ public class UIManager : Singleton<UIManager>
     Vector2 prevMousePosition;
     bool isLeftPressed;
 
+    //TileInfo UI
+    public GameObject tileInfo;
+    public Vector3 mousePos;
+    public float popupTime = 2;
+    public float currentTime;
+    bool isOpenPopup;
 
     // Start is called before the first frame update
     void Start()
@@ -107,8 +113,60 @@ public class UIManager : Singleton<UIManager>
             }
             #endregion
         }
-    }
 
+        TileInfoPopUp();
+    }
+    public void TileInfoPopUp()
+    {
+        if (Camera.main == null)
+        {
+            return;
+        }
+
+        Ray rayPoint = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitInfo;
+
+        /* 
+           1.1 만약 마우스가 움직이지 않는다면
+              2. 만약 2초가 흘렀다면
+              3. 마우스의 위치에 타일이 있는지 검사하고싶다.
+              4. 만약 타일이 있다면 팝업을 띄우고싶다.
+          1.2 그렇지않고 팝업을 보여주는 중이라면 팝업을 끄고싶다.
+        */
+
+        if (isOpenPopup == false)
+            mousePos = Input.mousePosition;
+
+
+        if (Physics.Raycast(rayPoint, out hitInfo, 1000, HYO_ConstructManager.instance.layerMask))
+        {
+            if (mousePos == Input.mousePosition)
+            {
+                currentTime += Time.deltaTime;
+                if (currentTime > popupTime)
+                {
+                    isOpenPopup = true;
+
+                    Transform tileTemp = hitInfo.transform;
+                    if (tileTemp.GetComponent<TerrainData>() != null && !UIManager.IsPointerOverUIObject())
+                    {
+                        tileTemp.GetComponent<TerrainData>().ShowTileInfo();
+                        tileInfo.transform.position = new Vector3(mousePos.x, mousePos.y);
+                        tileInfo.SetActive(true);
+                    }
+                    currentTime = 0;
+
+                }
+            }
+            else if (tileInfo.activeSelf == true)
+            {
+                isOpenPopup = false;
+
+                tileInfo.SetActive(false);
+            }
+
+        }
+    }
     public static void ResizeLayoutGroup(GameObject layoutObject)
     {
         LayoutGroup[] layoutGroups = layoutObject.GetComponentsInChildren<LayoutGroup>();
@@ -393,4 +451,6 @@ public class UIManager : Singleton<UIManager>
     {
 
     }
+
+
 }

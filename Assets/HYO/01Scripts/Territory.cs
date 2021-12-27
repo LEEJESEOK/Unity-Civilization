@@ -194,6 +194,12 @@ public class Territory : MonoBehaviour
             population += 1;
         }
     }
+    //public void Constr_Condition()
+    //{
+    //    int resize = (population * 3) - 2;
+    //    Array.Resize(ref districtOn, resize);
+    //}
+
     void Update()
     {
         RequestedFood();

@@ -1272,6 +1272,10 @@ MonoBehaviour:
   goldObjectButtonPrefab: {fileID: 8262429042791035337, guid: 25c919b9473e1c14d82403c9f2b41229, type: 3}
   productContent: {fileID: 0}
   goldContent: {fileID: 0}
+  tileInfo: {fileID: 1864589260}
+  mousePos: {x: 0, y: 0, z: 0}
+  popupTime: 3
+  currentTime: 0
 --- !u!114 &172745853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9680,10 +9684,6 @@ MonoBehaviour:
   - {x: 0.169, y: 0.105, z: 0.308}
   - {x: 0.051, y: 0.105, z: 0.107}
   - {x: 0.302, y: 0.105, z: 0.111}
-  tileInfo: {fileID: 1864589260}
-  mousePos: {x: 0, y: 0, z: 0}
-  popupTime: 2
-  currentTime: 0
   tileTemp: {fileID: 0}
   centerCheck: {fileID: 0}
   isUnitSelected: 0
@@ -9692,6 +9692,7 @@ MonoBehaviour:
   isFirst: 0
   selectTile: 0
   cityTemp: {fileID: 0}
+  layerMask: 0
 --- !u!4 &1142719484
 Transform:
   m_ObjectHideFlags: 0
@@ -14082,6 +14083,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: b813b7681b0bf9b4181633bc098ca739, type: 2}
   - {fileID: 2100000, guid: cf1fa6c73dc509448863697c25254027, type: 2}
   - {fileID: 2100000, guid: 26fed0ad2288580409bf94257121cd0f, type: 2}
+  playerColor:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0.43080854, b: 1, a: 0}
+  - {r: 0.4433962, g: 0.32932007, b: 0.23633854, a: 0}
+  - {r: 0.10194911, g: 0.745283, b: 0.11493296, a: 0}
+  - {r: 0.9245283, g: 0.37068352, b: 0.7917948, a: 0}
+  - {r: 0.44110078, g: 0.28595585, b: 0.9622642, a: 0}
+  - {r: 0.8584906, g: 0.10933607, b: 0.10933607, a: 0}
+  - {r: 1, g: 0.39462644, b: 0, a: 0}
+  - {r: 1, g: 1, b: 1, a: 0}
+  - {r: 1, g: 0.7864005, b: 0.023584902, a: 0}
 --- !u!4 &1844164107
 Transform:
   m_ObjectHideFlags: 0

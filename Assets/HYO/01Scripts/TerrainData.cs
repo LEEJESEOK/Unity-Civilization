@@ -224,13 +224,19 @@ public class TerrainData : MonoBehaviour
         tileInfoText.text += "행동력:" + output.movePower.ToString() + System.Environment.NewLine;
         tileInfoText.text += output.food.ToString() + "식량" + System.Environment.NewLine;
         tileInfoText.text += output.productivity.ToString() + "생산력" + System.Environment.NewLine;
-        //if (facilityData.districtOn.Length > 0)
+        //if (facilityData.
+        //.Length > 0)
         //    tileInfoText.text += "건물:";
         //for (int i = 0; i < facilityData.districtOn.Length; ++i)
         //    tileInfoText.text +=
         //tileInfoText.text += "건물:" + "/n-" + facilityData.districtOn[0].gameObject.name.ToString() + "-" + facilityData.districtOn[1].gameObject.name.ToString() + "-" + facilityData.districtOn[2].gameObject.name.ToString();
     }
 
+    public Material[] tileMats;
+    public void SetTileType()
+    {
+
+    }
 
     private void Update()
     {
