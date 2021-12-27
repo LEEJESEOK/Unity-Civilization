@@ -1,8 +1,6 @@
-using System.Collections;
 
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MapManager : Singleton<MapManager>
 {
@@ -24,6 +22,7 @@ public class MapManager : Singleton<MapManager>
 
     JKH_Node temp;
 
+    public Unit unitInfo;
 
     public bool ableToMove = false;
 
@@ -31,18 +30,22 @@ public class MapManager : Singleton<MapManager>
     {
         terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
         InitNodeMap(); //前 createGrid
-        CheckUnit();
+        //CheckUnit_test();
     }
 
     void Update()
     {
+        //InitNodeMap();
         //set
         getUnitInfo();
         SelectedUnitMove();
     }
 
+    // 목표지점 좌표 변수로 받음
+    int targetX, targetY;
     void InitNodeMap()
     {
+        
         if (nodeMap != null)
             nodeMap.Clear();
         else
@@ -54,7 +57,7 @@ public class MapManager : Singleton<MapManager>
 
             TerrainType terrainType = data.terrainType;
             bool walkable = false;
-
+            #region todo
             //유닛아래에있는 타일들은 못지나감 + 임의로 EnemyUnit설정
             //1. 유닛 밑에있는 타일의 정보들을 가져온다.
             //2. 가져온 타일의 정보를 담아둔다(List)
@@ -62,8 +65,7 @@ public class MapManager : Singleton<MapManager>
             //표시해주는 단계에서 추가할내용
             //4. 검사범위 안에있는(overlapSphere) 하나씩 true해주면서 그 위치를 갈 수 있는지 검사 
             //5. 갈수있다면 표시, 그렇지 않다면 표시안함.
-            
-            
+            #endregion
             LayerMask unitLayer = LayerMask.GetMask("EnemyUnit");
 
 
@@ -80,7 +82,54 @@ public class MapManager : Singleton<MapManager>
 
             JKH_Node node = new JKH_Node(walkable, data.transform.position, data.x, data.y, data.output.movePower);
             nodeMap.Add(node);
+
         }
+
+        //1223 함수만든다        
+        RaycastHit hitInfo;
+        for (int j = 0; j < terrainDataMap.Count; j++)
+        {
+            bool walkable;
+            int mapX = terrainDataMap[j].x;
+            int mapY = terrainDataMap[j].y;
+            TerrainData data = terrainDataMap[(mapY * mapWidth) + mapX];      
+
+            TerrainType terrainType = data.terrainType;
+
+            Ray ray = new Ray(terrainDataMap[j].transform.position, transform.up);
+            LayerMask layer = LayerMask.GetMask("Unit");
+            // 타일에 유닛이 있는지 검사
+            // 목표지점에 유닛이 있는 경우는 제외
+                // x,y 에 유닛 검사하는 코드 생략 continue
+            if (Physics.Raycast(ray, out hitInfo, 5, layer))
+            {
+                //
+
+                //
+                unitInfo = hitInfo.transform.gameObject.GetComponent<Unit>();
+                //결과 출력 
+                print(unitInfo.name);
+                walkable = false;
+                print(terrainDataMap[j].x + ", " + terrainDataMap[j].y);
+
+
+                if (true) //목표지점이 유닛이있다면? 
+                {
+                    //어떤걸 제외>?
+                }
+
+                //위와동일.(맞나?)
+                JKH_Node node = new JKH_Node(walkable, data.transform.position, data.x, data.y, data.output.movePower);
+                nodeMap.Add(node);
+            }
+
+
+
+        }
+        //-------
+
+
+
     }
     //다시 푼다
     //void InitNodeMap(Vector2 target = null)
@@ -535,11 +584,11 @@ public class MapManager : Singleton<MapManager>
     //임의 변수
     public int unitDmg = 26;
     public int enemyDmg = 25;
-    float damageDealt;    
-    
+    float damageDealt;
+
     public void UnitCombat()
     {
-        
+
         //Todo
         //상성계산, 
         float rand = Random.Range(8.0f, 1.2f);
@@ -548,38 +597,25 @@ public class MapManager : Singleton<MapManager>
     }
 
     //
-    public void CheckUnit()
+
+
+
+    //List<NonCombatUnit> unitPos = new List<NonCombatUnit>();
+    public void CheckUnit_test()
     {
+        GameObject[] unitPos = GameObject.FindGameObjectsWithTag("Unit");
 
-        int unitLayer = LayerMask.GetMask("Unit");
-        //게임씬에있는 ㄴ유닛을 갖는다 - 리스트로 저장
-        //리스트 수만큼 for문돌린다
-        for (int i = 0; i < terrainDataMap.Count; ++i)
+        for (int i = 0; i < unitPos.Length; i++)
         {
-            //TerrainData data = terrainDataMap[i];      
-            if (Physics.OverlapSphere(terrainDataMap[i].transform.position, .2f, unitLayer) != null)
-            {
-                
-                //유닛이 있다면 print 한다
-                print("좌표=" + terrainDataMap[i].x + ", " + terrainDataMap[i].y);
-            }
-        }       
-        
-    }
-
-    public void CheckUnit__Test()
-    {
-        RaycastHit hit;
-        Ray ray = new Ray(transform.position, transform.up);
-
-        for (int i = 0; i < terrainDataMap.Count; i++)
-        {
-            
+            print("x: " + unitPos[i].GetComponent<NonCombatUnit>().posX
+                + " y: " + unitPos[i].GetComponent<NonCombatUnit>().posY);
         }
+
+
     }
 }
 
-            
 
-            
-            
+
+
+

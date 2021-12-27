@@ -217,9 +217,10 @@ GameObject:
   - component: {fileID: 30897479}
   - component: {fileID: 30897481}
   - component: {fileID: 30897480}
+  - component: {fileID: 30897482}
   m_Layer: 22
   m_Name: Unit 1
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -269,6 +270,27 @@ CapsuleCollider:
   m_Height: 0.4
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &30897482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30897478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828f868569880b44e83c469f88defdf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerId: 0
+  isSelected: 0
+  movePower: 2
+  hp: 100
+  non_CombatUnitType: 0
+  buildCount: 0
+  myTilePos: {fileID: 0}
+  posX: 0
+  posY: 0
 --- !u!1 &102995277
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +851,7 @@ MonoBehaviour:
   selectedUnit: {fileID: 0}
   mapWidth: 10
   mapHeight: 10
+  unitInfo: {fileID: 0}
   ableToMove: 0
   movePower: 0
   myTilePos: {fileID: 0}
@@ -1591,9 +1614,10 @@ GameObject:
   - component: {fileID: 2062851545}
   - component: {fileID: 2062851544}
   - component: {fileID: 2062851543}
+  - component: {fileID: 2062851546}
   m_Layer: 22
-  m_Name: Unit 1 (1)
-  m_TagString: Untagged
+  m_Name: Unit 2
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1636,10 +1660,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062851542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.615, y: -0.7, z: -2.26}
+  m_LocalPosition: {x: -1.615, y: -0.7, z: -2.146}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 545779235}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2062851546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062851542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828f868569880b44e83c469f88defdf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerId: 0
+  isSelected: 0
+  movePower: 2
+  hp: 100
+  non_CombatUnitType: 0
+  buildCount: 0
+  myTilePos: {fileID: 0}
+  posX: 0
+  posY: 0
