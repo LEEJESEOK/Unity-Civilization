@@ -12,7 +12,6 @@ public class NonCombatUnit : Unit
 {
     public Non_CombatUnitType non_CombatUnitType;
 
-    //public Facility facility;
     public int buildCount;
 
     //unit tilePos
@@ -31,6 +30,11 @@ public class NonCombatUnit : Unit
             default:
                 break;
         }
+    }
+
+    private void Start()
+    {
+        CheckMyPos();
     }
 
     private void Update()

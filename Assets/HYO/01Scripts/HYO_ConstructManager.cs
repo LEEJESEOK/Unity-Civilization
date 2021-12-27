@@ -203,9 +203,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                                 tileTemp = null;
                                 print("!:특수지구 건설 불가");
                             }
-                         
-
-
                         }
                         //else
                         //{
