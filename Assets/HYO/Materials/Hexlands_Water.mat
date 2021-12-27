@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Hexlands_Stone_Low
+  m_Name: Hexlands_Water
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 2068fbed82f584647a797a05fad7c94a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 20d63799dfb5bd24bb85c81c1fe3f576, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -39,11 +39,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: fde4586b0a717104f82ef93596259d24, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5674dc701ce9fe440a8acea8c4785be0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: d42e68ddf6c70c74fab32662fca87e1e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 51fd33fbb776dc24b9cd9f186f83aac3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -59,7 +59,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _GlossMapScale: 0.908
+    - _GlossMapScale: 0.959
     - _Glossiness: 0.19
     - _GlossyReflections: 1
     - _Metallic: 0.1

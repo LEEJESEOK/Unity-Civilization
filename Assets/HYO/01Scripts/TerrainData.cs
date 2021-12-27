@@ -16,6 +16,7 @@ public enum TerrainType
     Coast,
     Ocean,
 }
+
 //지형특성
 public enum Feature
 {
@@ -113,6 +114,8 @@ public class TerrainData : MonoBehaviour
     public int length = 50;
 
     public int x, y;
+
+    public Material[] tileMats;
 
     private void Awake()
     {
@@ -232,15 +235,6 @@ public class TerrainData : MonoBehaviour
         //tileInfoText.text += "건물:" + "/n-" + facilityData.districtOn[0].gameObject.name.ToString() + "-" + facilityData.districtOn[1].gameObject.name.ToString() + "-" + facilityData.districtOn[2].gameObject.name.ToString();
     }
 
-    public Material[] tileMats;
-    public void SetTileType()
-    {
 
-    }
-
-    private void Update()
-    {
-
-    }
 
 }
