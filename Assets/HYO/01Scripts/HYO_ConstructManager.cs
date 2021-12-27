@@ -174,6 +174,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     }
     public void SelectTile(Territory cityTemp)
+
+
     {
         if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
         {
