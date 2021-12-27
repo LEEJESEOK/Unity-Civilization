@@ -9820,12 +9820,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828f868569880b44e83c469f88defdf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerId: 0
+  isSelected: 0
+  movePower: 2
+  hp: 100
   non_CombatUnitType: 10001
   buildCount: 0
   myTilePos: {fileID: 0}
   posX: 0
   posY: 0
-  playerId: 0
 --- !u!136 &1121405426
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9852,6 +9855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca338b24d617664b8aabe80d8a8e0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerId: 0
   isSelected: 0
   movePower: 2
   hp: 100
@@ -19065,7 +19069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1506924489222170, guid: dc71f2c975802cd4d96ca38942f7ac1c, type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 4846114586612356, guid: dc71f2c975802cd4d96ca38942f7ac1c, type: 3}
       propertyPath: m_RootOrder

@@ -4,6 +4,7 @@
             "id": 40000,
             "name": "Pottery",
             "korean": "도예",
+            "koreanDesc": "",
             "researchCost": 25,
             "remainCost": 25,
             "isResearched": false,
@@ -14,6 +15,7 @@
             "id": 40001,
             "name": "Animal Husbandry",
             "korean": "목축업",
+            "koreanDesc": "",
             "researchCost": 25,
             "remainCost": 25,
             "isResearched": false,
@@ -24,16 +26,20 @@
             "id": 40002,
             "name": "Mining",
             "korean": "채광",
+            "koreanDesc": "",
             "researchCost": 25,
             "remainCost": 25,
             "isResearched": false,
-            "unlockObjectId": [],
+            "unlockObjectId": [
+                20001
+            ],
             "requireTechId": []
         },
         {
             "id": 40003,
             "name": "Irrigation",
             "korean": "관개",
+            "koreanDesc": "",
             "researchCost": 50,
             "remainCost": 50,
             "isResearched": false,
@@ -46,10 +52,13 @@
             "id": 40004,
             "name": "Writing",
             "korean": "문자",
+            "koreanDesc": "",
             "researchCost": 50,
             "remainCost": 50,
             "isResearched": false,
-            "unlockObjectId": [],
+            "unlockObjectId": [
+                30000
+            ],
             "requireTechId": [
                 40000
             ]
@@ -58,10 +67,13 @@
             "id": 40005,
             "name": "Archery",
             "korean": "궁술",
+            "koreanDesc": "",
             "researchCost": 50,
             "remainCost": 50,
             "isResearched": false,
-            "unlockObjectId": [],
+            "unlockObjectId": [
+                10005
+            ],
             "requireTechId": [
                 40001
             ]
@@ -70,6 +82,7 @@
             "id": 40006,
             "name": "Masonry",
             "korean": "석조 기술",
+            "koreanDesc": "",
             "researchCost": 80,
             "remainCost": 80,
             "isResearched": false,
@@ -81,11 +94,14 @@
         {
             "id": 40007,
             "name": "Bronze Working",
-            "korean": "청동 기술",
+            "korean": "",
+            "koreanDesc": "청동 기술",
             "researchCost": 80,
             "remainCost": 80,
             "isResearched": false,
-            "unlockObjectId": [],
+            "unlockObjectId": [
+                10006
+            ],
             "requireTechId": [
                 40002
             ]
@@ -94,10 +110,13 @@
             "id": 40008,
             "name": "Wheel",
             "korean": "바퀴",
+            "koreanDesc": "",
             "researchCost": 80,
             "remainCost": 80,
             "isResearched": false,
-            "unlockObjectId": [],
+            "unlockObjectId": [
+                10007
+            ],
             "requireTechId": [
                 40002
             ]
@@ -106,10 +125,13 @@
             "id": 41000,
             "name": "Currency",
             "korean": "화폐",
+            "koreanDesc": "",
             "researchCost": 144,
             "remainCost": 144,
             "isResearched": false,
-            "unlockObjectId": [],
+            "unlockObjectId": [
+                30001
+            ],
             "requireTechId": [
                 40004
             ]
@@ -118,6 +140,7 @@
             "id": 41001,
             "name": "Horseback Riding",
             "korean": "기마술",
+            "koreanDesc": "",
             "researchCost": 144,
             "remainCost": 144,
             "isResearched": false,
@@ -130,6 +153,7 @@
             "id": 41002,
             "name": "Iron Working",
             "korean": "철제 기술",
+            "koreanDesc": "",
             "researchCost": 144,
             "remainCost": 144,
             "isResearched": false,
@@ -142,6 +166,7 @@
             "id": 41003,
             "name": "Mathematics",
             "korean": "수학",
+            "koreanDesc": "",
             "researchCost": 240,
             "remainCost": 240,
             "isResearched": false,
@@ -154,6 +179,7 @@
             "id": 41004,
             "name": "Construction",
             "korean": "건축",
+            "koreanDesc": "",
             "researchCost": 240,
             "remainCost": 240,
             "isResearched": false,
@@ -167,6 +193,7 @@
             "id": 41005,
             "name": "Engineering",
             "korean": "공학",
+            "koreanDesc": "",
             "researchCost": 240,
             "remainCost": 240,
             "isResearched": false,
@@ -179,6 +206,7 @@
             "id": 42000,
             "name": "Military Tactics",
             "korean": "군사 전술",
+            "koreanDesc": "",
             "researchCost": 360,
             "remainCost": 360,
             "isResearched": false,
@@ -191,10 +219,13 @@
             "id": 42001,
             "name": "Apprenticeship",
             "korean": "도제제도",
+            "koreanDesc": "",
             "researchCost": 360,
             "remainCost": 360,
             "isResearched": false,
-            "unlockObjectId": [],
+            "unlockObjectId": [
+                30002
+            ],
             "requireTechId": [
                 41000,
                 41001
@@ -204,6 +235,7 @@
             "id": 42002,
             "name": "Machinery",
             "korean": "기계",
+            "koreanDesc": "",
             "researchCost": 360,
             "remainCost": 360,
             "isResearched": false,
@@ -217,6 +249,7 @@
             "id": 42003,
             "name": "Education",
             "korean": "교육",
+            "koreanDesc": "",
             "researchCost": 468,
             "remainCost": 468,
             "isResearched": false,
@@ -230,6 +263,7 @@
             "id": 42004,
             "name": "Stirrups",
             "korean": "등자",
+            "koreanDesc": "",
             "researchCost": 468,
             "remainCost": 468,
             "isResearched": false,
@@ -242,6 +276,7 @@
             "id": 42005,
             "name": "Military Engineering",
             "korean": "군사 공학",
+            "koreanDesc": "",
             "researchCost": 468,
             "remainCost": 468,
             "isResearched": false,
@@ -254,6 +289,7 @@
             "id": 42006,
             "name": "Castles",
             "korean": "성",
+            "koreanDesc": "",
             "researchCost": 468,
             "remainCost": 468,
             "isResearched": false,
@@ -266,6 +302,7 @@
             "id": 43000,
             "name": "Mass Production",
             "korean": "대량 생산",
+            "koreanDesc": "",
             "researchCost": 720,
             "remainCost": 720,
             "isResearched": false,
@@ -279,6 +316,7 @@
             "id": 43001,
             "name": "Banking",
             "korean": "은행업",
+            "koreanDesc": "",
             "researchCost": 720,
             "remainCost": 720,
             "isResearched": false,
@@ -292,6 +330,7 @@
             "id": 43002,
             "name": "Printing",
             "korean": "인쇄술",
+            "koreanDesc": "",
             "researchCost": 720,
             "remainCost": 720,
             "isResearched": false,
@@ -304,6 +343,7 @@
             "id": 43003,
             "name": "Gunpowder",
             "korean": "화약",
+            "koreanDesc": "",
             "researchCost": 720,
             "remainCost": 720,
             "isResearched": false,
@@ -318,6 +358,7 @@
             "id": 43004,
             "name": "Siege Tactics",
             "korean": "공성 전략",
+            "koreanDesc": "",
             "researchCost": 730,
             "remainCost": 730,
             "isResearched": false,
@@ -330,6 +371,7 @@
             "id": 43005,
             "name": "Metal Casting",
             "korean": "주조",
+            "koreanDesc": "",
             "researchCost": 730,
             "remainCost": 730,
             "isResearched": false,
@@ -342,6 +384,7 @@
             "id": 43006,
             "name": "Astronomy",
             "korean": "천문학",
+            "koreanDesc": "",
             "researchCost": 730,
             "remainCost": 730,
             "isResearched": false,

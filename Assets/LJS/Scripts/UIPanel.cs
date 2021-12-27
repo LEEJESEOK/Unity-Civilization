@@ -7,7 +7,7 @@ public class UIPanel : MonoBehaviour
 {
     public string panelName;
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         UIManager.ResizeLayoutGroup(gameObject);
     }

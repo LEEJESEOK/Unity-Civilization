@@ -27,29 +27,31 @@ public class Player : MonoBehaviour
             info.science = GameManager.instance.testStartScience;
         }
 
-        for (int i = 0; i < TechnologyManager.instance.technologies.Count; ++i)
+        for (int i = 0; i < TechnologyDataManager.instance.technologies.Count; ++i)
         {
-            Technology technology = new Technology(TechnologyManager.instance.technologies[i]);
+            Technology technology = new Technology(TechnologyDataManager.instance.technologies[i]);
             info.technologies.Add(technology);
         }
 
         for (int i = 0; i < GameManager.instance.initialUnits.Count; ++i)
         {
-            GameObject unit = Instantiate(GameManager.instance.initialUnits[i]);
+            GameObject unitObject = Instantiate(GameManager.instance.initialUnits[i]);
+            Unit unit = unitObject.GetComponent<Unit>();
+            unit.playerId = playerId;
+            unit.SetObjectColor();
 
             #region  test
             if (i == 0)
-                unit.transform.position = new Vector3(-1.6f, -0.9f, -0.25f);
+                unitObject.transform.position = new Vector3(-1.6f, -0.9f, -0.25f);
             else
-                unit.transform.position = new Vector3(1.8f, -0.9f, -0.25f);
+                unitObject.transform.position = new Vector3(1.8f, -0.9f, -0.25f);
             #endregion
-            unit.transform.rotation = Quaternion.Euler(0, 180f, 0);
+            unitObject.transform.rotation = Quaternion.Euler(0, 180f, 0);
+            info.units.Add(unitObject);
 
-            info.units.Add(unit);
+            HexFogManager.instance.fieldOfViews.Add(unitObject.GetComponentInChildren<FieldOfView>());
 
-            HexFogManager.instance.fieldOfViews.Add(unit.GetComponentInChildren<FieldOfView>());
-
-            unit.SetActive(false);
+            unitObject.SetActive(false);
         }
     }
 
@@ -115,7 +117,6 @@ public class Player : MonoBehaviour
             tt.DistrictProcess();
             
         }
-
 
         // 선택한 연구 진행(과학량)
         // 완료된 연구 반영
