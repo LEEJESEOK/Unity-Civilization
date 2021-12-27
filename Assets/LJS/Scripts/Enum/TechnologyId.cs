@@ -2,44 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 4xxxx
 public enum TechnologyId
 {
-    Pottery = TypeIdBase.TECHNOLOGY + EraId.Ancient,
-    AnimalHusbandry,
-    Mining,
+    NONE,
+    
+    POTTERY = TypeIdBase.TECHNOLOGY + EraId.ANCIENT,
+    ANIMAL_HUSBANDRY,
+    MINING,
 
-    Irrigation,
-    Writing,
-    Archery,
+    IRRIGATION,
+    WRITING,
+    ARCHERY,
 
-    Masonry,
-    BronzeWorking,
-    Wheel,
+    MASONRY,
+    BRONZE_WORKING,
+    WHEEL,
 
-    Currency = TypeIdBase.TECHNOLOGY + EraId.Classical,
-    HorsebackRiding,
-    IronWorking,
+    CURRENCY = TypeIdBase.TECHNOLOGY + EraId.CLASSICAL,
+    HORSEBACK_RIDING,
+    IRON_WORKING,
 
-    Mathematics,
-    Construction,
-    Engineering,
+    MATHEMATICS,
+    CONSTRUCTION,
+    ENGINEERING,
 
-    MilitaryTactics = TypeIdBase.TECHNOLOGY + EraId.Medieval,
-    Apprenticeship,
-    Machinery,
+    MILITARY_TACTICS = TypeIdBase.TECHNOLOGY + EraId.MEDIEVAL,
+    APPRENTICESHIP,
+    MACHINERY,
 
-    Education,
-    Stirrups,
-    MilitaryEngineering,
-    Castles,
+    EDUCATION,
+    STIRRUPS,
+    MILITARY_ENGINEERING,
+    CASTLES,
 
-    MassProduction = TypeIdBase.TECHNOLOGY + EraId.Renaissance,
-    Baking,
-    Printing,
-    Gunpowder,
+    MASS_PRODUCTION = TypeIdBase.TECHNOLOGY + EraId.RENAISSANCE,
+    BANKING,
+    PRINTING,
+    GUNPOWDER,
 
-    SiegeTactics,
-    MetalCasting,
-    Astronomy
-
+    SIEGE_TACTICS,
+    METAL_CASTING,
+    ASTRONOMY,
 }

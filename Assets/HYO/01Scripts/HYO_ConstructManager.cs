@@ -105,37 +105,14 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                 fd = tileTemp.GetComponent<FacilityData>();
 
             }
-            else if (SelectCity())
-            {
-                if (cityTemp = null) return;
+            else
+                SelectCity();
+        }
 
-                if (SelectTile())
-                {
-                    td = tileTemp.GetComponent<TerrainData>();
-                    fd = tileTemp.GetComponent<FacilityData>();
 
-                    for (int i = 0; i < cityTemp.data.Count; i++)
-                    {
-                        cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
-                    }
-
-                    cityTemp = null;
-
-                    if (tileTemp.GetComponent<TerrainData>().myCenter)
-                    {
-                        if (fd.district != District.NONE || td.myCenter.GetComponent<Territory>().distric_limit == false)
-                        {
-                            tileTemp = null;
-                            print("!:특수지구 건설 불가");
-                        }
-                    }
-                    else
-                    {
-                        tileTemp = null;
-                        print("!:영토 아님");
-                    }
-                }               
-            }
+        if (cityTemp != null)
+        {
+            SelectTile(cityTemp);
         }
 
         TileInfoPopUp();
@@ -174,8 +151,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             return false;
 
     }
-
-    public bool SelectCity()
+    public void SelectCity()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -188,62 +164,66 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
             cityTemp = hit.transform.GetComponentInParent<Territory>();
 
-            for(int i=0; i < cityTemp.data.Count; i++)
+            for (int i = 0; i < cityTemp.data.Count; i++)
             {
                 cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
             }
 
-            return true;
+            SelectTile(cityTemp);
         }
-        else
-            return false;
+
     }
-    public bool SelectTile()
+    public void SelectTile(Territory cityTemp)
     {
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
+        if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
         {
-            if (hit.transform.GetComponent<Territory>() == null)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, float.MaxValue, layerMask))
             {
-                for (int i = 0; i < cityTemp.data.Count; i++)
+                if (hit.transform.GetComponent<Territory>() == null)
                 {
-                    if (cityTemp.data[i].gameObject == hit.transform.gameObject)
+                    for (int i = 0; i < cityTemp.data.Count; i++)
                     {
-                        tileTemp = hit.transform;
+                        if (cityTemp.data[i].gameObject == hit.transform.gameObject)
+                        {
+                            tileTemp = hit.transform;
+
+                            fd = tileTemp.GetComponent<FacilityData>();
+                            td = tileTemp.GetComponent<TerrainData>();
+
+                            for (int j = 0; j < cityTemp.data.Count; j++)
+                            {
+                                cityTemp.data[j].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+                            }
+
+                            if (fd.district != District.NONE || td.myCenter.GetComponent<Territory>().distric_limit == false)
+                            {
+                                tileTemp = null;
+                                print("!:특수지구 건설 불가");
+                            }
+                        }
+                        //else
+                        //{
+                        //    tileTemp = null;
+                        //    print("!:영토 아님");
+                        //}
                     }
+
+                    this.cityTemp = null;
                 }
             }
-
-            int layerNum = hit.transform.gameObject.layer;
-            layerNum = LayerMask.GetMask(LayerMask.LayerToName(layerNum));
-
-            if (layerNum == layerGrassLand || layerNum == layerPlains)
-            {
-                bool isHillis = hit.transform.gameObject.GetComponent<TerrainData>().isHills;
-                if (isHillis)
-                {
-                    //버튼끄기
-                }
-                else
-                {
-                    //버튼끄기
-                }
-            }
-            return true;
         }
-        else
-            return false;
     }
+
 
     //create
     public void CreateTerritory()
     {
 
         Collider[] centers = Physics.OverlapSphere(tileTemp.position, 1, ~fogLayer & ~layerUnit);
-        
+
         for (int i = 0; i < centers.Length; i++)
         {
 
@@ -268,6 +248,12 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
 
         GameObject city = Instantiate(cityGate);
+
+        //SET COLOR
+        MeshRenderer mesh = city.GetComponentInChildren<MeshRenderer>();
+        Material mat = ColorManager.instance.buildingMat[GameManager.instance.currentPlayerId];
+        mesh.material = mat;
+
         city.transform.parent = tileTemp;
         city.transform.position = tileTemp.position;
         city.transform.localPosition = new Vector3(0, 0.1f, 0);
@@ -285,7 +271,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         isUnitSelected = false;
         unitInfo = null;
     }
-
     public void CreateFacility(Facility id)
     {
         if (fd.facility == Facility.NONE)
@@ -294,6 +279,20 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
             tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
             GameObject empty = Instantiate(icons[(int)id + 3]);
+
+
+            //SET COLOR
+            MeshRenderer mesh = empty.GetComponentInChildren<MeshRenderer>();
+            Material mat = ColorManager.instance.buildingMat[GameManager.instance.currentPlayerId];
+            mesh.material = mat;
+
+            List<SkinnedMeshRenderer> skinnedMesh = new List<SkinnedMeshRenderer>(empty.GetComponentsInChildren<SkinnedMeshRenderer>());
+            for (int i = 0; i < skinnedMesh.Count; ++i)
+            {
+                Material skinnedmMat = ColorManager.instance.buildingMat[GameManager.instance.currentPlayerId];
+                skinnedMesh[i].material = skinnedmMat;
+            }
+
             unitInfo.GetComponent<NonCombatUnit>().buildCount += 1;
             Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.gameObject.GetComponent<Territory>();
             //FacilityData fd = tileTemp.GetComponent<FacilityData>();
@@ -328,18 +327,25 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
         tileTemp = null;
     }
-
     public void CreateDistrict(District id, Transform pos)
     {
         GameObject empty = Instantiate(icons[(int)id]);
+
+        //SET COLOR
+        MeshRenderer mesh = empty.GetComponentInChildren<MeshRenderer>();
+        Material mat = ColorManager.instance.buildingMat[GameManager.instance.currentPlayerId];
+        mesh.material = mat;
+
+
         pos.GetComponent<FacilityData>().SetDistrict(id);
         pos.GetComponent<TerrainData>().myCenter.GetComponent<Territory>().AddDistrict(id);
         empty.transform.parent = pos;
         empty.transform.position = pos.position;
         empty.transform.localPosition = new Vector3(0, 0.179f, 0);
         empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
- 
+
     }
+
 
     public void TileInfoPopUp()
     {

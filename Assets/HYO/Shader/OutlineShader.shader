@@ -16,7 +16,7 @@ Shader "Custom/OutlineShader"
 			Pass
 			{
 				Blend SrcAlpha OneMinusSrcAlpha
-				Cull Front // 뒷면만 그리기
+				//Cull Front // 뒷면만 그리기
 				ZWrite Off
 
 				CGPROGRAM
@@ -108,6 +108,7 @@ Shader "Custom/OutlineShader"
 				vertexOutput vert(vertexInput v)
 				{
 					vertexOutput o;
+					//UNITY_INITIALIZE_OUTPUT(v,o);
 					o.pos = UnityObjectToClipPos(v.vertex);
 					o.texcoord.xy = (v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw);
 					return o;

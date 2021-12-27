@@ -10,7 +10,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
     // Start is called before the first frame update
     void Start()
     {
-        listenerList = new List<ButtonListener<UIButtonId>>(GetComponentsInChildren<ButtonListener<UIButtonId>>());
+        listenerList = new List<ButtonListener<UIButtonId>>(GetComponentsInChildren<ButtonListener<UIButtonId>>(true));
         for (int i = 0; i < listenerList.Count; ++i)
             listenerList[i].AddClickCallback(ClickEvent);
 
@@ -31,18 +31,23 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                         break;
                     case ActionState.CHOOSE_TECH_RESEARCH:
                         // Open TechPanel
+                        UIPanelManager.instance.OpenPanel("TECHNOLOGY_PANEL");
                         break;
                     case ActionState.NEXT_UNIT:
+                        // Open UnitPanel
                         break;
                 }
+                break;
+
+            case UIButtonId.CLOSE_CURRENT_PANEL:
+                UIPanelManager.instance.CloseCurrent();
                 break;
 
             case UIButtonId.MENU_TECH:
                 UIPanelManager.instance.OpenPanel("TECHNOLOGY_PANEL");
                 break;
-
-            case UIButtonId.TECH:
-                break;
+            // case UIButtonId.TECH:
+            //     break;
 
             case UIButtonId.MENU:
                 UIPanelManager.instance.OpenPanel("MENU_PANEL");
@@ -54,22 +59,28 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
             case UIButtonId.COMMAND_BUILD_CITY:
                 HYO_ConstructManager.instance.CreateTerritory();
                 break;
-            case UIButtonId.COMMAND_BUILD_FARM:
-                HYO_ConstructManager.instance.CreateFacility(Facility.FARM);
+            // case UIButtonId.COMMAND_BUILD_FARM:
+            //     HYO_ConstructManager.instance.CreateFacility(Facility.FARM);
+            //     break;
+            // case UIButtonId.COMMAND_BUILD_MINE:
+            //     HYO_ConstructManager.instance.CreateFacility(Facility.MINE);
+            //     break;
+            case UIButtonId.COMMAND_BUILD_FACILITY:
                 break;
-            case UIButtonId.COMMAND_BUILD_MINE:
-                HYO_ConstructManager.instance.CreateFacility(Facility.MINE);
+            // case UIButtonId.COMMAND_BUILD_CAMPUS:
+            //         HYO_ConstructManager.instance.SetDistrictInfo(District.CAMPUS);
+            //     break;
+            // case UIButtonId.COMMAND_BUILD_COMMERCIALHUB:
+            //     HYO_ConstructManager.instance.SetDistrictInfo(District.COMMERCAILHUB);
+            //     break;
+            // case UIButtonId.COMMAND_BUILD_INDUSTRIALZONE:
+            //     HYO_ConstructManager.instance.SetDistrictInfo(District.INDUSTRIALZONE);
+            //     break;
+            case UIButtonId.BUILD_DISTRICT:
+                HYO_ConstructManager.instance.SetDistrictInfo(District.CAMPUS);
                 break;
-            case UIButtonId.COMMAND_BUILD_CAMPUS:
-                    HYO_ConstructManager.instance.SetDistrictInfo(District.CAMPUS);
+            case UIButtonId.PRODUCT_UNIT:
                 break;
-            case UIButtonId.COMMAND_BUILD_COMMERCIALHUB:
-                HYO_ConstructManager.instance.SetDistrictInfo(District.COMMERCAILHUB);
-                break;
-            case UIButtonId.COMMAND_BUILD_INDUSTRIALZONE:
-                HYO_ConstructManager.instance.SetDistrictInfo(District.INDUSTRIALZONE);
-                break;
-
         }
     }
 
@@ -102,5 +113,10 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
         GameManager.instance.currentPlayer.info.ongoingTechnology = selectedTech;
         UIManager.instance.UpdateSelectedTechnology(selectedTech);
         print(string.Format("{0} 선택", selectedTech.korean));
+    }
+
+    public void SelectCityProduct(InGameObjectId objectId)
+    {
+
     }
 }

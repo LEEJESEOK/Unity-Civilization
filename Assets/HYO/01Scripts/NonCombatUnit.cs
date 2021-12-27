@@ -7,19 +7,16 @@ public enum Non_CombatUnitType
     Settler = TypeIdBase.UNIT,
     Builder
 }
-public class NonCombatUnit : MonoBehaviour
+
+public class NonCombatUnit : Unit
 {
     public Non_CombatUnitType non_CombatUnitType;
-    //public Facility facility;
 
     public int buildCount;
 
     //unit tilePos
     public GameObject myTilePos;
     public int posX, posY;
-
-    public int playerId;
-
 
 
     public void NonCambatUnitCase()
@@ -33,6 +30,11 @@ public class NonCombatUnit : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void Start()
+    {
+        CheckMyPos();
     }
 
     private void Update()
