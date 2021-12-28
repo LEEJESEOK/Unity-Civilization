@@ -104,10 +104,12 @@ public class TerrainData : MonoBehaviour
     public LayerMask mask;
     public GameObject[] territory = new GameObject[7];
     public GameObject myCenter;
+
     // 언덕유무
     public bool isHills;
-    //TileInfo UI
-    public Text tileInfoText;
+
+    //유닛 확인
+    public bool isUnitOn;
 
     //map index
     public int width = 50;
@@ -219,20 +221,9 @@ public class TerrainData : MonoBehaviour
         }
     }
 
-    public void ShowTileInfo()
+    public void SetTileInfo()
     {
-        tileInfoText.text = terrainType.ToString() + System.Environment.NewLine;
-        tileInfoText.text += "소유자:" + myCenter.ToString() + System.Environment.NewLine;
-
-        tileInfoText.text += "행동력:" + output.movePower.ToString() + System.Environment.NewLine;
-        tileInfoText.text += output.food.ToString() + "식량" + System.Environment.NewLine;
-        tileInfoText.text += output.productivity.ToString() + "생산력" + System.Environment.NewLine;
-        //if (facilityData.
-        //.Length > 0)
-        //    tileInfoText.text += "건물:";
-        //for (int i = 0; i < facilityData.districtOn.Length; ++i)
-        //    tileInfoText.text +=
-        //tileInfoText.text += "건물:" + "/n-" + facilityData.districtOn[0].gameObject.name.ToString() + "-" + facilityData.districtOn[1].gameObject.name.ToString() + "-" + facilityData.districtOn[2].gameObject.name.ToString();
+        UIManager.instance.GetTileInfo(terrainType, myCenter, output.movePower, output.food, output.productivity);
     }
 
 
