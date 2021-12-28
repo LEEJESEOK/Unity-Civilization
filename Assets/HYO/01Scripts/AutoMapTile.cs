@@ -29,7 +29,7 @@ public class AutoMapTile : Singleton<AutoMapTile>
                     GameObject tile = Instantiate(tileFactory);
                     tile.tag = "Map";
 
-                    if (z == 0 || z == length - 1)
+                    if (z == 0 || z == width - 1)
                     {
                         Material[] materials = tile.transform.GetComponent<MeshRenderer>().materials;
                         materials[0] = tileMaterial[0];
@@ -71,7 +71,7 @@ public class AutoMapTile : Singleton<AutoMapTile>
                 float fz = z;
                 if (x % 2 == 1)
                 {
-                    fz += tileSize.y * 0.5f;
+                    fz += tileSize.y * 0.45f;
                 }
                 tile.transform.localPosition = new Vector3(cx + x + gap.x * x, 0, cz + fz + gap.y * z);
             }
