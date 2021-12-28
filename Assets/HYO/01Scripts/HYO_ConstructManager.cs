@@ -28,12 +28,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public GameObject fovPre;
     public Vector3[] iconPos;
 
-    //TileInfo UI
-    public GameObject tileInfo;
-    public Vector3 mousePos;
-    public float popupTime = 3;
-    public float currentTime;
-
     public Transform tileTemp;
     public GameObject centerCheck;
 
@@ -45,7 +39,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     //first city center
     public bool isFirst;
-    bool isOpenPopup;
     public bool selectTile;
     public Territory cityTemp;
 
@@ -64,7 +57,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     int layerUI;
 
     int layerCity;
-    int layerMask;
+    public int layerMask;
 
     void Start()
     {
@@ -115,7 +108,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             SelectTile(cityTemp);
         }
 
-        TileInfoPopUp();
     }
 
 
@@ -166,8 +158,12 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
             for (int i = 0; i < cityTemp.data.Count; i++)
             {
-                cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
+                // 영역 내 외곽선 그리기
+                cityTemp.data[i].gameObject.GetComponent<Outline>().OutlineWidth = 5;
+                // cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
             }
+
+            UIPanelManager.instance.OpenPanel("CITY_PRODUCT_PANEL");
 
             SelectTile(cityTemp);
         }
@@ -193,22 +189,19 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                             fd = tileTemp.GetComponent<FacilityData>();
                             td = tileTemp.GetComponent<TerrainData>();
 
-                            for (int j = 0; j < cityTemp.data.Count; j++)
-                            {
-                                cityTemp.data[j].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
-                            }
-
                             if (fd.district != District.NONE || td.myCenter.GetComponent<Territory>().distric_limit == false)
                             {
                                 tileTemp = null;
                                 print("!:특수지구 건설 불가");
                             }
                         }
-                        //else
-                        //{
-                        //    tileTemp = null;
-                        //    print("!:영토 아님");
-                        //}
+                    }
+
+                    for (int i = 0; i < cityTemp.data.Count; i++)
+                    {
+                        // 그린 외곽선 해제
+                        cityTemp.data[i].gameObject.GetComponent<Outline>().OutlineWidth = 0;
+                        // cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
                     }
 
                     this.cityTemp = null;
@@ -346,56 +339,4 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     }
 
-
-    public void TileInfoPopUp()
-    {
-        if (Camera.main == null)
-        {
-            return;
-        }
-
-        Ray rayPoint = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitInfo;
-
-        /* 
-           1.1 만약 마우스가 움직이지 않는다면
-              2. 만약 2초가 흘렀다면
-              3. 마우스의 위치에 타일이 있는지 검사하고싶다.
-              4. 만약 타일이 있다면 팝업을 띄우고싶다.
-          1.2 그렇지않고 팝업을 보여주는 중이라면 팝업을 끄고싶다.
-        */
-
-        if (isOpenPopup == false)
-            mousePos = Input.mousePosition;
-
-
-        if (Physics.Raycast(rayPoint, out hitInfo, 1000, layerMask))
-        {
-            if (mousePos == Input.mousePosition)
-            {
-                currentTime += Time.deltaTime;
-                if (currentTime > popupTime)
-                {
-                    isOpenPopup = true;
-
-                    Transform tileTemp = hitInfo.transform;
-                    if (tileTemp.GetComponent<TerrainData>() != null && !UIManager.IsPointerOverUIObject())
-                    {
-                        tileTemp.GetComponent<TerrainData>().ShowTileInfo();
-                        tileInfo.transform.position = new Vector3(mousePos.x, mousePos.y);
-                        tileInfo.SetActive(true);
-                    }
-                    currentTime = 0;
-
-                }
-            }
-            else if (tileInfo.activeSelf == true)
-            {
-                isOpenPopup = false;
-
-                tileInfo.SetActive(false);
-            }
-
-        }
-    }
 }

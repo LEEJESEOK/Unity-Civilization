@@ -12,7 +12,9 @@ public class ProductObjectDataManager : Singleton<ProductObjectDataManager>
 {
     public bool isSave;
     public bool isLoad;
-    public string fileName = "ProductObject.json";
+
+    [SerializeField]
+    string fileName = "ProductObject.json";
 
     public List<ProductObject> productObjects;
 
@@ -27,7 +29,7 @@ public class ProductObjectDataManager : Singleton<ProductObjectDataManager>
             isLoad = true;
         }
         #endregion
-        
+
         productObjects = new List<ProductObject>();
 
         #region save
@@ -40,6 +42,7 @@ public class ProductObjectDataManager : Singleton<ProductObjectDataManager>
         if (isLoad)
         {
             LoadProductObjects();
+            UIManager.instance.InitCityProductPanelData(productObjects);
         }
         #endregion
 

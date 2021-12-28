@@ -4,175 +4,175 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -2786315046136067054
-    second: Units256_0
+    second: Settler
   - first:
       213: -2370069333984645535
-    second: Units256_1
+    second: Builder
   - first:
       213: 3483532981826502784
     second: Units256_2
   - first:
       213: -3036438920088304108
-    second: Units256_3
+    second: Trader
   - first:
       213: -9144362486289065821
-    second: Units256_4
+    second: Missionary
   - first:
       213: 1752678118245045397
-    second: Units256_5
+    second: Apostle
   - first:
       213: -3818883775597002592
-    second: Units256_6
+    second: Inquisitor
   - first:
       213: 1522799444369390372
-    second: Units256_7
+    second: Archaeologist
   - first:
       213: 7542565360432463354
-    second: Units256_8
+    second: Great General
   - first:
       213: -5289666059801214312
-    second: Units256_9
+    second: Great Admiral
   - first:
       213: 6902151674436956926
-    second: Units256_10
+    second: Great Engineer
   - first:
       213: 1322455209109282175
-    second: Units256_11
+    second: Great Merchant
   - first:
       213: -8769285477870426220
-    second: Units256_12
+    second: Great Prophet
   - first:
       213: 7182365430295176645
-    second: Units256_13
+    second: Great Scientist
   - first:
       213: -4288487617878062843
-    second: Units256_14
+    second: Great Writer
   - first:
       213: -5390960845482576025
-    second: Units256_15
+    second: Great Artist
   - first:
       213: 6175579374154408178
-    second: Units256_16
+    second: Great Musician
   - first:
       213: 3712497911769277680
-    second: Units256_17
+    second: Spy
   - first:
       213: 1314518521934872809
-    second: Units256_18
+    second: Naturalist
   - first:
       213: 2865566741026415327
-    second: Units256_19
+    second: Scout
   - first:
       213: -6995947469756516592
-    second: Units256_20
+    second: Warrior
   - first:
       213: 4973343868989013299
-    second: Units256_21
+    second: Slinger
   - first:
       213: -1505204373217222023
-    second: Units256_22
+    second: Horseman
   - first:
       213: -3414002619687758027
     second: Units256_23
   - first:
       213: 5401446079449434005
-    second: Units256_24
+    second: War Cart
   - first:
       213: 743932136222197604
-    second: Units256_25
+    second: Eagle Warrior
   - first:
       213: 2659755268351091894
     second: Units256_26
   - first:
       213: 2830064820539488435
-    second: Units256_27
+    second: Galley
   - first:
       213: 474294327889309237
     second: Units256_28
   - first:
       213: -4616451867090494102
-    second: Units256_29
+    second: Archer
   - first:
       213: -143081775028872336
-    second: Units256_30
+    second: Spearman
   - first:
       213: -3715048439902897725
-    second: Units256_31
+    second: Heavy Chariot
   - first:
       213: 4292049490113013013
-    second: Units256_32
+    second: Battering Ram
   - first:
       213: -8282031980268604202
-    second: Units256_33
+    second: Hoplite
   - first:
       213: 3134143931943362465
-    second: Units256_34
+    second: Swordsman
   - first:
       213: 6528631206731941251
     second: Units256_35
   - first:
       213: -7441317764657815364
-    second: Units256_36
+    second: Saka Horse Archer
   - first:
       213: -8844142785404811551
-    second: Units256_37
+    second: Legion
   - first:
       213: -9076365257720800985
     second: Units256_38
   - first:
       213: 4562535862833915139
-    second: Units256_39
+    second: Catapult
   - first:
       213: 8500567832929661172
-    second: Units256_40
+    second: Siege Tower
   - first:
       213: 4032257182645264548
     second: Units256_41
   - first:
       213: -9194910154082832264
-    second: Units256_42
+    second: Maryannu Chariot Archer
   - first:
       213: 488970464410280954
     second: Units256_43
   - first:
       213: 4619242663303475616
-    second: Units256_44
+    second: Berserker
   - first:
       213: 6015192564193067232
-    second: Units256_45
+    second: Knight
   - first:
       213: -4429669089065051866
     second: Units256_46
   - first:
       213: -4512094653713626118
-    second: Units256_47
+    second: Varu
   - first:
       213: -2172053472628274292
-    second: Units256_48
+    second: Mamluk
   - first:
       213: -5623776657739871502
-    second: Units256_49
+    second: Crossbowman
   - first:
       213: 2222089317396847068
-    second: Units256_50
+    second: Crouching Tiger Cannon
   - first:
       213: -3920331742862201664
-    second: Units256_51
+    second: Military Engineer
   - first:
       213: -1065472447321285506
-    second: Units256_52
+    second: Pikeman
   - first:
       213: 6053133024099432380
-    second: Units256_53
+    second: Musketman
   - first:
       213: -8199852248032797518
     second: Units256_54
   - first:
       213: 1413191954910919797
-    second: Units256_55
+    second: Caravel
   - first:
       213: 6574339524174500578
-    second: Units256_56
+    second: Bombard
   - first:
       213: 8070835398443487348
     second: Units256_57
@@ -184,10 +184,10 @@ TextureImporter:
     second: Units256_59
   - first:
       213: 3735329302625043744
-    second: Units256_60
+    second: Field Cannon
   - first:
       213: -497792113079659810
-    second: Units256_61
+    second: Cavalry
   - first:
       213: -3292087441716158920
     second: Units256_62
@@ -199,28 +199,28 @@ TextureImporter:
     second: Units256_64
   - first:
       213: -6444492452107818929
-    second: Units256_65
+    second: Medic
   - first:
       213: -4446375508644841891
-    second: Units256_66
+    second: Ironclad
   - first:
       213: 903607060342717987
     second: Units256_67
   - first:
       213: -9081001366301523522
-    second: Units256_68
+    second: Ranger
   - first:
       213: -4113630336937484209
-    second: Units256_69
+    second: Observation Balloon
   - first:
       213: 96690101396844606
-    second: Units256_70
+    second: Biplane
   - first:
       213: -4924440648228359400
-    second: Units256_71
+    second: Infantry
   - first:
       213: 3977170153223370173
-    second: Units256_72
+    second: Artillery
   - first:
       213: -3328446024614377414
     second: Units256_73
@@ -235,25 +235,25 @@ TextureImporter:
     second: Units256_76
   - first:
       213: -5082768116498996798
-    second: Units256_77
+    second: AT Crew
   - first:
       213: 8478655276023397507
-    second: Units256_78
+    second: Tank
   - first:
       213: -3695843903804736846
-    second: Units256_79
+    second: Fighter
   - first:
       213: 4251006191592301392
     second: Units256_80
   - first:
       213: -7619912522309927248
-    second: Units256_81
+    second: Bomber
   - first:
       213: -4172929051939060512
-    second: Units256_82
+    second: Anti-Air Gun
   - first:
       213: -2421792715306181222
-    second: Units256_83
+    second: Machine Gun
   - first:
       213: -2866673751589875959
     second: Units256_84
@@ -262,40 +262,40 @@ TextureImporter:
     second: Units256_85
   - first:
       213: 1645326957197163149
-    second: Units256_86
+    second: Helicopter
   - first:
       213: 818046583300578777
     second: Units256_87
   - first:
       213: -5102107996351457247
-    second: Units256_88
+    second: Mechanized Infantry
   - first:
       213: -7622083221696518895
-    second: Units256_89
+    second: Rocket Artillery
   - first:
       213: 2044861576906963172
-    second: Units256_90
+    second: Mobile SAM
   - first:
       213: -1633599512155425022
-    second: Units256_91
+    second: Jet Fighter
   - first:
       213: -7863080596073738312
-    second: Units256_92
+    second: Jet Bomber
   - first:
       213: -3403916512829939331
     second: Units256_93
   - first:
       213: -5413364915386767144
-    second: Units256_94
+    second: Modern AT
   - first:
       213: -2923030845324991466
-    second: Units256_95
+    second: Modern Armor
   - first:
       213: -6117746559127597117
-    second: Units256_96
+    second: Warrior Monk
   - first:
       213: 3005135677834589013
-    second: Units256_97
+    second: Guru
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -409,7 +409,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Units256_0
+      name: Settler
       rect:
         serializedVersion: 2
         x: 0
@@ -417,7 +417,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -430,7 +430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_1
+      name: Builder
       rect:
         serializedVersion: 2
         x: 256
@@ -438,7 +438,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -459,7 +459,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -472,7 +472,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_3
+      name: Trader
       rect:
         serializedVersion: 2
         x: 768
@@ -480,7 +480,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -493,7 +493,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_4
+      name: Missionary
       rect:
         serializedVersion: 2
         x: 1024
@@ -501,7 +501,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -514,15 +514,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_5
+      name: Apostle
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 1282
         y: 1792
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -535,7 +535,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_6
+      name: Inquisitor
       rect:
         serializedVersion: 2
         x: 1536
@@ -543,7 +543,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -556,7 +556,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_7
+      name: Archaeologist
       rect:
         serializedVersion: 2
         x: 1792
@@ -564,7 +564,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -577,7 +577,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_8
+      name: Great General
       rect:
         serializedVersion: 2
         x: 2048
@@ -585,7 +585,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -598,7 +598,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_9
+      name: Great Admiral
       rect:
         serializedVersion: 2
         x: 2304
@@ -606,7 +606,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -619,7 +619,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_10
+      name: Great Engineer
       rect:
         serializedVersion: 2
         x: 2560
@@ -627,7 +627,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -640,7 +640,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_11
+      name: Great Merchant
       rect:
         serializedVersion: 2
         x: 2816
@@ -648,7 +648,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -661,7 +661,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_12
+      name: Great Prophet
       rect:
         serializedVersion: 2
         x: 3072
@@ -669,7 +669,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -682,7 +682,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_13
+      name: Great Scientist
       rect:
         serializedVersion: 2
         x: 3328
@@ -690,7 +690,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -703,7 +703,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_14
+      name: Great Writer
       rect:
         serializedVersion: 2
         x: 3584
@@ -711,7 +711,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -724,7 +724,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_15
+      name: Great Artist
       rect:
         serializedVersion: 2
         x: 3840
@@ -732,7 +732,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -745,7 +745,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_16
+      name: Great Musician
       rect:
         serializedVersion: 2
         x: 0
@@ -753,7 +753,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -766,7 +766,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_17
+      name: Spy
       rect:
         serializedVersion: 2
         x: 256
@@ -774,7 +774,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -787,7 +787,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_18
+      name: Naturalist
       rect:
         serializedVersion: 2
         x: 512
@@ -795,7 +795,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -808,7 +808,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_19
+      name: Scout
       rect:
         serializedVersion: 2
         x: 768
@@ -816,7 +816,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -829,7 +829,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_20
+      name: Warrior
       rect:
         serializedVersion: 2
         x: 1024
@@ -837,7 +837,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -850,7 +850,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_21
+      name: Slinger
       rect:
         serializedVersion: 2
         x: 1280
@@ -858,7 +858,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -871,7 +871,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_22
+      name: Horseman
       rect:
         serializedVersion: 2
         x: 1536
@@ -879,7 +879,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -900,7 +900,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -913,7 +913,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_24
+      name: War Cart
       rect:
         serializedVersion: 2
         x: 2048
@@ -921,7 +921,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -934,7 +934,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_25
+      name: Eagle Warrior
       rect:
         serializedVersion: 2
         x: 2304
@@ -942,7 +942,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -963,7 +963,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -976,7 +976,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_27
+      name: Galley
       rect:
         serializedVersion: 2
         x: 2816
@@ -984,7 +984,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1005,7 +1005,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1018,7 +1018,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_29
+      name: Archer
       rect:
         serializedVersion: 2
         x: 3328
@@ -1026,7 +1026,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1039,7 +1039,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_30
+      name: Spearman
       rect:
         serializedVersion: 2
         x: 3584
@@ -1047,7 +1047,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1060,7 +1060,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_31
+      name: Heavy Chariot
       rect:
         serializedVersion: 2
         x: 3840
@@ -1068,7 +1068,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1081,7 +1081,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_32
+      name: Battering Ram
       rect:
         serializedVersion: 2
         x: 0
@@ -1089,7 +1089,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1102,7 +1102,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_33
+      name: Hoplite
       rect:
         serializedVersion: 2
         x: 256
@@ -1110,7 +1110,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1123,7 +1123,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_34
+      name: Swordsman
       rect:
         serializedVersion: 2
         x: 512
@@ -1131,7 +1131,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1152,7 +1152,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1165,7 +1165,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_36
+      name: Saka Horse Archer
       rect:
         serializedVersion: 2
         x: 1024
@@ -1173,7 +1173,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1186,7 +1186,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_37
+      name: Legion
       rect:
         serializedVersion: 2
         x: 1280
@@ -1194,7 +1194,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1215,7 +1215,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1228,7 +1228,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_39
+      name: Catapult
       rect:
         serializedVersion: 2
         x: 1792
@@ -1236,7 +1236,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1249,7 +1249,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_40
+      name: Siege Tower
       rect:
         serializedVersion: 2
         x: 2048
@@ -1257,7 +1257,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1273,12 +1273,12 @@ TextureImporter:
       name: Units256_41
       rect:
         serializedVersion: 2
-        x: 2304
+        x: 2306
         y: 1280
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1291,7 +1291,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_42
+      name: Maryannu Chariot Archer
       rect:
         serializedVersion: 2
         x: 2560
@@ -1299,7 +1299,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1320,7 +1320,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1333,7 +1333,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_44
+      name: Berserker
       rect:
         serializedVersion: 2
         x: 3072
@@ -1341,7 +1341,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1354,7 +1354,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_45
+      name: Knight
       rect:
         serializedVersion: 2
         x: 3328
@@ -1362,7 +1362,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1383,7 +1383,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1396,7 +1396,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_47
+      name: Varu
       rect:
         serializedVersion: 2
         x: 3840
@@ -1404,7 +1404,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1417,7 +1417,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_48
+      name: Mamluk
       rect:
         serializedVersion: 2
         x: 0
@@ -1425,7 +1425,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1438,7 +1438,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_49
+      name: Crossbowman
       rect:
         serializedVersion: 2
         x: 256
@@ -1446,7 +1446,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1459,7 +1459,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_50
+      name: Crouching Tiger Cannon
       rect:
         serializedVersion: 2
         x: 512
@@ -1467,7 +1467,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1480,7 +1480,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_51
+      name: Military Engineer
       rect:
         serializedVersion: 2
         x: 768
@@ -1488,7 +1488,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1501,7 +1501,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_52
+      name: Pikeman
       rect:
         serializedVersion: 2
         x: 1024
@@ -1509,7 +1509,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1522,7 +1522,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_53
+      name: Musketman
       rect:
         serializedVersion: 2
         x: 1280
@@ -1530,7 +1530,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1551,7 +1551,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1564,7 +1564,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_55
+      name: Caravel
       rect:
         serializedVersion: 2
         x: 1792
@@ -1572,7 +1572,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1585,7 +1585,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_56
+      name: Bombard
       rect:
         serializedVersion: 2
         x: 2048
@@ -1593,7 +1593,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1614,7 +1614,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1635,7 +1635,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1656,7 +1656,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1669,7 +1669,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_60
+      name: Field Cannon
       rect:
         serializedVersion: 2
         x: 3072
@@ -1677,7 +1677,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1690,7 +1690,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_61
+      name: Cavalry
       rect:
         serializedVersion: 2
         x: 3328
@@ -1698,7 +1698,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1719,7 +1719,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1740,7 +1740,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1761,7 +1761,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1774,7 +1774,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_65
+      name: Medic
       rect:
         serializedVersion: 2
         x: 256
@@ -1782,7 +1782,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1795,7 +1795,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_66
+      name: Ironclad
       rect:
         serializedVersion: 2
         x: 512
@@ -1803,7 +1803,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1824,7 +1824,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1837,7 +1837,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_68
+      name: Ranger
       rect:
         serializedVersion: 2
         x: 1024
@@ -1845,7 +1845,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1858,7 +1858,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_69
+      name: Observation Balloon
       rect:
         serializedVersion: 2
         x: 1280
@@ -1866,7 +1866,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1879,7 +1879,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_70
+      name: Biplane
       rect:
         serializedVersion: 2
         x: 1536
@@ -1887,7 +1887,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1900,7 +1900,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_71
+      name: Infantry
       rect:
         serializedVersion: 2
         x: 1792
@@ -1908,7 +1908,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1921,7 +1921,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_72
+      name: Artillery
       rect:
         serializedVersion: 2
         x: 2048
@@ -1929,7 +1929,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1950,7 +1950,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1971,7 +1971,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1992,7 +1992,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2013,7 +2013,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2026,7 +2026,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_77
+      name: AT Crew
       rect:
         serializedVersion: 2
         x: 3328
@@ -2034,7 +2034,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2047,7 +2047,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_78
+      name: Tank
       rect:
         serializedVersion: 2
         x: 3584
@@ -2055,7 +2055,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2068,7 +2068,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_79
+      name: Fighter
       rect:
         serializedVersion: 2
         x: 3840
@@ -2076,7 +2076,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2097,7 +2097,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2110,7 +2110,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_81
+      name: Bomber
       rect:
         serializedVersion: 2
         x: 256
@@ -2118,7 +2118,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2131,7 +2131,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_82
+      name: Anti-Air Gun
       rect:
         serializedVersion: 2
         x: 512
@@ -2139,7 +2139,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2152,7 +2152,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_83
+      name: Machine Gun
       rect:
         serializedVersion: 2
         x: 768
@@ -2160,7 +2160,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2181,7 +2181,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2202,7 +2202,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2215,7 +2215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_86
+      name: Helicopter
       rect:
         serializedVersion: 2
         x: 1536
@@ -2223,7 +2223,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2244,7 +2244,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2257,7 +2257,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_88
+      name: Mechanized Infantry
       rect:
         serializedVersion: 2
         x: 2048
@@ -2265,7 +2265,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2278,7 +2278,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_89
+      name: Rocket Artillery
       rect:
         serializedVersion: 2
         x: 2304
@@ -2286,7 +2286,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2299,7 +2299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_90
+      name: Mobile SAM
       rect:
         serializedVersion: 2
         x: 2560
@@ -2307,7 +2307,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2320,7 +2320,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_91
+      name: Jet Fighter
       rect:
         serializedVersion: 2
         x: 2816
@@ -2328,7 +2328,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2341,7 +2341,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_92
+      name: Jet Bomber
       rect:
         serializedVersion: 2
         x: 3072
@@ -2349,7 +2349,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2370,7 +2370,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2383,7 +2383,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_94
+      name: Modern AT
       rect:
         serializedVersion: 2
         x: 3584
@@ -2391,7 +2391,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2404,7 +2404,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_95
+      name: Modern Armor
       rect:
         serializedVersion: 2
         x: 3840
@@ -2412,7 +2412,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2425,7 +2425,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_96
+      name: Warrior Monk
       rect:
         serializedVersion: 2
         x: 0
@@ -2433,7 +2433,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2446,7 +2446,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Units256_97
+      name: Guru
       rect:
         serializedVersion: 2
         x: 256
@@ -2454,7 +2454,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
