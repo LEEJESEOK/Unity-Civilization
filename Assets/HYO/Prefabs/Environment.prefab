@@ -10574,11 +10574,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd8132492926d3e41b2a796262b01e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  makeMap: 0
-  width: 10
-  length: 10
+  makeMap: 1
+  width: 100
+  length: 50
   tileSize: {x: 1, y: 1}
-  gap: {x: -0.15, y: -0.05}
+  gap: {x: -0.25, y: -0.1}
   tileFactory: {fileID: 7559356577450251420, guid: 3008b5bf88439874ba0b6e2f3f489868, type: 3}
   tiles: []
   tileMaterial:
