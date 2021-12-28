@@ -426,7 +426,6 @@ public class UIManager : Singleton<UIManager>
     public void InitSelectedTechnology()
     {
         selectedTechnologyName.text = "연구 선택";
-        // TODO 연구 기본 선택 이미지
         selectedTechnologyImage.sprite = Resources.Load<Sprite>("Image/WhiteCircle");
         Color color = selectedTechnologyImage.color;
         color.a = 0;
@@ -474,45 +473,34 @@ public class UIManager : Singleton<UIManager>
             spriteDict[districtSprites[i].name] = districtSprites[i];
         #endregion
 
-        // product
+        // product tab
         for (int i = 0; i < productObjects.Count; ++i)
         {
-            GameObject productObjectButton = GetCityProductButton(productObjects[i], productObjectButtonPrefab);
+            ProductObject productObject = productObjects[i];
+            GameObject productObjectButton = GetCityProductButton(productObject, productObjectButtonPrefab);
+            GameObject goldObjectButton = GetCityProductButton(productObject, goldObjectButtonPrefab);
 
-            switch (productObjects[i].type)
+
+            switch (productObject.type)
             {
                 case TypeIdBase.DISTRICT:
                     productObjectButton.transform.SetParent(productBuildingContent);
+                    // 골드 생산 목록에서 건물 제외
+                    // goldObjectButton.transform.SetParent(goldBuildingContent);
                     break;
                 case TypeIdBase.UNIT:
                     productObjectButton.transform.SetParent(productUnitContent);
+                    goldObjectButton.transform.SetParent(goldUnitContent);
                     break;
             }
         }
-
-        // gold
-        for (int i = 0; i < productObjects.Count; ++i)
-        {
-            GameObject productObjectButton = GetCityProductButton(productObjects[i], goldObjectButtonPrefab);
-
-            switch (productObjects[i].type)
-            {
-                case TypeIdBase.DISTRICT:
-                    productObjectButton.transform.SetParent(goldBuildingContent);
-                    break;
-                case TypeIdBase.UNIT:
-                    productObjectButton.transform.SetParent(goldUnitContent);
-                    break;
-            }
-        }
-
-
     }
 
     GameObject GetCityProductButton(ProductObject productObject, GameObject buttonPrefab)
     {
         GameObject productObjectButton = Instantiate(buttonPrefab);
         productObjectButton.name = productObject.name;
+
         ProductObjectButtonSetter productObjectButtonSetter = productObjectButton.GetComponentInChildren<ProductObjectButtonSetter>();
         productObjectButtonSetter.SetProductObjectButton(productObject.korean, spriteDict[productObject.name], productObject.productCost);
 
@@ -530,20 +518,34 @@ public class UIManager : Singleton<UIManager>
     // 도시의 생산력에 따라 남은 턴수 표시
     public void UpdateCityProductPanelData(Territory territory)
     {
-        // 연구 진행으로 추가된 건물 표시
-        // 선택한 도시가 건설 가능한 건물만 활성화
-        // 건설 불가능한 건물은 비활성화(이미 건설한 건물)
+        ProductObjectButtonListener[] buttonListeners = GetComponentsInChildren<ProductObjectButtonListener>();
+        ProductObjectButtonSetter[] buttonSetter = GetComponentsInChildren<ProductObjectButtonSetter>();
 
-        // 생산 가능한 유닛 표시(연구)
-        // 생산 불가능한 유닛들은 표시하지 않음
+        // 생산 버튼의 오브젝트가 사용가능한지 확인
+        // 연구 완료된 버튼은 목록에 보임
+        // 건설 완료한 건물은 비활성화 됨
+        for (int i = 0; i < buttonListeners.Length; ++i)
+        {
+            ProductObject productObject = ProductObjectDataManager.instance.productObjects.Find(x => x.id == buttonListeners[i].buttonType);
+
+            // 연구되지 않은 오브젝트는 표시하지 않음
+            bool isUnlocked = (productObject.requireTechId != TechnologyId.NONE) && (GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == productObject.requireTechId).isResearched);
+            buttonListeners[i].gameObject.SetActive(isUnlocked);
+            buttonListeners[i].gameObject.SetActive(isUnlocked);
+            if (isUnlocked == false)
+                continue;
+
+            // TODO 건물의 건설 여부 확인
+
+            buttonSetter[i].UpdateCost(productObject.productCost / territory.totalOutput.TotalProductivity);
+        }
+
+
     }
     #endregion
 
-    // TODO Sprite[] LoadAllSprite(path)
     Sprite[] LoadAllSprite(string path)
     {
         return Resources.LoadAll<Sprite>(path);
     }
-
-
 }

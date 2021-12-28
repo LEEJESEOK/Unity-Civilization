@@ -17,4 +17,9 @@ public class ProductObjectButtonSetter : MonoBehaviour
         objectImage.sprite = sprite;
         costTMP.text = productCost.ToString();
     }
+
+    public void UpdateCost(int productCost)
+    {
+        
+    }
 }
