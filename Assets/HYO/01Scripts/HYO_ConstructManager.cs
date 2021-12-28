@@ -159,8 +159,12 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             for (int i = 0; i < cityTemp.data.Count; i++)
             {
                 // 영역 내 외곽선 그리기
-                cityTemp.data[i].gameObject.GetComponent<Outline>().OutlineWidth = 5;
+                // cityTemp.data[i].gameObject.GetComponent<Outline>().OutlineWidth = 10;
                 // cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
+
+                Material material = cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material;
+                material.shader = Shader.Find("Custom/OutlineShader");
+                cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material = material;
             }
 
             // 선택한 도시로 UI 갱신
@@ -203,8 +207,10 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                     for (int i = 0; i < cityTemp.data.Count; i++)
                     {
                         // 그린 외곽선 해제
-                        cityTemp.data[i].gameObject.GetComponent<Outline>().OutlineWidth = 0;
-                        // cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+                        // cityTemp.data[i].gameObject.GetComponent<Outline>().OutlineWidth = 0;
+                        Material material = cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material;
+                        material.shader = Shader.Find("Standard");
+                        cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material = material;
                     }
 
                     this.cityTemp = null;

@@ -78,6 +78,8 @@ public class UIManager : Singleton<UIManager>
     public float popupTime = 2;
     public float currentTime;
     bool isOpenPopup;
+    //TileInfo UI
+    public Text tileInfoText;
 
     // Start is called before the first frame update
     void Start()
@@ -155,7 +157,7 @@ public class UIManager : Singleton<UIManager>
                     Transform tileTemp = hitInfo.transform;
                     if (tileTemp.GetComponent<TerrainData>() != null && !UIManager.IsPointerOverUIObject())
                     {
-                        tileTemp.GetComponent<TerrainData>().ShowTileInfo();
+                        tileTemp.GetComponent<TerrainData>().SetTileInfo();
                         tileInfo.transform.position = new Vector3(mousePos.x, mousePos.y);
                         tileInfo.SetActive(true);
                     }
@@ -172,6 +174,18 @@ public class UIManager : Singleton<UIManager>
 
         }
     }
+
+    public void GetTileInfo(TerrainType type, GameObject center, int move, int food, int prod)
+    {
+        tileInfoText.text = type.ToString() + Environment.NewLine;
+        tileInfoText.text += "소유자:" + center.ToString() + Environment.NewLine;
+
+        tileInfoText.text += "행동력:" + move + Environment.NewLine;
+        tileInfoText.text += food + "식량" + Environment.NewLine;
+        tileInfoText.text += prod + "생산력" + Environment.NewLine;
+    }
+
+
     public static void ResizeLayoutGroup(GameObject layoutObject)
     {
         LayoutGroup[] layoutGroups = layoutObject.GetComponentsInChildren<LayoutGroup>();
@@ -529,7 +543,7 @@ public class UIManager : Singleton<UIManager>
             ProductObject productObject = ProductObjectDataManager.instance.productObjects.Find(x => x.id == buttonListeners[i].buttonType);
 
             // 연구되지 않은 오브젝트는 표시하지 않음
-            bool isUnlocked = (productObject.requireTechId != TechnologyId.NONE) && (GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == productObject.requireTechId).isResearched);
+            bool isUnlocked = (productObject.requireTechId == TechnologyId.NONE) || (GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == productObject.requireTechId).isResearched);
             buttonListeners[i].gameObject.SetActive(isUnlocked);
             buttonListeners[i].gameObject.SetActive(isUnlocked);
             if (isUnlocked == false)
