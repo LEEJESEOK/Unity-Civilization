@@ -10,14 +10,18 @@ public class MapGenerator : MonoBehaviour
     public int mapWidth = 100, mapHeight = 100;
     int mapSize;
     public int typeCount = 6;
+    public Material[] tileMaterials;
+    LayerMask mapLayer;
 
+    List<TerrainData> queue = new List<TerrainData>();
+    List<Vector2> done = new List<Vector2>();
+    public TerrainData neighbor;
 
     // Start is called before the first frame update
     void Start()
     {
         mapSize = mapWidth * mapHeight;
 
-        LayerMask mapLayer = 0;
         mapLayer = mapLayer | LayerMask.GetMask("GrassLand");
         mapLayer = mapLayer | LayerMask.GetMask("Plains");
         mapLayer = mapLayer | LayerMask.GetMask("Desert");
@@ -34,31 +38,45 @@ public class MapGenerator : MonoBehaviour
             center = hit.transform;
         }
 
-        List<TerrainData> queue = new List<TerrainData>();
-        List<Vector2> done = new List<Vector2>();
         queue.Add(center.GetComponent<TerrainData>());
         done.Add(new Vector2(queue[0].x, queue[0].y));
 
-        while (queue.Count > 0 && done.Count == mapSize)
+        StartCoroutine(GenerateMap());
+
+    }
+
+    IEnumerator GenerateMap()
+    {
+        while (queue.Count > 0)
         {
             TerrainData current = queue[0];
+            current.gameObject.name = "HexTile (" + current.x + ", " + current.y + ")";
+            queue.RemoveAt(0);
+
+
             Collider[] neighbors = Physics.OverlapSphere(current.transform.position, 1, mapLayer);
 
             for (int i = 0; i < neighbors.Length; ++i)
             {
-                TerrainData neighbor = neighbors[i].GetComponent<TerrainData>();
+                neighbor = neighbors[i].GetComponent<TerrainData>();
+
+                // 검사할 목록에 추가
+                // 한번 검사했던 인덱스는 제외
                 if (done.Contains(new Vector2(neighbor.x, neighbor.y)))
                     continue;
+                queue.Add(neighbors[i].GetComponent<TerrainData>());
 
                 // jitter 값보다 작을 때 임의의 타일 속성 지정
                 TerrainType randFeature = Random.value > jitter ? current.terrainType : (TerrainType)Random.Range(0, typeCount);
                 neighbors[i].GetComponent<TerrainData>().terrainType = randFeature;
-                done.Add(new Vector2(neighbor.x, neighbor.y));
+                Material[] materials = neighbors[i].GetComponent<MeshRenderer>().materials;
+                materials[0] = tileMaterials[(int)randFeature];
+                neighbors[i].GetComponent<MeshRenderer>().materials = materials;
 
-                // 주변 타일 다음 목록에 추가
-                queue.Add(neighbors[i].GetComponent<TerrainData>());
+                done.Add(new Vector2(neighbor.x, neighbor.y));
             }
 
+            yield return new WaitForEndOfFrame();
         }
     }
 }
