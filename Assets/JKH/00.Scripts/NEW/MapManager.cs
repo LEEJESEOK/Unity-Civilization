@@ -10,11 +10,6 @@ public class MapManager : Singleton<MapManager>
     List<TerrainData> terrainDataMap;
     List<JKH_Node> nodeMap;
 
-    //FindPath()'s variable
-    float moveResult = 0;
-
-    TerrainData[] terrainDatas;
-
     #region test
     List<JKH_Node> testAbleGoList = new List<JKH_Node>();
     #endregion
@@ -24,10 +19,19 @@ public class MapManager : Singleton<MapManager>
     public Unit unitInfo;
 
     public bool ableToMove = false;
+    LayerMask mapLayer;
 
     void Start()
     {
-        terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());        
+        terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
+
+        mapLayer = mapLayer | LayerMask.GetMask("GrassLand");
+        mapLayer = mapLayer | LayerMask.GetMask("Plains");
+        mapLayer = mapLayer | LayerMask.GetMask("Desert");
+        mapLayer = mapLayer | LayerMask.GetMask("Mountain");
+        mapLayer = mapLayer | LayerMask.GetMask("Coast");
+        mapLayer = mapLayer | LayerMask.GetMask("Ocean");
+
     }
 
     void Update()
@@ -83,40 +87,31 @@ public class MapManager : Singleton<MapManager>
         UnitCheck(targetX, targetY);
     }
 
+    // TODO 광훈 targetX, targetY만 검사하는 코드로 수정
     public void UnitCheck(int targetX, int targetY)
     {
-          
-        RaycastHit hitInfo;
+
         for (int j = 0; j < terrainDataMap.Count; j++)
-        {           
-            bool walkable;
+        {
             int mapX = terrainDataMap[j].x;
             int mapY = terrainDataMap[j].y;
             TerrainData data = terrainDataMap[(mapY * mapWidth) + mapX];
 
-            TerrainType terrainType = data.terrainType;
-
             Ray ray = new Ray(terrainDataMap[j].transform.position, transform.up);
+            RaycastHit hitInfo;
             LayerMask layer = LayerMask.GetMask("Unit");
-            
+
             // 목표지점에 유닛이 있는 경우
             if (data == terrainDataMap[(targetY * mapWidth) + targetX])
             {
                 print("유닛있음");
                 continue;
             }
-            if (Physics.Raycast(ray, out hitInfo, 5, layer))
+            if (Physics.Raycast(ray, out hitInfo, float.PositiveInfinity, layer))
             {
                 unitInfo = hitInfo.transform.gameObject.GetComponent<Unit>();
-                //결과 출력 
-                print(unitInfo.name);
-                walkable = false;
-                print(terrainDataMap[j].x + ", " + terrainDataMap[j].y);
 
-                
-                JKH_Node node = new JKH_Node(walkable, data.transform.position, data.x, data.y, data.output.movePower);
                 nodeMap[terrainDataMap[j].x + mapWidth * terrainDataMap[j].y].walkable = false;
-                nodeMap.Add(node);                
             }
         }
     }
@@ -125,6 +120,10 @@ public class MapManager : Singleton<MapManager>
     //유닛에대한 정보를 가져오는 함수
     public void getUnitInfo()
     {
+        if (Camera.main == null)
+        {
+            return;
+        }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
 
@@ -263,21 +262,57 @@ public class MapManager : Singleton<MapManager>
     {
         LayerMask layerMask = LayerMask.GetMask("GrassLand") | LayerMask.GetMask("Plains") | LayerMask.GetMask("Desert");
 
-        List<Collider> cols = new List<Collider>(Physics.OverlapSphere(selectedUnit.transform.position, selectedUnit.movePower, layerMask));
+        List<Collider> cols = new List<Collider>(Physics.OverlapSphere(selectedUnit.transform.position, selectedUnit.movePower * .75f, layerMask));
 
         Vector2Int startPos = CheckMyPos(); //클릭한유닛의 좌표.
         testAbleGoList.Clear();
 
+
+        StartCoroutine(ttt(cols, startPos));
+        //for (int i = 0; i < cols.Count; i++)
+        //{
+        //    TerrainData terrainData = cols[i].GetComponent<TerrainData>();
+        //    Vector2Int endPos = new Vector2Int(terrainData.x, terrainData.y);
+        //    if (startPos == endPos)
+        //        continue;
+        //    print(startPos);
+        //    print(endPos);
+        //    List<JKH_Node> path = FindPath(startPos.x, startPos.y, endPos.x, endPos.y);
+        //    if (path == null)
+        //        continue;
+        //    movePower = 0;
+        //    //path값 Null...
+        //    string pathStr = string.Format("({0}, {1})", path[0].gridX, path[0].gridY);
+        //    for (int j = 1; j < path.Count; ++j)
+        //    {
+        //        movePower += path[j].requiredMovePower;
+        //        pathStr += string.Format("-> ({0}, {1})", path[j].gridX, path[j].gridY);
+        //    }
+        //    pathStr += "(이동력 :" + movePower + ")";
+        //    print(pathStr);
+        //    if (selectedUnit.movePower >= movePower)
+        //    {
+        //        //그려주기해야함
+        //        testAbleGoList.Add(path[0]);
+        //    }
+
+        //}
+    }
+
+    IEnumerator ttt(List<Collider> cols, Vector2Int startPos)
+    {
         for (int i = 0; i < cols.Count; i++)
         {
             TerrainData terrainData = cols[i].GetComponent<TerrainData>();
             Vector2Int endPos = new Vector2Int(terrainData.x, terrainData.y);
             if (startPos == endPos)
                 continue;
-            print(startPos);
-            print(endPos);
+            //print(startPos);
+            //print(endPos);
             List<JKH_Node> path = FindPath(startPos.x, startPos.y, endPos.x, endPos.y);
-
+            yield return null;
+            if (path == null)
+                continue;
             movePower = 0;
             //path값 Null...
             string pathStr = string.Format("({0}, {1})", path[0].gridX, path[0].gridY);
@@ -287,17 +322,18 @@ public class MapManager : Singleton<MapManager>
                 pathStr += string.Format("-> ({0}, {1})", path[j].gridX, path[j].gridY);
             }
             pathStr += "(이동력 :" + movePower + ")";
-            print(pathStr);
+            //print(pathStr);
             if (selectedUnit.movePower >= movePower)
             {
                 //그려주기해야함
                 testAbleGoList.Add(path[0]);
-            }  
+            }
 
         }
     }
 
-   
+
+
     //타일로 이동
     public void onClickMove()
     {
@@ -317,7 +353,7 @@ public class MapManager : Singleton<MapManager>
 
             print("Get Selected Function");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitInfo;            
+            RaycastHit hitInfo;
 
             //이동가능한좌표 표시하기
             for (int j = 0; j < testAbleGoList.Count; j++)
@@ -335,9 +371,9 @@ public class MapManager : Singleton<MapManager>
             }
 
             if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject() && selectedUnit.movePower > 0)
-                if (Physics.Raycast(ray, out hitInfo, 1000))
+                if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
                 {
-                    if (hitInfo.transform.gameObject.tag == "Map") 
+                    if (hitInfo.transform.gameObject.tag == "Map")
                     {
                         //만약 이동하려는 좌표를 gameObj를 대신해 누른다면? 
                         //target= 내가 찍은 맵 좌표
@@ -454,31 +490,20 @@ public class MapManager : Singleton<MapManager>
     public int enemyDmg = 25;
     float damageDealt;
 
+    //Todo 전투
     public void UnitCombat()
     {
 
-        //Todo
         //상성계산, 
         float rand = Random.Range(8.0f, 1.2f);
         damageDealt = 30 * Mathf.Exp(0.04f * unitDmg - enemyDmg) * rand;
         damageDealt = Mathf.Round(damageDealt);
     }
 
-    //List<NonCombatUnit> unitPos = new List<NonCombatUnit>();
-    public void CheckUnit_test()
-    {
-        GameObject[] unitPos = GameObject.FindGameObjectsWithTag("Unit");
-
-        for (int i = 0; i < unitPos.Length; i++)
-        {
-            print("x: " + unitPos[i].GetComponent<NonCombatUnit>().posX
-                + " y: " + unitPos[i].GetComponent<NonCombatUnit>().posY);
-        }
-    }
 
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path)
     {
-        while (path!=null)
+        while (path != null)
         {
             yield return new WaitForSeconds(1);
             Vector3 pos = path.worldPosition;
@@ -486,6 +511,15 @@ public class MapManager : Singleton<MapManager>
             unit.transform.position = pos;
             path = path.parent;
         }
-        
+
+    }
+
+    public GameObject gizmosEg;
+    private void OnDrawGizmosSelected()
+    {
+        Color color = Color.red;
+        color.a = 0.2f;
+
+        Gizmos.DrawSphere(gizmosEg.transform.position, 4.0f);//
     }
 }

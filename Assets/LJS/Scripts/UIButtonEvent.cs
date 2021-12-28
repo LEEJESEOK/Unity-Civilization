@@ -56,6 +56,10 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                 UIPanelManager.instance.OpenPanel("HELP_PANEL");
                 break;
 
+            case UIButtonId.COMMAND_MOVE:
+                MapManager.instance.onClickMove();
+                break;
+
             case UIButtonId.COMMAND_BUILD_CITY:
                 HYO_ConstructManager.instance.CreateTerritory();
                 break;
