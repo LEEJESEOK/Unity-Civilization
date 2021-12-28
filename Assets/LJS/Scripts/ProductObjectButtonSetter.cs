@@ -20,6 +20,6 @@ public class ProductObjectButtonSetter : MonoBehaviour
 
     public void UpdateCost(int productCost)
     {
-        
+        costTMP.text = productCost.ToString();
     }
 }

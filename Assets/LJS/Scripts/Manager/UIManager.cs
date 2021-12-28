@@ -184,8 +184,7 @@ public class UIManager : Singleton<UIManager>
         tileInfoText.text += food + "식량" + Environment.NewLine;
         tileInfoText.text += prod + "생산력" + Environment.NewLine;
     }
-
-
+    
     public static void ResizeLayoutGroup(GameObject layoutObject)
     {
         LayoutGroup[] layoutGroups = layoutObject.GetComponentsInChildren<LayoutGroup>();
@@ -205,6 +204,11 @@ public class UIManager : Singleton<UIManager>
         // return results.Count > 0;
         #endregion
         return EventSystem.current.IsPointerOverGameObject();
+    }
+    
+    Sprite[] LoadAllSprite(string path)
+    {
+        return Resources.LoadAll<Sprite>(path);
     }
 
     public void InitUI()
@@ -494,7 +498,6 @@ public class UIManager : Singleton<UIManager>
             GameObject productObjectButton = GetCityProductButton(productObject, productObjectButtonPrefab);
             GameObject goldObjectButton = GetCityProductButton(productObject, goldObjectButtonPrefab);
 
-
             switch (productObject.type)
             {
                 case TypeIdBase.DISTRICT:
@@ -507,6 +510,9 @@ public class UIManager : Singleton<UIManager>
                     goldObjectButton.transform.SetParent(goldUnitContent);
                     break;
             }
+
+            productObjectButton.SetActive(false);
+            goldObjectButton.SetActive(false);
         }
     }
 
@@ -532,8 +538,8 @@ public class UIManager : Singleton<UIManager>
     // 도시의 생산력에 따라 남은 턴수 표시
     public void UpdateCityProductPanelData(Territory territory)
     {
-        ProductObjectButtonListener[] buttonListeners = GetComponentsInChildren<ProductObjectButtonListener>();
-        ProductObjectButtonSetter[] buttonSetter = GetComponentsInChildren<ProductObjectButtonSetter>();
+        ProductObjectButtonListener[] buttonListeners = GetComponentsInChildren<ProductObjectButtonListener>(true);
+        ProductObjectButtonSetter[] buttonSetter = GetComponentsInChildren<ProductObjectButtonSetter>(true);
 
         // 생산 버튼의 오브젝트가 사용가능한지 확인
         // 연구 완료된 버튼은 목록에 보임
@@ -542,24 +548,22 @@ public class UIManager : Singleton<UIManager>
         {
             ProductObject productObject = ProductObjectDataManager.instance.productObjects.Find(x => x.id == buttonListeners[i].buttonType);
 
-            // 연구되지 않은 오브젝트는 표시하지 않음
+            // // 연구되지 않은 오브젝트는 표시하지 않음
             bool isUnlocked = (productObject.requireTechId == TechnologyId.NONE) || (GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == productObject.requireTechId).isResearched);
-            buttonListeners[i].gameObject.SetActive(isUnlocked);
-            buttonListeners[i].gameObject.SetActive(isUnlocked);
+            buttonListeners[i].transform.parent.gameObject.SetActive(isUnlocked);
+            buttonListeners[i].transform.parent.gameObject.SetActive(isUnlocked);
             if (isUnlocked == false)
                 continue;
 
-            // TODO 건물의 건설 여부 확인
 
+            // TODO 건물의 건설 여부 확인
+            // 같은 클래스의 유닛은 최신 유닛만 표시
+
+            // 선택한 도시의 생산력으로 필요 턴수 계산
             buttonSetter[i].UpdateCost(productObject.productCost / territory.totalOutput.TotalProductivity);
         }
 
-
+        ResizeLayoutGroup(gameObject);
     }
     #endregion
-
-    Sprite[] LoadAllSprite(string path)
-    {
-        return Resources.LoadAll<Sprite>(path);
-    }
 }
