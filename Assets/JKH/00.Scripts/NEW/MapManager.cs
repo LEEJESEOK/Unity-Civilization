@@ -13,7 +13,6 @@ public class MapManager : Singleton<MapManager>
     //FindPath()'s variable
     float moveResult = 0;
 
-    //createGrid
     TerrainData[] terrainDatas;
 
     #region test
@@ -28,20 +27,15 @@ public class MapManager : Singleton<MapManager>
 
     void Start()
     {
-        terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
-        //InitNodeMap(); //前 createGrid
-        //CheckUnit_test();
+        terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());        
     }
 
     void Update()
     {
-        //InitNodeMap();
-        //set
         getUnitInfo();
         SelectedUnitMove();
     }
 
-    // 목표지점 좌표 변수로 받음
 
     void InitNodeMap(int targetX, int targetY)
     {
@@ -85,23 +79,16 @@ public class MapManager : Singleton<MapManager>
             nodeMap.Add(node);
 
         }
-        //print("initNodeMap에서의 target?" + targetX + "&" + targetY);
-
 
         UnitCheck(targetX, targetY);
-
-
     }
 
     public void UnitCheck(int targetX, int targetY)
     {
-        //1223 함수만든다        
+          
         RaycastHit hitInfo;
         for (int j = 0; j < terrainDataMap.Count; j++)
-        {
-            //target 부르기? => todo
-            //Variables
-
+        {           
             bool walkable;
             int mapX = terrainDataMap[j].x;
             int mapY = terrainDataMap[j].y;
@@ -111,35 +98,27 @@ public class MapManager : Singleton<MapManager>
 
             Ray ray = new Ray(terrainDataMap[j].transform.position, transform.up);
             LayerMask layer = LayerMask.GetMask("Unit");
-            // 타일에 유닛이 있는지 검사
+            
             // 목표지점에 유닛이 있는 경우
             if (data == terrainDataMap[(targetY * mapWidth) + targetX])
             {
-                print("^^1");
+                print("유닛있음");
                 continue;
             }
             if (Physics.Raycast(ray, out hitInfo, 5, layer))
             {
-                //
-
-                //
                 unitInfo = hitInfo.transform.gameObject.GetComponent<Unit>();
                 //결과 출력 
                 print(unitInfo.name);
                 walkable = false;
                 print(terrainDataMap[j].x + ", " + terrainDataMap[j].y);
 
-                //위에거 그대로 적음.
+                
                 JKH_Node node = new JKH_Node(walkable, data.transform.position, data.x, data.y, data.output.movePower);
                 nodeMap[terrainDataMap[j].x + mapWidth * terrainDataMap[j].y].walkable = false;
-                nodeMap.Add(node);
-                
+                nodeMap.Add(node);                
             }
-
-
-
         }
-        //-------
     }
 
 
@@ -150,7 +129,7 @@ public class MapManager : Singleton<MapManager>
         RaycastHit hitInfo;
 
         LayerMask layer = LayerMask.GetMask("Unit");
-        //LayerMask layer = 1 << LayerMask.NameToLayer("Unit");
+        //==LayerMask layer = 1 << LayerMask.NameToLayer("Unit");
 
         //마우스 클릭한다
         if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
@@ -203,9 +182,6 @@ public class MapManager : Singleton<MapManager>
             }
             openSet.Remove(currentNode);
             closeSet.Add(currentNode);
-
-            //if (currentNode == end)
-            //if (currentNode.gridX == end.gridX && currentNode.gridY == end.gridY)
             if (currentNode == end)
             {
 
@@ -280,9 +256,6 @@ public class MapManager : Singleton<MapManager>
             nodeMap[i].parent = null;
         }
     }
-
-
-
     //need to call    
     // 선택한 유닛의 movePower만큼 Physics.OverlapSphere 각각 FindPath
     public float movePower = 0;
@@ -299,8 +272,6 @@ public class MapManager : Singleton<MapManager>
         {
             TerrainData terrainData = cols[i].GetComponent<TerrainData>();
             Vector2Int endPos = new Vector2Int(terrainData.x, terrainData.y);
-            //if (start.gridX == end.gridX && start.gridY == end.gridY)
-            //    print("equal");
             if (startPos == endPos)
                 continue;
             print(startPos);
@@ -317,20 +288,13 @@ public class MapManager : Singleton<MapManager>
             }
             pathStr += "(이동력 :" + movePower + ")";
             print(pathStr);
-            // TODO
-
-
             if (selectedUnit.movePower >= movePower)
             {
                 //그려주기해야함
                 testAbleGoList.Add(path[0]);
-            }
-  
+            }  
 
         }
-
-        // TODO
-        //ableToMove = true;
     }
 
    
@@ -358,7 +322,6 @@ public class MapManager : Singleton<MapManager>
             //이동가능한좌표 표시하기
             for (int j = 0; j < testAbleGoList.Count; j++)
             {
-                //JKH_Node dest = testAbleGoList[j][testAbleGoList[j].Count-1];
                 float cost = 0;
                 JKH_Node dest = testAbleGoList[j];
                 while (dest.parent != null)
@@ -374,7 +337,7 @@ public class MapManager : Singleton<MapManager>
             if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject() && selectedUnit.movePower > 0)
                 if (Physics.Raycast(ray, out hitInfo, 1000))
                 {
-                    if (hitInfo.transform.gameObject.tag == "Map") //tag가 맵으로?
+                    if (hitInfo.transform.gameObject.tag == "Map") 
                     {
                         //만약 이동하려는 좌표를 gameObj를 대신해 누른다면? 
                         //target= 내가 찍은 맵 좌표
@@ -406,12 +369,9 @@ public class MapManager : Singleton<MapManager>
                             //hitinfo 타일에 gameObj있나 없나 검사하기. 
                             if ((target == dest) && (movePower <= selectedUnit.movePower))
                             {
-                                // 플레이어 오브젝트 위치 이동 칸대로 이동하기   @@@@@@@
+                                // 플레이어 오브젝트 위치 이동 칸대로 이동하기   
                                 JKH_Node path = testAbleGoList[i];
                                 StartCoroutine(MoveUnitCoroutine(selectedUnit, path));
-
-
-
                                 // 좌표 이동, 이동력 감소
                                 selectedUnit.movePower -= movePower;
                                 if (selectedUnit.movePower <= 0)
@@ -489,10 +449,7 @@ public class MapManager : Singleton<MapManager>
         return result;
     }
 
-
-
-    //데미지 계산하기 (ToDo 상성[병종, 사거리 등])@@@@@
-    //임의 변수
+    //임의 변수(나중에 지워야함!!)
     public int unitDmg = 26;
     public int enemyDmg = 25;
     float damageDealt;
