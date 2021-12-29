@@ -921,7 +921,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 0
   isSelected: 0
-  movePower: 2
+  movePower: 0
+  maxMovePower: 0
   hp: 100
 --- !u!136 &30897481
 CapsuleCollider:
@@ -952,6 +953,7 @@ MonoBehaviour:
   playerId: 0
   isSelected: 0
   movePower: 2
+  maxMovePower: 5
   hp: 100
   non_CombatUnitType: 0
   buildCount: 0
@@ -18297,6 +18299,7 @@ MonoBehaviour:
   myTilePos: {fileID: 0}
   unitDmg: 26
   enemyDmg: 25
+  gizmosEg: {fileID: 0}
 --- !u!1 &276870810 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8523001946651417071, guid: 4ff4fc8a129520b4f974bf4e484b5d59, type: 3}
@@ -65069,6 +65072,7 @@ MonoBehaviour:
   myTilePos: {fileID: 0}
   unitDmg: 26
   enemyDmg: 25
+  gizmosEg: {fileID: 0}
 --- !u!1 &1996729227 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4109667666183269087, guid: 4ff4fc8a129520b4f974bf4e484b5d59, type: 3}
@@ -66942,7 +66946,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 0
   isSelected: 0
-  movePower: 10
+  movePower: 0
+  maxMovePower: 0
   hp: 100
 --- !u!136 &2062851544
 CapsuleCollider:
@@ -66988,6 +66993,7 @@ MonoBehaviour:
   playerId: 0
   isSelected: 0
   movePower: 2
+  maxMovePower: 5
   hp: 100
   non_CombatUnitType: 0
   buildCount: 0
