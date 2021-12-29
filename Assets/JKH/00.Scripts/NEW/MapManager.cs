@@ -348,6 +348,7 @@ public class MapManager : Singleton<MapManager>
 
     //bool visualizeOneTime = false;
     public GameObject rayWay;
+    Vector3 targetPos;
     public void SelectedUnitMove()
     {
 
@@ -369,46 +370,62 @@ public class MapManager : Singleton<MapManager>
                     dest = dest.parent;
                     cost += dest.requiredMovePower;
                 }
-                print("ableToMove" + i + "번째: " + "x: " + dest.gridX + ", y: " + dest.gridY + ", cost : " + cost);
+
+                //진짜 이동가능한 좌표.
+                if (cost > selectedUnit.movePower)
+                {
+                    print("ableToMove" + i + "번째: " + "x: " + dest.gridX + ", y: " + dest.gridY + ", cost : " + cost);
+                }
 
                 //이미 dest.parent=null
+                print(dest); //가능한좌표 표시한다
+
                 //마우스 가르키고 있는 타일까지 경로 표시
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
                 {
                     LineRenderer lr = null;
+
                     if (hitInfo.transform.gameObject.tag == "Map" && hitInfo.transform.position == dest.worldPosition) //유닛있는데는 표시하면 안됨!
                     {
+                        dest = movableList[i];
                         print(dest.parent);
                         while (dest != null)
                         {
+                            print(dest.gridX + ", " + dest.gridY);
 
                             //dest-dest.parent 선긋기
                             print("선그음?");
 
                             GameObject line = Instantiate(rayWay);
                             lr = line.GetComponent<LineRenderer>();
+                            //dest.worldPosition.y = -.7f;
                             lr.SetPosition(0, dest.worldPosition);
                             if (dest.parent == null)
                             {
-                                dest.parent.worldPosition = hitInfo.transform.position;
+                                targetPos = selectedUnit.transform.position;
                             }
-                            lr.SetPosition(1, dest.parent.worldPosition);
+                            else if (dest.parent != null)
+                            {
+                                targetPos = dest.worldPosition;
+                            }
+                            targetPos.y = -.7f;
+                            lr.SetPosition(1, targetPos);
                             dest = dest.parent;
 
-
+                            //아무튼이거이상함
                         }
                     }
                 }
 
 
 
-                //이동 가능한 타일 목록(시각화) ==> 너무많이 생성된다 ?계속update가 된다.
-                //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                //cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
-                //cube.transform.localScale = Vector3.one * .3f;
-                //Vector3 pos = dest.worldPosition;
-                //pos.y = -.5f;
-                //cube.transform.position = pos;
+                //이동 가능한 타일 목록(시각화) ==> 너무많이 생성된다? 계속update가 된다.
+                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
+                cube.transform.localScale = Vector3.one * .3f;
+                Vector3 pos = dest.worldPosition;
+                pos.y = -.5f;
+                cube.transform.position = pos;
             }
             //print(movableList.Count);
             //for (int k = 0; k < movableList.Count; k++)
