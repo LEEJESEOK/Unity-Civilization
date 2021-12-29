@@ -5,7 +5,8 @@ using UnityEngine;
 public enum Non_CombatUnitType
 {
     Settler = TypeIdBase.UNIT,
-    Builder
+    Builder,
+    Scout
 }
 
 public class NonCombatUnit : Unit
@@ -26,6 +27,8 @@ public class NonCombatUnit : Unit
             case Non_CombatUnitType.Settler:
                 break;
             case Non_CombatUnitType.Builder:
+                break;
+            case Non_CombatUnitType.Scout:
                 break;
             default:
                 break;
