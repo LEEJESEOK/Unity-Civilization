@@ -321,7 +321,15 @@ public class MapManager : Singleton<MapManager>
         List<JKH_Node> path = new List<JKH_Node>();
         for (int i = 0; i < cols.Count; i++)
         {
-            
+            LayerMask unitLayer = LayerMask.GetMask("Unit");
+            Collider[] tileOnObj = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
+            print(tileOnObj.Length);
+            if (tileOnObj.Length>=1)
+            {
+                tileOnObj.Initialize();
+                continue;
+            }
+            //tileOnObj.Initialize();
             TerrainData terrainData = cols[i].GetComponent<TerrainData>();
             Vector2Int endPos = new Vector2Int(terrainData.x, terrainData.y);
             if (startPos == endPos)
@@ -332,6 +340,12 @@ public class MapManager : Singleton<MapManager>
             yield return null;
             if (path == null)
                 continue;
+
+            //LayerMask unitLayer = LayerMask.GetMask("Unit");
+            //Collider[] tileOnObj = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
+            //print(tileOnObj.Length);
+            
+
             movePower = 0;
             //path값 Null...
             string pathStr = string.Format("({0}, {1})", path[0].gridX, path[0].gridY);
@@ -345,7 +359,7 @@ public class MapManager : Singleton<MapManager>
             //print(pathStr);
             if (selectedUnit.movePower >= movePower)
             {
-                //그려주기해야함
+                //그려주기해야함 corout
                 movableList.Add(path[0]);
             }
 
@@ -356,6 +370,8 @@ public class MapManager : Singleton<MapManager>
 
         for (int i = 0; i < movableList.Count; i++)
         {
+            //큐브위치에 유닛이 있으면 안된다
+            print("cubeCount?==" + movableList.Count);
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
             cube.transform.localScale = Vector3.one * .3f;
@@ -646,24 +662,39 @@ public class MapManager : Singleton<MapManager>
     //Todo 전투
     public void UnitCombat()
     {
-
+        //이동하는데 마지막 위치에 상대방이있다면
+        //필요변수 playerId
+        //목표지점 이전자리에서 멈추고 
+        //이 함수 실행
         //상성계산, 
         float rand = Random.Range(8.0f, 1.2f);
         damageDealt = 30 * Mathf.Exp(0.04f * unitDmg - enemyDmg) * rand;
         damageDealt = Mathf.Round(damageDealt);
     }
 
-
+    Vector3 dir;
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path)
     {
         //어떤경로로 이동하는지 표시 
-        while (path != null)
+        while (path.parent != null)
         {
-            yield return new WaitForSeconds(1);
-            Vector3 pos = path.worldPosition;
-            pos.y = -.7f;
-            unit.transform.position = pos;
-            path = path.parent;
+            //정중앙에 위치시키도록한다
+            yield return new WaitForSeconds(.1f);
+
+
+            //Vector3 pos = path.worldPosition;
+            //pos.y = -.7f;
+            //unit.transform.position = pos;
+            //---
+            dir = path.parent.worldPosition - path.worldPosition;
+            dir.Normalize();
+            unit.transform.position += dir*Time.deltaTime;
+            //---
+            if ((path.parent.worldPosition - unit.transform.position).magnitude < .3f)
+            {
+                path = path.parent;
+            }
+            dir = Vector3.zero;
         }
 
     }
