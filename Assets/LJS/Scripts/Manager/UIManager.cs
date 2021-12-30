@@ -52,12 +52,17 @@ public class UIManager : Singleton<UIManager>
     [Header("City Product Panel")]
     public GameObject productObjectButtonPrefab;
     public GameObject goldObjectButtonPrefab;
-    public GameObject productContent;
-    public GameObject goldContent;
+    public Transform productBuildingContent;
+    public Transform productUnitContent;
+    public Transform goldBuildingContent;
+    public Transform goldUnitContent;
     #endregion
 
     RectTransform rect;
     UIButtonEvent uIButtonEvent;
+
+
+    Dictionary<string, Sprite> spriteDict = new Dictionary<string, Sprite>();
 
     bool useScience;
     bool useCulture;
@@ -179,8 +184,7 @@ public class UIManager : Singleton<UIManager>
         tileInfoText.text += food + "식량" + Environment.NewLine;
         tileInfoText.text += prod + "생산력" + Environment.NewLine;
     }
-
-
+    
     public static void ResizeLayoutGroup(GameObject layoutObject)
     {
         LayoutGroup[] layoutGroups = layoutObject.GetComponentsInChildren<LayoutGroup>();
@@ -200,6 +204,11 @@ public class UIManager : Singleton<UIManager>
         // return results.Count > 0;
         #endregion
         return EventSystem.current.IsPointerOverGameObject();
+    }
+    
+    Sprite[] LoadAllSprite(string path)
+    {
+        return Resources.LoadAll<Sprite>(path);
     }
 
     public void InitUI()
@@ -311,6 +320,7 @@ public class UIManager : Singleton<UIManager>
         ResizeLayoutGroup(resourcesWrapper);
     }
 
+    #region Camera
     // 위치한 모서리에 따라 Vector3 형태로 반환
     // left : (-1, 0, 0)
     // right : (1, 0, 0)
@@ -386,7 +396,9 @@ public class UIManager : Singleton<UIManager>
 
         cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, 30f, 90f);
     }
+    #endregion
 
+    #region TechnologyPanel
     public void SetTechnologyPanel(List<Technology> technologies)
     {
         GameObject sector = Instantiate(technologySectorPrefab);
@@ -415,7 +427,7 @@ public class UIManager : Singleton<UIManager>
 
         Sprite sprite = Resources.Load<Sprite>("Image/Technology/" + technology.name);
         TechnologyButtonSetter technologyButtonSetter = technologyButton.GetComponent<TechnologyButtonSetter>();
-        technologyButtonSetter.SetTechnologyButton(technology.korean, sprite, technology.koreanDesc, null);
+        technologyButtonSetter.SetTechnologyButton(technology.korean, sprite, technology.koreanDesc, technology.unlockObjectId);
 
         TechnologyButtonListener technologyButtonListener = technologyButton.GetComponent<TechnologyButtonListener>();
         technologyButtonListener.SetButtonType(technology.id);
@@ -426,11 +438,12 @@ public class UIManager : Singleton<UIManager>
 
         return technologyButton;
     }
+    #endregion
 
+    #region SelectedTechnology
     public void InitSelectedTechnology()
     {
         selectedTechnologyName.text = "연구 선택";
-        // TODO 연구 기본 선택 이미지
         selectedTechnologyImage.sprite = Resources.Load<Sprite>("Image/WhiteCircle");
         Color color = selectedTechnologyImage.color;
         color.a = 0;
@@ -459,12 +472,98 @@ public class UIManager : Singleton<UIManager>
         else
             selectedTechnologyRemainTurn.text = System.Environment.NewLine + "방금 완성";
     }
+    #endregion
 
-    // 생산 가능한 건물, 유닛으로 내용 변경
-    public void UpdateCityProductPanel()
+    #region CityProductPanel
+    // ProductObjectData의 item들을 버튼으로 생성
+    public void InitCityProductPanelData(List<ProductObject> productObjects)
     {
+        #region load sprite
+        // load sprite 
+        string path = "Image/UI/UnitClass";
+        Sprite[] unitClassSprites = LoadAllSprite(path);
+        for (int i = 0; i < unitClassSprites.Length; ++i)
+            spriteDict[unitClassSprites[i].name] = unitClassSprites[i];
 
+        path = "Image/District";
+        Sprite[] districtSprites = LoadAllSprite(path);
+        for (int i = 0; i < districtSprites.Length; ++i)
+            spriteDict[districtSprites[i].name] = districtSprites[i];
+        #endregion
+
+        // product tab
+        for (int i = 0; i < productObjects.Count; ++i)
+        {
+            ProductObject productObject = productObjects[i];
+            GameObject productObjectButton = GetCityProductButton(productObject, productObjectButtonPrefab);
+            GameObject goldObjectButton = GetCityProductButton(productObject, goldObjectButtonPrefab);
+
+            switch (productObject.type)
+            {
+                case TypeIdBase.DISTRICT:
+                    productObjectButton.transform.SetParent(productBuildingContent);
+                    // 골드 생산 목록에서 건물 제외
+                    // goldObjectButton.transform.SetParent(goldBuildingContent);
+                    break;
+                case TypeIdBase.UNIT:
+                    productObjectButton.transform.SetParent(productUnitContent);
+                    goldObjectButton.transform.SetParent(goldUnitContent);
+                    break;
+            }
+
+            productObjectButton.SetActive(false);
+            goldObjectButton.SetActive(false);
+        }
     }
 
+    GameObject GetCityProductButton(ProductObject productObject, GameObject buttonPrefab)
+    {
+        GameObject productObjectButton = Instantiate(buttonPrefab);
+        productObjectButton.name = productObject.name;
 
+        ProductObjectButtonSetter productObjectButtonSetter = productObjectButton.GetComponentInChildren<ProductObjectButtonSetter>();
+        productObjectButtonSetter.SetProductObjectButton(productObject.korean, spriteDict[productObject.name], productObject.productCost);
+
+        ProductObjectButtonListener productObjectButtonListener = productObjectButton.GetComponentInChildren<ProductObjectButtonListener>();
+        productObjectButtonListener.SetButtonType(productObject.id);
+
+        UIButtonListener uIButtonListener = productObjectButton.GetComponentInChildren<UIButtonListener>();
+        uIButtonEvent.AddUIListener(uIButtonListener);
+
+        return productObjectButton;
+    }
+
+    // 도시 선택했을 때 호출
+    // 생산 가능한 건물, 유닛 최신화
+    // 도시의 생산력에 따라 남은 턴수 표시
+    public void UpdateCityProductPanelData(Territory territory)
+    {
+        ProductObjectButtonListener[] buttonListeners = GetComponentsInChildren<ProductObjectButtonListener>(true);
+        ProductObjectButtonSetter[] buttonSetter = GetComponentsInChildren<ProductObjectButtonSetter>(true);
+
+        // 생산 버튼의 오브젝트가 사용가능한지 확인
+        // 연구 완료된 버튼은 목록에 보임
+        // 건설 완료한 건물은 비활성화 됨
+        for (int i = 0; i < buttonListeners.Length; ++i)
+        {
+            ProductObject productObject = ProductObjectDataManager.instance.productObjects.Find(x => x.id == buttonListeners[i].buttonType);
+
+            // // 연구되지 않은 오브젝트는 표시하지 않음
+            bool isUnlocked = (productObject.requireTechId == TechnologyId.NONE) || (GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == productObject.requireTechId).isResearched);
+            buttonListeners[i].transform.parent.gameObject.SetActive(isUnlocked);
+            buttonListeners[i].transform.parent.gameObject.SetActive(isUnlocked);
+            if (isUnlocked == false)
+                continue;
+
+
+            // TODO 건물의 건설 여부 확인
+            // 같은 클래스의 유닛은 최신 유닛만 표시
+
+            // 선택한 도시의 생산력으로 필요 턴수 계산
+            buttonSetter[i].UpdateCost(productObject.productCost / territory.totalOutput.TotalProductivity);
+        }
+
+        ResizeLayoutGroup(gameObject);
+    }
+    #endregion
 }

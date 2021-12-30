@@ -84,7 +84,7 @@ public class Territory : MonoBehaviour
 
     public GameObject cityCenter;
 
-    public int population =1;
+    public int population = 1;
 
     //소유자(player id)
     public int ownerID;
@@ -117,20 +117,24 @@ public class Territory : MonoBehaviour
             HYO_ConstructManager.instance.isFirst = false;
         }
         cityCenter = gameObject;
-        
+
         data = new List<TerrainData>();
 
-       
+
         int radius = 1;
         int layerMask = 1 << LayerMask.NameToLayer("HexFog");
+        Collider[] cols = Physics.OverlapSphere(transform.position, radius, ~layerMask);
 
-        Collider[] cols = Physics.OverlapSphere(transform.position, radius,~layerMask);
-        
         for (int i = 0; i < cols.Length; i++)
         {
             TerrainData td = cols[i].GetComponent<TerrainData>();
             if (td != null)
             {
+                #region test
+                td.gameObject.name = "" + td.x + ", " + td.y;
+                td.transform.SetAsFirstSibling();
+                #endregion
+
                 data.Add(td);
                 totalOutput.Totalfood += td.output.food;
                 totalOutput.TotalProductivity += td.output.productivity;
@@ -150,19 +154,19 @@ public class Territory : MonoBehaviour
         {
             if (districtOn.Count > (population * 3) - 2) distric_limit = false;
         }
-            
+
     }
     public void DistrictProcess()
     {
         districtUnderway.remain -= totalOutput._totalProductivity;
-        if(carryRemain > 0)
+        if (carryRemain > 0)
         {
             districtUnderway.remain -= carryRemain;
             carryRemain = 0;
         }
 
         //건설 완료
-        else if(districtUnderway.remain <= 0)
+        else if (districtUnderway.remain <= 0)
         {
             HYO_ConstructManager.instance.CreateDistrict(districtUnderway.id, districtUnderway.pos);
             carryRemain = -districtUnderway.remain;
@@ -170,7 +174,7 @@ public class Territory : MonoBehaviour
 
         //특수지구 유지비
         if (districtOn == null) return;
-        for(int i =0; i < districtOn.Count; i++)
+        for (int i = 0; i < districtOn.Count; i++)
         {
             maintenanceCost += districtInput.gold;
         }
@@ -195,7 +199,7 @@ public class Territory : MonoBehaviour
         //인구 증가 요구 식량
         float pow = Mathf.Pow(population - 1, 1.5f);
 
-        if(totalOutput.Totalfood == 8 * population + 7 + (int)Mathf.Floor(pow))
+        if (totalOutput.Totalfood == 8 * population + 7 + (int)Mathf.Floor(pow))
         {
             population += 1;
         }

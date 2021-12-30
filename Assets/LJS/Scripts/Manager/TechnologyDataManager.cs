@@ -11,7 +11,8 @@ public class TechnologyDataManager : Singleton<TechnologyDataManager>
 {
     public bool isSave;
     public bool isLoad;
-    public string fileName = "Technologies.json";
+    [SerializeField]
+    string fileName = "Technologies.json";
 
     public List<Technology> technologies;
 

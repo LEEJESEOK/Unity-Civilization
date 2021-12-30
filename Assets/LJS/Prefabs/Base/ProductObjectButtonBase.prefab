@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 8262429042791035339}
   - component: {fileID: 8262429042791035338}
   - component: {fileID: 3525686581737136331}
+  - component: {fileID: 5852114851315913173}
   - component: {fileID: 6627710796765801629}
   m_Layer: 5
   m_Name: ProductObjectButtonBase
@@ -507,6 +508,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buttonType: 0
+--- !u!114 &5852114851315913173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262429042791035337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de07787c0c4f4734fb875ffda66c584b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonType: 0
 --- !u!114 &6627710796765801629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,8 +533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46531d256deb674499028fddd5cd5449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectImage: {fileID: 8262429042058623475}
   nameTMP: {fileID: 8262429042721814224}
+  objectImage: {fileID: 8262429042058623475}
   costTMP: {fileID: 8262429042978251686}
 --- !u!1 &8262429042978251684
 GameObject:
