@@ -8919,7 +8919,7 @@ GameObject:
   - component: {fileID: -938706141636733881}
   m_Layer: 22
   m_Name: Archer
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9035,6 +9035,7 @@ MonoBehaviour:
   playerId: 0
   isSelected: 0
   movePower: 2
+  maxMovePower: 5
   hp: 100
   meleeAttack: 15
   rangeAttack: 25

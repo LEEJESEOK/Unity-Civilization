@@ -22,9 +22,12 @@ public class MapManager : Singleton<MapManager>
     public bool ableToMove = false;
     LayerMask mapLayer;
 
+    LineRenderer lr;
+
     void Start()
     {
         terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
+        lr = GetComponent<LineRenderer>();
 
         mapLayer = mapLayer | LayerMask.GetMask("GrassLand");
         mapLayer = mapLayer | LayerMask.GetMask("Plains");
@@ -300,17 +303,32 @@ public class MapManager : Singleton<MapManager>
         //}
     }
 
+    List<GameObject> oldCubes = new List<GameObject>();
     IEnumerator unitMoveStep(List<Collider> cols, Vector2Int startPos)
     {
+        
+        //oldCube = GameObject.Find("Cube");
+        if (oldCubes != null)
+        {
+            for (int j = 0; j < oldCubes.Count; j++)
+            {
+                Destroy(oldCubes[j]);
+
+            }
+        }
+
+
+        List<JKH_Node> path = new List<JKH_Node>();
         for (int i = 0; i < cols.Count; i++)
         {
+            
             TerrainData terrainData = cols[i].GetComponent<TerrainData>();
             Vector2Int endPos = new Vector2Int(terrainData.x, terrainData.y);
             if (startPos == endPos)
                 continue;
             //print(startPos);
             //print(endPos);
-            List<JKH_Node> path = FindPath(startPos.x, startPos.y, endPos.x, endPos.y);
+            path = FindPath(startPos.x, startPos.y, endPos.x, endPos.y);
             yield return null;
             if (path == null)
                 continue;
@@ -331,7 +349,32 @@ public class MapManager : Singleton<MapManager>
                 movableList.Add(path[0]);
             }
 
+
+
+
         }
+
+        for (int i = 0; i < movableList.Count; i++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
+            cube.transform.localScale = Vector3.one * .3f;
+            JKH_Node node = movableList[i];
+            while (node.parent != null)
+                node = node.parent;
+            Vector3 pos = node.worldPosition;
+            
+            pos.y = -.5f;
+            cube.transform.position = pos;
+
+            oldCubes.Add(cube);
+        }
+        // 경로 탐색 완료
+        // ToDo 큐브  박기 , 다른거 누르면 바꾼다. @@
+
+
+
+
     }
 
 
@@ -352,8 +395,8 @@ public class MapManager : Singleton<MapManager>
     public void SelectedUnitMove()
     {
 
-        
-        if (ableToMove && selectedUnit.movePower > 0) 
+
+        if (ableToMove && selectedUnit.movePower > 0)
         {
 
             print("Get Selected Function");
@@ -378,54 +421,84 @@ public class MapManager : Singleton<MapManager>
                 }
 
                 //이미 dest.parent=null
-                print(dest); //가능한좌표 표시한다
+                print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
 
                 //마우스 가르키고 있는 타일까지 경로 표시
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
                 {
-                    LineRenderer lr = null;
 
                     if (hitInfo.transform.gameObject.tag == "Map" && hitInfo.transform.position == dest.worldPosition) //유닛있는데는 표시하면 안됨!
                     {
-                        dest = movableList[i];
-                        print(dest.parent);
+                        print("XXX");
+                        dest = movableList[i]; //시작점.
+                        int lrCount=0; //lineRenderer 갯수
+                        //int destLen = -1;
+                        lr.positionCount = 0;
                         while (dest != null)
                         {
-                            print(dest.gridX + ", " + dest.gridY);
-
-                            //dest-dest.parent 선긋기
-                            print("선그음?");
-
-                            GameObject line = Instantiate(rayWay);
-                            lr = line.GetComponent<LineRenderer>();
-                            //dest.worldPosition.y = -.7f;
-                            lr.SetPosition(0, dest.worldPosition);
-                            if (dest.parent == null)
-                            {
-                                targetPos = selectedUnit.transform.position;
-                            }
-                            else if (dest.parent != null)
-                            {
-                                targetPos = dest.worldPosition;
-                            }
-                            targetPos.y = -.7f;
-                            lr.SetPosition(1, targetPos);
+                            lr.positionCount++;
+                            Vector3 destPos = dest.worldPosition;
+                            destPos.y = -.7f;
+                            lr.SetPosition(lrCount, destPos);
+                            lrCount++;
                             dest = dest.parent;
-
-                            //아무튼이거이상함
+                            
                         }
+                        #region 보기싫은
+                        //dest = movableList[i]; //또?
+                        //print(dest);
+                        //print(dest.parent);
+                        //print(destLen);
+                        //while (dest != null)
+                        //while(destLen!=0)
+                        //{
+                        //print(dest.gridX + ", " + dest.gridY);
+                        //dest-dest.parent 선긋기
+
+                        //if (dest.parent == null)
+                        //{
+                        //    targetPos = hitInfo.transform.position;
+                        //}
+                        //else
+                        //{
+                        //    targetPos = dest.parent.worldPosition;
+
+                        //}
+                        //dest.worldPosition.y = -.7f;                           
+                        //dest.parent.worldPosition.y = -.7f;
+                        //lr.SetPosition(0, dest.worldPosition);
+                        //lr.SetPosition(1, targetPos);
+
+                        //dest.worldPosition.y = -.7f;
+                        ///----
+                        //lr.SetPosition(0, dest.worldPosition);
+                        //if (dest.parent == null)
+                        //{
+                        //    targetPos = selectedUnit.transform.position;
+                        //}
+                        //else if (dest.parent != null)
+                        //{
+                        //    targetPos = dest.worldPosition;
+                        //}
+                        //targetPos.y = -.7f;
+                        //lr.SetPosition(1, targetPos);
+                        //dest = dest.parent;
+                        //destLen--;
+                        //아무튼이거이상함
+                        //}
+                        #endregion
                     }
                 }
 
 
 
                 //이동 가능한 타일 목록(시각화) ==> 너무많이 생성된다? 계속update가 된다.
-                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
-                cube.transform.localScale = Vector3.one * .3f;
-                Vector3 pos = dest.worldPosition;
-                pos.y = -.5f;
-                cube.transform.position = pos;
+                //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                //cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
+                //cube.transform.localScale = Vector3.one * .3f;
+                //Vector3 pos = dest.worldPosition;
+                //pos.y = -.5f;
+                //cube.transform.position = pos;
             }
             //print(movableList.Count);
             //for (int k = 0; k < movableList.Count; k++)
@@ -598,9 +671,9 @@ public class MapManager : Singleton<MapManager>
     public GameObject gizmosEg;
     private void OnDrawGizmosSelected()
     {
-        Color color = Color.red;
-        color.a = 0.2f;
+        //Color color = Color.red;
+        //color.a = 0.2f;
 
-        Gizmos.DrawSphere(gizmosEg.transform.position, 4.0f);//
+        //Gizmos.DrawSphere(gizmosEg.transform.position, 4.0f);//
     }
 }

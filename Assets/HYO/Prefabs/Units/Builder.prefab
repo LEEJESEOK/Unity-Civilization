@@ -9694,7 +9694,7 @@ GameObject:
   - component: {fileID: -6019698553330862955}
   m_Layer: 22
   m_Name: Builder
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9823,6 +9823,7 @@ MonoBehaviour:
   playerId: 0
   isSelected: 0
   movePower: 2
+  maxMovePower: 5
   hp: 100
   non_CombatUnitType: 10001
   buildCount: 0
@@ -9858,6 +9859,7 @@ MonoBehaviour:
   playerId: 0
   isSelected: 0
   movePower: 2
+  maxMovePower: 5
   hp: 100
 --- !u!1 &156840
 GameObject:
