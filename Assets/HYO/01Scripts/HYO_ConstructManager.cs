@@ -28,6 +28,11 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public GameObject fovPre;
     public Vector3[] iconPos;
 
+    public Material matRoad;
+
+    //test
+    public GameObject roadBTN_test;
+   
     public Transform tileTemp;
     public GameObject centerCheck;
 
@@ -45,6 +50,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     TerrainData td;
     FacilityData fd;
 
+    //road
     //지형 레이어
     int layerGrassLand;  // 6
     int layerPlains;     // 7
@@ -134,9 +140,12 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             }
             else if (unitType == Non_CombatUnitType.Builder)
             {
-                //건설 버튼
+                
             }
-
+            else if(unitType == Non_CombatUnitType.Scout)
+            {
+                roadBTN_test.SetActive(true);
+            }
             return true;
         }
         else
@@ -315,6 +324,16 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         else return;
 
     }
+    //test
+    public void OnClickCreateRoad()
+    {
+        tileTemp.gameObject.GetComponent<MeshRenderer>().material = matRoad;
+
+        TerrainData td = tileTemp.gameObject.GetComponent<TerrainData>();
+        td.output.movePower = 1;
+
+        roadBTN_test.SetActive(false);
+    }
 
     // TODO
     // parameter : 타일 x, y 좌표, 선택한 건물
@@ -345,6 +364,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         empty.transform.position = pos.position;
         empty.transform.localPosition = new Vector3(0, 0.179f, 0);
         empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+
+        //특수지구에서 행동력 무조건 1
+        pos.gameObject.GetComponent<TerrainData>().output.movePower = 1;
 
     }
 
