@@ -88,7 +88,6 @@ public class Territory : MonoBehaviour
 
     //소유자(player id)
     public int ownerID;
-    Player[] players;
 
     //보유 특수지구
     public List<District> districtOn = new List<District>();
@@ -105,14 +104,8 @@ public class Territory : MonoBehaviour
         totalOutput = new TotalOutPut();
         districtUnderway.id = District.NONE;
 
-        players = FindObjectsOfType<Player>();
-        for(int i=0; i < players.Length; i++)
-        {
-            if (players[i].isTurn)
-            {
-                ownerID = players[i].playerId;
-            }
-        }
+        ownerID = GameManager.instance.currentPlayerId;
+
     }
 
     void Start()

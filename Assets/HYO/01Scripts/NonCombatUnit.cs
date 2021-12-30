@@ -19,6 +19,8 @@ public class NonCombatUnit : Unit
     public GameObject myTilePos;
     public int posX, posY;
 
+    //animator
+    public Animator animator;
 
     public void NonCambatUnitCase()
     {

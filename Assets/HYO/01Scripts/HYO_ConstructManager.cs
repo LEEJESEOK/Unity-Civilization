@@ -318,10 +318,11 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     }
     //test
     public void OnClickCreateRoad()
-    {       
+    {
         tileTemp.gameObject.GetComponent<MeshRenderer>().material = matRoad;
 
-        tileTemp.gameObject.GetComponent<TerrainData>().output.movePower = 1;
+        TerrainData td = tileTemp.gameObject.GetComponent<TerrainData>();
+        td.output.movePower = 1;
 
         roadBTN_test.SetActive(false);
     }
