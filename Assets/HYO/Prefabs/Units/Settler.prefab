@@ -6529,7 +6529,7 @@ GameObject:
   - component: {fileID: -6121002148061392394}
   m_Layer: 22
   m_Name: Settler
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6620,6 +6620,7 @@ MonoBehaviour:
   playerId: 0
   isSelected: 0
   movePower: 2
+  maxMovePower: 5
   hp: 100
   non_CombatUnitType: 10000
   buildCount: 0
@@ -6654,6 +6655,7 @@ MonoBehaviour:
   playerId: 0
   isSelected: 0
   movePower: 2
+  maxMovePower: 5
   hp: 100
 --- !u!1001 &6577027032271757599
 PrefabInstance:
