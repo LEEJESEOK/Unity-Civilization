@@ -2,7 +2,6 @@ Shader "Custom/Water" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
-		//
 		_MainTex2("Albedo (RGB)", 2D) = "white" {}
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Specular ("Specular", Color) = (0.2, 0.2, 0.2)
@@ -21,12 +20,10 @@ Shader "Custom/Water" {
 		#include "HexCellData.cginc"
 
 		sampler2D _MainTex;
-		//
 		sampler2D _MainTex2;
 
 		struct Input {
 			float2 uv_MainTex;
-			//
 			float2 uv_MainTex2;
 
 			float3 worldPos;
@@ -53,12 +50,12 @@ Shader "Custom/Water" {
 
 		void surf (Input IN, inout SurfaceOutputStandardSpecular o) {
 			float waves = Waves(IN.worldPos.xz, _MainTex);
+
 			fixed4 c = saturate(_Color + waves);
-			//
 			fixed3 d = UnpackNormal(tex2D(_MainTex2, IN.uv_MainTex));
 
 			float explored = IN.visibility.y;
-			//
+
 			o.Normal = d;
 			o.Albedo = c.rgb * IN.visibility.x;
 			o.Specular = _Specular * explored;

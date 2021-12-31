@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 881f834ca4c3240809c33a2e5bab4578
-timeCreated: 1466351199
-licenseType: Pro
+guid: cf42a313e428d5c4a8ffb0af55301cdd
 ShaderImporter:
+  externalObjects: {}
   defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
