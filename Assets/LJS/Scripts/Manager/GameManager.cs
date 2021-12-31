@@ -104,5 +104,6 @@ public class GameManager : Singleton<GameManager>
     public void DestroyUnit(int playerId, GameObject unit)
     {
         players[playerId].info.units.Remove(unit);
+        
     }
 }

@@ -32,7 +32,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     //test
     public GameObject roadBTN_test;
-   
+
     public Transform tileTemp;
     public GameObject centerCheck;
 
@@ -40,7 +40,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public bool isUnitSelected = false;
     public GameObject unitInfo;
     public int unitLimit;
-    Non_CombatUnitType unitType;
+    InGameObjectId unitType;
 
     //first city center
     public bool isFirst;
@@ -132,21 +132,16 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             //이동할때로 옮겨 나중에
             unitInfo.GetComponent<NonCombatUnit>().CheckMyPos();
 
-            unitType = unitInfo.GetComponent<NonCombatUnit>().non_CombatUnitType;
+            unitType = unitInfo.GetComponent<NonCombatUnit>().unitType;
             isUnitSelected = true;
 
             UIPanelManager.instance.OpenPanel("UNIT_PANEL");
-            if (unitType == Non_CombatUnitType.Settler)
+            switch (unitType)
             {
-                //settleBTN.SetActive(true);
-            }
-            else if (unitType == Non_CombatUnitType.Builder)
-            {
-                
-            }
-            else if(unitType == Non_CombatUnitType.Scout)
-            {
-                roadBTN_test.SetActive(true);
+                case InGameObjectId.SETTLER:
+                    break;
+                case InGameObjectId.BUILDER:
+                    break;
             }
             return true;
         }
