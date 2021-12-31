@@ -373,6 +373,7 @@ public class MapManager : Singleton<MapManager>
             //큐브위치에 유닛이 있으면 안된다
             print("cubeCount?==" + movableList.Count);
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            Destroy(cube.GetComponent<BoxCollider>());
             cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
             cube.transform.localScale = Vector3.one * .3f;
             JKH_Node node = movableList[i];
