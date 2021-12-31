@@ -56,7 +56,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     int layerPlains;     // 7
     int layerDesert;     // 8
     int layerMountain;   // 9
-    int fogLayer;
+    public int fogLayer;
     //유닛 레이어
     int layerUnit;
     //UI 레이어
@@ -64,6 +64,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     int layerCity;
     public int layerMask;
+
 
     void Start()
     {
@@ -80,6 +81,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         layerCity = LayerMask.GetMask("City");
 
         layerMask = (layerGrassLand | layerPlains | layerDesert | layerMountain) & ~fogLayer & ~layerUnit & ~layerUI;
+
     }
 
     void WorldCallback(TotalOutPutType toType, int totalAmount)
@@ -223,6 +225,18 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                     }
 
                     this.cityTemp = null;
+                }
+
+            }
+            else if (Input.GetMouseButtonDown(0))
+            {
+                for (int i = 0; i < cityTemp.data.Count; i++)
+                {
+                    // 그린 외곽선 해제
+                    // cityTemp.data[i].gameObject.GetComponent<Outline>().OutlineWidth = 0;
+                    Material material = cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material;
+                    material.shader = Shader.Find("Standard");
+                    cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material = material;
                 }
             }
         }

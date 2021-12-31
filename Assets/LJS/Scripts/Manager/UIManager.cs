@@ -80,7 +80,6 @@ public class UIManager : Singleton<UIManager>
     bool isOpenPopup;
     //TileInfo UI
     public Text tileInfoText;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -131,8 +130,10 @@ public class UIManager : Singleton<UIManager>
         }
 
         Ray rayPoint = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
         RaycastHit hitInfo;
 
+        
         /* 
            1.1 만약 마우스가 움직이지 않는다면
               2. 만약 2초가 흘렀다면
@@ -144,35 +145,41 @@ public class UIManager : Singleton<UIManager>
         if (isOpenPopup == false)
             mousePos = Input.mousePosition;
 
-
-        if (Physics.Raycast(rayPoint, out hitInfo, 1000, HYO_ConstructManager.instance.layerMask))
+        if(Physics.Raycast(rayPoint, out hit, 1000, HYO_ConstructManager.instance.fogLayer))
         {
-            if (mousePos == Input.mousePosition)
+            if(hit.transform.gameObject.GetComponent<MeshRenderer>().enabled == false)
             {
-                currentTime += Time.deltaTime;
-                if (currentTime > popupTime)
+                if (Physics.Raycast(rayPoint, out hitInfo, 1000, HYO_ConstructManager.instance.layerMask))
                 {
-                    isOpenPopup = true;
-
-                    Transform tileTemp = hitInfo.transform;
-                    if (tileTemp.GetComponent<TerrainData>() != null && !UIManager.IsPointerOverUIObject())
+                    if (mousePos == Input.mousePosition)
                     {
-                        tileTemp.GetComponent<TerrainData>().SetTileInfo();
-                        tileInfo.transform.position = new Vector3(mousePos.x, mousePos.y);
-                        tileInfo.SetActive(true);
+                        currentTime += Time.deltaTime;
+                        if (currentTime > popupTime)
+                        {
+                            isOpenPopup = true;
+
+                            Transform tileTemp = hitInfo.transform;
+
+                            if (tileTemp.GetComponent<TerrainData>() != null && !IsPointerOverUIObject())
+                            {
+                                tileTemp.GetComponent<TerrainData>().SetTileInfo();
+                                tileInfo.transform.position = new Vector3(mousePos.x, mousePos.y);
+                                tileInfo.SetActive(true);
+                            }
+                            currentTime = 0;
+
+                        }
                     }
-                    currentTime = 0;
+                    else if (tileInfo.activeSelf == true)
+                    {
+                        isOpenPopup = false;
+
+                        tileInfo.SetActive(false);
+                    }
 
                 }
             }
-            else if (tileInfo.activeSelf == true)
-            {
-                isOpenPopup = false;
-
-                tileInfo.SetActive(false);
-            }
-
-        }
+        }       
     }
 
     public void GetTileInfo(TerrainType type, GameObject center, int move, int food, int prod)
