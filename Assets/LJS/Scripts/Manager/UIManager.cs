@@ -191,7 +191,7 @@ public class UIManager : Singleton<UIManager>
         tileInfoText.text += food + "식량" + Environment.NewLine;
         tileInfoText.text += prod + "생산력" + Environment.NewLine;
     }
-    
+
     public static void ResizeLayoutGroup(GameObject layoutObject)
     {
         LayoutGroup[] layoutGroups = layoutObject.GetComponentsInChildren<LayoutGroup>();
@@ -212,7 +212,7 @@ public class UIManager : Singleton<UIManager>
         #endregion
         return EventSystem.current.IsPointerOverGameObject();
     }
-    
+
     Sprite[] LoadAllSprite(string path)
     {
         return Resources.LoadAll<Sprite>(path);
@@ -556,9 +556,10 @@ public class UIManager : Singleton<UIManager>
             ProductObject productObject = ProductObjectDataManager.instance.productObjects.Find(x => x.id == buttonListeners[i].buttonType);
 
             // // 연구되지 않은 오브젝트는 표시하지 않음
-            bool isUnlocked = (productObject.requireTechId == TechnologyId.NONE) || (GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == productObject.requireTechId).isResearched);
+            bool isUnlocked = (productObject.requireTechId == TechnologyId.NONE)
+                            || (GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == productObject.requireTechId).isResearched);
             buttonListeners[i].transform.parent.gameObject.SetActive(isUnlocked);
-            buttonListeners[i].transform.parent.gameObject.SetActive(isUnlocked);
+            
             if (isUnlocked == false)
                 continue;
 

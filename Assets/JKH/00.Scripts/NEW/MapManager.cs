@@ -22,9 +22,12 @@ public class MapManager : Singleton<MapManager>
     public bool ableToMove = false;
     LayerMask mapLayer;
 
+    LineRenderer lr;
+
     void Start()
     {
         terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
+        lr = GetComponent<LineRenderer>();
 
         mapLayer = mapLayer | LayerMask.GetMask("GrassLand");
         mapLayer = mapLayer | LayerMask.GetMask("Plains");
@@ -300,20 +303,42 @@ public class MapManager : Singleton<MapManager>
         //}
     }
 
+    List<GameObject> oldCubes = new List<GameObject>();
     IEnumerator unitMoveStep(List<Collider> cols, Vector2Int startPos)
     {
+
+        //oldCube = GameObject.Find("Cube");
+        DeleteCube();
+
+
+        List<JKH_Node> path = new List<JKH_Node>();
         for (int i = 0; i < cols.Count; i++)
         {
+            LayerMask unitLayer = LayerMask.GetMask("Unit");
+            Collider[] tileOnUnit = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
+            print(tileOnUnit.Length);
+            if (tileOnUnit.Length >= 1)
+            {
+                tileOnUnit.Initialize();
+                continue;
+            }
+            //tileOnUnit.Initialize();
             TerrainData terrainData = cols[i].GetComponent<TerrainData>();
             Vector2Int endPos = new Vector2Int(terrainData.x, terrainData.y);
             if (startPos == endPos)
                 continue;
             //print(startPos);
             //print(endPos);
-            List<JKH_Node> path = FindPath(startPos.x, startPos.y, endPos.x, endPos.y);
+            path = FindPath(startPos.x, startPos.y, endPos.x, endPos.y);
             yield return null;
             if (path == null)
                 continue;
+
+            //LayerMask unitLayer = LayerMask.GetMask("Unit");
+            //Collider[] tileOnUnit = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
+            //print(tileOnUnit.Length);
+
+
             movePower = 0;
             //path값 Null...
             string pathStr = string.Format("({0}, {1})", path[0].gridX, path[0].gridY);
@@ -327,11 +352,39 @@ public class MapManager : Singleton<MapManager>
             //print(pathStr);
             if (selectedUnit.movePower >= movePower)
             {
-                //그려주기해야함
+                //그려주기해야함 corout
                 movableList.Add(path[0]);
             }
 
+
+
+
         }
+
+        for (int i = 0; i < movableList.Count; i++)
+        {
+            //큐브위치에 유닛이 있으면 안된다
+            print("cubeCount?==" + movableList.Count);
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            Destroy(cube.GetComponent<BoxCollider>());
+            cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
+            cube.transform.localScale = Vector3.one * .3f;
+            JKH_Node node = movableList[i];
+            while (node.parent != null)
+                node = node.parent;
+            Vector3 pos = node.worldPosition;
+
+            pos.y = -.5f;
+            cube.transform.position = pos;
+
+            oldCubes.Add(cube);
+        }
+        // 경로 탐색 완료
+        // ToDo 큐브  박기 , 다른거 누르면 바꾼다. @@
+
+
+
+
     }
 
 
@@ -352,8 +405,8 @@ public class MapManager : Singleton<MapManager>
     public void SelectedUnitMove()
     {
 
-        
-        if (ableToMove && selectedUnit.movePower > 0) 
+
+        if (ableToMove && selectedUnit.movePower > 0)
         {
 
             print("Get Selected Function");
@@ -378,54 +431,87 @@ public class MapManager : Singleton<MapManager>
                 }
 
                 //이미 dest.parent=null
-                print(dest); //가능한좌표 표시한다
+                print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
 
                 //마우스 가르키고 있는 타일까지 경로 표시
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
                 {
-                    LineRenderer lr = null;
 
                     if (hitInfo.transform.gameObject.tag == "Map" && hitInfo.transform.position == dest.worldPosition) //유닛있는데는 표시하면 안됨!
                     {
-                        dest = movableList[i];
-                        print(dest.parent);
+                        print("XXX");
+                        dest = movableList[i]; //시작점.
+                        int lrCount = 0; //lineRenderer 갯수
+                        //int destLen = -1;
+                        lr.positionCount = 0;
                         while (dest != null)
                         {
-                            print(dest.gridX + ", " + dest.gridY);
-
-                            //dest-dest.parent 선긋기
-                            print("선그음?");
-
-                            GameObject line = Instantiate(rayWay);
-                            lr = line.GetComponent<LineRenderer>();
-                            //dest.worldPosition.y = -.7f;
-                            lr.SetPosition(0, dest.worldPosition);
-                            if (dest.parent == null)
-                            {
-                                targetPos = selectedUnit.transform.position;
-                            }
-                            else if (dest.parent != null)
-                            {
-                                targetPos = dest.worldPosition;
-                            }
-                            targetPos.y = -.7f;
-                            lr.SetPosition(1, targetPos);
+                            lr.positionCount++;
+                            Vector3 destPos = dest.worldPosition;
+                            destPos.y = -.7f;
+                            lr.SetPosition(lrCount, destPos);
+                            lrCount++;
                             dest = dest.parent;
 
-                            //아무튼이거이상함
                         }
+                        #region 보기싫은
+                        //dest = movableList[i]; //또?
+                        //print(dest);
+                        //print(dest.parent);
+                        //print(destLen);
+                        //while (dest != null)
+                        //while(destLen!=0)
+                        //{
+                        //print(dest.gridX + ", " + dest.gridY);
+                        //dest-dest.parent 선긋기
+
+                        //if (dest.parent == null)
+                        //{
+                        //    targetPos = hitInfo.transform.position;
+                        //}
+                        //else
+                        //{
+                        //    targetPos = dest.parent.worldPosition;
+
+                        //}
+                        //dest.worldPosition.y = -.7f;                           
+                        //dest.parent.worldPosition.y = -.7f;
+                        //lr.SetPosition(0, dest.worldPosition);
+                        //lr.SetPosition(1, targetPos);
+
+                        //dest.worldPosition.y = -.7f;
+                        ///----
+                        //lr.SetPosition(0, dest.worldPosition);
+                        //if (dest.parent == null)
+                        //{
+                        //    targetPos = selectedUnit.transform.position;
+                        //}
+                        //else if (dest.parent != null)
+                        //{
+                        //    targetPos = dest.worldPosition;
+                        //}
+                        //targetPos.y = -.7f;
+                        //lr.SetPosition(1, targetPos);
+                        //dest = dest.parent;
+                        //destLen--;
+                        //아무튼이거이상함
+                        //}
+                        #endregion
                     }
                 }
+                else
+                    lr.positionCount = 0;
+                
 
 
 
                 //이동 가능한 타일 목록(시각화) ==> 너무많이 생성된다? 계속update가 된다.
-                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
-                cube.transform.localScale = Vector3.one * .3f;
-                Vector3 pos = dest.worldPosition;
-                pos.y = -.5f;
-                cube.transform.position = pos;
+                //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                //cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
+                //cube.transform.localScale = Vector3.one * .3f;
+                //Vector3 pos = dest.worldPosition;
+                //pos.y = -.5f;
+                //cube.transform.position = pos;
             }
             //print(movableList.Count);
             //for (int k = 0; k < movableList.Count; k++)
@@ -445,6 +531,7 @@ public class MapManager : Singleton<MapManager>
                 {
                     if (hitInfo.transform.gameObject.tag == "Map")
                     {
+                        //lr.positionCount = 0;
                         //만약 이동하려는 좌표를 gameObj를 대신해 누른다면? 
                         //target= 내가 찍은 맵 좌표
                         int targetX = hitInfo.transform.gameObject.GetComponent<TerrainData>().x;
@@ -453,11 +540,13 @@ public class MapManager : Singleton<MapManager>
 
                         for (int i = 0; i < movableList.Count; i++)
                         {
+                            //누르면 큐브 사라지게한다.
+                            DeleteCube();
 
                             LayerMask unitLayer = LayerMask.GetMask("Unit");
-                            Collider[] tileOnObj = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
+                            Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
 
-                            if (tileOnObj.Length > 0)
+                            if (tileOnUnit.Length > 0)
                             {
                                 print("can not go");
                                 return;
@@ -571,36 +660,76 @@ public class MapManager : Singleton<MapManager>
     float damageDealt;
 
     //Todo 전투
+    Unit selectedUnitId;
+    Unit targetUnitId;
     public void UnitCombat()
     {
-
-        //상성계산, 
+        //이동하는데 마지막 위치에 상대방이있다면
+        //필요변수 playerId
+        //int playerId = unit.playerId;
+        //목표지점 이전자리에서 멈추고 
+        //이 함수 실행
+        //상성계산
         float rand = Random.Range(8.0f, 1.2f);
         damageDealt = 30 * Mathf.Exp(0.04f * unitDmg - enemyDmg) * rand;
         damageDealt = Mathf.Round(damageDealt);
     }
 
-
+    Vector3 dir;
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path)
     {
         //어떤경로로 이동하는지 표시 
-        while (path != null)
+        while (path.parent != null)
         {
-            yield return new WaitForSeconds(1);
-            Vector3 pos = path.worldPosition;
-            pos.y = -.7f;
-            unit.transform.position = pos;
-            path = path.parent;
-        }
+            //좌표틀어짐>> 정중앙에 위치시키도록한다
+            yield return null;
 
+
+            //Vector3 pos = path.worldPosition; //1
+            //pos.y = -.7f; //2
+            //unit.transform.position = pos; //3
+            //---
+            dir = path.parent.worldPosition - path.worldPosition;
+            dir.Normalize();
+            unit.transform.position += dir * Time.deltaTime ;
+            //---
+            if ((path.parent.worldPosition - unit.transform.position).sqrMagnitude < (.1f))
+            {
+                path = path.parent; //
+            }
+            dir = Vector3.zero;
+
+            //// 움직이는 동작 처리하는 코루틴
+            //yield return StartCoroutine(FinishedUnitCoroutine(null, null));
+            //// path 다음으로
+
+        }
+        //경로표시 다끝나면 선 지운다.
+        lr.positionCount = 0;
+
+    }
+    IEnumerator FinishedUnitCoroutine(Unit  unit, JKH_Node path) //움직임처리하는
+    {
+
+        yield return new WaitForSeconds(1); //???
     }
 
     public GameObject gizmosEg;
     private void OnDrawGizmosSelected()
     {
-        Color color = Color.red;
-        color.a = 0.2f;
+        //Color color = Color.red;
+        //color.a = 0.2f;
 
-        Gizmos.DrawSphere(gizmosEg.transform.position, 4.0f);//
+        //Gizmos.DrawSphere(gizmosEg.transform.position, 4.0f);//
+    }
+    public void DeleteCube()
+    {
+        if (oldCubes != null)
+        {
+            for (int j = 0; j < oldCubes.Count; j++)
+            {
+                Destroy(oldCubes[j]);
+            }
+        }
     }
 }

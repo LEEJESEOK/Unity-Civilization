@@ -40,18 +40,15 @@ public class Player : MonoBehaviour
             unit.playerId = playerId;
             unit.SetObjectColor();
 
-            #region  test
-            if (i == 0)
-                unitObject.transform.position = new Vector3(-1.6f, -0.9f, -0.25f);
-            else
-                unitObject.transform.position = new Vector3(1.8f, -0.9f, -0.25f);
-            #endregion
-            unitObject.transform.rotation = Quaternion.Euler(0, 180f, 0);
             info.units.Add(unitObject);
 
-            HexFogManager.instance.fieldOfViews.Add(unitObject.GetComponentInChildren<FieldOfView>());
+            #region test
+            // 초기 위치 지정
+            unitObject.transform.position = new Vector3(-1.6f * (playerId * GameManager.instance.initialUnits.Count + i), -0.9f, -0.25f * (playerId * GameManager.instance.initialUnits.Count + i));
+            #endregion
+            unitObject.transform.rotation = Quaternion.Euler(0, 180f, 0);
 
-            unitObject.SetActive(false);
+            HexFogManager.instance.fieldOfViews.Add(unitObject.GetComponentInChildren<FieldOfView>());
         }
     }
 
@@ -77,13 +74,6 @@ public class Player : MonoBehaviour
         else
         {
             UIManager.instance.InitSelectedTechnology();
-        }
-
-        // 유닛 변경
-        if (GameManager.instance.test)
-        {
-            for (int i = 0; i < info.units.Count; ++i)
-                info.units[i].SetActive(true);
         }
 
         isTurn = true;
@@ -137,13 +127,6 @@ public class Player : MonoBehaviour
         for (int i = 0; i < info.units.Count; ++i)
         {
 
-        }
-
-        // test 테스트
-        if (GameManager.instance.test)
-        {
-            for (int i = 0; i < info.units.Count; ++i)
-                info.units[i].SetActive(false);
         }
     }
 

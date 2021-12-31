@@ -9694,7 +9694,7 @@ GameObject:
   - component: {fileID: -6019698553330862955}
   m_Layer: 22
   m_Name: Builder
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9822,13 +9822,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 0
   isSelected: 0
+  unitType: 0
   movePower: 2
+  maxMovePower: 5
   hp: 100
-  non_CombatUnitType: 10001
-  buildCount: 0
   myTilePos: {fileID: 0}
   posX: 0
   posY: 0
+  animator: {fileID: 0}
+  buildCount: 0
 --- !u!136 &1121405426
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9857,8 +9859,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 0
   isSelected: 0
+  unitType: 0
   movePower: 2
+  maxMovePower: 5
   hp: 100
+  myTilePos: {fileID: 0}
+  posX: 0
+  posY: 0
+  animator: {fileID: 0}
 --- !u!1 &156840
 GameObject:
   m_ObjectHideFlags: 0
@@ -19066,10 +19074,6 @@ PrefabInstance:
     - target: {fileID: 1506924489222170, guid: dc71f2c975802cd4d96ca38942f7ac1c, type: 3}
       propertyPath: m_Name
       value: Field Of View
-      objectReference: {fileID: 0}
-    - target: {fileID: 1506924489222170, guid: dc71f2c975802cd4d96ca38942f7ac1c, type: 3}
-      propertyPath: m_Layer
-      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 4846114586612356, guid: dc71f2c975802cd4d96ca38942f7ac1c, type: 3}
       propertyPath: m_RootOrder

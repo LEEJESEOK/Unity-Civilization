@@ -2,78 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Non_CombatUnitType
-{
-    Settler = TypeIdBase.UNIT,
-    Builder,
-    Scout
-}
-
 public class NonCombatUnit : Unit
 {
-    public Non_CombatUnitType non_CombatUnitType;
-
     public int buildCount;
 
-    //unit tilePos
-    public GameObject myTilePos;
-    public int posX, posY;
+    protected override void Start()
+    {
+        base.Start();
+    }
 
-    //animator
-    public Animator animator;
+    protected override void Update()
+    {
+        base.Update();
+
+        switch (unitType)
+        {
+            case InGameObjectId.SETTLER:
+                break;
+            case InGameObjectId.BUILDER:
+                if (buildCount == 3)
+                    Destroy(gameObject);
+                break;
+        }
+    }
 
     public void NonCambatUnitCase()
     {
-        switch (non_CombatUnitType)
+        switch (unitType)
         {
-            case Non_CombatUnitType.Settler:
+            case InGameObjectId.SETTLER:
                 break;
-            case Non_CombatUnitType.Builder:
-                break;
-            case Non_CombatUnitType.Scout:
+            case InGameObjectId.BUILDER:
                 break;
             default:
                 break;
         }
-    }
-
-    private void Start()
-    {
-        CheckMyPos();
-    }
-
-    private void Update()
-    {
-        if (non_CombatUnitType == Non_CombatUnitType.Builder)
-        {
-            if (buildCount == 3)
-            {
-                //FOV 제거
-                Destroy(gameObject);
-            }
-        }
-    }
-
-    //이동하면 검사
-    public void CheckMyPos()
-    {
-        int fogLayer = LayerMask.GetMask("HexFog");
-
-        RaycastHit hit;
-        Ray ray = new Ray(transform.position, transform.up * -1);
-        Debug.DrawRay(transform.position, transform.up * -1, Color.red);
-        if (Physics.Raycast(ray, out hit, 1, ~fogLayer))
-        {
-            myTilePos = hit.transform.gameObject;
-
-            posX = myTilePos.GetComponent<TerrainData>().x;
-            posY = myTilePos.GetComponent<TerrainData>().y;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (GameManager.instance != null)
-            GameManager.instance.DestroyUnit(playerId, gameObject);
     }
 }
