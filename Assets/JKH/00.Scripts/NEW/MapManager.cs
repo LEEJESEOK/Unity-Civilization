@@ -139,7 +139,7 @@ public class MapManager : Singleton<MapManager>
         {
             if (Physics.Raycast(ray, out hitInfo, 1000, layer))
             {
-
+                lr.positionCount = 0;
                 //unitMove
                 selectedUnit = hitInfo.transform.GetComponent<Unit>();
                 ableToMove = false;
@@ -148,6 +148,7 @@ public class MapManager : Singleton<MapManager>
                 print(selectedUnit.gameObject.name);
                 print("이동력: " + selectedUnit.movePower);
                 print("체력: " + selectedUnit.hp);
+                print("UnitID" + selectedUnit.playerId);
 
                 //유닛이있는 타일의 정보를 가져온다.
 
@@ -541,12 +542,12 @@ public class MapManager : Singleton<MapManager>
                         for (int i = 0; i < movableList.Count; i++)
                         {
                             //누르면 큐브 사라지게한다.
-                            DeleteCube();
-
+                            DeleteCube();                            
                             LayerMask unitLayer = LayerMask.GetMask("Unit");
                             Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
 
-                            if (tileOnUnit.Length > 0)
+                            //조건추가 (내 playerID와 목표지점 playerID가 같으면 못간다. 즉, 다르면 적군이고 클릭 할 수 있다.)
+                            if (tileOnUnit.Length > 0&&hitInfo.transform.GetComponent<Unit>().playerId==selectedUnit.playerId)
                             {
                                 print("can not go");
                                 return;
@@ -664,8 +665,10 @@ public class MapManager : Singleton<MapManager>
     Unit targetUnitId;
     public void UnitCombat()
     {
+        print("이함수 실행");
         //이동하는데 마지막 위치에 상대방이있다면
-        //필요변수 playerId
+        //필요변수 
+        //playerID, TargetId, 최종목적지 받는다
         //int playerId = unit.playerId;
         //목표지점 이전자리에서 멈추고 
         //이 함수 실행
