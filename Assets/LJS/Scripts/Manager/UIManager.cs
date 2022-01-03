@@ -510,7 +510,8 @@ public class UIManager : Singleton<UIManager>
                 case TypeIdBase.DISTRICT:
                     productObjectButton.transform.SetParent(productBuildingContent);
                     // 골드 생산 목록에서 건물 제외
-                    // goldObjectButton.transform.SetParent(goldBuildingContent);
+                    goldObjectButton.transform.SetParent(goldBuildingContent);
+                    goldObjectButton.SetActive(false);
                     break;
                 case TypeIdBase.UNIT:
                     productObjectButton.transform.SetParent(productUnitContent);
