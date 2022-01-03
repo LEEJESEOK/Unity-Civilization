@@ -29,14 +29,15 @@ public class GameManager : Singleton<GameManager>
 
     // 게임 시작시 기본 제공 유닛
     public List<GameObject> initialUnits;
+    public List<GameObject> startPoints;
 
 
     private void Awake()
     {
-        #region test
-        if (Application.platform != RuntimePlatform.WindowsEditor)
-            test = false;
-        #endregion
+        // #region test
+        // if (Application.platform != RuntimePlatform.WindowsEditor)
+        //     test = false;
+        // #endregion
     }
 
     // Start is called before the first frame update
@@ -50,6 +51,19 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
+        #region test
+        if (!UIManager.IsPointerOverUIObject() & Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if(Physics.Raycast(ray, out hit, float.MaxValue))
+            {
+                print(hit.transform.gameObject.name);
+            }
+        }
+        #endregion
+
+
         // esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -69,6 +83,7 @@ public class GameManager : Singleton<GameManager>
         for (int i = 0; i < initPlayerCount; ++i)
         {
             players.Add(Instantiate(playerPrefab).GetComponent<Player>());
+            players[i].transform.position = startPoints[i].transform.position;
             players[i].playerId = i;
         }
     }
@@ -104,6 +119,6 @@ public class GameManager : Singleton<GameManager>
     public void DestroyUnit(int playerId, GameObject unit)
     {
         players[playerId].info.units.Remove(unit);
-        
+
     }
 }
