@@ -9996,9 +9996,7 @@ GameObject:
   - component: {fileID: 7925216091067512321}
   - component: {fileID: 7925216091077329323}
   - component: {fileID: -2840703706140632240}
-  - component: {fileID: 5679061487502303938}
   - component: {fileID: -6589158802922132012}
-  - component: {fileID: 30902100}
   m_Layer: 22
   m_Name: Scout
   m_TagString: Unit
@@ -10117,40 +10115,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7925216091067691851}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85494d9dfd50a3a4196fd20bab048f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 0
   isSelected: 0
+  unitType: 0
   movePower: 2
   maxMovePower: 5
   hp: 100
-  meleeAttack: 0
-  rangeAttack: 0
-  range: 0
---- !u!114 &5679061487502303938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7925216091067691851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 828f868569880b44e83c469f88defdf9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerId: 0
-  isSelected: 0
-  movePower: 2
-  hp: 100
-  non_CombatUnitType: 10002
-  buildCount: 0
   myTilePos: {fileID: 0}
   posX: 0
   posY: 0
+  animator: {fileID: 0}
+  meleeAttack: 0
+  rangeAttack: 0
+  range: 0
 --- !u!65 &-6589158802922132012
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10164,22 +10146,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1884693, y: 3.207766, z: 2.561397}
   m_Center: {x: 0.0117697315, y: 1.1038817, z: 0.14661968}
---- !u!114 &30902100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7925216091067691851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ca338b24d617664b8aabe80d8a8e0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerId: 0
-  isSelected: 0
-  movePower: 2
-  hp: 100
 --- !u!1 &7925216091067691931
 GameObject:
   m_ObjectHideFlags: 0

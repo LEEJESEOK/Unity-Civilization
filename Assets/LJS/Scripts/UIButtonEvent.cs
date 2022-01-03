@@ -63,13 +63,11 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
             case UIButtonId.COMMAND_BUILD_CITY:
                 HYO_ConstructManager.instance.CreateTerritory();
                 break;
-            // case UIButtonId.COMMAND_BUILD_FARM:
-            //     HYO_ConstructManager.instance.CreateFacility(Facility.FARM);
-            //     break;
-            // case UIButtonId.COMMAND_BUILD_MINE:
-            //     HYO_ConstructManager.instance.CreateFacility(Facility.MINE);
-            //     break;
-            case UIButtonId.COMMAND_BUILD_FACILITY:
+            case UIButtonId.COMMAND_BUILD_FARM:
+                HYO_ConstructManager.instance.CreateFacility(Facility.FARM);
+                break;
+            case UIButtonId.COMMAND_BUILD_MINE:
+                HYO_ConstructManager.instance.CreateFacility(Facility.MINE);
                 break;
             // case UIButtonId.COMMAND_BUILD_CAMPUS:
             //         HYO_ConstructManager.instance.SetDistrictInfo(District.CAMPUS);

@@ -30,7 +30,8 @@ public enum UIButtonId
     COMMAND_BUILD_CITY,
     COMMAND_DESTROY,
     // builder
-    COMMAND_BUILD_FACILITY,
+    COMMAND_BUILD_FARM,
+    COMMAND_BUILD_MINE,
     #endregion
 
     #region CITY PRODUCT
