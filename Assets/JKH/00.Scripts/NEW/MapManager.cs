@@ -321,7 +321,7 @@ public class MapManager : Singleton<MapManager>
             LayerMask unitLayer = LayerMask.GetMask("Unit");
             Collider[] tileOnUnit = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
             print(tileOnUnit.Length);
-            if (tileOnUnit.Length >= 1&&tileOnUnit[0].GetComponent<Unit>().playerId==selectedUnit.playerId) //상대방유닛은 안거르게됨.
+            if (tileOnUnit.Length >= 1 && tileOnUnit[0].GetComponent<Unit>().playerId == selectedUnit.playerId) //상대방유닛은 안거르게됨.
             {
                 tileOnUnit.Initialize();
                 continue;
@@ -405,7 +405,7 @@ public class MapManager : Singleton<MapManager>
         if (ableToMove && selectedUnit.movePower > 0)
         {
 
-            print("Get Selected Function");
+            //print("Get Selected Function");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
 
@@ -427,7 +427,7 @@ public class MapManager : Singleton<MapManager>
                 }
 
                 //이미 dest.parent=null
-                print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
+                //print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
 
                 //마우스 가르키고 있는 타일까지 경로 표시
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
@@ -435,7 +435,6 @@ public class MapManager : Singleton<MapManager>
 
                     if (hitInfo.transform.gameObject.tag == "Map" && hitInfo.transform.position == dest.worldPosition) //유닛있는데는 표시하면 안됨!
                     {
-                        print("XXX");
                         dest = movableList[i]; //시작점.
                         int lrCount = 0; //lineRenderer 갯수
                         //int destLen = -1;
@@ -444,7 +443,7 @@ public class MapManager : Singleton<MapManager>
                         {
                             lr.positionCount++;
                             Vector3 destPos = dest.worldPosition;
-                            destPos.y = -.9f;
+                            destPos.y = -.3f;
                             lr.SetPosition(lrCount, destPos);
                             lrCount++;
                             dest = dest.parent;
@@ -497,7 +496,7 @@ public class MapManager : Singleton<MapManager>
                 }
                 else
                     lr.positionCount = 0;
-                
+
                 //이동 가능한 타일 목록(시각화) ==> 너무많이 생성된다? 계속update가 된다.
                 //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 //cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
@@ -533,11 +532,11 @@ public class MapManager : Singleton<MapManager>
                         JKH_Node target = nodeMap[targetX + mapWidth * targetY];
 
 
-                        
+
                         for (int i = 0; i < movableList.Count; i++)
                         {
                             //누르면 큐브 사라지게한다.
-                            DeleteCube();                            
+                            DeleteCube();
                             LayerMask unitLayer = LayerMask.GetMask("Unit");
                             Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
 
@@ -548,14 +547,17 @@ public class MapManager : Singleton<MapManager>
                             //    print("다른유닛");
                             //    return;
                             //}
-
-                            if (tileOnUnit.Length > 0&& tileOnUnit[0].GetComponent<Unit>().playerId==selectedUnit.playerId)
+                            if (tileOnUnit.Length>0)
+                            {
+                                print(tileOnUnit[0].gameObject.name);
+                            }
+                            if (tileOnUnit.Length > 0 && tileOnUnit[0].GetComponent<Unit>().playerId == selectedUnit.playerId)
                             {
                                 print("can not go");
                                 lr.positionCount = 0;
                                 return;
                             }
-                            
+
 
                             JKH_Node dest = movableList[i];
                             float movePower = 0;
@@ -565,15 +567,16 @@ public class MapManager : Singleton<MapManager>
                                 movePower += dest.requiredMovePower;
                             }
 
-                            if ((target == dest) && (movePower <= selectedUnit.movePower || tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)) //tq
-                            {
-                                print("123");
-                            }
+                            //if (tileOnUnit == null)
+                            //{
+                            //    print("쥐");
+
+                            //}
 
                             //hitinfo 타일에 gameObj있나 없나 검사하기. 
                             if ((target == dest) && (movePower <= selectedUnit.movePower))
                             {
-                                
+
                                 // 플레이어 오브젝트 위치 이동 칸대로 이동하기   
                                 JKH_Node path = movableList[i];
                                 StartCoroutine(MoveUnitCoroutine(selectedUnit, path));
@@ -588,7 +591,7 @@ public class MapManager : Singleton<MapManager>
                                 //bool off
                                 ableToMove = false;
                             }
-                            
+
 
                         }
 
@@ -711,7 +714,7 @@ public class MapManager : Singleton<MapManager>
             //---
             dir = path.parent.worldPosition - path.worldPosition;
             dir.Normalize();
-            unit.transform.position += dir * Time.deltaTime ;
+            unit.transform.position += dir * Time.deltaTime;
             //---
             if ((path.parent.worldPosition - unit.transform.position).sqrMagnitude < (.1f))
             {
@@ -728,13 +731,13 @@ public class MapManager : Singleton<MapManager>
         lr.positionCount = 0;
 
     }
-    IEnumerator FinishedUnitCoroutine(Unit  unit, JKH_Node path) //움직임처리하는
+    IEnumerator FinishedUnitCoroutine(Unit unit, JKH_Node path) //움직임처리하는
     {
 
         yield return new WaitForSeconds(1); //???
     }
 
-    
+
     public void DeleteCube()
     {
         if (oldCubes != null)
