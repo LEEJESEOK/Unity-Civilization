@@ -40,11 +40,11 @@ public class Player : MonoBehaviour
             unit.playerId = playerId;
             unit.SetObjectColor();
 
-            info.units.Add(unitObject);
+            info.units.Add(unit);
 
             #region test
             // 초기 위치 지정
-            Vector3 pos = transform.position + Vector3.left * (1.5f)*i;
+            Vector3 pos = transform.position + Vector3.left * (1.5f) * i;
             pos.y = -0.9f;
             unitObject.transform.position = pos;
 
@@ -73,12 +73,23 @@ public class Player : MonoBehaviour
         // 자원
         print(string.Format("[Start Turn] {0}", name));
         UIManager.instance.UpdateResource(info.science, 0, 0, 0, info.gold, info.goldChange);
+
         // 연구
         if (info.ongoingTechnology != null)
             UIManager.instance.UpdateSelectedTechnology(info.ongoingTechnology);
         else
-        {
             UIManager.instance.InitSelectedTechnology();
+
+        // 유닛
+        for (int i = 0; i < info.units.Count; ++i)
+        {
+            Unit unit = info.units[i];
+
+            // 이동력 회복
+            unit.movePower = unit.maxMovePower;
+
+            // TODO 체력 회복
+
         }
 
         isTurn = true;
@@ -136,7 +147,7 @@ public class Player : MonoBehaviour
     }
 
     // 유닛 생성 -> 플레이어의 유닛 리스트에 추가
-    public void ConstructUnit(GameObject unit)
+    public void ConstructUnit(Unit unit)
     {
         info.units.Add(unit);
     }

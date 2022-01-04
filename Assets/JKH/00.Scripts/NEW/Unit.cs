@@ -10,8 +10,8 @@ public class Unit : MonoBehaviour
     public InGameObjectId unitType;
 
     //Unit's stat
-    public float movePower = 5;
-    public float maxMovePower = 5;
+    public float movePower;
+    public float maxMovePower = 2;
     public int hp = 100;
 
     //unit tilePos
@@ -69,6 +69,6 @@ public class Unit : MonoBehaviour
     private void OnDestroy()
     {
         if (GameManager.instance != null)
-            GameManager.instance.DestroyUnit(playerId, gameObject);
+            GameManager.instance.DestroyUnit(playerId, this);
     }
 }

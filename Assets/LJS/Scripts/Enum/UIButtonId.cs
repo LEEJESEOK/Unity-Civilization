@@ -22,16 +22,18 @@ public enum UIButtonId
     #endregion
 
     #region UNIT COMMAND
+    // 비활성화
     COMMAND_REST,
+    // 이동
     COMMAND_MOVE,
+    // 요새화
     COMMAND_FORTIFICATION, 
 
     // settler
     COMMAND_BUILD_CITY,
     COMMAND_DESTROY,
     // builder
-    COMMAND_BUILD_FARM,
-    COMMAND_BUILD_MINE,
+    COMMAND_BUILD_FACILITY,
     #endregion
 
     #region CITY PRODUCT

@@ -9823,7 +9823,7 @@ MonoBehaviour:
   isSelected: 0
   unitType: 0
   movePower: 2
-  maxMovePower: 5
+  maxMovePower: 2
   hp: 100
   myTilePos: {fileID: 0}
   posX: 0

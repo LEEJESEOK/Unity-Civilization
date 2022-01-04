@@ -58,7 +58,7 @@ public class TechnologyDataManager : Singleton<TechnologyDataManager>
         technologies.Add(new Technology(TechnologyId.ARCHERY, "Archery", "궁술", "", 50, new List<InGameObjectId> { InGameObjectId.ARCHER }, new List<TechnologyId> { TechnologyId.ANIMAL_HUSBANDRY }));
 
         technologies.Add(new Technology(TechnologyId.MASONRY, "Masonry", "석조 기술", "", 80, null, new List<TechnologyId> { TechnologyId.MINING }));
-        technologies.Add(new Technology(TechnologyId.BRONZE_WORKING, "Bronze Working", "", "청동 기술", 80, new List<InGameObjectId> { InGameObjectId.SPEARMAN }, new List<TechnologyId> { TechnologyId.MINING }));
+        technologies.Add(new Technology(TechnologyId.BRONZE_WORKING, "Bronze Working", "청동 기술", "", 80, new List<InGameObjectId> { InGameObjectId.SPEARMAN }, new List<TechnologyId> { TechnologyId.MINING }));
         technologies.Add(new Technology(TechnologyId.WHEEL, "Wheel", "바퀴", "", 80, new List<InGameObjectId> { InGameObjectId.HEAVY_CHARIOT }, new List<TechnologyId> { TechnologyId.MINING }));
 
         technologies.Add(new Technology(TechnologyId.CURRENCY, "Currency", "화폐", "", 144, new List<InGameObjectId> { InGameObjectId.COMMERCIAL_HUB }, new List<TechnologyId> { TechnologyId.WRITING }));

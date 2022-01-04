@@ -116,7 +116,7 @@ public class GameManager : Singleton<GameManager>
         players[_currentPlayerId].StartTurn();
     }
 
-    public void DestroyUnit(int playerId, GameObject unit)
+    public void DestroyUnit(int playerId, Unit unit)
     {
         players[playerId].info.units.Remove(unit);
 
