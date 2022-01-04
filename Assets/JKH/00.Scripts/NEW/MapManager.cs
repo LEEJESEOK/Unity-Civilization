@@ -452,7 +452,7 @@ public class MapManager : Singleton<MapManager>
                         {
                             lr.positionCount++;
                             Vector3 destPos = dest.worldPosition;
-                            destPos.y = -.7f;
+                            destPos.y = -.9f;
                             lr.SetPosition(lrCount, destPos);
                             lrCount++;
                             dest = dest.parent;
