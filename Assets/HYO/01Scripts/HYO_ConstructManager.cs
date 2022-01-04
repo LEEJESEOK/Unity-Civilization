@@ -102,7 +102,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         {
             if (SelectUnit())
             {
-                tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
+                tileTemp = unitInfo.GetComponent<Unit>().myTilePos.transform;
                 fd = tileTemp.GetComponent<FacilityData>();
 
             }
@@ -130,9 +130,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             unitInfo = hit.transform.gameObject;
 
             //이동할때로 옮겨 나중에
-            unitInfo.GetComponent<NonCombatUnit>().CheckMyPos();
+            unitInfo.GetComponent<Unit>().CheckMyPos();
 
-            unitType = unitInfo.GetComponent<NonCombatUnit>().unitType;
+            unitType = unitInfo.GetComponent<Unit>().unitType;
             isUnitSelected = true;
 
             UIPanelManager.instance.OpenPanel("UNIT_PANEL");
@@ -297,7 +297,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         {
             fd.SetFacility(id);
 
-            tileTemp = unitInfo.GetComponent<NonCombatUnit>().myTilePos.transform;
+            tileTemp = unitInfo.GetComponent<Unit>().myTilePos.transform;
             GameObject empty = Instantiate(icons[(int)id + 3]);
 
 

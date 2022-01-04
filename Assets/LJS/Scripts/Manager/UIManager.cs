@@ -510,7 +510,8 @@ public class UIManager : Singleton<UIManager>
                 case TypeIdBase.DISTRICT:
                     productObjectButton.transform.SetParent(productBuildingContent);
                     // 골드 생산 목록에서 건물 제외
-                    // goldObjectButton.transform.SetParent(goldBuildingContent);
+                    goldObjectButton.transform.SetParent(goldBuildingContent);
+                    goldObjectButton.SetActive(false);
                     break;
                 case TypeIdBase.UNIT:
                     productObjectButton.transform.SetParent(productUnitContent);
@@ -518,8 +519,8 @@ public class UIManager : Singleton<UIManager>
                     break;
             }
 
-            productObjectButton.SetActive(false);
-            goldObjectButton.SetActive(false);
+            // productObjectButton.SetActive(false);
+            // goldObjectButton.SetActive(false);
         }
     }
 
@@ -558,7 +559,8 @@ public class UIManager : Singleton<UIManager>
             // // 연구되지 않은 오브젝트는 표시하지 않음
             bool isUnlocked = (productObject.requireTechId == TechnologyId.NONE)
                             || (GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == productObject.requireTechId).isResearched);
-            buttonListeners[i].transform.parent.gameObject.SetActive(isUnlocked);
+            // buttonListeners[i].transform.parent.gameObject.SetActive(isUnlocked);
+            buttonListeners[i].GetComponent<Button>().interactable = isUnlocked;
             
             if (isUnlocked == false)
                 continue;

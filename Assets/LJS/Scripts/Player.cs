@@ -44,7 +44,12 @@ public class Player : MonoBehaviour
 
             #region test
             // 초기 위치 지정
-            unitObject.transform.position = new Vector3(-1.6f * (playerId * GameManager.instance.initialUnits.Count + i), -0.9f, -0.25f * (playerId * GameManager.instance.initialUnits.Count + i));
+            Vector3 pos = transform.position + Vector3.left * (1.5f)*i;
+            pos.y = -0.9f;
+            unitObject.transform.position = pos;
+
+
+
             #endregion
             unitObject.transform.rotation = Quaternion.Euler(0, 180f, 0);
 

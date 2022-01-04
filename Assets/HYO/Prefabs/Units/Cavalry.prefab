@@ -7006,6 +7006,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7875038894457256660}
   - component: {fileID: 7875038894450247116}
+  - component: {fileID: 6617988025209094017}
   - component: {fileID: -4465885894919156697}
   m_Layer: 22
   m_Name: Cavalry
@@ -7118,6 +7119,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &6617988025209094017
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7875038894457549344}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1884693, y: 3.207766, z: 2.561397}
+  m_Center: {x: 0.0117697315, y: 1.1038817, z: 0.14661968}
 --- !u!114 &-4465885894919156697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7132,9 +7146,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 0
   isSelected: 0
+  unitType: 0
   movePower: 2
   maxMovePower: 5
   hp: 100
+  myTilePos: {fileID: 0}
+  posX: 0
+  posY: 0
+  animator: {fileID: 0}
   meleeAttack: 28
   rangeAttack: 0
   range: 0
