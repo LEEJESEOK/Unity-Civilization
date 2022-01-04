@@ -151,7 +151,7 @@ public class MapManager : Singleton<MapManager>
                 print(selectedUnit.gameObject.name);
                 print("이동력: " + selectedUnit.movePower);
                 print("체력: " + selectedUnit.hp);
-                print("UnitID" + selectedUnit.playerId);
+                print("UnitID: " + selectedUnit.playerId);
 
                 //유닛이있는 타일의 정보를 가져온다.
 
@@ -321,7 +321,7 @@ public class MapManager : Singleton<MapManager>
             LayerMask unitLayer = LayerMask.GetMask("Unit");
             Collider[] tileOnUnit = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
             print(tileOnUnit.Length);
-            if (tileOnUnit.Length >= 1)
+            if (tileOnUnit.Length >= 1&&tileOnUnit[0].GetComponent<Unit>().playerId==selectedUnit.playerId) //상대방유닛은 안거르게됨.
             {
                 tileOnUnit.Initialize();
                 continue;
@@ -359,10 +359,6 @@ public class MapManager : Singleton<MapManager>
                 //그려주기해야함 corout
                 movableList.Add(path[0]);
             }
-
-
-
-
         }
 
         for (int i = 0; i < movableList.Count; i++)
@@ -385,10 +381,6 @@ public class MapManager : Singleton<MapManager>
         }
         // 경로 탐색 완료
         // ToDo 큐브  박기 , 다른거 누르면 바꾼다. @@
-
-
-
-
     }
 
 
@@ -506,9 +498,6 @@ public class MapManager : Singleton<MapManager>
                 else
                     lr.positionCount = 0;
                 
-
-
-
                 //이동 가능한 타일 목록(시각화) ==> 너무많이 생성된다? 계속update가 된다.
                 //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 //cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
@@ -517,6 +506,7 @@ public class MapManager : Singleton<MapManager>
                 //pos.y = -.5f;
                 //cube.transform.position = pos;
             }
+
             //print(movableList.Count);
             //for (int k = 0; k < movableList.Count; k++)
             //{
@@ -542,6 +532,8 @@ public class MapManager : Singleton<MapManager>
                         int targetY = hitInfo.transform.gameObject.GetComponent<TerrainData>().y;
                         JKH_Node target = nodeMap[targetX + mapWidth * targetY];
 
+
+                        
                         for (int i = 0; i < movableList.Count; i++)
                         {
                             //누르면 큐브 사라지게한다.
@@ -550,11 +542,21 @@ public class MapManager : Singleton<MapManager>
                             Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
 
                             //조건추가 (내 playerID와 목표지점 playerID가 같으면 못간다. 즉, 다르면 적군이고 클릭 할 수 있다.)
-                            if (tileOnUnit.Length > 0&&hitInfo.transform.GetComponent<Unit>().playerId==selectedUnit.playerId)
+                            //&&hitInfo.transform.GetComponent<Unit>().playerId==selectedUnit.playerId
+                            //if (tileOnUnit.Length > 0 && hitInfo.transform.GetComponent<Unit>().playerId != selectedUnit.playerId)
+                            //{
+                            //    print("다른유닛");
+                            //    return;
+                            //}
+
+                            if (tileOnUnit.Length > 0&& tileOnUnit[0].GetComponent<Unit>().playerId==selectedUnit.playerId)
                             {
                                 print("can not go");
+                                lr.positionCount = 0;
                                 return;
                             }
+                            
+
                             JKH_Node dest = movableList[i];
                             float movePower = 0;
                             while (dest.parent != null)
@@ -563,19 +565,15 @@ public class MapManager : Singleton<MapManager>
                                 movePower += dest.requiredMovePower;
                             }
 
-                            //최대이동력일때
-                            //if (selectedUnit.movePower == selectedUnit.maxMovePower && movePower > selectedUnit.movePower 
-                            //    )
-                            //{
-                            //    Vector3 pos = .worldPosition;
-                            //    pos.y = -.7f;
-                            //    unit.transform.position = pos;
-                            //}
+                            if ((target == dest) && (movePower <= selectedUnit.movePower || tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)) //tq
+                            {
+                                print("123");
+                            }
 
-                            // 이동력 검사 ++ 해당타일에 다른 gameObj가 없다면?
                             //hitinfo 타일에 gameObj있나 없나 검사하기. 
                             if ((target == dest) && (movePower <= selectedUnit.movePower))
                             {
+                                
                                 // 플레이어 오브젝트 위치 이동 칸대로 이동하기   
                                 JKH_Node path = movableList[i];
                                 StartCoroutine(MoveUnitCoroutine(selectedUnit, path));
@@ -590,14 +588,15 @@ public class MapManager : Singleton<MapManager>
                                 //bool off
                                 ableToMove = false;
                             }
-
-
+                            
 
                         }
 
                         // 이동할 수 없는 타일을 선택했을 경우
                         if (ableToMove == true)
+                        {
                             print("Failed");
+                        }
                     }
 
                     else
@@ -633,7 +632,6 @@ public class MapManager : Singleton<MapManager>
                 }
             }
         }
-
         return neighbours;
     }
 
@@ -669,13 +667,29 @@ public class MapManager : Singleton<MapManager>
     public void UnitCombat()
     {
         print("이함수 실행");
-        //이동하는데 마지막 위치에 상대방이있다면
-        //필요변수 
-        //playerID, TargetId, 최종목적지 받는다
-        //int playerId = unit.playerId;
-        //목표지점 이전자리에서 멈추고 
-        //이 함수 실행
-        //상성계산
+        #region Todo      
+        //function = Combat()
+        //[필요한 변수]
+        //각 유닛 playerID
+        //최종목적지의 좌표(전투에 이겼을때.)
+        //전투에필요한 변수
+
+        //[과정]
+        //목표지점 누른다
+        //만약 그것이(상대`)유닛이라면
+        //+ 유닛있는 타일 잠궜는데 예외추가**
+        //eg > 유닛의ID가 나와 다르다면 이동가능하다(변수 많이생길듯)
+
+
+        //만약 그것의 playerID가 다르다면
+        //그 전 방향까지 이동한다
+        //싸우는 함수실행
+
+        //[경우의수]
+        //1_만약이긴다: 상대파괴 후 목적지 이동
+        //2_비긴다: 그자리에 있는다
+        //3_진다: 내 유닛 파괴
+        #endregion
         float rand = Random.Range(8.0f, 1.2f);
         damageDealt = 30 * Mathf.Exp(0.04f * unitDmg - enemyDmg) * rand;
         damageDealt = Mathf.Round(damageDealt);
@@ -720,14 +734,7 @@ public class MapManager : Singleton<MapManager>
         yield return new WaitForSeconds(1); //???
     }
 
-    public GameObject gizmosEg;
-    private void OnDrawGizmosSelected()
-    {
-        //Color color = Color.red;
-        //color.a = 0.2f;
-
-        //Gizmos.DrawSphere(gizmosEg.transform.position, 4.0f);//
-    }
+    
     public void DeleteCube()
     {
         if (oldCubes != null)

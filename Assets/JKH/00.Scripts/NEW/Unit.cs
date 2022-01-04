@@ -70,5 +70,8 @@ public class Unit : MonoBehaviour
     {
         if (GameManager.instance != null)
             GameManager.instance.DestroyUnit(playerId, this);
+
+        if (MapManager.instance != null)
+            MapManager.instance.DeleteCube();
     }
 }
