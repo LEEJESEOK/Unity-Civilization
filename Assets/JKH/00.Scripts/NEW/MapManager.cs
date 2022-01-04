@@ -27,10 +27,9 @@ public class MapManager : Singleton<MapManager>
     void Start()
     {
         terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
+        
         lr = GetComponent<LineRenderer>();
-        float scaleX = Mathf.Cos(Time.time) * 0.5f + 1;
-        float scaleY = Mathf.Sin(Time.time) * 0.5f + 1;
-        lr.material.SetTextureScale("_MainTex", new Vector2(scaleX, scaleY));
+        lr.material.SetTextureScale("_MainTex", new Vector2(10f, 1f));
 
         mapLayer = mapLayer | LayerMask.GetMask("GrassLand");
         mapLayer = mapLayer | LayerMask.GetMask("Plains");
@@ -444,7 +443,7 @@ public class MapManager : Singleton<MapManager>
                         {
                             lr.positionCount++;
                             Vector3 destPos = dest.worldPosition;
-                            destPos.y = -.9f;
+                            destPos.y = -.7f;
                             lr.SetPosition(lrCount, destPos);
                             lrCount++;
                             dest = dest.parent;
