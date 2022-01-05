@@ -7152,7 +7152,7 @@ Animator:
   m_GameObject: {fileID: 8046226949639073866}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 02ded044b8e0963439276550f50be6f9, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3da67c71c9dafb447abd28a1d04a34c1, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -7175,9 +7175,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 0
   isSelected: 0
+  unitType: 0
   movePower: 2
   maxMovePower: 5
   hp: 100
+  myTilePos: {fileID: 0}
+  posX: 0
+  posY: 0
+  animator: {fileID: 0}
   meleeAttack: 20
   rangeAttack: 0
   range: 0
