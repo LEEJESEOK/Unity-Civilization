@@ -97,6 +97,9 @@ public class UIManager : Singleton<UIManager>
 
         rect = GetComponent<RectTransform>();
         uIButtonEvent = GetComponent<UIButtonEvent>();
+
+        // BuildFacilityButton 이벤트 추가
+
     }
 
     // Update is called once per frame
@@ -133,7 +136,7 @@ public class UIManager : Singleton<UIManager>
         RaycastHit hit;
         RaycastHit hitInfo;
 
-        
+
         /* 
            1.1 만약 마우스가 움직이지 않는다면
               2. 만약 2초가 흘렀다면
@@ -145,9 +148,9 @@ public class UIManager : Singleton<UIManager>
         if (isOpenPopup == false)
             mousePos = Input.mousePosition;
 
-        if(Physics.Raycast(rayPoint, out hit, 1000, HYO_ConstructManager.instance.fogLayer))
+        if (Physics.Raycast(rayPoint, out hit, 1000, HYO_ConstructManager.instance.fogLayer))
         {
-            if(hit.transform.gameObject.GetComponent<MeshRenderer>().enabled == false)
+            if (hit.transform.gameObject.GetComponent<MeshRenderer>().enabled == false)
             {
                 if (Physics.Raycast(rayPoint, out hitInfo, 1000, HYO_ConstructManager.instance.layerMask))
                 {
@@ -179,7 +182,7 @@ public class UIManager : Singleton<UIManager>
 
                 }
             }
-        }       
+        }
     }
 
     public void GetTileInfo(TerrainType type, GameObject center, int move, int food, int prod)
@@ -405,6 +408,9 @@ public class UIManager : Singleton<UIManager>
     }
     #endregion
 
+    #region UnitPanel
+    #endregion
+
     #region TechnologyPanel
     public void SetTechnologyPanel(List<Technology> technologies)
     {
@@ -440,10 +446,31 @@ public class UIManager : Singleton<UIManager>
         technologyButtonListener.SetButtonType(technology.id);
         technologyButtonListener.AddClickCallback(uIButtonEvent.SelectOngoingTechnology);
 
-        UIButtonListener uIButtonListener = technologyButton.GetComponent<UIButtonListener>();
-        uIButtonEvent.AddUIListener(uIButtonListener);
-
         return technologyButton;
+    }
+
+    public void UpdateTechnologyPanel()
+    {
+        TechnologyButtonListener[] technologyButtonListeners = GetComponentsInChildren<TechnologyButtonListener>(true);
+        PlayerInfo currentPlayer = GameManager.instance.currentPlayer.info;
+
+        for (int i = 0; i < technologyButtonListeners.Length; ++i)
+        {
+            // 연구 상태 확인
+            bool interactableState = true;
+
+            // 선행 연구를 진행했는지 검사
+            List<TechnologyId> requireTechIds = currentPlayer.technologies.Find(x => x.id == technologyButtonListeners[i].buttonType).requireTechId;
+            for (int j = 0; j < requireTechIds.Count; ++j)
+                if (currentPlayer.technologies.Find(x => x.id == requireTechIds[j]).isResearched == false)
+                    interactableState = false;
+
+            // 해당 연구를 진행했는지 검사
+            if (currentPlayer.technologies.Find(x => x.id == technologyButtonListeners[i].buttonType).isResearched)
+                interactableState = false;
+
+            technologyButtonListeners[i].GetComponent<Button>().interactable = interactableState;
+        }
     }
     #endregion
 
@@ -498,7 +525,7 @@ public class UIManager : Singleton<UIManager>
             spriteDict[districtSprites[i].name] = districtSprites[i];
         #endregion
 
-        // product tab
+        #region set button
         for (int i = 0; i < productObjects.Count; ++i)
         {
             ProductObject productObject = productObjects[i];
@@ -509,20 +536,27 @@ public class UIManager : Singleton<UIManager>
             {
                 case TypeIdBase.DISTRICT:
                     productObjectButton.transform.SetParent(productBuildingContent);
+                    productObjectButton.GetComponentInChildren<ProductObjectButtonListener>().AddClickCallback(uIButtonEvent.BuildDistrict);
                     // 골드 생산 목록에서 건물 제외
-                    // goldObjectButton.transform.SetParent(goldBuildingContent);
+                    goldObjectButton.transform.SetParent(goldBuildingContent);
+                    goldObjectButton.SetActive(false);
                     break;
                 case TypeIdBase.UNIT:
                     productObjectButton.transform.SetParent(productUnitContent);
+                    productObjectButton.GetComponentInChildren<ProductObjectButtonListener>().AddClickCallback(uIButtonEvent.ProductUnit);
                     goldObjectButton.transform.SetParent(goldUnitContent);
+                    productObjectButton.GetComponentInChildren<ProductObjectButtonListener>().AddClickCallback(uIButtonEvent.BuyUnit);
                     break;
             }
 
-            productObjectButton.SetActive(false);
-            goldObjectButton.SetActive(false);
+            // productObjectButton.SetActive(false);
+            // goldObjectButton.SetActive(false);
         }
+        #endregion
     }
 
+    // TODO Event Listener
+    // build district, product unit, buy unit
     GameObject GetCityProductButton(ProductObject productObject, GameObject buttonPrefab)
     {
         GameObject productObjectButton = Instantiate(buttonPrefab);
@@ -533,9 +567,6 @@ public class UIManager : Singleton<UIManager>
 
         ProductObjectButtonListener productObjectButtonListener = productObjectButton.GetComponentInChildren<ProductObjectButtonListener>();
         productObjectButtonListener.SetButtonType(productObject.id);
-
-        UIButtonListener uIButtonListener = productObjectButton.GetComponentInChildren<UIButtonListener>();
-        uIButtonEvent.AddUIListener(uIButtonListener);
 
         return productObjectButton;
     }
@@ -558,8 +589,9 @@ public class UIManager : Singleton<UIManager>
             // // 연구되지 않은 오브젝트는 표시하지 않음
             bool isUnlocked = (productObject.requireTechId == TechnologyId.NONE)
                             || (GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == productObject.requireTechId).isResearched);
-            buttonListeners[i].transform.parent.gameObject.SetActive(isUnlocked);
-            
+            // buttonListeners[i].transform.parent.gameObject.SetActive(isUnlocked);
+            buttonListeners[i].GetComponent<Button>().interactable = isUnlocked;
+
             if (isUnlocked == false)
                 continue;
 

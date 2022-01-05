@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildCommandButton : MonoBehaviour
+public class BuildFacilityButtonListener : ButtonListener<InGameObjectId>
 {
-    
+
 }

@@ -3033,6 +3033,7 @@ GameObject:
   - component: {fileID: 7824755127954059493}
   - component: {fileID: 7824755127961007919}
   - component: {fileID: -6018541797398902821}
+  - component: {fileID: 9114938645245094935}
   m_Layer: 22
   m_Name: Spearman
   m_TagString: Unit
@@ -3152,7 +3153,7 @@ MonoBehaviour:
   isSelected: 0
   unitType: 0
   movePower: 2
-  maxMovePower: 5
+  maxMovePower: 2
   hp: 100
   myTilePos: {fileID: 0}
   posX: 0
@@ -3161,6 +3162,20 @@ MonoBehaviour:
   meleeAttack: 25
   rangeAttack: 0
   range: 0
+--- !u!136 &9114938645245094935
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7824755127953727937}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.76
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.76, z: 0}
 --- !u!1 &7824755127953727969
 GameObject:
   m_ObjectHideFlags: 0

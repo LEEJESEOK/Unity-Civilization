@@ -9691,7 +9691,6 @@ GameObject:
   - component: {fileID: 3990427109331387094}
   - component: {fileID: 6453242356238763899}
   - component: {fileID: 1121405426}
-  - component: {fileID: -6019698553330862955}
   m_Layer: 22
   m_Name: Builder
   m_TagString: Unit
@@ -9824,7 +9823,7 @@ MonoBehaviour:
   isSelected: 0
   unitType: 0
   movePower: 2
-  maxMovePower: 5
+  maxMovePower: 2
   hp: 100
   myTilePos: {fileID: 0}
   posX: 0
@@ -9845,28 +9844,6 @@ CapsuleCollider:
   m_Height: 1.76
   m_Direction: 1
   m_Center: {x: 0, y: 0.76, z: 0}
---- !u!114 &-6019698553330862955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ca338b24d617664b8aabe80d8a8e0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerId: 0
-  isSelected: 0
-  unitType: 0
-  movePower: 2
-  maxMovePower: 5
-  hp: 100
-  myTilePos: {fileID: 0}
-  posX: 0
-  posY: 0
-  animator: {fileID: 0}
 --- !u!1 &156840
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,8 +22,11 @@ public enum UIButtonId
     #endregion
 
     #region UNIT COMMAND
+    // 비활성화
     COMMAND_REST,
+    // 이동
     COMMAND_MOVE,
+    // 요새화
     COMMAND_FORTIFICATION, 
 
     // settler

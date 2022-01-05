@@ -94,8 +94,8 @@
         {
             "id": 40007,
             "name": "Bronze Working",
-            "korean": "",
-            "koreanDesc": "청동 기술",
+            "korean": "청동 기술",
+            "koreanDesc": "",
             "researchCost": 80,
             "remainCost": 80,
             "isResearched": false,

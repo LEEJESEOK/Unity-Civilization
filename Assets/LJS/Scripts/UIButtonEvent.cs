@@ -44,6 +44,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                 break;
 
             case UIButtonId.MENU_TECH:
+                UIManager.instance.UpdateTechnologyPanel();
                 UIPanelManager.instance.OpenPanel("TECHNOLOGY_PANEL");
                 break;
             // case UIButtonId.TECH:
@@ -56,8 +57,12 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                 UIPanelManager.instance.OpenPanel("HELP_PANEL");
                 break;
 
+            case UIButtonId.COMMAND_REST:
+                break;
             case UIButtonId.COMMAND_MOVE:
                 MapManager.instance.onClickMove();
+                break;
+            case UIButtonId.COMMAND_FORTIFICATION:
                 break;
 
             case UIButtonId.COMMAND_BUILD_CITY:
@@ -69,8 +74,6 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
             // case UIButtonId.COMMAND_BUILD_MINE:
             //     HYO_ConstructManager.instance.CreateFacility(Facility.MINE);
             //     break;
-            case UIButtonId.COMMAND_BUILD_FACILITY:
-                break;
             // case UIButtonId.COMMAND_BUILD_CAMPUS:
             //         HYO_ConstructManager.instance.SetDistrictInfo(District.CAMPUS);
             //     break;
@@ -82,8 +85,6 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
             //     break;
             case UIButtonId.BUILD_DISTRICT:
                 HYO_ConstructManager.instance.SetDistrictInfo(District.CAMPUS);
-                break;
-            case UIButtonId.PRODUCT_UNIT:
                 break;
         }
     }
@@ -119,7 +120,22 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
         print(string.Format("{0} 선택", selectedTech.korean));
     }
 
-    public void SelectCityProduct(InGameObjectId objectId)
+    public void BuildFacility(InGameObjectId objectId)
+    {
+
+    }
+
+    public void BuildDistrict(InGameObjectId objectId)
+    {
+
+    }
+
+    public void ProductUnit(InGameObjectId objectId)
+    {
+
+    }
+
+    public void BuyUnit(InGameObjectId objectId)
     {
 
     }
