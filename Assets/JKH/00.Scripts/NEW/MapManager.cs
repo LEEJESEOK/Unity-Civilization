@@ -536,7 +536,7 @@ public class MapManager : Singleton<MapManager>
                         for (int i = 0; i < movableList.Count; i++)
                         {
                             //누르면 큐브 사라지게한다.
-                            DeleteCube();
+                            //DeleteCube();
                             LayerMask unitLayer = LayerMask.GetMask("Unit");
                             Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
 
@@ -567,18 +567,26 @@ public class MapManager : Singleton<MapManager>
                                 movePower += dest.requiredMovePower;
                             }
 
-                            //if (tileOnUnit == null)
-                            //{
-                            //    print("쥐");
-
-                            //}
+                            //밑에 식 움직이게? 하기위한 if문 제일 앞에거만 되고 그 뒤에거는 안댐 t
+                            //나중에 이거 walkable true해줘야함
+                            if (tileOnUnit != null && (movePower <= selectedUnit.movePower) && tileOnUnit.Length > 0 && tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)
+                            {
+                                print("===============");
+                                print(dest);
+                                target.walkable = true;
+                                print(target);
+                                print("===============");
+                            }
 
                             //hitinfo 타일에 gameObj있나 없나 검사하기. 
-                            if ((target == dest) && (movePower <= selectedUnit.movePower))
+                            if ((target == dest) && (movePower <= selectedUnit.movePower)
+                                || ((target == dest) && (movePower <= selectedUnit.movePower) && tileOnUnit.Length > 0 
+                                && tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)) //0105 추가@
                             {
-
+                                
                                 // 플레이어 오브젝트 위치 이동 칸대로 이동하기   
                                 JKH_Node path = movableList[i];
+                                DeleteCube();
                                 StartCoroutine(MoveUnitCoroutine(selectedUnit, path));
                                 // 좌표 이동, 이동력 감소
                                 selectedUnit.movePower -= movePower;
@@ -592,7 +600,7 @@ public class MapManager : Singleton<MapManager>
                                 ableToMove = false;
                             }
 
-
+                            
                         }
 
                         // 이동할 수 없는 타일을 선택했을 경우
@@ -601,10 +609,8 @@ public class MapManager : Singleton<MapManager>
                             print("Failed");
                         }
                     }
-
                     else
                         print("Click Another One");
-
                 }
         }
     }
