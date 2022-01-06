@@ -21,9 +21,9 @@ public class FacilityData : MonoBehaviour
 {
     public TerrainData terrainData;
     //보유시설
-    public Facility facility;
+    public InGameObjectId facility;
 
-    public District district;
+    public InGameObjectId district;
 
     public bool canCreate;
     //이미지
@@ -31,15 +31,15 @@ public class FacilityData : MonoBehaviour
 
     private void Start()
     {
-        district = District.NONE;
+        district = InGameObjectId.NONE;
         //canCreate = true;
         terrainData = gameObject.GetComponent<TerrainData>();
 
-        facility = Facility.NONE;
-        district = District.NONE;
+        facility = InGameObjectId.NONE;
+        district = InGameObjectId.NONE;
     }
 
-    public void SetDistrict(District next)
+    public void SetDistrict(InGameObjectId next)
     {
         district = next;
         WhatDistric();
@@ -48,24 +48,24 @@ public class FacilityData : MonoBehaviour
     {
         switch (district)
         {
-            case District.CAMPUS:
+            case InGameObjectId.CAMPUS:
                 iconNum = 0;
                 terrainData.output.science = terrainData.myCenter.GetComponent<Territory>().population * 2;
                 break;
-            case District.COMMERCAILHUB:
+            case InGameObjectId.COMMERCIAL_HUB:
                 iconNum = 1;
                 terrainData.output.gold = terrainData.myCenter.GetComponent<Territory>().population * 4;
                 break;
-            case District.INDUSTRIALZONE:
+            case InGameObjectId.INDUSTRIAL_ZONE:
                 iconNum = 2;
                 terrainData.output.productivity = terrainData.myCenter.GetComponent<Territory>().population * 2;
                 break;
-            case District.NONE:
+            case InGameObjectId.NONE:
                 break;
         }
     }
 
-    public void SetFacility(Facility next)
+    public void SetFacility(InGameObjectId next)
     {
         facility = next;
         whatFacility();
@@ -76,13 +76,13 @@ public class FacilityData : MonoBehaviour
     {
         switch (facility)
         {
-            case Facility.FARM:
+            case InGameObjectId.FARM:
                 terrainData.output.food += 1;
                 break;
-            case Facility.MINE:
+            case InGameObjectId.MINE:
                 terrainData.output.productivity += 1;
                 break;
-            case Facility.NONE:
+            case InGameObjectId.NONE:
                 break;
         }
     }

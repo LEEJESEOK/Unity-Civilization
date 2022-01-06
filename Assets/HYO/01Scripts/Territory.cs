@@ -7,7 +7,7 @@ using UnityEngine;
 [Serializable]
 public class DistrictUnderway
 {
-    public District id;
+    public InGameObjectId id;
     public Transform pos;
     public int remain;
 }
@@ -90,7 +90,7 @@ public class Territory : MonoBehaviour
     public int ownerID;
 
     //보유 특수지구
-    public List<District> districtOn = new List<District>();
+    public List<InGameObjectId> districtOn = new List<InGameObjectId>();
     public DistrictUnderway districtUnderway = new DistrictUnderway();
     public DistrictInPut districtInput = new DistrictInPut(54, 1);
     public bool distric_limit = true;
@@ -102,7 +102,7 @@ public class Territory : MonoBehaviour
     private void Awake()
     {
         totalOutput = new TotalOutPut();
-        districtUnderway.id = District.NONE;
+        districtUnderway.id = InGameObjectId.NONE;
 
         ownerID = GameManager.instance.currentPlayerId;
 
@@ -147,7 +147,7 @@ public class Territory : MonoBehaviour
         }
     }
 
-    public void AddDistrict(District add)
+    public void AddDistrict(InGameObjectId add)
     {
         districtOn.Add(add);
         if (districtOn != null)
@@ -156,6 +156,7 @@ public class Territory : MonoBehaviour
         }
 
     }
+    
     public void DistrictProcess()
     {
         districtUnderway.remain -= totalOutput._totalProductivity;
@@ -193,7 +194,7 @@ public class Territory : MonoBehaviour
         }
     }
 
-    //Food=15+8*(n−1)+(n−1)^1.5
+    // Food = 15 + 8 * (n − 1) + (n − 1) ^1.5;
     public void RequestedFood()
     {
         //인구 증가 요구 식량

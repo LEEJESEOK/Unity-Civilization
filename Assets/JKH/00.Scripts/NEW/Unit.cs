@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+
+    [SerializeField]
+    GameObject plane;
+    [SerializeField]
+    GameObject body;
+
     public int playerId;
 
     public bool isSelected;
@@ -33,8 +39,12 @@ public class Unit : MonoBehaviour
 
     public void SetObjectColor()
     {
-        List<MeshRenderer> mesh = new List<MeshRenderer>(GetComponentsInChildren<MeshRenderer>(true));
-        List<SkinnedMeshRenderer> skinnedMesh = new List<SkinnedMeshRenderer>(GetComponentsInChildren<SkinnedMeshRenderer>(true));
+        Material planeMat = plane.GetComponent<MeshRenderer>().material;
+        planeMat.color = ColorManager.instance.playerColor[playerId];
+        plane.GetComponent<MeshRenderer>().material = planeMat;
+
+        List<MeshRenderer> mesh = new List<MeshRenderer>(body.GetComponentsInChildren<MeshRenderer>(true));
+        List<SkinnedMeshRenderer> skinnedMesh = new List<SkinnedMeshRenderer>(body.GetComponentsInChildren<SkinnedMeshRenderer>(true));
 
         for (int i = 0; i < mesh.Count; i++)
         {

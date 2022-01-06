@@ -62,11 +62,18 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
             case UIButtonId.COMMAND_MOVE:
                 MapManager.instance.onClickMove();
                 break;
+
+            // for combat unit
             case UIButtonId.COMMAND_FORTIFICATION:
                 break;
 
+            // for settler
             case UIButtonId.COMMAND_BUILD_CITY:
                 HYO_ConstructManager.instance.CreateTerritory();
+                break;
+
+            // for builder
+            case UIButtonId.COMMAND_BUILD_FACILITY:
                 break;
             // case UIButtonId.COMMAND_BUILD_FARM:
             //     HYO_ConstructManager.instance.CreateFacility(Facility.FARM);
@@ -84,7 +91,6 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
             //     HYO_ConstructManager.instance.SetDistrictInfo(District.INDUSTRIALZONE);
             //     break;
             case UIButtonId.BUILD_DISTRICT:
-                HYO_ConstructManager.instance.SetDistrictInfo(District.CAMPUS);
                 break;
         }
     }
@@ -122,12 +128,12 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
 
     public void BuildFacility(InGameObjectId objectId)
     {
-
+        HYO_ConstructManager.instance.CreateFacility(objectId);
     }
 
     public void BuildDistrict(InGameObjectId objectId)
     {
-
+        // HYO_ConstructManager.instance.CreateDistrict(objectId, );
     }
 
     public void ProductUnit(InGameObjectId objectId)

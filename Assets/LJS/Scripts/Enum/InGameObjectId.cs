@@ -1,6 +1,7 @@
 public enum InGameObjectId
 {
-
+    NONE,
+    
     // 1xxxx
     #region UNIT
     // Civilian units
