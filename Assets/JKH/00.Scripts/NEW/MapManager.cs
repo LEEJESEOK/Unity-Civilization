@@ -10,7 +10,7 @@ public class MapManager : Singleton<MapManager>
     public int mapWidth, mapHeight;
     List<TerrainData> terrainDataMap;
     List<JKH_Node> nodeMap;
-    Animator anim;
+
     #region test
     List<JKH_Node> movableList = new List<JKH_Node>();
     #endregion
@@ -27,10 +27,9 @@ public class MapManager : Singleton<MapManager>
     void Start()
     {
         terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
+
         lr = GetComponent<LineRenderer>();
-        float scaleX = Mathf.Cos(Time.time) * 0.5f + 1;
-        float scaleY = Mathf.Sin(Time.time) * 0.5f + 1;
-        lr.material.SetTextureScale("_MainTex", new Vector2(scaleX, scaleY));
+        lr.material.SetTextureScale("_MainTex", new Vector2(10f, 1f));
 
         mapLayer = mapLayer | LayerMask.GetMask("GrassLand");
         mapLayer = mapLayer | LayerMask.GetMask("Plains");
@@ -145,7 +144,6 @@ public class MapManager : Singleton<MapManager>
                 lr.positionCount = 0;
                 //unitMove
                 selectedUnit = hitInfo.transform.GetComponent<Unit>();
-                anim = hitInfo.transform.GetComponent<Animator>();
                 ableToMove = false;
 
                 // 유닛 정보 출력(확인용) 
@@ -406,7 +404,7 @@ public class MapManager : Singleton<MapManager>
         if (ableToMove && selectedUnit.movePower > 0)
         {
 
-            //print("Get Selected Function");
+            print("Get Selected Function");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
 
@@ -428,7 +426,7 @@ public class MapManager : Singleton<MapManager>
                 }
 
                 //이미 dest.parent=null
-                //print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
+                print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
 
                 //마우스 가르키고 있는 타일까지 경로 표시
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
@@ -436,6 +434,7 @@ public class MapManager : Singleton<MapManager>
 
                     if (hitInfo.transform.gameObject.tag == "Map" && hitInfo.transform.position == dest.worldPosition) //유닛있는데는 표시하면 안됨!
                     {
+                        print("XXX");
                         dest = movableList[i]; //시작점.
                         int lrCount = 0; //lineRenderer 갯수
                         //int destLen = -1;
@@ -537,7 +536,7 @@ public class MapManager : Singleton<MapManager>
                         for (int i = 0; i < movableList.Count; i++)
                         {
                             //누르면 큐브 사라지게한다.
-                            //DeleteCube();
+                            DeleteCube();
                             LayerMask unitLayer = LayerMask.GetMask("Unit");
                             Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
 
@@ -548,10 +547,7 @@ public class MapManager : Singleton<MapManager>
                             //    print("다른유닛");
                             //    return;
                             //}
-                            if (tileOnUnit.Length>0)
-                            {
-                                print(tileOnUnit[0].gameObject.name);
-                            }
+
                             if (tileOnUnit.Length > 0 && tileOnUnit[0].GetComponent<Unit>().playerId == selectedUnit.playerId)
                             {
                                 print("can not go");
@@ -568,27 +564,17 @@ public class MapManager : Singleton<MapManager>
                                 movePower += dest.requiredMovePower;
                             }
 
-                            //밑에 식 움직이게? 하기위한 if문 제일 앞에거만 되고 그 뒤에거는 안댐 t
-                            //나중에 이거 walkable true해줘야함
-                            //if (tileOnUnit != null && (movePower <= selectedUnit.movePower) && tileOnUnit.Length > 0 && tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)
-                            //{
-                            //    print("===============");
-                            //    print(dest);
-                            //    target.walkable = true;
-                            //    print(target);
-                            //    print("===============");
-                            //}
+                            if ((target == dest) && (movePower <= selectedUnit.movePower || tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)) //tq
+                            {
+                                print("123");
+                            }
 
                             //hitinfo 타일에 gameObj있나 없나 검사하기. 
-                            if ((target == dest) && (movePower <= selectedUnit.movePower)
-                                || ((target == dest) && (movePower <= selectedUnit.movePower) && tileOnUnit.Length > 0 
-                                && tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)) //0105 추가@
+                            if ((target == dest) && (movePower <= selectedUnit.movePower))
                             {
-                                
+
                                 // 플레이어 오브젝트 위치 이동 칸대로 이동하기   
                                 JKH_Node path = movableList[i];
-                                DeleteCube();
-                                
                                 StartCoroutine(MoveUnitCoroutine(selectedUnit, path));
                                 // 좌표 이동, 이동력 감소
                                 selectedUnit.movePower -= movePower;
@@ -602,7 +588,7 @@ public class MapManager : Singleton<MapManager>
                                 ableToMove = false;
                             }
 
-                            
+
                         }
 
                         // 이동할 수 없는 타일을 선택했을 경우
@@ -611,8 +597,10 @@ public class MapManager : Singleton<MapManager>
                             print("Failed");
                         }
                     }
+
                     else
                         print("Click Another One");
+
                 }
         }
     }
@@ -709,15 +697,12 @@ public class MapManager : Singleton<MapManager>
     Vector3 dir;
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path)
     {
-       
         //어떤경로로 이동하는지 표시 
         while (path.parent != null)
         {
             //좌표틀어짐>> 정중앙에 위치시키도록한다
             yield return null;
 
-            //anim test
-            anim.SetBool("isMove", true);
 
             //Vector3 pos = path.worldPosition; //1
             //pos.y = -.7f; //2
@@ -725,7 +710,6 @@ public class MapManager : Singleton<MapManager>
             //---
             dir = path.parent.worldPosition - path.worldPosition;
             dir.Normalize();
-           
             unit.transform.position += dir * Time.deltaTime;
             //---
             if ((path.parent.worldPosition - unit.transform.position).sqrMagnitude < (.1f))
@@ -741,7 +725,7 @@ public class MapManager : Singleton<MapManager>
         }
         //경로표시 다끝나면 선 지운다.
         lr.positionCount = 0;
-        anim.SetBool("isMove", false);
+
     }
     IEnumerator FinishedUnitCoroutine(Unit unit, JKH_Node path) //움직임처리하는
     {

@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af202ebcd0f16746abd50a242d7ffa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 1
+  viewRadius: 3
   viewAngle: 360
   hasPeripheralVision: 0
   viewRadiusPeripheralVision: 5
