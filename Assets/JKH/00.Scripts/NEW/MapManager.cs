@@ -714,6 +714,7 @@ public class MapManager : Singleton<MapManager>
         while (path.parent != null)
         {
             //좌표틀어짐>> 정중앙에 위치시키도록한다
+
             yield return null;
 
             //anim test
@@ -725,7 +726,7 @@ public class MapManager : Singleton<MapManager>
             //---
             dir = path.parent.worldPosition - path.worldPosition;
             dir.Normalize();
-           
+            unit.transform.forward = dir;
             unit.transform.position += dir * Time.deltaTime;
             //---
             if ((path.parent.worldPosition - unit.transform.position).sqrMagnitude < (.1f))
@@ -742,6 +743,9 @@ public class MapManager : Singleton<MapManager>
         //경로표시 다끝나면 선 지운다.
         lr.positionCount = 0;
         anim.SetBool("isMove", false);
+
+        unit.transform.forward = Vector3.back;
+
     }
     IEnumerator FinishedUnitCoroutine(Unit unit, JKH_Node path) //움직임처리하는
     {

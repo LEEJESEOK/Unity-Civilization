@@ -21,8 +21,4 @@ public class Hideable : MonoBehaviour, IHideable
         renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 0.5f);
     }
 
-    //public void GetObjectData(SerializationInfo info, StreamingContext context)
-    //{
-    //    info.AddValue("", )
-    //}
 }
