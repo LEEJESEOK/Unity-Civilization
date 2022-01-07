@@ -31,6 +31,9 @@ public class GameManager : Singleton<GameManager>
     public List<GameObject> initialUnits;
     public List<GameObject> startPoints;
 
+    [Header("Play")]
+    public GameObject currentSelect;
+
 
     private void Awake()
     {
@@ -44,7 +47,7 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         InitGame();
-        
+
         StartCoroutine(DelayedStartCoroutine());
     }
 
@@ -58,7 +61,23 @@ public class GameManager : Singleton<GameManager>
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, float.MaxValue))
             {
-                print(hit.transform.gameObject.name);
+                currentSelect = hit.transform.gameObject;
+
+                GameObjectType gameObjectType = currentSelect.GetComponent<GameObjectType>();
+                if (gameObjectType != null)
+                {
+                    TypeIdBase type = gameObjectType.type;
+                    switch (type)
+                    {
+                        case TypeIdBase.UNIT:
+                            Unit unit = currentSelect.GetComponent<Unit>();
+                            break;
+                        case TypeIdBase.FACILITY:
+                            break;
+                        case TypeIdBase.DISTRICT:
+                            break;
+                    }
+                }
             }
         }
         #endregion
@@ -88,7 +107,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         HexFogManager.instance.init(initPlayerCount);
-        
+
     }
 
     // 현재 플레이어의 차례를 마치고 다음 플레이어 차례 시작
