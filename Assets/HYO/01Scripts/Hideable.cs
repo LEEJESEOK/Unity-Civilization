@@ -14,6 +14,7 @@ public class Hideable : MonoBehaviour, IHideable
         renderer.enabled = false;
     }
     public void OnFOVLeaveShow() {
+        renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 1);
         renderer.enabled = true;
     }
     public void OnFOVTransparency()

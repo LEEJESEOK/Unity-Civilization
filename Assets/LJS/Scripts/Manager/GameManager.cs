@@ -111,6 +111,8 @@ public class GameManager : Singleton<GameManager>
         // 다음 플레이어 차례로 전환
         _currentPlayerId = (_currentPlayerId + 1) % players.Count;
         players[_currentPlayerId].StartTurn();
+        //set hexfog
+        HexFogManager.instance.FindOtherTargetList(_currentPlayerId);
     }
 
     IEnumerator DelayedStartCoroutine()
