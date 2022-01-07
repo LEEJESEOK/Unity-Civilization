@@ -145,6 +145,7 @@ public class MapManager : Singleton<MapManager>
                 lr.positionCount = 0;
                 //unitMove
                 selectedUnit = hitInfo.transform.GetComponent<Unit>();
+                anim = hitInfo.transform.GetComponent<Animator>();
                 ableToMove = false;
 
                 // 유닛 정보 출력(확인용) 
@@ -704,6 +705,7 @@ public class MapManager : Singleton<MapManager>
             //좌표틀어짐>> 정중앙에 위치시키도록한다
 
             yield return null;
+            anim.SetBool("isMove", true);
 
 
             //Vector3 pos = path.worldPosition; //1
@@ -712,6 +714,7 @@ public class MapManager : Singleton<MapManager>
             //---
             dir = path.parent.worldPosition - path.worldPosition;
             dir.Normalize();
+            unit.transform.forward = dir;
             unit.transform.position += dir * Time.deltaTime;
             //---
             if ((path.parent.worldPosition - unit.transform.position).sqrMagnitude < (.1f))
