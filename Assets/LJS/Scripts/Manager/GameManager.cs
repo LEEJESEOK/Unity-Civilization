@@ -44,8 +44,7 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         InitGame();
-        //
-
+        
         StartCoroutine(DelayedStartCoroutine());
     }
 
@@ -89,7 +88,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         HexFogManager.instance.init(initPlayerCount);
-
+        
     }
 
     // 현재 플레이어의 차례를 마치고 다음 플레이어 차례 시작
@@ -113,6 +112,7 @@ public class GameManager : Singleton<GameManager>
         players[_currentPlayerId].StartTurn();
         //set hexfog
         HexFogManager.instance.FindOtherTargetList(_currentPlayerId);
+        HexFogManager.instance.FindOtherUnitsBuildings(_currentPlayerId);
     }
 
     IEnumerator DelayedStartCoroutine()

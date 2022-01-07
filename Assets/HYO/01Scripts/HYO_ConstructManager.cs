@@ -279,11 +279,13 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         city.transform.localPosition = new Vector3(0, 0.1f, 0);
         city.transform.localEulerAngles = new Vector3(-90, 0, 90);
         city.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+
         GameObject fov = Instantiate(fovPre);
 
         fov.transform.parent = city.transform;
         fov.transform.position = city.transform.position;
 
+        HexFogManager.instance.buildings[HexFogManager.instance.currentPlayerId].Add(city);
         tileTemp = null;
 
         //선택된 유닛 제거 후 초기화
@@ -326,7 +328,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             empty.transform.localPosition = new Vector3(0, 0.109f, 0);
             //empty.transform.localEulerAngles = new Vector3(0, -90, 0);
             empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
-
+            HexFogManager.instance.buildings[HexFogManager.instance.currentPlayerId].Add(empty);
             tileTemp = null;
             isUnitSelected = false;
         }
@@ -374,6 +376,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         empty.transform.localPosition = new Vector3(0, 0.179f, 0);
         empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
 
+        HexFogManager.instance.buildings[HexFogManager.instance.currentPlayerId].Add(empty);
+        
         //특수지구에서 행동력 무조건 1
         pos.gameObject.GetComponent<TerrainData>().output.movePower = 1;
 

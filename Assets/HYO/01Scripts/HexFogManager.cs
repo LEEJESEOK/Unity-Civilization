@@ -5,12 +5,17 @@ using UnityEngine;
 public class HexFogManager : Singleton<HexFogManager>
 {
     [SerializeField]
+    //HexFog
     public List<List<Hideable>> findTargetList;
     public List<List<FieldOfView>> fieldOfViews;
     public List<List<Hideable>> allHideables;
-
     public List<Hideable> otherTargetList;
 
+    //Unit&Buildings
+    public List<List<Unit>> units;
+    public List<List<GameObject>> buildings;
+    public List<GameObject> otherUnitsBuildings;
+    
     public int currentPlayerId;
 
     private void Start()
@@ -19,6 +24,12 @@ public class HexFogManager : Singleton<HexFogManager>
         findTargetList = new List<List<Hideable>>();
         allHideables = new List<List<Hideable>>();
         otherTargetList = new List<Hideable>();
+
+        units = new List<List<Unit>>();
+        buildings = new List<List<GameObject>>();
+        otherUnitsBuildings = new List<GameObject>();
+
+        FindOtherUnitsBuildings(currentPlayerId);
     }
 
     public void init(int playerCount)
@@ -29,6 +40,8 @@ public class HexFogManager : Singleton<HexFogManager>
             fieldOfViews.Add(new List<FieldOfView>());
             allHideables.Add(new List<Hideable>());
 
+            units.Add(new List<Unit>());
+            buildings.Add(new List<GameObject>());
         }
 
     }
@@ -61,9 +74,10 @@ public class HexFogManager : Singleton<HexFogManager>
         }
     }
 
-    //다른 애들 타겟리스트 가져와
+   
     public void FindOtherTargetList(int id)
-    {       
+    {   
+        //set hexfog
         for(int i=0; i< findTargetList.Count; i++)
         {
             if (findTargetList[i] != findTargetList[id])
@@ -71,6 +85,35 @@ public class HexFogManager : Singleton<HexFogManager>
                 for(int j = 0; j < findTargetList[i].Count; j++)
                 {
                     otherTargetList.Add(findTargetList[i][j]);
+                }
+            }
+        }       
+    }
+    public void FindOtherUnitsBuildings(int id)
+    {
+        //set unit & buildings
+        for (int b = 0; b < units.Count; b++)
+        {
+            if (b != id)
+            {
+                for (int c = 0; c < units[b].Count; c++)
+                {
+                    otherUnitsBuildings.Add(units[b][c].gameObject);
+                }
+                for (int d = 0; d < buildings[b].Count; d++)
+                {
+                    otherUnitsBuildings.Add(buildings[b][d]);
+                }
+            }
+            else
+            {
+                for (int f = 0; f < units[b].Count; f++)
+                {
+                    units[b][f].gameObject.SetActive(true);
+                }
+                for (int g = 0; g < buildings[b].Count; g++)
+                {
+                    buildings[b][g].SetActive(true);
                 }
             }
         }
@@ -91,7 +134,7 @@ public class HexFogManager : Singleton<HexFogManager>
             }
         }
 
-        //내 타겟리스트랑 다른애들 타겟리스트랑 비교
+        //set hexfog
         for(int a = 0; a < otherTargetList.Count; a++)
         {
             if(findTargetList[id].Contains(otherTargetList[a]) == false)
@@ -102,6 +145,14 @@ public class HexFogManager : Singleton<HexFogManager>
 
         otherTargetList.Clear();
         
+       
+        //set unit & building
+        for(int e = 0; e < otherUnitsBuildings.Count; e++)
+        {
+            otherUnitsBuildings[e].GetComponent<Hideable>().OnFOVHideUnits();
+        }
+
+        otherUnitsBuildings.Clear();
     }
 
     public void RemoveFOV(FieldOfView fov)

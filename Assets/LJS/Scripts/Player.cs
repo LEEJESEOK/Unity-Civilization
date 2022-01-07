@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
             unitObject.transform.rotation = Quaternion.Euler(0, 180f, 0);
 
             HexFogManager.instance.fieldOfViews[unit.playerId].Add(unitObject.GetComponentInChildren<FieldOfView>());
+            HexFogManager.instance.units[unit.playerId].Add(unit);
         }
     }
 

@@ -78560,15 +78560,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: HexFog
       objectReference: {fileID: 0}
-    - target: {fileID: 5704320216557133350, guid: 479c425873dd28a49932915a0dfdcb38, type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704320216557133350, guid: 479c425873dd28a49932915a0dfdcb38, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 516502525, guid: 479c425873dd28a49932915a0dfdcb38, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 479c425873dd28a49932915a0dfdcb38, type: 3}
 --- !u!1 &1512147313
 GameObject:
