@@ -44,7 +44,7 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         InitGame();
-
+        
         StartCoroutine(DelayedStartCoroutine());
     }
 
@@ -56,7 +56,7 @@ public class GameManager : Singleton<GameManager>
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if(Physics.Raycast(ray, out hit, float.MaxValue))
+            if (Physics.Raycast(ray, out hit, float.MaxValue))
             {
                 print(hit.transform.gameObject.name);
             }
@@ -86,6 +86,9 @@ public class GameManager : Singleton<GameManager>
             players[i].transform.position = startPoints[i].transform.position;
             players[i].playerId = i;
         }
+
+        HexFogManager.instance.init(initPlayerCount);
+        
     }
 
     // 현재 플레이어의 차례를 마치고 다음 플레이어 차례 시작
@@ -107,6 +110,9 @@ public class GameManager : Singleton<GameManager>
         // 다음 플레이어 차례로 전환
         _currentPlayerId = (_currentPlayerId + 1) % players.Count;
         players[_currentPlayerId].StartTurn();
+        //set hexfog
+        HexFogManager.instance.FindOtherTargetList(_currentPlayerId);
+        HexFogManager.instance.FindOtherUnitsBuildings(_currentPlayerId);
     }
 
     IEnumerator DelayedStartCoroutine()

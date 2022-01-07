@@ -7059,6 +7059,7 @@ GameObject:
   - component: {fileID: 8046226949648579896}
   - component: {fileID: 3015778063807279505}
   - component: {fileID: 9165424210184169528}
+  - component: {fileID: 7959936130029137016}
   m_Layer: 22
   m_Name: Knight
   m_TagString: Unit
@@ -7201,6 +7202,18 @@ CapsuleCollider:
   m_Height: 1.76
   m_Direction: 1
   m_Center: {x: 0, y: 0.76, z: 0}
+--- !u!114 &7959936130029137016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8046226949639073866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df7917657c760d49b9c28984cd3807b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8046226949639074078
 GameObject:
   m_ObjectHideFlags: 0

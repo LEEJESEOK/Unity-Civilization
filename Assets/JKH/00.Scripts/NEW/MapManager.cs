@@ -10,6 +10,7 @@ public class MapManager : Singleton<MapManager>
     public int mapWidth, mapHeight;
     List<TerrainData> terrainDataMap;
     List<JKH_Node> nodeMap;
+    Animator anim;
 
     #region test
     List<JKH_Node> movableList = new List<JKH_Node>();
@@ -701,6 +702,7 @@ public class MapManager : Singleton<MapManager>
         while (path.parent != null)
         {
             //좌표틀어짐>> 정중앙에 위치시키도록한다
+
             yield return null;
 
 
@@ -725,6 +727,9 @@ public class MapManager : Singleton<MapManager>
         }
         //경로표시 다끝나면 선 지운다.
         lr.positionCount = 0;
+        anim.SetBool("isMove", false);
+
+        unit.transform.forward = Vector3.back;
 
     }
     IEnumerator FinishedUnitCoroutine(Unit unit, JKH_Node path) //움직임처리하는
