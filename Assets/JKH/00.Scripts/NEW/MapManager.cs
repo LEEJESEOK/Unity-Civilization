@@ -111,7 +111,7 @@ public class MapManager : Singleton<MapManager>
             // 목표지점에 유닛이 있는 경우
             if (data == terrainDataMap[(targetY * mapWidth) + targetX])
             {
-                print("유닛있음");
+                //print("유닛있음");
                 continue;
             }
             if (Physics.Raycast(ray, out hitInfo, float.PositiveInfinity, layer))
@@ -321,7 +321,7 @@ public class MapManager : Singleton<MapManager>
         {
             LayerMask unitLayer = LayerMask.GetMask("Unit");
             Collider[] tileOnUnit = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
-            print(tileOnUnit.Length);
+            //print(tileOnUnit.Length);
             if (tileOnUnit.Length >= 1 && tileOnUnit[0].GetComponent<Unit>().playerId == selectedUnit.playerId) //상대방유닛은 안거르게됨.
             {
                 tileOnUnit.Initialize();
@@ -606,14 +606,14 @@ public class MapManager : Singleton<MapManager>
 
                             //hitinfo 타일에 gameObj있나 없나 검사하기. 
                             if ((target.GetPosition() == dest.GetPosition())
-                                && (movePower <= selectedUnit.movePower)) 
+                                && (movePower <= selectedUnit.movePower))
                             {
                                 //print("상대유닛발견실패");
                                 // 플레이어 오브젝트 위치 이동 칸대로 이동하기   
                                 JKH_Node path = movableList[i];
                                 DeleteCube();
-                                
-                                StartCoroutine(MoveUnitCoroutine(selectedUnit, path,false));
+
+                                StartCoroutine(MoveUnitCoroutine(selectedUnit, path, false));
                                 // 좌표 이동, 이동력 감소
                                 selectedUnit.movePower -= movePower;
                                 if (selectedUnit.movePower <= 0)
@@ -627,7 +627,7 @@ public class MapManager : Singleton<MapManager>
                                 break;
                             }
 
-                            
+
 
 
                         }
@@ -693,18 +693,29 @@ public class MapManager : Singleton<MapManager>
 
         return result;
     }
+    //Todo (나-> 상대방)
+    //
 
-    //임의 변수(나중에 지워야함!!)
-    public int unitDmg = 26;
-    public int enemyDmg = 25;
-    float damageDealt;
-
-    //Todo 전투
-    Unit selectedUnitId;
-    Unit targetUnitId;
-    public void UnitCombat()
+    public int damageDealt;
+    public int damageReceived;
+    bool dgajaDgaja=false;
+    public void UnitCombat(CombatUnit unit, CombatUnit enemy)
     {
         print("이함수 실행");
+
+        //아군 유닛 변수
+        //float unitHp = unit.hp;
+        float unitMeleeDmg = unit.meleeAttack;
+        float unitRangeDmg = unit.rangeAttack;
+
+        //상대 유닛 변수
+        //float enemyHp = enemy.hp;
+        float enemyMeleeDmg = enemy.meleeAttack;
+        float enemyRangeDmg = enemy.rangeAttack;
+
+        battleFormula(unitMeleeDmg, enemyMeleeDmg);
+        unit.hp = unit.hp - damageReceived;
+        enemy.hp = enemy.hp - damageDealt;
         #region Todo      
         //function = Combat()
         //[필요한 변수]
@@ -728,14 +739,73 @@ public class MapManager : Singleton<MapManager>
         //2_비긴다: 그자리에 있는다
         //3_진다: 내 유닛 파괴
         #endregion
-        float rand = Random.Range(8.0f, 1.2f);
-        damageDealt = 30 * Mathf.Exp(0.04f * unitDmg - enemyDmg) * rand;
-        damageDealt = Mathf.Round(damageDealt);
+
+        if (unit.hp > 0 && enemy.hp > 0)
+        {
+            print("both survived");
+            return;
+        }
+
+        else if (unit.hp > 0 && enemy.hp<=0)
+        {
+            Destroy(enemy.gameObject);
+            print("won");
+            lastPos.y = -.7f;
+            
+            StartCoroutine(MoveUnitCoroutine(selectedUnit, finalMove, false));
+            //if ((lastPos - unit.transform.position).sqrMagnitude < .1f)
+            //{
+            //    return;
+            //}
+            //unit.transform.position = lastPos;
+            //print("개같이이김");
+           
+        }
+
+        else if (enemy.hp <= 0)
+        {
+            Destroy(enemy.gameObject);
+            print("enemy has been slained");
+        }
+
+
+        if (unit.hp <= 0)
+        {
+            Destroy(unit.gameObject);
+            print("ally has been slained");
+        }
+
+
+        
+
+    }
+
+
+    //내가 주는 데미지 계산. (나-> 상대방) (상대방-> 나)
+
+    public void battleFormula(float myDmg, float opponentDmg)
+    {
+        print(myDmg);
+        print(opponentDmg);
+
+        float rand = Random.Range(0.75f, 1.25f);
+        print(30 * (Mathf.Exp(0.04f * (myDmg - opponentDmg)) * rand));
+        damageDealt = Mathf.RoundToInt(30 * (Mathf.Exp(0.04f * (myDmg - opponentDmg) * rand)));
+
+        //damageDealt = Mathf.Round(damageDealt);
+        damageReceived = Mathf.RoundToInt(30 * (Mathf.Exp(0.04f * (opponentDmg - myDmg) * rand)));
+        print("damageDealt=" + damageDealt);
+        print("damageReceived= " + damageReceived);
+        //damageReceived = Mathf.Round(damageReceived);
+
     }
 
     Vector3 dir;
+    Vector3 lastPos;
+    JKH_Node finalMove;
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path, bool onEnemy = false)
     {
+        //print("tq");
         // TODO 전투 
         //int count = 0;
         //// 노드의 갯수 저장
@@ -772,7 +842,13 @@ public class MapManager : Singleton<MapManager>
             if (onEnemy == true)
             {
                 if (path.parent.parent == null)
+                {
+                    finalMove = path;
                     path = path.parent;
+                    
+
+                }
+                lastPos = path.worldPosition;
                 
             }
 
@@ -783,7 +859,13 @@ public class MapManager : Singleton<MapManager>
         }
         if (onEnemy == true)
         {
-            UnitCombat();
+            LayerMask unitLayer = LayerMask.GetMask("Unit");
+            // overlapsphere path 타일에 있는 상대 유닛 찾아옴
+            Collider[] tileOnUnit = Physics.OverlapSphere(path.worldPosition, .3f, unitLayer);
+            print(path.gridX + ", " + path.gridY);
+
+            UnitCombat(selectedUnit.GetComponent<CombatUnit>(), tileOnUnit[0].GetComponent<CombatUnit>());
+
             //Todo위치시켜주기 else도 마찬가지로 시도본다.?
         }
         //Teleport
@@ -795,7 +877,7 @@ public class MapManager : Singleton<MapManager>
         //anim.SetBool("isMove", false);
     }
     IEnumerator FinishedUnitCoroutine(Unit unit, JKH_Node path) //움직임처리하는
-    {                                                                                             
+    {
         yield return new WaitForSeconds(1); //???
     }
 
@@ -836,7 +918,7 @@ public class MapManager : Singleton<MapManager>
         lr.positionCount = 0;
         //anim.SetBool("isMove", false);
 
-        UnitCombat();
+        //UnitCombat();
     }
     #endregion
     public void DeleteCube()
