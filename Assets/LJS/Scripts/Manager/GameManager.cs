@@ -31,6 +31,9 @@ public class GameManager : Singleton<GameManager>
     public List<GameObject> initialUnits;
     public List<GameObject> startPoints;
 
+    [Header("Play")]
+    public GameObject currentSelect;
+
 
     private void Awake()
     {
@@ -56,9 +59,22 @@ public class GameManager : Singleton<GameManager>
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if(Physics.Raycast(ray, out hit, float.MaxValue))
+            if (Physics.Raycast(ray, out hit, float.MaxValue))
             {
-                print(hit.transform.gameObject.name);
+                currentSelect = hit.transform.gameObject;
+
+                TypeIdBase type = currentSelect.GetComponent<GameObjectType>().type;
+                switch (type)
+                {
+                    case TypeIdBase.UNIT:
+                        Unit unit = currentSelect.GetComponent<Unit>();
+                        break;
+                    case TypeIdBase.FACILITY:
+                        break;
+                    case TypeIdBase.DISTRICT:
+                        break;
+                }
+
             }
         }
         #endregion

@@ -347,13 +347,17 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     // TODO
     // parameter : 타일 x, y 좌표, 선택한 건물
     // 선택한 타일에 건물 모델 생성, 타일의 산출량 변경
-    public void SetDistrictInfo(InGameObjectId id)
+    public void SetDistrictInfo(InGameObjectId objectId)
     {
         Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.GetComponent<Territory>();
 
-        tt.districtUnderway.remain = TEST_REMAIN_PRODUCT;
-        tt.districtUnderway.pos = tileTemp.transform;
-        tt.districtUnderway.id = id;
+        ProductObject productObject = ProductObjectDataManager.instance.productObjects.Find(x => x.id == objectId);
+
+        tt.districtUnderway = new DistrictUnderway(productObject, tileTemp.transform);
+
+        // tt.districtUnderway.id = productObject.id;
+        // tt.districtUnderway.remain = productObject.remainCost;
+        // tt.districtUnderway.pos = tileTemp.transform;;
 
         tileTemp = null;
     }

@@ -8,8 +8,25 @@ using UnityEngine;
 public class DistrictUnderway
 {
     public InGameObjectId id;
+    TypeIdBase objectType;
     public Transform pos;
     public int remain;
+
+    public DistrictUnderway(InGameObjectId id, TypeIdBase objectType, Transform pos, int remain)
+    {
+        this.id = id;
+        this.objectType = objectType;
+        this.pos = pos;
+        this.remain = remain;
+    }
+
+    public DistrictUnderway(ProductObject productObject, Transform pos)
+    {
+        this.id = productObject.id;
+        this.objectType = productObject.type;
+        this.remain = productObject.remainCost;
+        this.pos = pos;
+    }
 }
 [Serializable]
 public class DistrictInPut
@@ -91,7 +108,7 @@ public class Territory : MonoBehaviour
 
     //보유 특수지구
     public List<InGameObjectId> districtOn = new List<InGameObjectId>();
-    public DistrictUnderway districtUnderway = new DistrictUnderway();
+    public DistrictUnderway districtUnderway;
     public DistrictInPut districtInput = new DistrictInPut(54, 1);
     public bool distric_limit = true;
 
@@ -102,10 +119,9 @@ public class Territory : MonoBehaviour
     private void Awake()
     {
         totalOutput = new TotalOutPut();
-        districtUnderway.id = InGameObjectId.NONE;
+        districtUnderway = new DistrictUnderway(InGameObjectId.NONE, TypeIdBase.NONE, null, -1);
 
         ownerID = GameManager.instance.currentPlayerId;
-
     }
 
     void Start()
@@ -156,7 +172,7 @@ public class Territory : MonoBehaviour
         }
 
     }
-    
+
     public void DistrictProcess()
     {
         districtUnderway.remain -= totalOutput._totalProductivity;

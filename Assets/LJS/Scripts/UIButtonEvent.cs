@@ -133,7 +133,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
 
     public void BuildDistrict(InGameObjectId objectId)
     {
-        // HYO_ConstructManager.instance.CreateDistrict(objectId, );
+        HYO_ConstructManager.instance.SetDistrictInfo(objectId);
     }
 
     public void ProductUnit(InGameObjectId objectId)

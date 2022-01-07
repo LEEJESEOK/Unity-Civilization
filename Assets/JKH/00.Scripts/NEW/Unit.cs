@@ -29,6 +29,8 @@ public class Unit : MonoBehaviour
 
     protected virtual void Start()
     {
+        gameObject.AddComponent<GameObjectType>();
+
         CheckMyPos();
     }
 

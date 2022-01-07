@@ -16,15 +16,7 @@ public class ProductObject
     public int maintenanceCost;
     public int remainCost;
     public TechnologyId requireTechId;
-
-
-    public ProductObject()
-    {
-        id = 0;
-        name = korean = "";
-        remainCost = maintenanceCost = goldCost = productCost = -1;
-        requireTechId = 0;
-    }
+    
 
     public ProductObject(TypeIdBase type, InGameObjectId id, string name, string korean, int productCost, int goldCost, int maintenanceCost, TechnologyId requireTechId)
     {
