@@ -626,10 +626,6 @@ public class MapManager : Singleton<MapManager>
                                 ableToMove = false;
                                 break;
                             }
-
-
-
-
                         }
 
                         // 이동할 수 없는 타일을 선택했을 경우
@@ -693,12 +689,10 @@ public class MapManager : Singleton<MapManager>
 
         return result;
     }
-    //Todo (나-> 상대방)
-    //
+    
 
     public int damageDealt;
     public int damageReceived;
-    bool dgajaDgaja=false;
     public void UnitCombat(CombatUnit unit, CombatUnit enemy)
     {
         print("이함수 실행");
@@ -716,67 +710,34 @@ public class MapManager : Singleton<MapManager>
         battleFormula(unitMeleeDmg, enemyMeleeDmg);
         unit.hp = unit.hp - damageReceived;
         enemy.hp = enemy.hp - damageDealt;
-        #region Todo      
-        //function = Combat()
-        //[필요한 변수]
-        //각 유닛 playerID
-        //최종목적지의 좌표(전투에 이겼을때.)
-        //전투에필요한 변수
-
-        //[과정]
-        //목표지점 누른다
-        //만약 그것이(상대`)유닛이라면
-        //+ 유닛있는 타일 잠궜는데 예외추가**
-        //eg > 유닛의ID가 나와 다르다면 이동가능하다(변수 많이생길듯)
-
-
-        //만약 그것의 playerID가 다르다면
-        //그 전 방향까지 이동한다
-        //싸우는 함수실행
-
-        //[경우의수]
-        //1_만약이긴다: 상대파괴 후 목적지 이동
-        //2_비긴다: 그자리에 있는다
-        //3_진다: 내 유닛 파괴
-        #endregion
-
         if (unit.hp > 0 && enemy.hp > 0)
         {
             print("both survived");
+            unit.movePower = 0;
             return;
         }
 
         else if (unit.hp > 0 && enemy.hp<=0)
         {
             Destroy(enemy.gameObject);
+            unit.movePower = 0;
             print("won");
-            lastPos.y = -.7f;
-            
-            StartCoroutine(MoveUnitCoroutine(selectedUnit, finalMove, false));
-            //if ((lastPos - unit.transform.position).sqrMagnitude < .1f)
-            //{
-            //    return;
-            //}
-            //unit.transform.position = lastPos;
-            //print("개같이이김");
-           
+            lastPos.y = -.7f;            
+            StartCoroutine(MoveUnitCoroutine(selectedUnit, finalMove, false));            
         }
 
         else if (enemy.hp <= 0)
         {
+            unit.movePower = 0;
             Destroy(enemy.gameObject);
             print("enemy has been slained");
         }
-
 
         if (unit.hp <= 0)
         {
             Destroy(unit.gameObject);
             print("ally has been slained");
-        }
-
-
-        
+        }        
 
     }
 
@@ -804,8 +765,7 @@ public class MapManager : Singleton<MapManager>
     Vector3 lastPos;
     JKH_Node finalMove;
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path, bool onEnemy = false)
-    {
-        //print("tq");
+    {        
         // TODO 전투 
         //int count = 0;
         //// 노드의 갯수 저장
@@ -815,7 +775,6 @@ public class MapManager : Singleton<MapManager>
         //        if path != null;
         //        ++count;
         //    }
-
         //어떤경로로 이동하는지 표시 
         while (path.parent != null)
         {
@@ -851,10 +810,6 @@ public class MapManager : Singleton<MapManager>
                 lastPos = path.worldPosition;
                 
             }
-
-            //// 움직이는 동작 처리하는 코루틴
-            //yield return StartCoroutine(FinishedUnitCoroutine(null, null));
-            //// path 다음으로
 
         }
         if (onEnemy == true)
