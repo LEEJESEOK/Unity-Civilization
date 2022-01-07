@@ -1,7 +1,7 @@
 {
     "data": [
         {
-            "id": 40000,
+            "id": 50000,
             "name": "Pottery",
             "korean": "도예",
             "koreanDesc": "",
@@ -12,7 +12,7 @@
             "requireTechId": []
         },
         {
-            "id": 40001,
+            "id": 50001,
             "name": "Animal Husbandry",
             "korean": "목축업",
             "koreanDesc": "",
@@ -23,7 +23,7 @@
             "requireTechId": []
         },
         {
-            "id": 40002,
+            "id": 50002,
             "name": "Mining",
             "korean": "채광",
             "koreanDesc": "",
@@ -36,7 +36,7 @@
             "requireTechId": []
         },
         {
-            "id": 40003,
+            "id": 50003,
             "name": "Irrigation",
             "korean": "관개",
             "koreanDesc": "",
@@ -45,11 +45,11 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                40000
+                50000
             ]
         },
         {
-            "id": 40004,
+            "id": 50004,
             "name": "Writing",
             "korean": "문자",
             "koreanDesc": "",
@@ -60,11 +60,11 @@
                 30000
             ],
             "requireTechId": [
-                40000
+                50000
             ]
         },
         {
-            "id": 40005,
+            "id": 50005,
             "name": "Archery",
             "korean": "궁술",
             "koreanDesc": "",
@@ -75,11 +75,11 @@
                 10005
             ],
             "requireTechId": [
-                40001
+                50001
             ]
         },
         {
-            "id": 40006,
+            "id": 50006,
             "name": "Masonry",
             "korean": "석조 기술",
             "koreanDesc": "",
@@ -88,11 +88,11 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                40002
+                50002
             ]
         },
         {
-            "id": 40007,
+            "id": 50007,
             "name": "Bronze Working",
             "korean": "청동 기술",
             "koreanDesc": "",
@@ -103,11 +103,11 @@
                 10006
             ],
             "requireTechId": [
-                40002
+                50002
             ]
         },
         {
-            "id": 40008,
+            "id": 50008,
             "name": "Wheel",
             "korean": "바퀴",
             "koreanDesc": "",
@@ -118,11 +118,11 @@
                 10007
             ],
             "requireTechId": [
-                40002
+                50002
             ]
         },
         {
-            "id": 41000,
+            "id": 51000,
             "name": "Currency",
             "korean": "화폐",
             "koreanDesc": "",
@@ -133,11 +133,11 @@
                 30001
             ],
             "requireTechId": [
-                40004
+                50004
             ]
         },
         {
-            "id": 41001,
+            "id": 51001,
             "name": "Horseback Riding",
             "korean": "기마술",
             "koreanDesc": "",
@@ -146,11 +146,11 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                40005
+                50005
             ]
         },
         {
-            "id": 41002,
+            "id": 51002,
             "name": "Iron Working",
             "korean": "철제 기술",
             "koreanDesc": "",
@@ -159,11 +159,11 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                40007
+                50007
             ]
         },
         {
-            "id": 41003,
+            "id": 51003,
             "name": "Mathematics",
             "korean": "수학",
             "koreanDesc": "",
@@ -172,11 +172,11 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                41000
+                51000
             ]
         },
         {
-            "id": 41004,
+            "id": 51004,
             "name": "Construction",
             "korean": "건축",
             "koreanDesc": "",
@@ -185,12 +185,12 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                40006,
-                41001
+                50006,
+                51001
             ]
         },
         {
-            "id": 41005,
+            "id": 51005,
             "name": "Engineering",
             "korean": "공학",
             "koreanDesc": "",
@@ -199,11 +199,11 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                40008
+                50008
             ]
         },
         {
-            "id": 42000,
+            "id": 52000,
             "name": "Military Tactics",
             "korean": "군사 전술",
             "koreanDesc": "",
@@ -212,11 +212,11 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                41003
+                51003
             ]
         },
         {
-            "id": 42001,
+            "id": 52001,
             "name": "Apprenticeship",
             "korean": "도제제도",
             "koreanDesc": "",
@@ -227,12 +227,12 @@
                 30002
             ],
             "requireTechId": [
-                41000,
-                41001
+                51000,
+                51001
             ]
         },
         {
-            "id": 42002,
+            "id": 52002,
             "name": "Machinery",
             "korean": "기계",
             "koreanDesc": "",
@@ -241,12 +241,12 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                41002,
-                41005
+                51002,
+                51005
             ]
         },
         {
-            "id": 42003,
+            "id": 52003,
             "name": "Education",
             "korean": "교육",
             "koreanDesc": "",
@@ -255,12 +255,12 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                41003,
-                42001
+                51003,
+                52001
             ]
         },
         {
-            "id": 42004,
+            "id": 52004,
             "name": "Stirrups",
             "korean": "등자",
             "koreanDesc": "",
@@ -269,11 +269,11 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                41001
+                51001
             ]
         },
         {
-            "id": 42005,
+            "id": 52005,
             "name": "Military Engineering",
             "korean": "군사 공학",
             "koreanDesc": "",
@@ -282,11 +282,11 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                41004
+                51004
             ]
         },
         {
-            "id": 42006,
+            "id": 52006,
             "name": "Castles",
             "korean": "성",
             "koreanDesc": "",
@@ -295,11 +295,11 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                41004
+                51004
             ]
         },
         {
-            "id": 43000,
+            "id": 53000,
             "name": "Mass Production",
             "korean": "대량 생산",
             "koreanDesc": "",
@@ -308,12 +308,12 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                42003,
-                42000
+                52003,
+                52000
             ]
         },
         {
-            "id": 43001,
+            "id": 53001,
             "name": "Banking",
             "korean": "은행업",
             "koreanDesc": "",
@@ -322,12 +322,12 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                42003,
-                42004
+                52003,
+                52004
             ]
         },
         {
-            "id": 43002,
+            "id": 53002,
             "name": "Printing",
             "korean": "인쇄술",
             "koreanDesc": "",
@@ -336,11 +336,11 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                42002
+                52002
             ]
         },
         {
-            "id": 43003,
+            "id": 53003,
             "name": "Gunpowder",
             "korean": "화약",
             "koreanDesc": "",
@@ -349,13 +349,13 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                42001,
-                42004,
-                42005
+                52001,
+                52004,
+                52005
             ]
         },
         {
-            "id": 43004,
+            "id": 53004,
             "name": "Siege Tactics",
             "korean": "공성 전략",
             "koreanDesc": "",
@@ -364,11 +364,11 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                42006
+                52006
             ]
         },
         {
-            "id": 43005,
+            "id": 53005,
             "name": "Metal Casting",
             "korean": "주조",
             "koreanDesc": "",
@@ -377,11 +377,11 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                43003
+                53003
             ]
         },
         {
-            "id": 43006,
+            "id": 53006,
             "name": "Astronomy",
             "korean": "천문학",
             "koreanDesc": "",
@@ -390,7 +390,7 @@
             "isResearched": false,
             "unlockObjectId": [],
             "requireTechId": [
-                42003
+                52003
             ]
         }
     ]

@@ -152,7 +152,7 @@ public class UIManager : Singleton<UIManager>
         {
             if (hit.transform.gameObject.GetComponent<MeshRenderer>().enabled == false)
             {
-                if (Physics.Raycast(rayPoint, out hitInfo, 1000, HYO_ConstructManager.instance.layerMask))
+                if (Physics.Raycast(rayPoint, out hitInfo, float.MaxValue, HYO_ConstructManager.instance.layerMask))
                 {
                     if (mousePos == Input.mousePosition)
                     {

@@ -118,7 +118,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     }
 
-
     //select
     public bool SelectUnit()
     {
@@ -182,6 +181,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         }
 
     }
+
     public void SelectTile(Territory cityTemp)
     {
         if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
@@ -236,7 +236,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             }
         }
     }
-
 
     //create
     public void CreateTerritory()
@@ -293,13 +292,15 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         isUnitSelected = false;
         unitInfo = null;
     }
+
     public void CreateFacility(InGameObjectId id)
     {
         if (fd.facility == InGameObjectId.NONE)
         {
             fd.SetFacility(id);
 
-            tileTemp = unitInfo.GetComponent<Unit>().myTilePos.transform;
+            NonCombatUnit unit = GameManager.instance.currentSelect.GetComponent<NonCombatUnit>();
+            tileTemp = unit.myTilePos.transform;
             GameObject empty = Instantiate(icons[(int)id + 3]);
 
 
@@ -335,6 +336,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         else return;
 
     }
+
     //test
     public void OnClickCreateRoad()
     {
@@ -382,7 +384,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
 
         HexFogManager.instance.buildings[HexFogManager.instance.currentPlayerId].Add(empty);
-        
+
         //특수지구에서 행동력 무조건 1
         pos.gameObject.GetComponent<TerrainData>().output.movePower = 1;
     }

@@ -114,7 +114,7 @@ public class MapManager : Singleton<MapManager>
                 print("유닛있음");
                 continue;
             }
-            if (Physics.Raycast(ray, out hitInfo, float.PositiveInfinity, layer))
+            if (Physics.Raycast(ray, out hitInfo, float.MaxValue, layer))
             {
                 unitInfo = hitInfo.transform.gameObject.GetComponent<Unit>();
 

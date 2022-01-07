@@ -13,7 +13,7 @@ public class UIPanel : MonoBehaviour
         {
             case "UNIT_PANEL":
                 // 버튼 상태 초기화
-
+                
                 // 개척자 -> 도시 건설 버튼 표시(BuildCityButton)
                 // 건설자 -> 시설 건설 목록 표시(BuildCommandTab)
 

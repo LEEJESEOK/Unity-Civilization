@@ -9,7 +9,7 @@
             "goldCost": 0,
             "maintenanceCost": 1,
             "remainCost": 54,
-            "requireTechId": 40004
+            "requireTechId": 50004
         },
         {
             "id": 30001,
@@ -20,7 +20,7 @@
             "goldCost": 0,
             "maintenanceCost": 0,
             "remainCost": 54,
-            "requireTechId": 41000
+            "requireTechId": 51000
         },
         {
             "id": 30002,
@@ -31,7 +31,7 @@
             "goldCost": 0,
             "maintenanceCost": 1,
             "remainCost": 54,
-            "requireTechId": 42001
+            "requireTechId": 52001
         },
         {
             "id": 10000,
@@ -97,7 +97,7 @@
             "goldCost": 240,
             "maintenanceCost": 1,
             "remainCost": 60,
-            "requireTechId": 40005
+            "requireTechId": 50005
         },
         {
             "id": 10006,
@@ -108,7 +108,7 @@
             "goldCost": 260,
             "maintenanceCost": 1,
             "remainCost": 65,
-            "requireTechId": 40007
+            "requireTechId": 50007
         },
         {
             "id": 10007,
@@ -119,7 +119,7 @@
             "goldCost": 260,
             "maintenanceCost": 1,
             "remainCost": 65,
-            "requireTechId": 40008
+            "requireTechId": 50008
         }
     ]
 }

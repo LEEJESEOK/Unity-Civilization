@@ -11,5 +11,6 @@ public enum TypeIdBase
     UNIT = 10000,
     FACILITY = 20000,
     DISTRICT = 30000,
-    TECHNOLOGY = 40000,
+    TILE = 40000,
+    TECHNOLOGY = 50000,
 }
