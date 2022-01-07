@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class SoundManager : Singleton<SoundManager>
 {
@@ -28,6 +30,16 @@ public class SoundManager : Singleton<SoundManager>
     //EFT
     public AudioSource audioS_EFT;
     public AudioClip[] eftAudio;
+
+    void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+
+        if (SceneManager.GetActiveScene().name == "StartScene")
+        {
+            PlayBGM(BGM_TYPE.BGM_START);
+        }
+    }
 
     public void PlayBGM(BGM_TYPE type)
     {
