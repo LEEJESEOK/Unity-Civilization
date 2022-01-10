@@ -677,7 +677,8 @@ public class MapManager : Singleton<MapManager>
     public Vector2Int CheckMyPos()
     {
         //transform.pos대신 선택된유닛의 위치로 바꾼다.
-        int fogLayer = LayerMask.GetMask("HexFog"); //+LayerMask.GetMask("Mark")
+        int fogLayer = LayerMask.GetMask("HexFog");
+        //int mapLayer = LayerMask.GetMask("");
 
         Ray ray = new Ray(selectedUnit.transform.position, transform.up * -1);
         RaycastHit hit;
