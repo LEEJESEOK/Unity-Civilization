@@ -15,7 +15,10 @@ public class HexFogManager : Singleton<HexFogManager>
     public List<List<Unit>> units;
     public List<List<GameObject>> buildings;
     public List<GameObject> otherUnitsBuildings;
-    
+
+    public List<GameObject> inFov;
+    public List<GameObject> prevInFov;
+
     public int currentPlayerId;
 
     private void Start()
@@ -28,6 +31,9 @@ public class HexFogManager : Singleton<HexFogManager>
         units = new List<List<Unit>>();
         buildings = new List<List<GameObject>>();
         otherUnitsBuildings = new List<GameObject>();
+
+        inFov = new List<GameObject>();
+        prevInFov = new List<GameObject>();
 
         FindOtherUnitsBuildings(currentPlayerId);
     }
@@ -52,6 +58,21 @@ public class HexFogManager : Singleton<HexFogManager>
 
         MergeUnitInfo(currentPlayerId);
         HexFogAdd(currentPlayerId);
+
+
+
+        for (int i = 0; i < prevInFov.Count; i++)
+        {
+            prevInFov[i].SetActive(false);
+        }
+
+        for (int i = 0; i < inFov.Count; i++)
+        {
+            inFov[i].SetActive(true);
+        }
+
+        prevInFov = inFov;
+        inFov.Clear();
     }
 
     void MergeUnitInfo(int id)
@@ -110,6 +131,7 @@ public class HexFogManager : Singleton<HexFogManager>
                 for (int f = 0; f < units[b].Count; f++)
                 {
                     units[b][f].gameObject.SetActive(true);
+                    units[b][f].GetComponentInChildren<FieldOfView>().StartFindTargetsWithDelay();
                 }
                 for (int g = 0; g < buildings[b].Count; g++)
                 {

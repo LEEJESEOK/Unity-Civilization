@@ -76,12 +76,12 @@ public class Player : MonoBehaviour
 
             info.units.Add(unit);
 
+
             #region test
             // 초기 위치 지정
             Vector3 pos = transform.position + Vector3.left * (1.5f) * i;
             pos.y = -0.9f;
             unitObject.transform.position = pos;
-
 
 
             #endregion
@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
     {
         if (isTurn)
         {
-            FindOtherUnit();
+            //FindOtherUnit();
             TurnUpdate();
         }
     }
