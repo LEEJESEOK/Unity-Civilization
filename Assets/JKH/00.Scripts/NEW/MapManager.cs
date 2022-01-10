@@ -154,6 +154,9 @@ public class MapManager : Singleton<MapManager>
                 print("체력: " + selectedUnit.hp);
                 print("UnitID: " + selectedUnit.playerId);
 
+                //selectedUnit.transform.GetChild(1).gameObject.SetActive(true);
+
+
                 //유닛이있는 타일의 정보를 가져온다.
 
                 CheckAbleToGo();
@@ -674,7 +677,7 @@ public class MapManager : Singleton<MapManager>
     public Vector2Int CheckMyPos()
     {
         //transform.pos대신 선택된유닛의 위치로 바꾼다.
-        int fogLayer = LayerMask.GetMask("HexFog");
+        int fogLayer = LayerMask.GetMask("HexFog"); //+LayerMask.GetMask("Mark")
 
         Ray ray = new Ray(selectedUnit.transform.position, transform.up * -1);
         RaycastHit hit;
