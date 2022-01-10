@@ -826,7 +826,7 @@ public class MapManager : Singleton<MapManager>
             //좌표틀어짐>> 정중앙에 위치시키도록한다
 
             yield return null;
-            anim.SetBool("isMove", true);
+           // anim.SetBool("isMove", true);
 
 
             //Vector3 pos = path.worldPosition; //1
@@ -874,7 +874,7 @@ public class MapManager : Singleton<MapManager>
         //unit.transform.position = pos;
         //경로표시 다끝나면 선 지운다.
         lr.positionCount = 0;
-        anim.SetBool("isMove", false);
+       // anim.SetBool("isMove", false);
 
         unit.transform.forward = Vector3.back;
 

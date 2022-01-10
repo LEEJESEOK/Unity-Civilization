@@ -63,15 +63,15 @@ public class HexFogManager : Singleton<HexFogManager>
 
         for (int i = 0; i < prevInFov.Count; i++)
         {
-            prevInFov[i].SetActive(false);
+           prevInFov[i].SetActive(false);
         }
+        prevInFov.Clear();
 
         for (int i = 0; i < inFov.Count; i++)
         {
             inFov[i].SetActive(true);
+            prevInFov.Add(inFov[i]);
         }
-
-        prevInFov = inFov;
         inFov.Clear();
     }
 

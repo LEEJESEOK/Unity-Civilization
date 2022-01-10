@@ -107,21 +107,6 @@ public class GameManager : Singleton<GameManager>
             players[i].playerId = i;
         }
 
-        Player p;
-        for(int i = 0; i < initPlayerCount; i++)
-        {
-            p = players[i];
-            for(int j = 0; j < initPlayerCount; j++)
-            {
-                if(p != players[j])
-                {
-                    p.otherPlayers.Add(players[j]);
-                }
-            }
-        }
-
-
-
         HexFogManager.instance.init(initPlayerCount);
 
     }
@@ -148,6 +133,7 @@ public class GameManager : Singleton<GameManager>
         //set hexfog
         HexFogManager.instance.FindOtherTargetList(_currentPlayerId);
         HexFogManager.instance.FindOtherUnitsBuildings(_currentPlayerId);
+        HexFogManager.instance.prevInFov.Clear();
     }
 
     IEnumerator DelayedStartCoroutine()

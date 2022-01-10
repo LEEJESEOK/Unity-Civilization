@@ -51,7 +51,12 @@ public class FieldOfView : MonoBehaviour
     }
     public void StartFindTargetsWithDelay()
     {
-        StartCoroutine(FindTargetsWithDelay(delayBetweenFOVUpdates));
+        //StartCoroutine(FindTargetsWithDelay(delayBetweenFOVUpdates));
+    }
+
+    private void Update()
+    {
+        FindVisibleTargets();
     }
 
     private void LateUpdate()
