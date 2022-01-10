@@ -71,7 +71,6 @@ public class GameManager : Singleton<GameManager>
                     {
                         case TypeIdBase.UNIT:
                             Unit unit = currentSelect.GetComponent<Unit>();
-                            
                             UIPanelManager.instance.OpenPanel("UNIT_PANEL");
                             break;
                         // 도시 건물
@@ -79,6 +78,8 @@ public class GameManager : Singleton<GameManager>
                         case TypeIdBase.DISTRICT:
                         case TypeIdBase.TILE:
                             Territory territory = currentSelect.GetComponent<Territory>();
+
+                            UIPanelManager.instance.OpenPanel("CITY_PANEL");
                             break;
                     }
                 }
