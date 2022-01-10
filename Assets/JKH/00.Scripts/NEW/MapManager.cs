@@ -319,7 +319,7 @@ public class MapManager : Singleton<MapManager>
         List<JKH_Node> path = new List<JKH_Node>();
         for (int i = 0; i < cols.Count; i++)
         {
-            LayerMask unitLayer = LayerMask.NameToLayer("Unit");
+            LayerMask unitLayer = LayerMask.GetMask("Unit");
             Collider[] tileOnUnit = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
             print(tileOnUnit.Length);
             if (tileOnUnit.Length >= 1 && tileOnUnit[0].GetComponent<Unit>().playerId == selectedUnit.playerId) //상대방유닛은 안거르게됨.
@@ -733,8 +733,6 @@ public class MapManager : Singleton<MapManager>
         anim.SetBool("isMove", false);
 
         unit.transform.forward = Vector3.back;
-
-        unit.CheckMyPos();
 
     }
     IEnumerator FinishedUnitCoroutine(Unit unit, JKH_Node path) //움직임처리하는

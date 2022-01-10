@@ -45,13 +45,17 @@ public class FieldOfView : MonoBehaviour
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
 
-
-        StartFindTargetsWithDelay();
+       
+        StartCoroutine(FindTargetsWithDelay(delayBetweenFOVUpdates));
 
     }
-    public void StartFindTargetsWithDelay()
+    void OnEnable()
     {
-        StartCoroutine(FindTargetsWithDelay(delayBetweenFOVUpdates));
+    }
+
+    private void OnDisable()
+    {
+       // StopAllCoroutines();
     }
 
     private void LateUpdate()
@@ -241,7 +245,7 @@ public class FieldOfView : MonoBehaviour
 
     void FindVisibleTargets()
     {
-
+       
         if (HexFogManager.instance.findTargetList[GameManager.instance.currentPlayerId] == null)
         {
             HexFogManager.instance.findTargetList[GameManager.instance.currentPlayerId] = new List<Hideable>();
@@ -309,30 +313,6 @@ public class FieldOfView : MonoBehaviour
         }
 
         Physics.autoSyncTransforms = true;
-
-
-        if (GetComponentInParent<Unit>().playerId == GameManager.instance.currentPlayerId)
-        {
-            targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, HYO_ConstructManager.instance.layerMask);
-            for (int i = 0; i < targetsInViewRadius.Length; i++)
-            {
-                TerrainData terrainData = targetsInViewRadius[i].GetComponent<TerrainData>();
-                if (terrainData != null)
-                {
-                    for (int j = 0; j < terrainData.objectOn.Count; j++)
-                    {
-                        Unit unit = terrainData.objectOn[j].GetComponent<Unit>();
-                        if (unit != null)
-                        {
-                            if (unit.playerId != GameManager.instance.currentPlayerId)
-                            {
-                                HexFogManager.instance.inFov.Add(terrainData.objectOn[j]);
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 
     /// <summary>
