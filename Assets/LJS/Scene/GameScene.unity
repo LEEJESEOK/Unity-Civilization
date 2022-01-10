@@ -1510,7 +1510,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 238720842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 828f868569880b44e83c469f88defdf9, type: 3}
+  m_Script: {fileID: 11500000, guid: 85494d9dfd50a3a4196fd20bab048f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
@@ -1518,14 +1518,16 @@ MonoBehaviour:
   playerId: 0
   isSelected: 0
   unitType: 0
-  movePower: 3
-  maxMovePower: 3
+  movePower: 4
+  maxMovePower: 4
   hp: 100
   myTilePos: {fileID: 0}
   posX: 0
   posY: 0
   animator: {fileID: 0}
-  buildCount: 0
+  meleeAttack: 4
+  rangeAttack: 3
+  range: 1
 --- !u!136 &238720844
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -72686,8 +72688,8 @@ MonoBehaviour:
   movePower: 0
   rayWay: {fileID: 2138221835935680758, guid: c388d4bef2122d14db3ae774efe76369, type: 3}
   myTilePos: {fileID: 0}
-  unitDmg: 26
-  enemyDmg: 25
+  damageDealt: 0
+  damageReceived: 0
 --- !u!120 &741850755
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -73487,7 +73489,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 900072815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 828f868569880b44e83c469f88defdf9, type: 3}
+  m_Script: {fileID: 11500000, guid: 85494d9dfd50a3a4196fd20bab048f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
@@ -73495,14 +73497,16 @@ MonoBehaviour:
   playerId: 1
   isSelected: 0
   unitType: 0
-  movePower: 3
-  maxMovePower: 3
+  movePower: 4
+  maxMovePower: 4
   hp: 100
   myTilePos: {fileID: 0}
   posX: 0
   posY: 0
   animator: {fileID: 0}
-  buildCount: 0
+  meleeAttack: 3
+  rangeAttack: 3
+  range: 1
 --- !u!136 &900072817
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -79307,7 +79311,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1592254096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 828f868569880b44e83c469f88defdf9, type: 3}
+  m_Script: {fileID: 11500000, guid: 85494d9dfd50a3a4196fd20bab048f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
@@ -79315,14 +79319,16 @@ MonoBehaviour:
   playerId: 1
   isSelected: 0
   unitType: 0
-  movePower: 3
-  maxMovePower: 3
-  hp: 100
+  movePower: 4
+  maxMovePower: 4
+  hp: 1
   myTilePos: {fileID: 0}
   posX: 0
   posY: 0
   animator: {fileID: 0}
-  buildCount: 0
+  meleeAttack: 3
+  rangeAttack: 3
+  range: 1
 --- !u!136 &1592254098
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -81253,7 +81259,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1782015162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 828f868569880b44e83c469f88defdf9, type: 3}
+  m_Script: {fileID: 11500000, guid: 85494d9dfd50a3a4196fd20bab048f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
@@ -81261,14 +81267,16 @@ MonoBehaviour:
   playerId: 0
   isSelected: 0
   unitType: 0
-  movePower: 3
-  maxMovePower: 3
-  hp: 100
+  movePower: 4
+  maxMovePower: 4
+  hp: 50
   myTilePos: {fileID: 0}
   posX: 0
   posY: 0
   animator: {fileID: 0}
-  buildCount: 0
+  meleeAttack: 4
+  rangeAttack: 3
+  range: 1
 --- !u!136 &1782015164
 CapsuleCollider:
   m_ObjectHideFlags: 0
