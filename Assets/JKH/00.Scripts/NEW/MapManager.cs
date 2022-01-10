@@ -742,12 +742,54 @@ public class MapManager : Singleton<MapManager>
     }
 
 
+    //수정해야함
+    public void calculateWeight()
+    {
+        int playerCode = 0;
+        int enemyCode = 0;
+        float weight = 1;
+        //상성 가중치 (playerCode, enemyCode) //근접(1)>대기병(2)>기병(3)>근접(1)
+
+        if (playerCode == enemyCode)
+        {
+            weight = 1;
+        }
+
+        //player가 이기는 상성
+        else if ((playerCode == 1 && enemyCode == 2)
+            || (playerCode == 2) && (enemyCode == 3)
+            || (playerCode == 3) && (enemyCode == 1))
+        {
+            weight = 1.2f;
+        }
+
+        //지는상성
+        else if ((playerCode == 2 && enemyCode == 1)
+            || (playerCode == 3) && (enemyCode == 2)
+            || (playerCode == 1) && (enemyCode == 3))
+        {
+            weight = 1.0f / 1.2f;
+        }
+
+        //그외 있어선 안되는 일
+        else
+        {
+            print("이건 말도 안되는 일");
+            weight = 1;
+        }
+
+        print("playerCode: " + playerCode);
+        print("enemyCode" + enemyCode);
+        print("weight=" + weight);
+    }
+
     //내가 주는 데미지 계산. (나-> 상대방) (상대방-> 나)
 
     public void battleFormula(float myDmg, float opponentDmg)
     {
         print(myDmg);
         print(opponentDmg);
+
 
         float rand = Random.Range(0.75f, 1.25f);
         print(30 * (Mathf.Exp(0.04f * (myDmg - opponentDmg)) * rand));
