@@ -6,41 +6,6 @@ using System.Linq;
 
 public class Player : MonoBehaviour
 {
-    public List<Player> otherPlayers = new List<Player>();
-    void FindOtherUnit()
-    {
-        List<Unit> check = new List<Unit>();
-
-        for(int i = 0; i < info.units.Count; i++)
-        {
-            for(int j = 0; j < otherPlayers.Count; j++)
-            {
-                for(int k = 0; k < otherPlayers[j].info.units.Count; k++)
-                {
-                    float dist = Vector3.Distance(info.units[i].transform.position, otherPlayers[j].info.units[k].transform.position);
-
-                    if(dist < 3)
-                    {
-                        otherPlayers[j].info.units[k].gameObject.SetActive(true);
-                        check.Add(otherPlayers[j].info.units[k]);
-                    }
-                    else
-                    {
-                        if(check.Contains(otherPlayers[j].info.units[k]) == false)
-                        {
-                            otherPlayers[j].info.units[k].gameObject.SetActive(false);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-
-
-
-
-
     public bool isTurn;
     public int playerId;
     public Camera playerCamera;
@@ -96,10 +61,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (isTurn)
-        {
-            FindOtherUnit();
             TurnUpdate();
-        }
     }
 
     public void StartTurn()
