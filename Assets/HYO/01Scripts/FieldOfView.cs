@@ -308,6 +308,30 @@ public class FieldOfView : MonoBehaviour
         }
 
         Physics.autoSyncTransforms = true;
+
+        if (GetComponentInParent<Unit>().playerId == GameManager.instance.currentPlayerId)
+        {
+            targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, HYO_ConstructManager.instance.layerMask);
+            for (int i = 0; i < targetsInViewRadius.Length; i++)
+            {
+                TerrainData terrainData = targetsInViewRadius[i].GetComponent<TerrainData>();
+                if (terrainData != null)
+                {
+                    for (int j = 0; j < terrainData.objectOn.Count; j++)
+                    {
+                        Unit unit = terrainData.objectOn[j].GetComponent<Unit>();
+                        if (unit != null)
+                        {
+                            if (unit.playerId != GameManager.instance.currentPlayerId)
+                            {
+                                HexFogManager.instance.inFov.Add(terrainData.objectOn[j]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
     /// <summary>
