@@ -105,6 +105,7 @@ public class TerrainData : MonoBehaviour
     public GameObject[] territory = new GameObject[7];
     public GameObject myCenter;
 
+    public List<GameObject> objectOn= new List<GameObject>();
     // 언덕유무
     public bool isHills;
 
@@ -226,6 +227,17 @@ public class TerrainData : MonoBehaviour
         UIManager.instance.GetTileInfo(terrainType, myCenter, output.movePower, output.food, output.productivity);
     }
 
+    //한 번만 하게
+    bool one;
+    //타일에 위치한 오브젝트 저장
+    public void AddObjectOn(GameObject obj, int playerId)
+    {
+        objectOn.Add(obj);
 
-
+        if (one == false && playerId != GameManager.instance.currentPlayerId)
+        {
+            obj.SetActive(false);
+            one = true;
+        }
+    }
 }

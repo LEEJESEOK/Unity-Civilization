@@ -4,17 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadScene : Singleton<LoadScene>
-{
+{ 
     void Start()
     {
-   
-    }
+        DontDestroyOnLoad(gameObject);
 
-    void Update()
-    {
-        
+        if (SceneManager.GetActiveScene().name == "StartScene")
+        {
+            SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_START);
+        }       
     }
-
     public void StartGameBTN()
     {
         SceneManager.LoadScene("GameScene");

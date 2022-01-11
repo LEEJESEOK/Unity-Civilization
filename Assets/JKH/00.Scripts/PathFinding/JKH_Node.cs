@@ -40,6 +40,11 @@ public class JKH_Node
         }
     }
 
+    public Vector2 GetPosition()
+    {
+        return new Vector2(gridX, gridY);
+    }
+
     public override bool Equals(object obj)
     {
         return obj is JKH_Node node &&

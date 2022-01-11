@@ -6700,7 +6700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449480a85cd1e654398df00865f24e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 10000
 --- !u!1001 &3817880371730121212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6711,6 +6711,14 @@ PrefabInstance:
     - target: {fileID: 2366861670002632460, guid: 901f3db62b09f1c4da1ee461bee01a9a, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366861670002632460, guid: 901f3db62b09f1c4da1ee461bee01a9a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366861670002632460, guid: 901f3db62b09f1c4da1ee461bee01a9a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2366861670002632460, guid: 901f3db62b09f1c4da1ee461bee01a9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6728,7 +6736,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 499195530945093830, guid: 901f3db62b09f1c4da1ee461bee01a9a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 901f3db62b09f1c4da1ee461bee01a9a, type: 3}
 --- !u!1 &8667252956283941401 stripped
 GameObject:

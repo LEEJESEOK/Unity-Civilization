@@ -45,11 +45,18 @@ public class FieldOfView : MonoBehaviour
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
 
+
         StartCoroutine(FindTargetsWithDelay(delayBetweenFOVUpdates));
 
     }
     void OnEnable()
     {
+        //StartCoroutine(FindTargetsWithDelay(delayBetweenFOVUpdates));
+    }
+
+    private void Update()
+    {
+        FindVisibleTargets();
     }
 
     private void LateUpdate()
@@ -239,19 +246,14 @@ public class FieldOfView : MonoBehaviour
 
     void FindVisibleTargets()
     {
+
         if (HexFogManager.instance.findTargetList[GameManager.instance.currentPlayerId] == null)
         {
             HexFogManager.instance.findTargetList[GameManager.instance.currentPlayerId] = new List<Hideable>();
         }
 
-        //for (int i = 0; i < HexFogManager.instance.findTargetList.Count; i++)
-        //{
-        //    HexFogManager.instance.findTargetList[i].OnFOVLeaveShow();
-        //    HexFogManager.instance.findTargetList[i].OnFOVTransparency();
-        //    HexFogManager.instance.findTargetList.RemoveAt(i);
-        //}
-
-
+       
+        //terrain data 가져옴
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
 
@@ -306,6 +308,30 @@ public class FieldOfView : MonoBehaviour
         }
 
         Physics.autoSyncTransforms = true;
+
+        if (GetComponentInParent<Unit>().playerId == GameManager.instance.currentPlayerId)
+        {
+            targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, HYO_ConstructManager.instance.layerMask);
+            for (int i = 0; i < targetsInViewRadius.Length; i++)
+            {
+                TerrainData terrainData = targetsInViewRadius[i].GetComponent<TerrainData>();
+                if (terrainData != null)
+                {
+                    for (int j = 0; j < terrainData.objectOn.Count; j++)
+                    {
+                        Unit unit = terrainData.objectOn[j].GetComponent<Unit>();
+                        if (unit != null)
+                        {
+                            if (unit.playerId != GameManager.instance.currentPlayerId)
+                            {
+                                HexFogManager.instance.inFov.Add(terrainData.objectOn[j]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
     /// <summary>

@@ -49,6 +49,7 @@ public class GameManager : Singleton<GameManager>
         InitGame();
 
         StartCoroutine(DelayedStartCoroutine());
+
     }
 
     // Update is called once per frame
@@ -137,11 +138,13 @@ public class GameManager : Singleton<GameManager>
         //set hexfog
         HexFogManager.instance.FindOtherTargetList(_currentPlayerId);
         HexFogManager.instance.FindOtherUnitsBuildings(_currentPlayerId);
+        HexFogManager.instance.prevInFov.Clear();
     }
 
     IEnumerator DelayedStartCoroutine()
     {
         yield return null;
+        SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_INGAME);
         // 첫번째 플레이어의 차례로 시작
         players[_currentPlayerId].StartTurn();
     }
