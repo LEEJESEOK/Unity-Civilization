@@ -229,6 +229,7 @@ public class TerrainData : MonoBehaviour
 
     //한 번만 하게
     bool one;
+    //타일에 위치한 오브젝트 저장
     public void AddObjectOn(GameObject obj, int playerId)
     {
         objectOn.Add(obj);
