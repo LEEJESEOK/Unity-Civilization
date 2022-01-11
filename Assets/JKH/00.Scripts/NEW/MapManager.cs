@@ -713,11 +713,15 @@ public class MapManager : Singleton<MapManager>
             //unit.transform.position = pos; //3
             //---
             dir = path.parent.worldPosition - path.worldPosition;
+            Vector3 dest = path.parent.worldPosition;
+            dest.y = unit.transform.position.y;
             dir.Normalize();
             unit.transform.forward = dir;
-            unit.transform.position += dir * Time.deltaTime;
+            unit.transform.position = Vector3.Slerp(unit.transform.position, dest, 0.05f);
+
+            //unit.transform.position += dir * Time.deltaTime;
             //---
-            if ((path.parent.worldPosition - unit.transform.position).sqrMagnitude < (.1f))
+            if ((dest - unit.transform.position).sqrMagnitude < 0.005f)
             {
                 path = path.parent; //
             }

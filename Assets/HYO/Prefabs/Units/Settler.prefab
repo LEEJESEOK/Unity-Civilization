@@ -6713,6 +6713,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2366861670002632460, guid: 901f3db62b09f1c4da1ee461bee01a9a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366861670002632460, guid: 901f3db62b09f1c4da1ee461bee01a9a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2366861670002632460, guid: 901f3db62b09f1c4da1ee461bee01a9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
       objectReference: {fileID: 0}
@@ -6728,7 +6736,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 499195530945093830, guid: 901f3db62b09f1c4da1ee461bee01a9a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 901f3db62b09f1c4da1ee461bee01a9a, type: 3}
 --- !u!1 &8667252956283941401 stripped
 GameObject:
