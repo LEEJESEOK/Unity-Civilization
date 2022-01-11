@@ -227,6 +227,7 @@ public class TerrainData : MonoBehaviour
         UIManager.instance.GetTileInfo(terrainType, myCenter, output.movePower, output.food, output.productivity);
     }
 
+    //한 번만 하게
     bool one;
     public void AddObjectOn(GameObject obj, int playerId)
     {
