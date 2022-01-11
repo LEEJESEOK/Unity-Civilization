@@ -252,14 +252,8 @@ public class FieldOfView : MonoBehaviour
             HexFogManager.instance.findTargetList[GameManager.instance.currentPlayerId] = new List<Hideable>();
         }
 
-        //for (int i = 0; i < HexFogManager.instance.findTargetList.Count; i++)
-        //{
-        //    HexFogManager.instance.findTargetList[i].OnFOVLeaveShow();
-        //    HexFogManager.instance.findTargetList[i].OnFOVTransparency();
-        //    HexFogManager.instance.findTargetList.RemoveAt(i);
-        //}
-
-
+       
+        //terrain data 가져옴
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
 

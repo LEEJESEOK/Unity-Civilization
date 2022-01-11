@@ -227,7 +227,9 @@ public class TerrainData : MonoBehaviour
         UIManager.instance.GetTileInfo(terrainType, myCenter, output.movePower, output.food, output.productivity);
     }
 
+    //한 번만 하게
     bool one;
+    //타일에 위치한 오브젝트 저장
     public void AddObjectOn(GameObject obj, int playerId)
     {
         objectOn.Add(obj);

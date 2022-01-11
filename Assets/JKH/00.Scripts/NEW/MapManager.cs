@@ -852,6 +852,9 @@ public class MapManager : Singleton<MapManager>
 
         unit.transform.forward = Vector3.back;
 
+        //유닛 위치 타일에 다시 저장
+        unit.CheckMyPos();
+
     }
 
     public void DeleteCube()
