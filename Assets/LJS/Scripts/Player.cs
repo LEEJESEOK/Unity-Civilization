@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         info = new PlayerInfo();
-        info.name = "Player " + playerId;
+        info.name = "Player " + (playerId + 1);
         gameObject.name = info.name;
 
         if (GameManager.instance.test)
@@ -46,10 +46,8 @@ public class Player : MonoBehaviour
             Vector3 pos = transform.position + Vector3.left * (1.5f) * i;
             pos.y = -0.9f;
             unitObject.transform.position = pos;
-
-
-
             #endregion
+
             unitObject.transform.rotation = Quaternion.Euler(0, 180f, 0);
 
             HexFogManager.instance.fieldOfViews[unit.playerId].Add(unitObject.GetComponentInChildren<FieldOfView>());
@@ -61,7 +59,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (isTurn)
+        {
             TurnUpdate();
+        }
     }
 
     public void StartTurn()
@@ -89,7 +89,6 @@ public class Player : MonoBehaviour
             unit.movePower = unit.maxMovePower;
 
             // TODO 체력 회복
-
         }
 
         isTurn = true;
@@ -144,6 +143,8 @@ public class Player : MonoBehaviour
         {
 
         }
+
+        isTurn = false;
     }
 
     // 유닛 생성 -> 플레이어의 유닛 리스트에 추가

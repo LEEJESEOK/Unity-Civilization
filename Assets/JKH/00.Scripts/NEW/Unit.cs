@@ -79,8 +79,10 @@ public class Unit : MonoBehaviour
                 myTilePos.GetComponent<TerrainData>().objectOn.Remove(gameObject);
             }
 
-
             myTilePos = hit.transform.gameObject;
+            Vector3 pos = hit.transform.position;
+            pos.y = transform.position.y;
+            transform.position = pos;
 
             posX = myTilePos.GetComponent<TerrainData>().x;
             posY = myTilePos.GetComponent<TerrainData>().y;

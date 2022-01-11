@@ -49,7 +49,6 @@ public class GameManager : Singleton<GameManager>
         InitGame();
 
         StartCoroutine(DelayedStartCoroutine());
-
     }
 
     // Update is called once per frame
@@ -88,7 +87,6 @@ public class GameManager : Singleton<GameManager>
         }
         #endregion
 
-
         // esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -113,7 +111,6 @@ public class GameManager : Singleton<GameManager>
         }
 
         HexFogManager.instance.init(initPlayerCount);
-
     }
 
     // 현재 플레이어의 차례를 마치고 다음 플레이어 차례 시작
@@ -121,6 +118,7 @@ public class GameManager : Singleton<GameManager>
     {
         // 연구를 선택하지 않은 경우
         // 기존 연구가 완료된 경우
+        // TODO Turn Blocker에 표시
         if ((currentPlayer.info.ongoingTechnology == null) || (currentPlayer.info.ongoingTechnology.remainCost <= 0))
         {
             print("새로운 연구를 선택해주세요");
@@ -129,8 +127,6 @@ public class GameManager : Singleton<GameManager>
 
         // 현재 플레이어의 차례 종료
         players[_currentPlayerId].EndTurn();
-        GameManager.instance.players[_currentPlayerId].isTurn = false;
-
 
         // 다음 플레이어 차례로 전환
         _currentPlayerId = (_currentPlayerId + 1) % players.Count;
@@ -144,7 +140,10 @@ public class GameManager : Singleton<GameManager>
     IEnumerator DelayedStartCoroutine()
     {
         yield return null;
+
+        // Start InGame BGM
         SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_INGAME);
+
         // 첫번째 플레이어의 차례로 시작
         players[_currentPlayerId].StartTurn();
     }
@@ -152,6 +151,5 @@ public class GameManager : Singleton<GameManager>
     public void DestroyUnit(int playerId, Unit unit)
     {
         players[playerId].info.units.Remove(unit);
-
     }
 }
