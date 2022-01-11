@@ -45,11 +45,18 @@ public class FieldOfView : MonoBehaviour
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
 
+
         StartCoroutine(FindTargetsWithDelay(delayBetweenFOVUpdates));
 
     }
     void OnEnable()
     {
+        //StartCoroutine(FindTargetsWithDelay(delayBetweenFOVUpdates));
+    }
+
+    private void Update()
+    {
+        FindVisibleTargets();
     }
 
     private void LateUpdate()
@@ -239,6 +246,7 @@ public class FieldOfView : MonoBehaviour
 
     void FindVisibleTargets()
     {
+
         if (HexFogManager.instance.findTargetList[GameManager.instance.currentPlayerId] == null)
         {
             HexFogManager.instance.findTargetList[GameManager.instance.currentPlayerId] = new List<Hideable>();

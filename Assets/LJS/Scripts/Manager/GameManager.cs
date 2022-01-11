@@ -133,6 +133,7 @@ public class GameManager : Singleton<GameManager>
         //set hexfog
         HexFogManager.instance.FindOtherTargetList(_currentPlayerId);
         HexFogManager.instance.FindOtherUnitsBuildings(_currentPlayerId);
+        HexFogManager.instance.prevInFov.Clear();
     }
 
     IEnumerator DelayedStartCoroutine()
