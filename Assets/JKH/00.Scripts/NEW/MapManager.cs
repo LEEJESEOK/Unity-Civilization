@@ -10,20 +10,17 @@ public class MapManager : Singleton<MapManager>
     public int mapWidth, mapHeight;
     List<TerrainData> terrainDataMap;
     List<JKH_Node> nodeMap;
-    Animator anim;
-
-    #region test
-    List<JKH_Node> movableList = new List<JKH_Node>();
-    #endregion
-
-    JKH_Node temp;
-
+    Animator anim;    
+    List<JKH_Node> movableList = new List<JKH_Node>();  
     public Unit unitInfo;
-
     public bool ableToMove = false;
     LayerMask mapLayer;
-
     LineRenderer lr;
+
+    //mark(선택한 유닛, 목적타일표시, 적군포착 할 때 표시)
+    public GameObject unitMark;
+    public GameObject moveMark;
+    public GameObject enemyMark;
 
     void Start()
     {
@@ -45,6 +42,21 @@ public class MapManager : Singleton<MapManager>
     {
         getUnitInfo();
         SelectedUnitMove();
+        UnitMarks();
+    }
+
+    public void UnitMarks()
+    {
+        //UnitMark
+        if (unitMark.activeInHierarchy == true && selectedUnit != null)
+        {
+            Vector3 pos = selectedUnit.transform.position;
+            pos.y += .1f;
+            unitMark.transform.position = pos;
+            print("UnitMarks");
+        }
+        //MoveMark
+        //EnemyMark
     }
 
 
@@ -151,6 +163,15 @@ public class MapManager : Singleton<MapManager>
                 print("이동력: " + selectedUnit.movePower);
                 print("체력: " + selectedUnit.hp);
                 print("UnitID: " + selectedUnit.playerId);
+
+                //생성
+                unitMark.SetActive(true);
+                Vector3 markPos = selectedUnit.transform.position;
+                markPos.y += 0.01f;
+                unitMark.transform.position = markPos;
+
+                //selectedUnit.transform.GetChild(1).gameObject.SetActive(true);
+
 
                 //유닛이있는 타일의 정보를 가져온다.
 
@@ -399,10 +420,10 @@ public class MapManager : Singleton<MapManager>
     Vector3 targetPos;
     public void SelectedUnitMove()
     {
-
-
         if (ableToMove && selectedUnit.movePower > 0)
         {
+            
+            
 
             print("Get Selected Function");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -426,7 +447,32 @@ public class MapManager : Singleton<MapManager>
                 }
 
                 //이미 dest.parent=null
-                print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
+                //print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
+
+                //MoveMark표시
+                if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
+                {
+                    if (hitInfo.transform.gameObject.tag == "Map")
+                    {
+                        LayerMask unitLayer = LayerMask.GetMask("Unit");
+                        Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
+                        if (tileOnUnit.Length > 0 && tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)
+                        {
+                            enemyMark.SetActive(true);
+                            Vector3 enemyMarkPos = hitInfo.transform.position;
+                            enemyMarkPos.y += .2f;
+                            enemyMark.transform.position = enemyMarkPos;
+                        }
+                        else
+                            enemyMark.SetActive(false);
+
+                        //moveMark Pos 표시..
+                        moveMark.SetActive(true);
+                        Vector3 moveMarkPos = hitInfo.transform.position;
+                        moveMarkPos.y += .2f;
+                        moveMark.transform.position = moveMarkPos;
+                    }
+                }
 
                 //마우스 가르키고 있는 타일까지 경로 표시
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
@@ -434,7 +480,7 @@ public class MapManager : Singleton<MapManager>
 
                     if (hitInfo.transform.gameObject.tag == "Map" && hitInfo.transform.position == dest.worldPosition) //유닛있는데는 표시하면 안됨!
                     {
-                        print("XXX");
+                        //print("XXX");
                         dest = movableList[i]; //시작점.
                         int lrCount = 0; //lineRenderer 갯수
                         //int destLen = -1;
@@ -581,10 +627,13 @@ public class MapManager : Singleton<MapManager>
                                 DeleteCube();
                                 StartCoroutine(MoveUnitCoroutine(selectedUnit, path, true));
                                 selectedUnit.movePower -= movePower;
+
+                                //=0
+                                selectedUnit.movePower = 0;
                                 if (selectedUnit.movePower <= 0)
                                 {
                                     print("유닛 선택 해제");
-                                    selectedUnit = null;
+                                    //selectedUnit = null;
                                 }
                                 print("Success");
                                 //bool off
@@ -607,13 +656,15 @@ public class MapManager : Singleton<MapManager>
                                 if (selectedUnit.movePower <= 0)
                                 {
                                     print("유닛 선택 해제");
-                                    selectedUnit = null;
+                                    //selectedUnit = null;
                                 }
                                 print("Success");
                                 //bool off
                                 ableToMove = false;
                                 break;
                             }
+
+
                         }
 
                         // 이동할 수 없는 타일을 선택했을 경우
@@ -621,6 +672,8 @@ public class MapManager : Singleton<MapManager>
                         {
                             print("Failed");
                         }
+
+
                     }
 
                     else
@@ -628,6 +681,7 @@ public class MapManager : Singleton<MapManager>
 
                 }
         }
+        
     }
 
     public List<JKH_Node> GetNeighboursAdd(JKH_Node node)
@@ -665,6 +719,7 @@ public class MapManager : Singleton<MapManager>
     {
         //transform.pos대신 선택된유닛의 위치로 바꾼다.
         int fogLayer = LayerMask.GetMask("HexFog");
+        //int mapLayer = LayerMask.GetMask("");
 
         Ray ray = new Ray(selectedUnit.transform.position, transform.up * -1);
         RaycastHit hit;
@@ -683,6 +738,8 @@ public class MapManager : Singleton<MapManager>
 
     public int damageDealt;
     public int damageReceived;
+
+    //enemy부분 combatUnit일떄랑 그렇지않을떄랑 경우의수 나누어서 본다.
     public void UnitCombat(CombatUnit unit, CombatUnit enemy)
     {
         print("이함수 실행");
