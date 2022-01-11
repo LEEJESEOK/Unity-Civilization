@@ -16,6 +16,9 @@ public class HexFogManager : Singleton<HexFogManager>
     public List<List<GameObject>> buildings;
     public List<GameObject> otherUnitsBuildings;
 
+    public List<GameObject> inFov; 
+    public List<GameObject> prevInFov;
+
     public int currentPlayerId;
 
     private void Start()
@@ -28,6 +31,9 @@ public class HexFogManager : Singleton<HexFogManager>
         units = new List<List<Unit>>();
         buildings = new List<List<GameObject>>();
         otherUnitsBuildings = new List<GameObject>();
+
+        inFov = new List<GameObject>();
+        prevInFov = new List<GameObject>();
 
         FindOtherUnitsBuildings(currentPlayerId);
     }
