@@ -133,8 +133,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
             unitType = unitInfo.GetComponent<Unit>().unitType;
             isUnitSelected = true;
-
-            UIPanelManager.instance.OpenPanel("UNIT_PANEL");
+            
             switch (unitType)
             {
                 case InGameObjectId.SETTLER:

@@ -48,6 +48,14 @@ public class UIManager : Singleton<UIManager>
     public TextMeshProUGUI selectedTechnologyRemainTurn;
     #endregion
 
+    #region Unit Panel
+    [Header("Unit Panel")]
+    [SerializeField]
+    GameObject buildCityButton;
+    [SerializeField]
+    GameObject fortificationButton;
+    #endregion
+
     #region City Product
     [Header("City Product Panel")]
     public GameObject productObjectButtonPrefab;
@@ -72,14 +80,15 @@ public class UIManager : Singleton<UIManager>
     Vector2 prevMousePosition;
     bool isLeftPressed;
 
-    //TileInfo UI
+    #region TileInfo UI
     public GameObject tileInfo;
     public Vector3 mousePos;
     public float popupTime = 2;
     public float currentTime;
     bool isOpenPopup;
-    //TileInfo UI
     public Text tileInfoText;
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
@@ -183,6 +192,26 @@ public class UIManager : Singleton<UIManager>
                 }
             }
         }
+    }
+
+    internal void EnableCityBuild()
+    {
+        buildCityButton.SetActive(true);
+    }
+
+    internal void DisableCityBuild()
+    {
+        buildCityButton.SetActive(false);
+    }
+
+    internal void EnableFortification()
+    {
+        fortificationButton.SetActive(true);
+    }
+
+    internal void DisableFortificcation()
+    {
+        fortificationButton.SetActive(false);
     }
 
     public void GetTileInfo(TerrainType type, GameObject center, int move, int food, int prod)
@@ -359,7 +388,6 @@ public class UIManager : Singleton<UIManager>
     public void CameraMove(Camera cam)
     {
         if (cam == null) return;
-        if (UIManager.IsPointerOverUIObject()) return;
 
         Vector3 cameraDir = Vector3.zero;
 
@@ -370,6 +398,8 @@ public class UIManager : Singleton<UIManager>
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (UIManager.IsPointerOverUIObject()) return;
+
                 isLeftPressed = true;
                 prevMousePosition = mousePosition;
             }
@@ -438,7 +468,7 @@ public class UIManager : Singleton<UIManager>
         GameObject technologyButton = Instantiate(technologyButtonPrefab);
         technologyButton.name = technology.name;
 
-        Sprite sprite = Resources.Load<Sprite>("Image/Technology/" + technology.name);
+        Sprite sprite = Resources.Load<Sprite>("Image/UI/Technology/" + technology.name);
         TechnologyButtonSetter technologyButtonSetter = technologyButton.GetComponent<TechnologyButtonSetter>();
         technologyButtonSetter.SetTechnologyButton(technology.korean, sprite, technology.koreanDesc, technology.unlockObjectId);
 
@@ -491,7 +521,7 @@ public class UIManager : Singleton<UIManager>
         // name(korean)
         selectedTechnologyName.text = technology.korean;
         // image
-        selectedTechnologyImage.sprite = Resources.Load<Sprite>("Image/Technology/" + technology.name);
+        selectedTechnologyImage.sprite = Resources.Load<Sprite>("Image/UI/Technology/" + technology.name);
         Color color = selectedTechnologyImage.color;
         color.a = 1;
         selectedTechnologyImage.color = color;

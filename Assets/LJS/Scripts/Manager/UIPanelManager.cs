@@ -8,22 +8,23 @@ using UnityEngine.EventSystems;
 public class UIPanelManager : Singleton<UIPanelManager>
 {
     [SerializeField]
-    UIPanel initiallyOpen;
-    [SerializeField]
     List<UIPanel> panels;
 
     // int m_OpenParameterId;
     // Animator m_Open;
-    UIPanel _currentPanel;
-    public UIPanel currentPanel { get => _currentPanel; }
+    // UIPanel _currentPanel;
+    public List<UIPanel> openedPanel = new List<UIPanel>();
+    // public UIPanel currentPanel { get => _currentPanel; }
+    public UIPanel currentPanel
+    {
+        get
+        {
+            if (openedPanel.Count > 0) return openedPanel[openedPanel.Count - 1];
+            else return null;
+        }
+    }
     GameObject m_PreviouslySelected;
 
-
-    private void OnEnable()
-    {
-        if (initiallyOpen == null)
-            return;
-    }
 
     private void Start()
     {
@@ -34,8 +35,6 @@ public class UIPanelManager : Singleton<UIPanelManager>
         {
             panels[i].gameObject.SetActive(false);
         }
-
-        OpenPanel(initiallyOpen);
     }
 
     static GameObject FindFirstEnabledSelectable(GameObject gameObject)
@@ -56,41 +55,56 @@ public class UIPanelManager : Singleton<UIPanelManager>
 
     public void OpenPanel(UIPanel panel)
     {
-        if (_currentPanel == panel)
+        if (panel == null)
             return;
 
+        if (openedPanel.Contains(panel))
+        {
+            SetSelected(panel.gameObject);
+            return;
+        }
+
         panel.gameObject.SetActive(true);
-        GameObject newPreviouslySelected = EventSystem.current.currentSelectedGameObject;
-
         panel.transform.SetAsLastSibling();
-
-        CloseCurrent();
-
-        m_PreviouslySelected = newPreviouslySelected;
-
-        _currentPanel = panel;
 
         GameObject firstObject = FindFirstEnabledSelectable(panel.gameObject);
         SetSelected(firstObject);
+
+        openedPanel.Add(panel);
+        print(panel.panelName);
     }
 
     public void OpenPanel(string panelName)
     {
-        OpenPanel(panels.Find(panel => panel.panelName == panelName));
+        OpenPanel(panels.Find(x => x.panelName == panelName));
+    }
+
+    public void ClosePanel(UIPanel panel)
+    {
+        if (panel == null)
+            return;
+
+        panel.gameObject.SetActive(false);
+        openedPanel.Remove(panel);
+        if (currentPanel != null)
+            SetSelected(currentPanel.gameObject);
+    }
+
+    public void ClosePanel(string panelName)
+    {
+        ClosePanel(openedPanel.Find(x => x.panelName == panelName));
     }
 
     public void CloseCurrent()
     {
-        if (_currentPanel == null)
-            return;
-
-        SetSelected(m_PreviouslySelected);
-        _currentPanel.gameObject.SetActive(false);
-        _currentPanel = null;
+        ClosePanel(currentPanel);
     }
 
     void SetSelected(GameObject gameObject)
     {
+        if (gameObject == null)
+            return;
+
         EventSystem.current.SetSelectedGameObject(gameObject);
     }
 }

@@ -9765,7 +9765,7 @@ MonoBehaviour:
   body: {fileID: 7015986780541520699}
   playerId: 0
   isSelected: 0
-  unitType: 0
+  unitType: 10001
   movePower: 2
   maxMovePower: 2
   hp: 100

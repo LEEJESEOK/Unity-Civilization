@@ -34,6 +34,7 @@ public class GameManager : Singleton<GameManager>
     [Header("Play")]
     public GameObject currentSelect;
 
+    LayerMask fogLayer;
 
     private void Awake()
     {
@@ -59,27 +60,51 @@ public class GameManager : Singleton<GameManager>
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, float.MaxValue))
+            if (Physics.Raycast(ray, out hit, float.MaxValue, ~fogLayer))
             {
                 currentSelect = hit.transform.gameObject;
+                print(currentSelect.name);
 
                 GameObjectType gameObjectType = currentSelect.GetComponent<GameObjectType>();
                 if (gameObjectType != null)
                 {
-                    TypeIdBase type = gameObjectType.type;
+                    MapManager.instance.DeleteCube();
+                    UIPanelManager.instance.ClosePanel("UNIT_PANEL");
+                    UIPanelManager.instance.ClosePanel("CITY_PANEL");
+
+                    ObjectType type = gameObjectType.type;
                     switch (type)
                     {
-                        case TypeIdBase.UNIT:
-                            Unit unit = currentSelect.GetComponent<Unit>();
+                        case ObjectType.NON_COMBAT_UNIT:
+
+                            NonCombatUnit unit = currentSelect.GetComponent<NonCombatUnit>();
+
+                            switch (unit.unitType)
+                            {
+                                // 건설자인 경우에만 BuildFacilityCommand 그룹 활성화
+                                case InGameObjectId.BUILDER:
+                                    UIPanelManager.instance.OpenPanel("BUILD_FACILITY_COMMAND_TAB");
+                                    break;
+                                // TODO 도시 건설 버튼 활성화
+                                case InGameObjectId.SETTLER:
+                                    UIManager.instance.EnableCityBuild();
+                                    break;
+                            }
+
+                            UIPanelManager.instance.OpenPanel("UNIT_PANEL");
+                            break;
+                        case ObjectType.COMBAT_UNIT:
+                            SelectCombatUnit();
                             UIPanelManager.instance.OpenPanel("UNIT_PANEL");
                             break;
                         // 도시 건물
                         // 건물이 있는 타일
-                        case TypeIdBase.DISTRICT:
-                        case TypeIdBase.TILE:
+                        case ObjectType.BUILDING:
+                        case ObjectType.TILE:
                             Territory territory = currentSelect.GetComponent<Territory>();
 
-                            UIPanelManager.instance.OpenPanel("CITY_PANEL");
+                            if (territory != null)
+                                UIPanelManager.instance.OpenPanel("CITY_PANEL");
                             break;
                     }
                 }
@@ -90,12 +115,15 @@ public class GameManager : Singleton<GameManager>
         // esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            // UIPanelManager.instance.CloseCurrent();
             UIPanelManager.instance.CloseCurrent();
         }
     }
 
     void InitGame()
     {
+        fogLayer = LayerMask.GetMask("HexFog");
+
         InitPlyaers();
 
         UIManager.instance.InitUI();
@@ -151,5 +179,10 @@ public class GameManager : Singleton<GameManager>
     public void DestroyUnit(int playerId, Unit unit)
     {
         players[playerId].info.units.Remove(unit);
+    }
+
+    void SelectCombatUnit()
+    {
+        UIManager.instance.EnableFortification();
     }
 }

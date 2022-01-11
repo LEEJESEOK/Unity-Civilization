@@ -29,9 +29,6 @@ public class Unit : MonoBehaviour
 
     protected virtual void Start()
     {
-        GameObjectType gameObjectType = GetComponent<GameObjectType>();
-        gameObjectType.type = TypeIdBase.UNIT;
-
         animator = GetComponent<Animator>();
 
         CheckMyPos();

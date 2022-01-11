@@ -5,6 +5,6 @@ using UnityEngine;
 public class GameObjectType : MonoBehaviour
 {
     [SerializeField]
-    TypeIdBase _type;
-    public TypeIdBase type { get => _type; set => _type = value; }
+    ObjectType _type;
+    public ObjectType type { get => _type; set => _type = value; }
 }

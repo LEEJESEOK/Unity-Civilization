@@ -9,6 +9,9 @@ public class NonCombatUnit : Unit
     protected override void Start()
     {
         base.Start();
+        
+        GameObjectType gameObjectType = GetComponent<GameObjectType>();
+        gameObjectType.type = ObjectType.NON_COMBAT_UNIT;
     }
 
     protected override void Update()
