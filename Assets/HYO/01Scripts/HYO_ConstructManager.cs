@@ -280,14 +280,17 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         city.transform.localEulerAngles = new Vector3(-90, 0, 90);
         city.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
 
-        GameObject fov = Instantiate(fovPre);
+        //GameObject fov = Instantiate(fovPre);
 
-        fov.transform.parent = city.transform;
-        fov.transform.position = city.transform.position;
+        //fov.transform.parent = city.transform;
+        //fov.transform.position = city.transform.position;
 
         HexFogManager.instance.buildings[HexFogManager.instance.currentPlayerId].Add(city);
+
         tileTemp.GetComponent<TerrainData>().AddObjectOn(city, GameManager.instance.currentPlayerId);
+
         tileTemp.GetComponent<TerrainData>().objectOn.Remove(unitInfo);
+        HexFogManager.instance.units[unitInfo.GetComponent<Unit>().playerId].Remove(unitInfo.GetComponent<Unit>());
         tileTemp = null;
 
         //선택된 유닛 제거 후 초기화

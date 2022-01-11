@@ -35,7 +35,7 @@ public class HexFogManager : Singleton<HexFogManager>
         inFov = new List<GameObject>();
         prevInFov = new List<GameObject>();
 
-        FindOtherUnitsBuildings(currentPlayerId);
+        //FindOtherUnitsBuildings(currentPlayerId);
     }
 
     public void init(int playerCount)
@@ -46,7 +46,7 @@ public class HexFogManager : Singleton<HexFogManager>
             fieldOfViews.Add(new List<FieldOfView>());
             allHideables.Add(new List<Hideable>());
 
-            units.Add(new List<Unit>());
+            units.Add(GameManager.instance.players[i].info.units);
             buildings.Add(new List<GameObject>());
         }
 
@@ -58,7 +58,6 @@ public class HexFogManager : Singleton<HexFogManager>
 
         MergeUnitInfo(currentPlayerId);
         HexFogAdd(currentPlayerId);
-
 
 
         for (int i = 0; i < prevInFov.Count; i++)
@@ -167,8 +166,8 @@ public class HexFogManager : Singleton<HexFogManager>
         otherTargetList.Clear();
 
 
-        //set unit & building
-        for(int e = 0; e < otherUnitsBuildings.Count; e++)
+        //set unit &building
+        for (int e = 0; e < otherUnitsBuildings.Count; e++)
         {
             otherUnitsBuildings[e].GetComponent<Hideable>().OnFOVHideUnits();
         }
