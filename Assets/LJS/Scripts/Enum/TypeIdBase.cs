@@ -7,7 +7,7 @@ using System;
 [Serializable]
 public enum TypeIdBase
 {
-    ERA = 0,
+    NONE = 0,
     UNIT = 10000,
     FACILITY = 20000,
     DISTRICT = 30000,

@@ -10,4 +10,6 @@ interface IHideable/* : ISerializable*/
     void OnFOVEnterHide();
     void OnFOVLeaveShow();
     void OnFOVTransparency();
+    void OnFOVHideUnits();
+    void OnFOVShowUnits();
 }

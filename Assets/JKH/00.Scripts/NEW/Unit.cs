@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+
+    [SerializeField]
+    GameObject plane;
+    [SerializeField]
+    GameObject body;
+
     public int playerId;
 
     public bool isSelected;
@@ -23,6 +29,11 @@ public class Unit : MonoBehaviour
 
     protected virtual void Start()
     {
+        GameObjectType gameObjectType = GetComponent<GameObjectType>();
+        gameObjectType.type = TypeIdBase.UNIT;
+
+        animator = GetComponent<Animator>();
+
         CheckMyPos();
     }
 
@@ -33,8 +44,12 @@ public class Unit : MonoBehaviour
 
     public void SetObjectColor()
     {
-        List<MeshRenderer> mesh = new List<MeshRenderer>(GetComponentsInChildren<MeshRenderer>(true));
-        List<SkinnedMeshRenderer> skinnedMesh = new List<SkinnedMeshRenderer>(GetComponentsInChildren<SkinnedMeshRenderer>(true));
+        Material planeMat = plane.GetComponent<MeshRenderer>().material;
+        planeMat.color = ColorManager.instance.playerColor[playerId];
+        plane.GetComponent<MeshRenderer>().material = planeMat;
+
+        List<MeshRenderer> mesh = new List<MeshRenderer>(body.GetComponentsInChildren<MeshRenderer>(true));
+        List<SkinnedMeshRenderer> skinnedMesh = new List<SkinnedMeshRenderer>(body.GetComponentsInChildren<SkinnedMeshRenderer>(true));
 
         for (int i = 0; i < mesh.Count; i++)
         {
@@ -59,11 +74,21 @@ public class Unit : MonoBehaviour
         Debug.DrawRay(transform.position, transform.up * -1, Color.red);
         if (Physics.Raycast(ray, out hit, 1, ~fogLayer))
         {
+            if (myTilePos != null)
+            {
+                myTilePos.GetComponent<TerrainData>().objectOn.Remove(gameObject);
+            }
+
+
             myTilePos = hit.transform.gameObject;
 
             posX = myTilePos.GetComponent<TerrainData>().x;
             posY = myTilePos.GetComponent<TerrainData>().y;
+
+            //object on 에 유닛 추가
+            myTilePos.GetComponent<TerrainData>().AddObjectOn(gameObject, playerId);
         }
+
     }
 
     private void OnDestroy()

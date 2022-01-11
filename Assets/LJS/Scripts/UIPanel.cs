@@ -30,7 +30,7 @@ public class UIPanel : MonoBehaviour
         {
             case "UNIT_PANEL":
                 // 버튼 상태 초기화
-                
+
                 break;
         }
     }

@@ -11,6 +11,7 @@ public class MapManager : Singleton<MapManager>
     List<TerrainData> terrainDataMap;
     List<JKH_Node> nodeMap;
     Animator anim;
+
     #region test
     List<JKH_Node> movableList = new List<JKH_Node>();
     #endregion
@@ -27,10 +28,9 @@ public class MapManager : Singleton<MapManager>
     void Start()
     {
         terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
+
         lr = GetComponent<LineRenderer>();
-        float scaleX = Mathf.Cos(Time.time) * 0.5f + 1;
-        float scaleY = Mathf.Sin(Time.time) * 0.5f + 1;
-        lr.material.SetTextureScale("_MainTex", new Vector2(scaleX, scaleY));
+        lr.material.SetTextureScale("_MainTex", new Vector2(10f, 1f));
 
         mapLayer = mapLayer | LayerMask.GetMask("GrassLand");
         mapLayer = mapLayer | LayerMask.GetMask("Plains");
@@ -68,11 +68,9 @@ public class MapManager : Singleton<MapManager>
             //2. 가져온 타일의 정보를 담아둔다(List)
             //3. 그 정보들은 walkable= false이다
             //표시해주는 단계에서 추가할내용
-            //4. 검사범위 안에있는(overlapSphere) 하나씩 true해주면서 그 위치를 갈 수 있는지 검사 
+            //4. 검사범위 안에있는(overlapSphere) 하나씩 true해주면서 그 위치를 갈 수 있는지 검사
             //5. 갈수있다면 표시, 그렇지 않다면 표시안함.
             #endregion
-            LayerMask unitLayer = LayerMask.GetMask("EnemyUnit");
-
 
             if (terrainType == TerrainType.Mountain ||
                 terrainType == TerrainType.Coast ||
@@ -114,7 +112,7 @@ public class MapManager : Singleton<MapManager>
                 //print("유닛있음");
                 continue;
             }
-            if (Physics.Raycast(ray, out hitInfo, float.PositiveInfinity, layer))
+            if (Physics.Raycast(ray, out hitInfo, float.MaxValue, layer))
             {
                 unitInfo = hitInfo.transform.gameObject.GetComponent<Unit>();
 
@@ -145,10 +143,10 @@ public class MapManager : Singleton<MapManager>
                 lr.positionCount = 0;
                 //unitMove
                 selectedUnit = hitInfo.transform.GetComponent<Unit>();
-                //anim = hitInfo.transform.GetComponent<Animator>();
+                anim = hitInfo.transform.GetComponent<Animator>();
                 ableToMove = false;
 
-                // 유닛 정보 출력(확인용) 
+                // 유닛 정보 출력(확인용)
                 print(selectedUnit.gameObject.name);
                 print("이동력: " + selectedUnit.movePower);
                 print("체력: " + selectedUnit.hp);
@@ -267,7 +265,7 @@ public class MapManager : Singleton<MapManager>
             nodeMap[i].parent = null;
         }
     }
-    //need to call    
+    //need to call
     // 선택한 유닛의 movePower만큼 Physics.OverlapSphere 각각 FindPath
     public float movePower = 0;
     public void CheckAbleToGo()
@@ -409,7 +407,7 @@ public class MapManager : Singleton<MapManager>
         if (ableToMove && selectedUnit.movePower > 0)
         {
 
-            //print("Get Selected Function");
+            print("Get Selected Function");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
 
@@ -431,7 +429,7 @@ public class MapManager : Singleton<MapManager>
                 }
 
                 //이미 dest.parent=null
-                //print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
+                print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
 
                 //마우스 가르키고 있는 타일까지 경로 표시
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
@@ -439,6 +437,7 @@ public class MapManager : Singleton<MapManager>
 
                     if (hitInfo.transform.gameObject.tag == "Map" && hitInfo.transform.position == dest.worldPosition) //유닛있는데는 표시하면 안됨!
                     {
+                        print("XXX");
                         dest = movableList[i]; //시작점.
                         int lrCount = 0; //lineRenderer 갯수
                         //int destLen = -1;
@@ -447,7 +446,7 @@ public class MapManager : Singleton<MapManager>
                         {
                             lr.positionCount++;
                             Vector3 destPos = dest.worldPosition;
-                            destPos.y = -.3f;
+                            destPos.y = -.9f;
                             lr.SetPosition(lrCount, destPos);
                             lrCount++;
                             dest = dest.parent;
@@ -473,7 +472,7 @@ public class MapManager : Singleton<MapManager>
                         //    targetPos = dest.parent.worldPosition;
 
                         //}
-                        //dest.worldPosition.y = -.7f;                           
+                        //dest.worldPosition.y = -.7f;
                         //dest.parent.worldPosition.y = -.7f;
                         //lr.SetPosition(0, dest.worldPosition);
                         //lr.SetPosition(1, targetPos);
@@ -529,7 +528,7 @@ public class MapManager : Singleton<MapManager>
                     if (hitInfo.transform.gameObject.tag == "Map")
                     {
                         //lr.positionCount = 0;
-                        //만약 이동하려는 좌표를 gameObj를 대신해 누른다면? 
+                        //만약 이동하려는 좌표를 gameObj를 대신해 누른다면?
                         //target= 내가 찍은 맵 좌표
                         int targetX = hitInfo.transform.gameObject.GetComponent<TerrainData>().x;
                         int targetY = hitInfo.transform.gameObject.GetComponent<TerrainData>().y;
@@ -540,7 +539,7 @@ public class MapManager : Singleton<MapManager>
                         for (int i = 0; i < movableList.Count; i++)
                         {
                             //누르면 큐브 사라지게한다.
-                            //DeleteCube();
+                            DeleteCube();
                             LayerMask unitLayer = LayerMask.GetMask("Unit");
                             Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
 
@@ -573,17 +572,6 @@ public class MapManager : Singleton<MapManager>
                                 movePower += dest.requiredMovePower;
                             }
 
-                            //밑에 식 움직이게? 하기위한 if문 제일 앞에거만 되고 그 뒤에거는 안댐 t
-                            //나중에 이거 walkable true해줘야함
-                            //if ((movePower <= selectedUnit.movePower) && tileOnUnit.Length > 0 && tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)
-                            //{
-                            //    print("===============");
-                            //    print(dest);
-                            //    //target.walkable = true;
-                            //    print(target); //↓↓↓↓이게 false라서 안움직임 ↓↓↓↓
-                            //    print("===============");
-                            //}
-
                             // 목표지점에  상대방 유닛이있을때 그전까지이동하게하기
                             if (target.GetPosition() == dest.GetPosition() && (movePower <= selectedUnit.movePower) && tileOnUnit.Length > 0
                                     && tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)
@@ -591,7 +579,7 @@ public class MapManager : Singleton<MapManager>
                                 //목표지점에 상대유닛있다
                                 print("상대유닛발견");
 
-                                // 플레이어 오브젝트 위치 이동 칸대로 이동하기   
+                                // 플레이어 오브젝트 위치 이동 칸대로 이동하기
                                 JKH_Node path = movableList[i];
                                 DeleteCube();
                                 StartCoroutine(MoveUnitCoroutine(selectedUnit, path, true));
@@ -607,12 +595,12 @@ public class MapManager : Singleton<MapManager>
                                 break;
                             }
 
-                            //hitinfo 타일에 gameObj있나 없나 검사하기. 
+                            //hitinfo 타일에 gameObj있나 없나 검사하기.
                             if ((target.GetPosition() == dest.GetPosition())
                                 && (movePower <= selectedUnit.movePower))
                             {
                                 //print("상대유닛발견실패");
-                                // 플레이어 오브젝트 위치 이동 칸대로 이동하기   
+                                // 플레이어 오브젝트 위치 이동 칸대로 이동하기
                                 JKH_Node path = movableList[i];
                                 DeleteCube();
 
@@ -637,8 +625,10 @@ public class MapManager : Singleton<MapManager>
                             print("Failed");
                         }
                     }
+
                     else
                         print("Click Another One");
+
                 }
         }
     }
@@ -693,7 +683,7 @@ public class MapManager : Singleton<MapManager>
 
         return result;
     }
-    
+
 
     public int damageDealt;
     public int damageReceived;
@@ -726,8 +716,8 @@ public class MapManager : Singleton<MapManager>
             Destroy(enemy.gameObject);
             unit.movePower = 0;
             print("won");
-            lastPos.y = -.7f;            
-            StartCoroutine(MoveUnitCoroutine(selectedUnit, finalMove, false));            
+            lastPos.y = -.7f;
+            StartCoroutine(MoveUnitCoroutine(selectedUnit, finalMove, false));
         }
 
         else if (enemy.hp <= 0)
@@ -741,7 +731,7 @@ public class MapManager : Singleton<MapManager>
         {
             Destroy(unit.gameObject);
             print("ally has been slained");
-        }        
+        }
 
     }
 
@@ -811,37 +801,29 @@ public class MapManager : Singleton<MapManager>
     Vector3 lastPos;
     JKH_Node finalMove;
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path, bool onEnemy = false)
-    {        
-        // TODO 전투 
-        //int count = 0;
-        //// 노드의 갯수 저장
-        //if onEnemy
-        //    while
-        //        {
-        //        if path != null;
-        //        ++count;
-        //    }
-        //어떤경로로 이동하는지 표시 
+    {
+        // TODO 전투
+
+        //어떤경로로 이동하는지 표시
         while (path.parent != null)
         {
-            //좌표틀어짐>> 정중앙에 위치시키도록한다
             yield return null;
 
-            //anim test
-            //anim.SetBool("isMove", true);
+            anim.SetBool("isMove", true);
 
-            //Vector3 pos = path.worldPosition; //1
-            //pos.y = -.7f; //2
-            //unit.transform.position = pos; //3
-            //---
+            // 이동방향 : 현재 타일 -> 다음 타일
             dir = path.parent.worldPosition - path.worldPosition;
             dir.Normalize();
-
+            Vector3 dest = path.parent.worldPosition;
+            dest.y = unit.transform.position.y;
+            // 유닛 바라보는 방향 이동방향으로 변경
+            unit.transform.forward = dir;
             unit.transform.position += dir * Time.deltaTime;
-            //---
-            if ((path.parent.worldPosition - unit.transform.position).sqrMagnitude < (.1f))
+            // 보정값 안에 들어오면 도착한것으로 판단
+            if ((dest - unit.transform.position).sqrMagnitude < 0.005f)
             {
-                path = path.parent; //
+                // 다음 타일로 변경
+                path = path.parent;
             }
             dir = Vector3.zero;
             if (onEnemy == true)
@@ -850,11 +832,9 @@ public class MapManager : Singleton<MapManager>
                 {
                     finalMove = path;
                     path = path.parent;
-                    
-
                 }
                 lastPos = path.worldPosition;
-                
+
             }
 
         }
@@ -869,59 +849,18 @@ public class MapManager : Singleton<MapManager>
 
             //Todo위치시켜주기 else도 마찬가지로 시도본다.?
         }
-        //Teleport
-        //Vector3 pos = path.worldPosition;
-        //pos.y = -.5f;
-        //unit.transform.position = pos;
+
         //경로표시 다끝나면 선 지운다.
         lr.positionCount = 0;
-        //anim.SetBool("isMove", false);
+        anim.SetBool("isMove", false);
+
+        unit.transform.forward = Vector3.back;
+
+        //유닛 위치 타일에 다시 저장
+        unit.CheckMyPos();
+
     }
-    IEnumerator FinishedUnitCoroutine(Unit unit, JKH_Node path) //움직임처리하는
-    {
-        yield return new WaitForSeconds(1); //???
-    }
 
-    #region 코루틴2
-    IEnumerator MoveUnitCoroutine_2(Unit unit, JKH_Node path)
-    {
-
-        //어떤경로로 이동하는지 표시 
-        while (path.parent.parent != null)
-        {
-            //좌표틀어짐>> 정중앙에 위치시키도록한다
-            yield return null;
-
-            //anim test
-            //anim.SetBool("isMove", true);
-
-            //Vector3 pos = path.worldPosition; //1
-            //pos.y = -.7f; //2
-            //unit.transform.position = pos; //3
-            //---
-            dir = path.parent.worldPosition - path.worldPosition;
-            dir.Normalize();
-
-            unit.transform.position += dir * Time.deltaTime;
-            //---
-            if ((path.parent.worldPosition - unit.transform.position).sqrMagnitude < (.01f))
-            {
-                path = path.parent; //
-            }
-            dir = Vector3.zero;
-
-            //// 움직이는 동작 처리하는 코루틴
-            //yield return StartCoroutine(FinishedUnitCoroutine(null, null));
-            //// path 다음으로
-
-        }
-        //경로표시 다끝나면 선 지운다.
-        lr.positionCount = 0;
-        //anim.SetBool("isMove", false);
-
-        //UnitCombat();
-    }
-    #endregion
     public void DeleteCube()
     {
         if (oldCubes != null)

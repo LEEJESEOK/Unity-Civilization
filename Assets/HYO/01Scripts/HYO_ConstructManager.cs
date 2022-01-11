@@ -202,7 +202,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                             fd = tileTemp.GetComponent<FacilityData>();
                             td = tileTemp.GetComponent<TerrainData>();
 
-                            if (fd.district != District.NONE || td.myCenter.GetComponent<Territory>().distric_limit == false)
+                            if (fd.district != InGameObjectId.NONE || td.myCenter.GetComponent<Territory>().distric_limit == false)
                             {
                                 tileTemp = null;
                                 print("!:특수지구 건설 불가");
@@ -279,11 +279,13 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         city.transform.localPosition = new Vector3(0, 0.1f, 0);
         city.transform.localEulerAngles = new Vector3(-90, 0, 90);
         city.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+
         GameObject fov = Instantiate(fovPre);
 
         fov.transform.parent = city.transform;
         fov.transform.position = city.transform.position;
 
+        HexFogManager.instance.buildings[HexFogManager.instance.currentPlayerId].Add(city);
         tileTemp = null;
 
         //선택된 유닛 제거 후 초기화
@@ -291,9 +293,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         isUnitSelected = false;
         unitInfo = null;
     }
-    public void CreateFacility(Facility id)
+    public void CreateFacility(InGameObjectId id)
     {
-        if (fd.facility == Facility.NONE)
+        if (fd.facility == InGameObjectId.NONE)
         {
             fd.SetFacility(id);
 
@@ -326,7 +328,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             empty.transform.localPosition = new Vector3(0, 0.109f, 0);
             //empty.transform.localEulerAngles = new Vector3(0, -90, 0);
             empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
-
+            HexFogManager.instance.buildings[HexFogManager.instance.currentPlayerId].Add(empty);
             tileTemp = null;
             isUnitSelected = false;
         }
@@ -347,17 +349,22 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     // TODO
     // parameter : 타일 x, y 좌표, 선택한 건물
     // 선택한 타일에 건물 모델 생성, 타일의 산출량 변경
-    public void SetDistrictInfo(District id)
+    public void SetDistrictInfo(InGameObjectId objectId)
     {
         Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.GetComponent<Territory>();
 
-        tt.districtUnderway.remain = TEST_REMAIN_PRODUCT;
-        tt.districtUnderway.pos = tileTemp.transform;
-        tt.districtUnderway.id = id;
+        ProductObject productObject = ProductObjectDataManager.instance.productObjects.Find(x => x.id == objectId);
+
+        tt.districtUnderway = new DistrictUnderway(productObject, tileTemp.transform);
+
+        // tt.districtUnderway.id = productObject.id;
+        // tt.districtUnderway.remain = productObject.remainCost;
+        // tt.districtUnderway.pos = tileTemp.transform;;
 
         tileTemp = null;
     }
-    public void CreateDistrict(District id, Transform pos)
+
+    public void CreateDistrict(InGameObjectId id, Transform pos)
     {
         GameObject empty = Instantiate(icons[(int)id]);
 
@@ -374,9 +381,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         empty.transform.localPosition = new Vector3(0, 0.179f, 0);
         empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
 
+        HexFogManager.instance.buildings[HexFogManager.instance.currentPlayerId].Add(empty);
+        
         //특수지구에서 행동력 무조건 1
         pos.gameObject.GetComponent<TerrainData>().output.movePower = 1;
-
     }
-
 }

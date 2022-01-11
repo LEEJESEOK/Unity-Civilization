@@ -31,6 +31,9 @@ public class GameManager : Singleton<GameManager>
     public List<GameObject> initialUnits;
     public List<GameObject> startPoints;
 
+    [Header("Play")]
+    public GameObject currentSelect;
+
 
     private void Awake()
     {
@@ -46,6 +49,7 @@ public class GameManager : Singleton<GameManager>
         InitGame();
 
         StartCoroutine(DelayedStartCoroutine());
+
     }
 
     // Update is called once per frame
@@ -56,9 +60,25 @@ public class GameManager : Singleton<GameManager>
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if(Physics.Raycast(ray, out hit, float.MaxValue))
+            if (Physics.Raycast(ray, out hit, float.MaxValue))
             {
-                print(hit.transform.gameObject.name);
+                currentSelect = hit.transform.gameObject;
+
+                GameObjectType gameObjectType = currentSelect.GetComponent<GameObjectType>();
+                if (gameObjectType != null)
+                {
+                    TypeIdBase type = gameObjectType.type;
+                    switch (type)
+                    {
+                        case TypeIdBase.UNIT:
+                            Unit unit = currentSelect.GetComponent<Unit>();
+                            break;
+                        case TypeIdBase.FACILITY:
+                            break;
+                        case TypeIdBase.DISTRICT:
+                            break;
+                    }
+                }
             }
         }
         #endregion
@@ -86,6 +106,9 @@ public class GameManager : Singleton<GameManager>
             players[i].transform.position = startPoints[i].transform.position;
             players[i].playerId = i;
         }
+
+        HexFogManager.instance.init(initPlayerCount);
+
     }
 
     // 현재 플레이어의 차례를 마치고 다음 플레이어 차례 시작
@@ -107,11 +130,16 @@ public class GameManager : Singleton<GameManager>
         // 다음 플레이어 차례로 전환
         _currentPlayerId = (_currentPlayerId + 1) % players.Count;
         players[_currentPlayerId].StartTurn();
+        //set hexfog
+        HexFogManager.instance.FindOtherTargetList(_currentPlayerId);
+        HexFogManager.instance.FindOtherUnitsBuildings(_currentPlayerId);
+        HexFogManager.instance.prevInFov.Clear();
     }
 
     IEnumerator DelayedStartCoroutine()
     {
         yield return null;
+        SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_INGAME);
         // 첫번째 플레이어의 차례로 시작
         players[_currentPlayerId].StartTurn();
     }

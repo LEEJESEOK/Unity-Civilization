@@ -9,7 +9,7 @@ public enum EraId
     /// <summary>
     /// 고대 시대
     /// </summary>
-    ANCIENT = (int)TypeIdBase.ERA,
+    ANCIENT = 0,
     /// <summary>
     /// 고전 시대
     /// </summary>

@@ -35,17 +35,28 @@ public class FieldOfView : MonoBehaviour
     //variable is used in the DrawFieldOfView method (storing it here it way more efficient - GC.collect...)
     private List<Vector3> viewPoints = new List<Vector3>();
 
+    public int currentPlayerId;
 
     private void Start()
     {
+        currentPlayerId = GameManager.instance.currentPlayerId;
+
         viewMesh = new Mesh();
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
 
-        StartCoroutine("FindTargetsWithDelay", delayBetweenFOVUpdates);
+
+        StartCoroutine(FindTargetsWithDelay(delayBetweenFOVUpdates));
+
     }
     void OnEnable()
     {
+        //StartCoroutine(FindTargetsWithDelay(delayBetweenFOVUpdates));
+    }
+
+    private void Update()
+    {
+        FindVisibleTargets();
     }
 
     private void LateUpdate()
@@ -232,21 +243,17 @@ public class FieldOfView : MonoBehaviour
     /// Finds all visible targets and adds them to the visibleTargets list.
     /// </summary>
     public List<Hideable> hideables = new List<Hideable>();
+
     void FindVisibleTargets()
     {
-        if (HexFogManager.instance.findTargetList == null)
+
+        if (HexFogManager.instance.findTargetList[GameManager.instance.currentPlayerId] == null)
         {
-            HexFogManager.instance.findTargetList = new List<Hideable>();
+            HexFogManager.instance.findTargetList[GameManager.instance.currentPlayerId] = new List<Hideable>();
         }
 
-        //for (int i = 0; i < HexFogManager.instance.findTargetList.Count; i++)
-        //{
-        //    HexFogManager.instance.findTargetList[i].OnFOVLeaveShow();
-        //    HexFogManager.instance.findTargetList[i].OnFOVTransparency();
-        //    HexFogManager.instance.findTargetList.RemoveAt(i);
-        //}
-
-
+       
+        //terrain data 가져옴
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
 
