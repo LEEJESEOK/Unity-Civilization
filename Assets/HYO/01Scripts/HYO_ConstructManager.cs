@@ -23,7 +23,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     //prefab & icon
     public GameObject[] icons;
-    public GameObject emptyPre;
+    //public GameObject emptyPre;
     public GameObject cityGate;
     public GameObject fovPre;
     public Vector3[] iconPos;
@@ -286,6 +286,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         fov.transform.position = city.transform.position;
 
         HexFogManager.instance.buildings[HexFogManager.instance.currentPlayerId].Add(city);
+        tileTemp.GetComponent<TerrainData>().AddObjectOn(city, GameManager.instance.currentPlayerId);
+        tileTemp.GetComponent<TerrainData>().objectOn.Remove(unitInfo);
         tileTemp = null;
 
         //선택된 유닛 제거 후 초기화
@@ -329,6 +331,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             //empty.transform.localEulerAngles = new Vector3(0, -90, 0);
             empty.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
             HexFogManager.instance.buildings[HexFogManager.instance.currentPlayerId].Add(empty);
+            tileTemp.GetComponent<TerrainData>().AddObjectOn(empty, GameManager.instance.currentPlayerId);
             tileTemp = null;
             isUnitSelected = false;
         }
@@ -385,5 +388,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         
         //특수지구에서 행동력 무조건 1
         pos.gameObject.GetComponent<TerrainData>().output.movePower = 1;
+        //object on 에 건물 추가
+        pos.gameObject.GetComponent<TerrainData>().AddObjectOn(empty, GameManager.instance.currentPlayerId);
+
     }
 }

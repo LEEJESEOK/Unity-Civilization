@@ -104,7 +104,7 @@ public class Territory : MonoBehaviour
     public int population = 1;
 
     //소유자(player id)
-    public int ownerID;
+    public int tt_playerId;
 
     //보유 특수지구
     public List<InGameObjectId> districtOn = new List<InGameObjectId>();
@@ -121,7 +121,7 @@ public class Territory : MonoBehaviour
         totalOutput = new TotalOutPut();
         districtUnderway = new DistrictUnderway(InGameObjectId.NONE, TypeIdBase.NONE, null, -1);
 
-        ownerID = GameManager.instance.currentPlayerId;
+        tt_playerId = GameManager.instance.currentPlayerId;
     }
 
     void Start()

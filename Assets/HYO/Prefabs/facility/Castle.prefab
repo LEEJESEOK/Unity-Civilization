@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5994332032439860893}
   - component: {fileID: 49071190086661341}
   - component: {fileID: 5365871004738077803}
+  - component: {fileID: -9142168915859180272}
   m_Layer: 14
   m_Name: Castle
   m_TagString: City
@@ -108,3 +109,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df7917657c760d49b9c28984cd3807b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-9142168915859180272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5994332032441786461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 110f424ea9a2fd94b9aaf2bdfa29be22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerId: 0
