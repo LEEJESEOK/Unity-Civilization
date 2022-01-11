@@ -227,15 +227,15 @@ public class TerrainData : MonoBehaviour
         UIManager.instance.GetTileInfo(terrainType, myCenter, output.movePower, output.food, output.productivity);
     }
 
-    bool b;
+    bool one;
     public void AddObjectOn(GameObject obj, int playerId)
     {
         objectOn.Add(obj);
 
-        if (b == false && playerId != GameManager.instance.currentPlayerId)
+        if (one == false && playerId != GameManager.instance.currentPlayerId)
         {
             obj.SetActive(false);
-            b = true;
+            one = true;
         }
     }
 }
