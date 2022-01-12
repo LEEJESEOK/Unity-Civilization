@@ -25,7 +25,7 @@ TextureImporter:
     second: build charges
   - first:
       213: 1129144894277186097
-    second: movement
+    second: movePower
   - first:
       213: -2388248311676508892
     second: build charges
@@ -982,7 +982,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: movement
+      name: movePower
       rect:
         serializedVersion: 2
         x: 154

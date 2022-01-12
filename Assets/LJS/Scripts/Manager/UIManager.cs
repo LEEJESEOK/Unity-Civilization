@@ -54,6 +54,16 @@ public class UIManager : Singleton<UIManager>
     GameObject buildCityButton;
     [SerializeField]
     GameObject fortificationButton;
+
+    public Image hpMeter;
+    public GameObject meleeAttackGroup;
+    public GameObject rangeAttackGroup;
+    public GameObject movePowerGroup;
+    public GameObject buildCountGroup;
+    public TextMeshProUGUI rangeAttackTMP;
+    public TextMeshProUGUI meleeAttackTMP;
+    public TextMeshProUGUI movePowerTMP;
+    public TextMeshProUGUI buildCountTMP;
     #endregion
 
     #region City Product
@@ -275,6 +285,7 @@ public class UIManager : Singleton<UIManager>
             Cursor.lockState = CursorLockMode.Confined;
 
         InitResourcesIndicator();
+        InitUnitPanel();
     }
 
     void InitResourcesIndicator()
@@ -457,14 +468,44 @@ public class UIManager : Singleton<UIManager>
     #endregion
 
     #region UnitPanel
+    public void InitUnitPanel()
+    {
+        meleeAttackTMP = meleeAttackGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        rangeAttackTMP = rangeAttackGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        movePowerTMP = movePowerGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        buildCountTMP = buildCountGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+    }
+
+    void UpdateUnitCommonData(Unit unit)
+    {
+        // TODO 유닛 이미지
+
+
+        // 현재 체력
+        float hpRatio = (float)unit.hp / 100f;
+        hpMeter.fillAmount = hpRatio;
+        hpMeter.color = new Color(1 - hpRatio, hpRatio, 0f);
+
+        // 이동력
+        movePowerTMP.text = unit.movePower.ToString() + "/" + unit.maxMovePower.ToString();
+    }
+
     public void UpdateUnitData(CombatUnit unit)
     {
+        UpdateUnitCommonData(unit);
+
+        meleeAttackTMP.text = unit.meleeAttack.ToString();
 
     }
-    
+
     public void UpdateUnitData(NonCombatUnit unit)
     {
+        UpdateUnitCommonData(unit);
 
+        if (unit.unitType == InGameObjectId.BUILDER)
+        {
+            buildCountTMP.text = unit.buildCount.ToString() + "/" + unit.buildCount.ToString();
+        }
     }
     #endregion
 
