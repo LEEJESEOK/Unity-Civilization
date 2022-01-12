@@ -10,8 +10,8 @@ public class MapManager : Singleton<MapManager>
     public int mapWidth, mapHeight;
     List<TerrainData> terrainDataMap;
     List<JKH_Node> nodeMap;
-    Animator anim;    
-    List<JKH_Node> movableList = new List<JKH_Node>();  
+    Animator anim;
+    List<JKH_Node> movableList = new List<JKH_Node>();
     public Unit unitInfo;
     public bool ableToMove = false;
     LayerMask mapLayer;
@@ -422,8 +422,8 @@ public class MapManager : Singleton<MapManager>
     {
         if (ableToMove && selectedUnit.movePower > 0)
         {
-            
-            
+
+
 
             print("Get Selected Function");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -681,7 +681,7 @@ public class MapManager : Singleton<MapManager>
 
                 }
         }
-        
+
     }
 
     public List<JKH_Node> GetNeighboursAdd(JKH_Node node)
@@ -740,7 +740,7 @@ public class MapManager : Singleton<MapManager>
     public int damageReceived;
 
     //enemy부분 combatUnit일떄랑 그렇지않을떄랑 경우의수 나누어서 본다.
-    public void UnitCombat(CombatUnit unit, CombatUnit enemy)
+    public void UnitCombat(CombatUnit unit, Unit enemy)
     {
         print("이함수 실행");
 
@@ -748,13 +748,24 @@ public class MapManager : Singleton<MapManager>
         //float unitHp = unit.hp;
         float unitMeleeDmg = unit.meleeAttack;
         float unitRangeDmg = unit.rangeAttack;
-
+        float enemyMeleeDmg = 0;
+        float enemyRangeDmg = 0;
         //상대 유닛 변수
         //float enemyHp = enemy.hp;
-        float enemyMeleeDmg = enemy.meleeAttack;
-        float enemyRangeDmg = enemy.rangeAttack;
+        if (enemy.GetComponent<CombatUnit>() != null)
+        {
+            enemyMeleeDmg = enemy.GetComponent<CombatUnit>().meleeAttack;
+        }
+        else
+            print("이거왜그럼?");
+        //enemyMeleeDmg = enemy.meleeAttack;
+        //enemyRangeDmg = enemy.rangeAttack;
 
         battleFormula(unitMeleeDmg, enemyMeleeDmg);
+        //여기다 전투 enim..
+
+
+
         unit.hp = unit.hp - damageReceived;
         enemy.hp = enemy.hp - damageDealt;
         if (unit.hp > 0 && enemy.hp > 0)
@@ -764,7 +775,7 @@ public class MapManager : Singleton<MapManager>
             return;
         }
 
-        else if (unit.hp > 0 && enemy.hp<=0)
+        else if (unit.hp > 0 && enemy.hp <= 0)
         {
             Destroy(enemy.gameObject);
             unit.movePower = 0;
@@ -840,10 +851,18 @@ public class MapManager : Singleton<MapManager>
 
         float rand = Random.Range(0.75f, 1.25f);
         print(30 * (Mathf.Exp(0.04f * (myDmg - opponentDmg)) * rand));
-        damageDealt = Mathf.RoundToInt(30 * (Mathf.Exp(0.04f * (myDmg - opponentDmg) * rand)));
+        damageDealt = Mathf.RoundToInt(30 * (Mathf.Exp(0.04f * (myDmg - opponentDmg)) * rand));
 
         //damageDealt = Mathf.Round(damageDealt);
-        damageReceived = Mathf.RoundToInt(30 * (Mathf.Exp(0.04f * (opponentDmg - myDmg) * rand)));
+        damageReceived = Mathf.RoundToInt(30 * (Mathf.Exp(0.04f * (opponentDmg - myDmg)) * rand));
+
+        //상대유닛이 nonCombatUnit일때 max데미지로 때린다
+        if (myDmg > 0 && opponentDmg == 0)
+        {
+            damageDealt = 10000;
+            damageReceived = 0;
+        }
+
         print("damageDealt=" + damageDealt);
         print("damageReceived= " + damageReceived);
         //damageReceived = Mathf.Round(damageReceived);
@@ -898,7 +917,7 @@ public class MapManager : Singleton<MapManager>
             Collider[] tileOnUnit = Physics.OverlapSphere(path.worldPosition, .3f, unitLayer);
             print(path.gridX + ", " + path.gridY);
 
-            UnitCombat(selectedUnit.GetComponent<CombatUnit>(), tileOnUnit[0].GetComponent<CombatUnit>());
+            UnitCombat(selectedUnit.GetComponent<CombatUnit>(), tileOnUnit[0].GetComponent<Unit>());
 
             //Todo위치시켜주기 else도 마찬가지로 시도본다.?
         }
@@ -923,5 +942,12 @@ public class MapManager : Singleton<MapManager>
                 Destroy(oldCubes[j]);
             }
         }
+    }
+
+    public void MarkDisabled()
+    {
+        unitMark.SetActive(false);
+        moveMark.SetActive(false);
+        enemyMark.SetActive(false);
     }
 }
