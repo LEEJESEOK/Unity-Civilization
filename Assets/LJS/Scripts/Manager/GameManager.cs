@@ -137,6 +137,7 @@ public class GameManager : Singleton<GameManager>
         if ((currentPlayer.info.ongoingTechnology == null) || (currentPlayer.info.ongoingTechnology.remainCost <= 0))
         {
             print("새로운 연구를 선택해주세요");
+            UIPanelManager.instance.OpenPanel("TECHNOLOGY_PANEL");
             return;
         }
 

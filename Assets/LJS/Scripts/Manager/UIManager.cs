@@ -55,6 +55,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     GameObject fortificationButton;
 
+    public Image unitImage;
     public Image hpMeter;
     public GameObject meleeAttackGroup;
     public GameObject rangeAttackGroup;
@@ -478,8 +479,12 @@ public class UIManager : Singleton<UIManager>
 
     void UpdateUnitCommonData(Unit unit)
     {
-        // TODO 유닛 이미지
+        meleeAttackGroup.SetActive(false);
+        rangeAttackGroup.SetActive(false);
+        buildCountGroup.SetActive(false);
 
+        // TODO 유닛 이미지
+        // unitImage.sprite = Resources.Load<Sprite>("");
 
         // 현재 체력
         float hpRatio = (float)unit.hp / 100f;
@@ -494,8 +499,11 @@ public class UIManager : Singleton<UIManager>
     {
         UpdateUnitCommonData(unit);
 
-        meleeAttackTMP.text = unit.meleeAttack.ToString();
+        meleeAttackGroup.SetActive(true);
+        rangeAttackGroup.SetActive(true);
 
+        meleeAttackTMP.text = unit.meleeAttack.ToString();
+        rangeAttackTMP.text = unit.rangeAttack.ToString();
     }
 
     public void UpdateUnitData(NonCombatUnit unit)
@@ -504,6 +512,7 @@ public class UIManager : Singleton<UIManager>
 
         if (unit.unitType == InGameObjectId.BUILDER)
         {
+            buildCountGroup.SetActive(false);
             buildCountTMP.text = unit.buildCount.ToString() + "/" + unit.buildCount.ToString();
         }
     }
