@@ -21,7 +21,15 @@ public class NonCombatUnit : Unit
                 break;
             case InGameObjectId.BUILDER:
                 if (buildCount == 3)
+                {
+                    gameObject.GetComponent<Unit>().myTilePos.GetComponent<TerrainData>().objectOn.Remove(gameObject);
+                    HexFogManager.instance.units[gameObject.GetComponent<Unit>().playerId].Remove(gameObject.GetComponent<Unit>());
+
                     Destroy(gameObject);
+                }
+
+
+                    
                 break;
         }
     }

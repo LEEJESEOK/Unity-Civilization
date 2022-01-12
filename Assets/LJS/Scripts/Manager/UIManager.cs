@@ -173,7 +173,6 @@ public class UIManager : Singleton<UIManager>
                                 //위치조정
                                 Vector3 pos = mousePos;
 
-                                print(mousePos);
 
                                 if (pos.x < 100f) pos.x = 100f;
 

@@ -25,7 +25,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public GameObject[] icons;
     //public GameObject emptyPre;
     public GameObject cityGate;
-    public GameObject fovPre;
     public Vector3[] iconPos;
 
     public Material matRoad;
@@ -269,6 +268,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
         GameObject city = Instantiate(cityGate);
 
+        SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_BUILD);
+
         //SET COLOR
         MeshRenderer mesh = city.GetComponentInChildren<MeshRenderer>();
         Material mat = ColorManager.instance.buildingMat[GameManager.instance.currentPlayerId];
@@ -280,10 +281,6 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         city.transform.localEulerAngles = new Vector3(-90, 0, 90);
         city.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
 
-        //GameObject fov = Instantiate(fovPre);
-
-        //fov.transform.parent = city.transform;
-        //fov.transform.position = city.transform.position;
 
         HexFogManager.instance.buildings[HexFogManager.instance.currentPlayerId].Add(city);
 
