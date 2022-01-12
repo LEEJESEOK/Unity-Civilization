@@ -493,6 +493,7 @@ public class MapManager : Singleton<MapManager>
                             lr.SetPosition(lrCount, destPos);
                             lrCount++;
                             dest = dest.parent;
+                            
 
                         }
                         #region 보기싫은
@@ -874,7 +875,8 @@ public class MapManager : Singleton<MapManager>
     JKH_Node finalMove;
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path, bool onEnemy = false)
     {
-        // TODO 전투
+        // lr 하나씩 지운다?
+        int lrCount = lr.positionCount-1;
 
         //어떤경로로 이동하는지 표시
         while (path.parent != null)
@@ -908,6 +910,10 @@ public class MapManager : Singleton<MapManager>
                 lastPos = path.worldPosition;
 
             }
+            //lr 제거..
+            
+
+
 
         }
         if (onEnemy == true)
