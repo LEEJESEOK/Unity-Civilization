@@ -53,7 +53,7 @@ public class MapManager : Singleton<MapManager>
             Vector3 pos = selectedUnit.transform.position;
             pos.y += .1f;
             unitMark.transform.position = pos;
-            print("UnitMarks");
+            // print("UnitMarks");
         }
         //MoveMark
         //EnemyMark
