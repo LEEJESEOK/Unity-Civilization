@@ -33,6 +33,7 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Play")]
     public GameObject currentSelect;
+    public ObjectType currentSelectType;
 
     LayerMask fogLayer;
 
@@ -76,26 +77,10 @@ public class GameManager : Singleton<GameManager>
                     switch (type)
                     {
                         case ObjectType.NON_COMBAT_UNIT:
-
-                            NonCombatUnit unit = currentSelect.GetComponent<NonCombatUnit>();
-
-                            switch (unit.unitType)
-                            {
-                                // 건설자인 경우에만 BuildFacilityCommand 그룹 활성화
-                                case InGameObjectId.BUILDER:
-                                    UIPanelManager.instance.OpenPanel("BUILD_FACILITY_COMMAND_TAB");
-                                    break;
-                                // TODO 도시 건설 버튼 활성화
-                                case InGameObjectId.SETTLER:
-                                    UIManager.instance.EnableCityBuild();
-                                    break;
-                            }
-
-                            UIPanelManager.instance.OpenPanel("UNIT_PANEL");
+                            SelectNonCombatUnit();
                             break;
                         case ObjectType.COMBAT_UNIT:
                             SelectCombatUnit();
-                            UIPanelManager.instance.OpenPanel("UNIT_PANEL");
                             break;
                         // 도시 건물
                         // 건물이 있는 타일
@@ -115,8 +100,10 @@ public class GameManager : Singleton<GameManager>
         // esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // UIPanelManager.instance.CloseCurrent();
-            UIPanelManager.instance.CloseCurrent();
+            if (UIPanelManager.instance.openedPanel.Count > 0)
+                UIPanelManager.instance.CloseCurrent();
+            else
+                print("esc menu");
         }
     }
 
@@ -181,8 +168,33 @@ public class GameManager : Singleton<GameManager>
         players[playerId].info.units.Remove(unit);
     }
 
+    void SelectNonCombatUnit()
+    {
+        NonCombatUnit unit = currentSelect.GetComponent<NonCombatUnit>();
+        UIManager.instance.UpdateUnitData(unit);
+
+        switch (unit.unitType)
+        {
+            // 건설자 - BuildFacilityCommand 그룹 활성화
+            case InGameObjectId.BUILDER:
+                UIPanelManager.instance.OpenPanel("BUILD_FACILITY_COMMAND_TAB");
+                break;
+            // 개척자 - 도시 건설 버튼 활성화
+            case InGameObjectId.SETTLER:
+                UIManager.instance.EnableCityBuild();
+                break;
+        }
+
+        UIPanelManager.instance.OpenPanel("UNIT_PANEL");
+    }
+
     void SelectCombatUnit()
     {
+        CombatUnit unit = currentSelect.GetComponent<CombatUnit>();
+        UIManager.instance.UpdateUnitData(unit);
+
         UIManager.instance.EnableFortification();
+
+        UIPanelManager.instance.OpenPanel("UNIT_PANEL");
     }
 }

@@ -457,6 +457,15 @@ public class UIManager : Singleton<UIManager>
     #endregion
 
     #region UnitPanel
+    public void UpdateUnitData(CombatUnit unit)
+    {
+
+    }
+    
+    public void UpdateUnitData(NonCombatUnit unit)
+    {
+
+    }
     #endregion
 
     #region TechnologyPanel
