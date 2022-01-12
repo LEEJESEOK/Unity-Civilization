@@ -114,6 +114,7 @@ public class UIManager : Singleton<UIManager>
     // Update is called once per frame
     void Update()
     {
+
         if (GameManager.instance.test)
         {
             #region sample image
@@ -175,7 +176,24 @@ public class UIManager : Singleton<UIManager>
                             if (tileTemp.GetComponent<TerrainData>() != null && !IsPointerOverUIObject())
                             {
                                 tileTemp.GetComponent<TerrainData>().SetTileInfo();
-                                tileInfo.transform.position = new Vector3(mousePos.x, mousePos.y);
+
+
+
+                                //위치조정
+                                Vector3 pos = mousePos;
+
+
+                                if (pos.x < 100f) pos.x = 100f;
+
+                                if (pos.x > 1500f) pos.x = 1500f;
+
+                                if (pos.y < 200f) pos.y = 200f;
+
+                                if (pos.y > 800f) pos.y = 800f;
+
+
+                                tileInfo.transform.position = new Vector3(pos.x, pos.y);
+
                                 tileInfo.SetActive(true);
                             }
                             currentTime = 0;
