@@ -51,9 +51,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2514b8362927c5d4ea873b68ea0e763a, type: 3}
   audioS_EFT: {fileID: 8323985047734391830}
   eftAudio:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 5993ede7312b90044962b9fde16c1c87, type: 3}
+  - {fileID: 8300000, guid: 234dcd2c676a598469d1b893ab94037a, type: 3}
+  - {fileID: 8300000, guid: 68ebb4658f0795646ba965759891182a, type: 3}
   - {fileID: 8300000, guid: 3d247170743764944a5b7990f03370ac, type: 3}
   - {fileID: 0}
   - {fileID: 0}
