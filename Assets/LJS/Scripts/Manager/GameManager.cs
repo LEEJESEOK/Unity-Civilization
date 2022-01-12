@@ -16,7 +16,7 @@ public class GameManager : Singleton<GameManager>
     public bool useFaith;
     public bool useGold;
 
-    public float cameraMoveSpeed;
+    // public float cameraMoveSpeed;
     public float cameraZoomSpeed;
 
     [Header("Player")]
