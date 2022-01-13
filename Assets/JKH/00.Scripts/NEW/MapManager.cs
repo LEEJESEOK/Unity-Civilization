@@ -150,6 +150,7 @@ public class MapManager : Singleton<MapManager>
         //마우스 클릭한다
         if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
         {
+            MarkDisabled();
             if (Physics.Raycast(ray, out hitInfo, 1000, layer))
             {
                 lr.positionCount = 0;
@@ -362,7 +363,7 @@ public class MapManager : Singleton<MapManager>
             //Collider[] tileOnUnit = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
             //print(tileOnUnit.Length);
 
-
+                
             movePower = 0;
             //path값 Null...
             string pathStr = string.Format("({0}, {1})", path[0].gridX, path[0].gridY);
@@ -463,7 +464,7 @@ public class MapManager : Singleton<MapManager>
                             enemyMarkPos.y += .2f;
                             enemyMark.transform.position = enemyMarkPos;
                         }
-                        else
+                         else
                             enemyMark.SetActive(false);
 
                         //moveMark Pos 표시..
@@ -805,18 +806,14 @@ public class MapManager : Singleton<MapManager>
     Vector3 lastPos;
     JKH_Node finalMove;
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path, bool onEnemy = false)
-    {
-        
-
-
-
-
+    {    
         //어떤경로로 이동하는지 표시
         while (path.parent != null)
         {
             yield return null;
-
+           
             //int lrCnt = 0;
+            //lrCnt++;
 
             anim.SetBool("isMove", true);
 
@@ -829,23 +826,33 @@ public class MapManager : Singleton<MapManager>
             unit.transform.forward = dir;
             unit.transform.position += dir * Time.deltaTime;
 
-            ////1 내위치
-            //Vector3 unitPos = unit.transform.position;
-            //unitPos.y = -.7f;
-            //lr.SetPosition(lrCnt, unitPos);
+            ////1 내위치(들)
+            //for (int i = 0; i < lrCnt; i++)
+            //{
+            //    Vector3 unitPos = unit.transform.position;
+            //    unitPos.y = -.7f;
+            //    lr.SetPosition(i, unitPos);
+                
+            //}
 
-            ////2
+
+
+            ////2 목표위치
             //Vector3 pathPos = path.worldPosition;
             //pathPos.y = -.7f;
-            //lr.SetPosition(lrCnt + 1, pathPos);
+            //lr.SetPosition(lrCnt, pathPos);
 
-            // 보정값 안에 들어오면 도착한것으로 판단
+
+            // 보정값 안에 들어오면 도착한것으로 판단 + 도착시 1 내위치(들) 바꾸기.
             if ((dest - unit.transform.position).sqrMagnitude < 0.005f)
             {
                 ////2                
-                //lr.SetPosition(lrCnt, pathPos);
-                
+                //for (int i = 0; i < lrCnt; i++)
+                //{
+                //    lr.SetPosition(lrCnt, pathPos);
+                //}
                 // 다음 타일로 변경
+
                 path = path.parent;
             }
             dir = Vector3.zero;
@@ -859,7 +866,7 @@ public class MapManager : Singleton<MapManager>
                 lastPos = path.worldPosition;
 
             }
-            //lrCnt++;
+            
 
         }
         
@@ -887,6 +894,7 @@ public class MapManager : Singleton<MapManager>
 
     }
 
+    //함수이름 바꾸기, 
     public void DeleteCube()
     {
         if (oldCubes != null)
@@ -898,6 +906,7 @@ public class MapManager : Singleton<MapManager>
         }
     }
 
+    //막 사라지지 않게 경우의수 추가 
     public void MarkDisabled()
     {
         unitMark.SetActive(false);
