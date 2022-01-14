@@ -30,9 +30,7 @@ public class NonCombatUnit : Unit
 
                     Destroy(gameObject);
                 }
-
-
-                    
+              
                 break;
         }
     }
