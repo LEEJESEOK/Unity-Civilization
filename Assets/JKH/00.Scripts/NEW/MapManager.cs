@@ -328,6 +328,9 @@ public class MapManager : Singleton<MapManager>
         //}
     }
 
+    //Construct Manager
+    //HYO_ConstructManager CM = GameObject.Find("ConstructManager").GetComponent<HYO_ConstructManager>();
+
     List<GameObject> oldCubes = new List<GameObject>();
     IEnumerator unitMoveStep(List<Collider> cols, Vector2Int startPos)
     {
@@ -382,10 +385,12 @@ public class MapManager : Singleton<MapManager>
             }
         }
 
+
+        //Create Cube
         for (int i = 0; i < movableList.Count; i++)
         {
             //큐브위치에 유닛이 있으면 안된다
-            //print("cubeCount?==" + movableList.Count);
+            //큐브만든다.
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             Destroy(cube.GetComponent<BoxCollider>());
             cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
@@ -397,7 +402,7 @@ public class MapManager : Singleton<MapManager>
 
             pos.y = -.5f;
             cube.transform.position = pos;
-
+             
             oldCubes.Add(cube);
         }
         // 경로 탐색 완료
@@ -806,13 +811,14 @@ public class MapManager : Singleton<MapManager>
     Vector3 lastPos;
     JKH_Node finalMove;
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path, bool onEnemy = false)
-    {    
+    {
+        int lrCnt = 0;
         //어떤경로로 이동하는지 표시
         while (path.parent != null)
         {
             yield return null;
-           
-            //int lrCnt = 0;
+
+            
             //lrCnt++;
 
             anim.SetBool("isMove", true);
@@ -829,11 +835,12 @@ public class MapManager : Singleton<MapManager>
             ////1 내위치(들)
             //for (int i = 0; i < lrCnt; i++)
             //{
-            //    Vector3 unitPos = unit.transform.position;
-            //    unitPos.y = -.7f;
-            //    lr.SetPosition(i, unitPos);
-                
+            Vector3 unitPos = unit.transform.position;
+            //unitPos.y = -.7f;
+            //lr.SetPosition(0, unitPos);
+
             //}
+            //lr.SetPosition(0, unitPos);
 
 
 
@@ -841,20 +848,31 @@ public class MapManager : Singleton<MapManager>
             //Vector3 pathPos = path.worldPosition;
             //pathPos.y = -.7f;
             //lr.SetPosition(lrCnt, pathPos);
-
+            lr.SetPosition(0, unitPos);
 
             // 보정값 안에 들어오면 도착한것으로 판단 + 도착시 1 내위치(들) 바꾸기.
             if ((dest - unit.transform.position).sqrMagnitude < 0.005f)
             {
                 ////2                
-                //for (int i = 0; i < lrCnt; i++)
-                //{
-                //    lr.SetPosition(lrCnt, pathPos);
-                //}
+                lrCnt++;
+
+                print("lrCnt: "+lrCnt);
                 // 다음 타일로 변경
 
                 path = path.parent;
             }
+            
+            for(int i = 0; i < lrCnt + 1;++i)
+            {
+                lr.SetPosition(i, unitPos);
+            }
+
+            //if (lrCnt >= 1)
+            //    lr.SetPosition(1, unitPos);
+            //if (lrCnt >= 2)
+            //    lr.SetPosition(2, unitPos);
+            
+
             dir = Vector3.zero;
             if (onEnemy == true)
             {
@@ -912,5 +930,7 @@ public class MapManager : Singleton<MapManager>
         unitMark.SetActive(false);
         moveMark.SetActive(false);
         enemyMark.SetActive(false);
+
+        //material.shader = Shader.Find("Standard");
     }
 }
