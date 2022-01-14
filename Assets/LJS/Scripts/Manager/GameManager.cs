@@ -82,8 +82,7 @@ public class GameManager : Singleton<GameManager>
             }
         }
         #endregion
-
-
+        
         // esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {

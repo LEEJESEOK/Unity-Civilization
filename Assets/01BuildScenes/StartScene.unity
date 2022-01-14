@@ -214,7 +214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &74243950
 GameObject:
@@ -585,7 +585,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &551722131
 GameObject:
@@ -682,7 +682,7 @@ RectTransform:
   - {fileID: 234706345}
   - {fileID: 648445405}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -762,6 +762,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8323985047734391827, guid: acf37c6f404df6040856ee6be09c4458, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8323985047734391828, guid: acf37c6f404df6040856ee6be09c4458, type: 3}
       propertyPath: bgmAudio.Array.data[0]
       value: 
@@ -780,7 +784,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 3d247170743764944a5b7990f03370ac, type: 3}
     - target: {fileID: 8323985047734391829, guid: acf37c6f404df6040856ee6be09c4458, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8323985047734391829, guid: acf37c6f404df6040856ee6be09c4458, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1032,7 +1036,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1930404455
 GameObject:
@@ -1259,7 +1263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8657787063630048599, guid: 81f9d28e25ce5ee49862966fd64b9237, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8657787063630048599, guid: 81f9d28e25ce5ee49862966fd64b9237, type: 3}
       propertyPath: m_LocalPosition.x
