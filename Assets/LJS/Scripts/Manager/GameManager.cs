@@ -79,14 +79,14 @@ public class GameManager : Singleton<GameManager>
             currentSelect = mouseDownObject;
             mouseDownObject = mouseUpObject = null;
 
-            GameObjectType gameObjectType = currentSelect.GetComponent<GameObjectType>();
-            if (gameObjectType != null)
+            GameObjectInfo gameObjectInfo = currentSelect.GetComponent<GameObjectInfo>();
+            if ((gameObjectInfo != null) && (gameObjectInfo.playerId == currentPlayerId))
             {
                 MapManager.instance.DeleteCube();
                 UIPanelManager.instance.ClosePanel("UNIT_PANEL");
                 UIPanelManager.instance.ClosePanel("CITY_PANEL");
 
-                ObjectType type = gameObjectType.type;
+                ObjectType type = gameObjectInfo.type;
                 switch (type)
                 {
                     case ObjectType.NON_COMBAT_UNIT:
@@ -113,7 +113,7 @@ public class GameManager : Singleton<GameManager>
             }
         }
         #endregion
-        
+
         // esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {

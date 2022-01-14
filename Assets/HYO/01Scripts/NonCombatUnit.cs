@@ -11,7 +11,7 @@ public class NonCombatUnit : Unit
     {
         base.Start();
 
-        GameObjectType gameObjectType = GetComponent<GameObjectType>();
+        GameObjectInfo gameObjectType = GetComponent<GameObjectInfo>();
         gameObjectType.type = ObjectType.NON_COMBAT_UNIT;
 
         buildCount = maxBuildCount;

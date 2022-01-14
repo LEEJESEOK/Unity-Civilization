@@ -12,7 +12,7 @@ public class CombatUnit : Unit
     {
         base.Start();
         
-        GameObjectType gameObjectType = GetComponent<GameObjectType>();
+        GameObjectInfo gameObjectType = GetComponent<GameObjectInfo>();
         gameObjectType.type = ObjectType.COMBAT_UNIT;
     }
 }

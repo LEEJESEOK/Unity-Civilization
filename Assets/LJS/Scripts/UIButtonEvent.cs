@@ -134,7 +134,6 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
 
     public void BuildFacility(InGameObjectId objectId)
     {
-        print("BuildFacility");
         HYO_ConstructManager.instance.CreateFacility(objectId);
     }
 

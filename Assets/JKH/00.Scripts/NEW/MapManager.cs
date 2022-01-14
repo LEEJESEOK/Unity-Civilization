@@ -59,6 +59,7 @@ public class MapManager : Singleton<MapManager>
         //EnemyMark
     }
 
+
     void InitNodeMap(int targetX, int targetY)
     {
 
@@ -149,7 +150,6 @@ public class MapManager : Singleton<MapManager>
         //마우스 클릭한다
         if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
         {
-            MarkDisabled();
             if (Physics.Raycast(ray, out hitInfo, 1000, layer))
             {
                 lr.positionCount = 0;
@@ -327,9 +327,6 @@ public class MapManager : Singleton<MapManager>
         //}
     }
 
-    //Construct Manager
-    //HYO_ConstructManager CM = GameObject.Find("ConstructManager").GetComponent<HYO_ConstructManager>();
-
     List<GameObject> oldCubes = new List<GameObject>();
     IEnumerator unitMoveStep(List<Collider> cols, Vector2Int startPos)
     {
@@ -384,12 +381,10 @@ public class MapManager : Singleton<MapManager>
             }
         }
 
-
-        //Create Cube
         for (int i = 0; i < movableList.Count; i++)
         {
             //큐브위치에 유닛이 있으면 안된다
-            //큐브만든다.
+            //print("cubeCount?==" + movableList.Count);
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             Destroy(cube.GetComponent<BoxCollider>());
             cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
@@ -479,13 +474,16 @@ public class MapManager : Singleton<MapManager>
                     }
                 }
 
-                //마우스 가르키고 있는 타일까지 경로 표시 (Draw LineRenderer)@@@
+                //마우스 가르키고 있는 타일까지 경로 표시
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
                 {
+
                     if (hitInfo.transform.gameObject.tag == "Map" && hitInfo.transform.position == dest.worldPosition) //유닛있는데는 표시하면 안됨!
                     {
+                        //print("XXX");
                         dest = movableList[i]; //시작점.
                         int lrCount = 0; //lineRenderer 갯수
+                        //int destLen = -1;
                         lr.positionCount = 0;
                         while (dest != null)
                         {
@@ -495,12 +493,78 @@ public class MapManager : Singleton<MapManager>
                             lr.SetPosition(lrCount, destPos);
                             lrCount++;
                             dest = dest.parent;
+                            
+
                         }
+                        #region 보기싫은
+                        //dest = movableList[i]; //또?
+                        //print(dest);
+                        //print(dest.parent);
+                        //print(destLen);
+                        //while (dest != null)
+                        //while(destLen!=0)
+                        //{
+                        //print(dest.gridX + ", " + dest.gridY);
+                        //dest-dest.parent 선긋기
+
+                        //if (dest.parent == null)
+                        //{
+                        //    targetPos = hitInfo.transform.position;
+                        //}
+                        //else
+                        //{
+                        //    targetPos = dest.parent.worldPosition;
+
+                        //}
+                        //dest.worldPosition.y = -.7f;
+                        //dest.parent.worldPosition.y = -.7f;
+                        //lr.SetPosition(0, dest.worldPosition);
+                        //lr.SetPosition(1, targetPos);
+
+                        //dest.worldPosition.y = -.7f;
+                        ///----
+                        //lr.SetPosition(0, dest.worldPosition);
+                        //if (dest.parent == null)
+                        //{
+                        //    targetPos = selectedUnit.transform.position;
+                        //}
+                        //else if (dest.parent != null)
+                        //{
+                        //    targetPos = dest.worldPosition;
+                        //}
+                        //targetPos.y = -.7f;
+                        //lr.SetPosition(1, targetPos);
+                        //dest = dest.parent;
+                        //destLen--;
+                        //아무튼이거이상함
+                        //}
+                        #endregion
                     }
                 }
                 else
                     lr.positionCount = 0;
+
+                //이동 가능한 타일 목록(시각화) ==> 너무많이 생성된다? 계속update가 된다.
+                //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                //cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
+                //cube.transform.localScale = Vector3.one * .3f;
+                //Vector3 pos = dest.worldPosition;
+                //pos.y = -.5f;
+                //cube.transform.position = pos;
             }
+
+            //print(movableList.Count);
+            //for (int k = 0; k < movableList.Count; k++)
+            //{
+            //    JKH_Node dest = movableList[k];
+            //    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            //    cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
+            //    cube.transform.localScale = Vector3.one * .3f;
+            //    Vector3 pos = dest.worldPosition;
+            //    pos.y = -.5f;
+            //    cube.transform.position = pos;
+
+            //}
 
             if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject() && selectedUnit.movePower > 0)
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
@@ -513,6 +577,8 @@ public class MapManager : Singleton<MapManager>
                         int targetX = hitInfo.transform.gameObject.GetComponent<TerrainData>().x;
                         int targetY = hitInfo.transform.gameObject.GetComponent<TerrainData>().y;
                         JKH_Node target = nodeMap[targetX + mapWidth * targetY];
+
+
 
                         for (int i = 0; i < movableList.Count; i++)
                         {
@@ -608,6 +674,7 @@ public class MapManager : Singleton<MapManager>
                             print("Failed");
                         }
 
+
                     }
 
                     else
@@ -696,10 +763,7 @@ public class MapManager : Singleton<MapManager>
         //enemyRangeDmg = enemy.rangeAttack;
 
         battleFormula(unitMeleeDmg, enemyMeleeDmg);
-        //여기다 전투 Delay / anim
-        //anim.SetBool("isMove", false);
-
-        print("잠깐");
+        //여기다 전투 enim..
 
 
 
@@ -811,17 +875,13 @@ public class MapManager : Singleton<MapManager>
     JKH_Node finalMove;
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path, bool onEnemy = false)
     {
-        int lrCnt = 0;
-        // TODO 전투
+        // lr 하나씩 지운다?
+        int lrCount = lr.positionCount-1;
 
-        SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_INFANTRY_WALK);
         //어떤경로로 이동하는지 표시
         while (path.parent != null)
         {
             yield return null;
-
-
-            //lrCnt++;
 
             anim.SetBool("isMove", true);
 
@@ -833,48 +893,12 @@ public class MapManager : Singleton<MapManager>
             // 유닛 바라보는 방향 이동방향으로 변경
             unit.transform.forward = dir;
             unit.transform.position += dir * Time.deltaTime;
-
-            ////1 내위치(들)
-            //for (int i = 0; i < lrCnt; i++)
-            //{
-            Vector3 unitPos = unit.transform.position;
-            //unitPos.y = -.7f;
-            //lr.SetPosition(0, unitPos);
-
-            //}
-            //lr.SetPosition(0, unitPos);
-
-
-
-            ////2 목표위치
-            //Vector3 pathPos = path.worldPosition;
-            //pathPos.y = -.7f;
-            //lr.SetPosition(lrCnt, pathPos);
-            lr.SetPosition(0, unitPos);
-
-            // 보정값 안에 들어오면 도착한것으로 판단 + 도착시 1 내위치(들) 바꾸기.
+            // 보정값 안에 들어오면 도착한것으로 판단
             if ((dest - unit.transform.position).sqrMagnitude < 0.005f)
             {
-                ////2                
-                lrCnt++;
-
-                print("lrCnt: " + lrCnt);
                 // 다음 타일로 변경
-
                 path = path.parent;
             }
-
-            for (int i = 0; i < lrCnt + 1; ++i)
-            {
-                lr.SetPosition(i, unitPos);
-            }
-
-            //if (lrCnt >= 1)
-            //    lr.SetPosition(1, unitPos);
-            //if (lrCnt >= 2)
-            //    lr.SetPosition(2, unitPos);
-
-
             dir = Vector3.zero;
             if (onEnemy == true)
             {
@@ -886,11 +910,12 @@ public class MapManager : Singleton<MapManager>
                 lastPos = path.worldPosition;
 
             }
+            //lr 제거..
+            
+
 
 
         }
-
-        lr.positionCount = 0;
         if (onEnemy == true)
         {
             LayerMask unitLayer = LayerMask.GetMask("Unit");
@@ -907,7 +932,6 @@ public class MapManager : Singleton<MapManager>
         lr.positionCount = 0;
         anim.SetBool("isMove", false);
 
-        SoundManager.instance.StopEFT();
         unit.transform.forward = Vector3.back;
 
         //유닛 위치 타일에 다시 저장
@@ -915,7 +939,6 @@ public class MapManager : Singleton<MapManager>
 
     }
 
-    //함수이름 바꾸기, 
     public void DeleteCube()
     {
         if (oldCubes != null)
@@ -927,14 +950,10 @@ public class MapManager : Singleton<MapManager>
         }
     }
 
-    //막 사라지지 않게 경우의수 추가 
     public void MarkDisabled()
     {
         unitMark.SetActive(false);
         moveMark.SetActive(false);
         enemyMark.SetActive(false);
-
-        //material.shader = Shader.Find("Standard");
-
     }
 }
