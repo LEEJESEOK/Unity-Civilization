@@ -99,6 +99,11 @@ public class Player : MonoBehaviour
         // 화면 조작
         UIManager.instance.CameraMove(playerCamera);
         UIManager.instance.CameraZoom(playerCamera);
+
+        if (UIPanelManager.instance.isEmpty() && Input.GetKeyUp(KeyCode.Return))
+        {
+            GameManager.instance.TurnEnd();
+        }
     }
 
     // 자원 생산

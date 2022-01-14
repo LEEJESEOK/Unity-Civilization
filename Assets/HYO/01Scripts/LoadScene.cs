@@ -12,7 +12,24 @@ public class LoadScene : Singleton<LoadScene>
         if (SceneManager.GetActiveScene().name == "StartScene")
         {
             SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_START);
-        }       
+        }  
+     
+    }
+    void Update()
+    {     
+        //victory
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_RESULT);
+            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_VICTORY);
+            SceneManager.LoadScene("Victory");
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_RESULT);
+            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_DEFEAT);
+            SceneManager.LoadScene("Defeat");
+        }
     }
     public void StartGameBTN()
     {
@@ -21,5 +38,21 @@ public class LoadScene : Singleton<LoadScene>
     public void ExitGameBTN()
     {
         Application.Quit();
+    }
+    public void BackToMainBTN()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
+    public void Victory()
+    {
+        SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_RESULT);
+        SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_VICTORY);
+        SceneManager.LoadScene("Victory");
+    }
+    public void Defeat()
+    {
+        SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_RESULT);
+        SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_DEFEAT);
+        SceneManager.LoadScene("Defeat");
     }
 }

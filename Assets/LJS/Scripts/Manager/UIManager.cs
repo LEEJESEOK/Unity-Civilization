@@ -55,6 +55,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     GameObject fortificationButton;
 
+    public Image unitImage;
     public Image hpMeter;
     public GameObject meleeAttackGroup;
     public GameObject rangeAttackGroup;
@@ -88,6 +89,7 @@ public class UIManager : Singleton<UIManager>
     bool useGold;
 
     Vector2 prevMousePosition;
+    static Vector3 camOffset = new Vector3(0, 3, -4);
     bool isLeftPressed;
 
     #region TileInfo UI
@@ -278,7 +280,7 @@ public class UIManager : Singleton<UIManager>
         return Resources.LoadAll<Sprite>(path);
     }
 
-    public void InitUI()
+    public void Initialize()
     {
         if (mouseCapture)
             // 마우스 커서가 윈도우 밖으로 나가지 않도록 함
@@ -446,13 +448,22 @@ public class UIManager : Singleton<UIManager>
 
             cam.transform.position += cameraDir * Time.deltaTime;
         }
+
+        if (Input.GetKeyUp(KeyCode.Space) && (GameManager.instance.isCurrentUnit()))
+        {
+            Vector3 currentPos = GameManager.instance.currentSelect.transform.position;
+            cam.transform.position = currentPos + camOffset;
+
+        }
+
+        // TODO 키보드로 화면 이동
     }
 
     // 마우스 휠 입력으로 화면 줌
     // Field of View 조절(30~90, default : 60)
     public void CameraZoom(Camera cam)
     {
-        if (UIPanelManager.instance.currentPanel != null) return;
+        if (UIManager.IsPointerOverUIObject()) return;
 
         float wheelInput = Input.GetAxis("Mouse ScrollWheel");
 
@@ -470,16 +481,26 @@ public class UIManager : Singleton<UIManager>
     #region UnitPanel
     public void InitUnitPanel()
     {
+        #region load component
         meleeAttackTMP = meleeAttackGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         rangeAttackTMP = rangeAttackGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         movePowerTMP = movePowerGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         buildCountTMP = buildCountGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        #endregion
+
+        DisableCityBuild();
+        UIPanelManager.instance.ClosePanel("BUILD_FACILITY_COMMAND_TAB");
+        DisableFortificcation();
     }
 
     void UpdateUnitCommonData(Unit unit)
     {
-        // TODO 유닛 이미지
+        meleeAttackGroup.SetActive(false);
+        rangeAttackGroup.SetActive(false);
+        buildCountGroup.SetActive(false);
 
+        // TODO 유닛 이미지
+        // unitImage.sprite = Resources.Load<Sprite>("");
 
         // 현재 체력
         float hpRatio = (float)unit.hp / 100f;
@@ -494,8 +515,11 @@ public class UIManager : Singleton<UIManager>
     {
         UpdateUnitCommonData(unit);
 
-        meleeAttackTMP.text = unit.meleeAttack.ToString();
+        meleeAttackGroup.SetActive(true);
+        rangeAttackGroup.SetActive(true);
 
+        meleeAttackTMP.text = unit.meleeAttack.ToString();
+        rangeAttackTMP.text = unit.rangeAttack.ToString();
     }
 
     public void UpdateUnitData(NonCombatUnit unit)
@@ -504,6 +528,7 @@ public class UIManager : Singleton<UIManager>
 
         if (unit.unitType == InGameObjectId.BUILDER)
         {
+            buildCountGroup.SetActive(true);
             buildCountTMP.text = unit.buildCount.ToString() + "/" + unit.buildCount.ToString();
         }
     }

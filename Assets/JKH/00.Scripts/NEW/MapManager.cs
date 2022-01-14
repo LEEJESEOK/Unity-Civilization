@@ -60,7 +60,6 @@ public class MapManager : Singleton<MapManager>
         //EnemyMark
     }
 
-
     void InitNodeMap(int targetX, int targetY)
     {
 
@@ -341,7 +340,7 @@ public class MapManager : Singleton<MapManager>
 
 
         List<JKH_Node> path = new List<JKH_Node>();
-        
+
         for (int i = 0; i < cols.Count; i++)
         {
             LayerMask unitLayer = LayerMask.GetMask("Unit");
@@ -368,7 +367,7 @@ public class MapManager : Singleton<MapManager>
             //Collider[] tileOnUnit = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
             //print(tileOnUnit.Length);
 
-                
+
             movePower = 0;
             //path값 Null...
             string pathStr = string.Format("({0}, {1})", path[0].gridX, path[0].gridY);
@@ -389,11 +388,11 @@ public class MapManager : Singleton<MapManager>
 
 
         //Create Cube/ outline
-        
+
         for (int i = 0; i < movableList.Count; i++)
         {
-            
-            
+
+
             //cityTemp.data[i].gameObject.GetComponent<Outline>().OutlineWidth = 10;
             //cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
 
@@ -408,6 +407,7 @@ public class MapManager : Singleton<MapManager>
 
             pos.y = -.5f;
             cube.transform.position = pos;
+
             oldCubes.Add(cube);
         }
         // 경로 탐색 완료
@@ -474,7 +474,7 @@ public class MapManager : Singleton<MapManager>
                             enemyMarkPos.y += .2f;
                             enemyMark.transform.position = enemyMarkPos;
                         }
-                         else
+                        else
                             enemyMark.SetActive(false);
 
                         //moveMark Pos 표시..
@@ -704,7 +704,7 @@ public class MapManager : Singleton<MapManager>
         battleFormula(unitMeleeDmg, enemyMeleeDmg);
         //여기다 전투 Delay / anim
         //anim.SetBool("isMove", false);
-        
+
         print("잠깐");
 
 
@@ -818,12 +818,15 @@ public class MapManager : Singleton<MapManager>
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path, bool onEnemy = false)
     {
         int lrCnt = 0;
+        // TODO 전투
+
+        SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_INFANTRY_WALK);
         //어떤경로로 이동하는지 표시
         while (path.parent != null)
         {
             yield return null;
 
-            
+
             //lrCnt++;
 
             anim.SetBool("isMove", true);
@@ -858,16 +861,16 @@ public class MapManager : Singleton<MapManager>
             // 보정값 안에 들어오면 도착한것으로 판단 + 도착시 1 내위치(들) 바꾸기.
             if ((dest - unit.transform.position).sqrMagnitude < 0.005f)
             {
-                ////2                
+                ////2
                 lrCnt++;
 
-                print("lrCnt: "+lrCnt);
+                print("lrCnt: " + lrCnt);
                 // 다음 타일로 변경
 
                 path = path.parent;
             }
-            
-            for(int i = 0; i < lrCnt + 1;++i)
+
+            for (int i = 0; i < lrCnt + 1; ++i)
             {
                 lr.SetPosition(i, unitPos);
             }
@@ -876,7 +879,7 @@ public class MapManager : Singleton<MapManager>
             //    lr.SetPosition(1, unitPos);
             //if (lrCnt >= 2)
             //    lr.SetPosition(2, unitPos);
-            
+
 
             dir = Vector3.zero;
             if (onEnemy == true)
@@ -889,10 +892,10 @@ public class MapManager : Singleton<MapManager>
                 lastPos = path.worldPosition;
 
             }
-            
+
 
         }
-        
+
         lr.positionCount = 0;
         if (onEnemy == true)
         {
@@ -910,6 +913,7 @@ public class MapManager : Singleton<MapManager>
         lr.positionCount = 0;
         anim.SetBool("isMove", false);
 
+        SoundManager.instance.StopEFT();
         unit.transform.forward = Vector3.back;
 
         //유닛 위치 타일에 다시 저장
@@ -917,7 +921,7 @@ public class MapManager : Singleton<MapManager>
 
     }
 
-    //함수이름 바꾸기, 
+    //함수이름 바꾸기,
     public void DeleteCube()
     {
         if (oldCubes != null)
@@ -937,7 +941,7 @@ public class MapManager : Singleton<MapManager>
         //}
     }
 
-    //막 사라지지 않게 경우의수 추가 
+    //막 사라지지 않게 경우의수 추가
     public void MarkDisabled()
     {
         unitMark.SetActive(false);
