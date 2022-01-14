@@ -779,6 +779,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 2514b8362927c5d4ea873b68ea0e763a, type: 3}
     - target: {fileID: 8323985047734391828, guid: acf37c6f404df6040856ee6be09c4458, type: 3}
+      propertyPath: eftAudio.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fb8b6340e574e44c838f38f84409c7a, type: 3}
+    - target: {fileID: 8323985047734391828, guid: acf37c6f404df6040856ee6be09c4458, type: 3}
       propertyPath: eftAudio.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: 3d247170743764944a5b7990f03370ac, type: 3}

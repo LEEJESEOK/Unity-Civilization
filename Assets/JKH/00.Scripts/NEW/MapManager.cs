@@ -46,19 +46,19 @@ public class MapManager : Singleton<MapManager>
         getUnitInfo();
         SelectedUnitMove();
 
-        while (anim.GetCurrentAnimatorStateInfo(0).IsName("run") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-        {
+        //while (anim.GetCurrentAnimatorStateInfo(0).IsName("run") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        //{
             
-            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_INFANTRY_WALK);
+        //    SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_INFANTRY_WALK);
 
-        }
+        //}
 
-        while (anim.GetCurrentAnimatorStateInfo(0).IsName("move") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-        {
+        //while (anim.GetCurrentAnimatorStateInfo(0).IsName("move") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        //{
             
-            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_CAVALRY_WALK);
+        //    SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_CAVALRY_WALK);
 
-        }
+        //}
     }
     
 
@@ -813,14 +813,14 @@ public class MapManager : Singleton<MapManager>
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path, bool onEnemy = false)
     {
         // TODO 전투
-
+       
+            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_INFANTRY_WALK);
         //어떤경로로 이동하는지 표시
         while (path.parent != null)
         {
             yield return null;
 
             anim.SetBool("isMove", true);
-            
 
             // 이동방향 : 현재 타일 -> 다음 타일
             dir = path.parent.worldPosition - path.worldPosition;
@@ -864,7 +864,8 @@ public class MapManager : Singleton<MapManager>
         //경로표시 다끝나면 선 지운다.
         lr.positionCount = 0;
         anim.SetBool("isMove", false);
-
+        
+        SoundManager.instance.StopEFT();
         unit.transform.forward = Vector3.back;
 
         //유닛 위치 타일에 다시 저장
