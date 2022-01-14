@@ -53,6 +53,14 @@ public class UIPanelManager : Singleton<UIPanelManager>
         return findObject;
     }
 
+    void SetSelected(GameObject gameObject)
+    {
+        if (gameObject == null)
+            return;
+
+        EventSystem.current.SetSelectedGameObject(gameObject);
+    }
+
     public void OpenPanel(UIPanel panel)
     {
         if (panel == null)
@@ -71,7 +79,6 @@ public class UIPanelManager : Singleton<UIPanelManager>
         SetSelected(firstObject);
 
         openedPanel.Add(panel);
-        print(panel.panelName);
     }
 
     public void OpenPanel(string panelName)
@@ -100,11 +107,8 @@ public class UIPanelManager : Singleton<UIPanelManager>
         ClosePanel(currentPanel);
     }
 
-    void SetSelected(GameObject gameObject)
+    public bool isEmpty()
     {
-        if (gameObject == null)
-            return;
-
-        EventSystem.current.SetSelectedGameObject(gameObject);
+        return openedPanel.Count == 0;
     }
 }
