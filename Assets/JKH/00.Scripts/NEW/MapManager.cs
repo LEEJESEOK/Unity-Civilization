@@ -22,6 +22,7 @@ public class MapManager : Singleton<MapManager>
     public GameObject moveMark;
     public GameObject enemyMark;
 
+    public Territory cityTemp;
     void Start()
     {
         terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
@@ -340,6 +341,7 @@ public class MapManager : Singleton<MapManager>
 
 
         List<JKH_Node> path = new List<JKH_Node>();
+        
         for (int i = 0; i < cols.Count; i++)
         {
             LayerMask unitLayer = LayerMask.GetMask("Unit");
@@ -386,11 +388,15 @@ public class MapManager : Singleton<MapManager>
         }
 
 
-        //Create Cube
+        //Create Cube/ outline
+        
         for (int i = 0; i < movableList.Count; i++)
         {
-            //큐브위치에 유닛이 있으면 안된다
-            //큐브만든다.
+            
+            
+            //cityTemp.data[i].gameObject.GetComponent<Outline>().OutlineWidth = 10;
+            //cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
+
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             Destroy(cube.GetComponent<BoxCollider>());
             cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
@@ -402,7 +408,6 @@ public class MapManager : Singleton<MapManager>
 
             pos.y = -.5f;
             cube.transform.position = pos;
-             
             oldCubes.Add(cube);
         }
         // 경로 탐색 완료
@@ -922,6 +927,14 @@ public class MapManager : Singleton<MapManager>
                 Destroy(oldCubes[j]);
             }
         }
+
+        //// 선 제거.
+        //for (int i = 0; i < cityTemp.data.Count; i++)
+        //{
+        //    Material material = cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material;
+        //    material.shader = Shader.Find("Standard");
+        //    cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material = material;
+        //}
     }
 
     //막 사라지지 않게 경우의수 추가 
@@ -932,5 +945,6 @@ public class MapManager : Singleton<MapManager>
         enemyMark.SetActive(false);
 
         //material.shader = Shader.Find("Standard");
+
     }
 }
