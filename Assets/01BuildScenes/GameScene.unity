@@ -22670,18 +22670,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8323985047734391828, guid: acf37c6f404df6040856ee6be09c4458, type: 3}
-      propertyPath: eftAudio.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 67f258d0a76f49f43b8dd3422a90702a, type: 3}
-    - target: {fileID: 8323985047734391828, guid: acf37c6f404df6040856ee6be09c4458, type: 3}
-      propertyPath: eftAudio.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: 61decd9f0d886364c8e09c03fbe1db0c, type: 3}
-    - target: {fileID: 8323985047734391828, guid: acf37c6f404df6040856ee6be09c4458, type: 3}
-      propertyPath: eftAudio.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: 965973d6ae8d23b418a5bddda32567d1, type: 3}
     - target: {fileID: 8323985047734391829, guid: acf37c6f404df6040856ee6be09c4458, type: 3}
       propertyPath: m_RootOrder
       value: 18

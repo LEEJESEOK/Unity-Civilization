@@ -304,6 +304,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             tileTemp = unitInfo.GetComponent<Unit>().myTilePos.transform;
             GameObject empty = Instantiate(icons[(int)id + 3]);
 
+            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_BUILD);
 
             //SET COLOR
             MeshRenderer mesh = empty.GetComponentInChildren<MeshRenderer>();
@@ -370,6 +371,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public void CreateDistrict(InGameObjectId id, Transform pos)
     {
         GameObject empty = Instantiate(icons[(int)id]);
+
+        SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_BUILD);
 
         //SET COLOR
         MeshRenderer mesh = empty.GetComponentInChildren<MeshRenderer>();
