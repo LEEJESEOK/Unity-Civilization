@@ -52,6 +52,11 @@ public class SoundManager : Singleton<SoundManager>
         audioS_BGM.Pause();
     }
 
+    public void StopEFT()
+    {
+        audioS_EFT.Pause();
+    }
+
     public void PlayEFT(EFT_TYPE type)
     {
         audioS_EFT.PlayOneShot(eftAudio[(int)type]);       

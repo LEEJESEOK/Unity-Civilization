@@ -24,6 +24,12 @@ public class LoadScene : Singleton<LoadScene>
             SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_VICTORY);
             SceneManager.LoadScene("Victory");
         }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_RESULT);
+            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_DEFEAT);
+            SceneManager.LoadScene("Defeat");
+        }
     }
     public void StartGameBTN()
     {
@@ -42,5 +48,11 @@ public class LoadScene : Singleton<LoadScene>
         SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_RESULT);
         SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_VICTORY);
         SceneManager.LoadScene("Victory");
+    }
+    public void Defeat()
+    {
+        SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_RESULT);
+        SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_DEFEAT);
+        SceneManager.LoadScene("Defeat");
     }
 }

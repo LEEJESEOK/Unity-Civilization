@@ -43,17 +43,6 @@ public class MapManager : Singleton<MapManager>
         getUnitInfo();
         SelectedUnitMove();
         UnitMarks();
-    
-        // // unit sound
-        // while (anim.GetCurrentAnimatorStateInfo(0).IsName("run") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-        // {
-        //     SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_INFANTRY_WALK);
-        // }
-
-        // while (anim.GetCurrentAnimatorStateInfo(0).IsName("move") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-        // {
-        //     SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_CAVALRY_WALK);
-        // }
     }
 
     public void UnitMarks()
@@ -69,7 +58,7 @@ public class MapManager : Singleton<MapManager>
         //MoveMark
         //EnemyMark
     }
-    
+
     void InitNodeMap(int targetX, int targetY)
     {
 
@@ -376,7 +365,7 @@ public class MapManager : Singleton<MapManager>
             //Collider[] tileOnUnit = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
             //print(tileOnUnit.Length);
 
-                
+
             movePower = 0;
             //path값 Null...
             string pathStr = string.Format("({0}, {1})", path[0].gridX, path[0].gridY);
@@ -412,7 +401,7 @@ public class MapManager : Singleton<MapManager>
 
             pos.y = -.5f;
             cube.transform.position = pos;
-             
+
             oldCubes.Add(cube);
         }
         // 경로 탐색 완료
@@ -479,7 +468,7 @@ public class MapManager : Singleton<MapManager>
                             enemyMarkPos.y += .2f;
                             enemyMark.transform.position = enemyMarkPos;
                         }
-                         else
+                        else
                             enemyMark.SetActive(false);
 
                         //moveMark Pos 표시..
@@ -709,7 +698,7 @@ public class MapManager : Singleton<MapManager>
         battleFormula(unitMeleeDmg, enemyMeleeDmg);
         //여기다 전투 Delay / anim
         //anim.SetBool("isMove", false);
-        
+
         print("잠깐");
 
 
@@ -823,16 +812,18 @@ public class MapManager : Singleton<MapManager>
     IEnumerator MoveUnitCoroutine(Unit unit, JKH_Node path, bool onEnemy = false)
     {
         int lrCnt = 0;
+        // TODO 전투
+
+        SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_INFANTRY_WALK);
         //어떤경로로 이동하는지 표시
         while (path.parent != null)
         {
             yield return null;
 
-            
+
             //lrCnt++;
 
             anim.SetBool("isMove", true);
-            
 
             // 이동방향 : 현재 타일 -> 다음 타일
             dir = path.parent.worldPosition - path.worldPosition;
@@ -867,13 +858,13 @@ public class MapManager : Singleton<MapManager>
                 ////2                
                 lrCnt++;
 
-                print("lrCnt: "+lrCnt);
+                print("lrCnt: " + lrCnt);
                 // 다음 타일로 변경
 
                 path = path.parent;
             }
-            
-            for(int i = 0; i < lrCnt + 1;++i)
+
+            for (int i = 0; i < lrCnt + 1; ++i)
             {
                 lr.SetPosition(i, unitPos);
             }
@@ -882,7 +873,7 @@ public class MapManager : Singleton<MapManager>
             //    lr.SetPosition(1, unitPos);
             //if (lrCnt >= 2)
             //    lr.SetPosition(2, unitPos);
-            
+
 
             dir = Vector3.zero;
             if (onEnemy == true)
@@ -895,10 +886,10 @@ public class MapManager : Singleton<MapManager>
                 lastPos = path.worldPosition;
 
             }
-            
+
 
         }
-        
+
         lr.positionCount = 0;
         if (onEnemy == true)
         {
@@ -916,6 +907,7 @@ public class MapManager : Singleton<MapManager>
         lr.positionCount = 0;
         anim.SetBool("isMove", false);
 
+        SoundManager.instance.StopEFT();
         unit.transform.forward = Vector3.back;
 
         //유닛 위치 타일에 다시 저장
