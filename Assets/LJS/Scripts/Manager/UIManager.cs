@@ -226,6 +226,7 @@ public class UIManager : Singleton<UIManager>
     internal void EnableCityBuild()
     {
         buildCityButton.SetActive(true);
+        print("test");
     }
 
     internal void DisableCityBuild()
@@ -475,6 +476,10 @@ public class UIManager : Singleton<UIManager>
         rangeAttackTMP = rangeAttackGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         movePowerTMP = movePowerGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         buildCountTMP = buildCountGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+
+        DisableCityBuild();
+        UIPanelManager.instance.ClosePanel("BUILD_FACILITY_COMMAND_TAB");
+        DisableFortificcation();
     }
 
     void UpdateUnitCommonData(Unit unit)
@@ -512,7 +517,7 @@ public class UIManager : Singleton<UIManager>
 
         if (unit.unitType == InGameObjectId.BUILDER)
         {
-            buildCountGroup.SetActive(false);
+            buildCountGroup.SetActive(true);
             buildCountTMP.text = unit.buildCount.ToString() + "/" + unit.buildCount.ToString();
         }
     }

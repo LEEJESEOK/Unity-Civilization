@@ -6,24 +6,7 @@ using UnityEngine.UI;
 public class UIPanel : MonoBehaviour
 {
     public string panelName;
-
-    private void Awake()
-    {
-        switch (panelName)
-        {
-            case "UNIT_PANEL":
-                // 버튼 상태 초기화
-                // TODO 도시 건설 버튼 비활성화
-                UIManager.instance.DisableCityBuild();
-
-                // 시설 건설 버튼 비활성화
-                UIPanelManager.instance.ClosePanel("BUILD_FACILITY_COMMAND_TAB");
-
-                // TODO 요새화 버튼 비활성화
-                UIManager.instance.DisableFortificcation();
-                break;
-        }
-    }
+    
 
     private void OnEnable()
     {
