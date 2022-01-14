@@ -448,13 +448,15 @@ public class UIManager : Singleton<UIManager>
 
             cam.transform.position += cameraDir * Time.deltaTime;
         }
+
+        // TODO 키보드로 화면 이동
     }
 
     // 마우스 휠 입력으로 화면 줌
     // Field of View 조절(30~90, default : 60)
     public void CameraZoom(Camera cam)
     {
-        if (UIPanelManager.instance.currentPanel != null) return;
+        if (UIManager.IsPointerOverUIObject()) return;
 
         float wheelInput = Input.GetAxis("Mouse ScrollWheel");
 

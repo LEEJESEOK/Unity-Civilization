@@ -103,9 +103,9 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            
             Vector3 currentPos = GameManager.instance.currentSelect.transform.position;
             playerCamera.transform.position = currentPos + camOffset;
+
         }
 
         if (UIPanelManager.instance.isEmpty() && Input.GetKeyUp(KeyCode.Return))
