@@ -44,7 +44,7 @@ public class GameManager : Singleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
-        InitGame();
+        Initialize();
 
         StartCoroutine(DelayedStartCoroutine());
     }
@@ -79,8 +79,6 @@ public class GameManager : Singleton<GameManager>
             currentSelect = mouseDownObject;
             mouseDownObject = mouseUpObject = null;
 
-            print(currentSelect.name);
-
             GameObjectType gameObjectType = currentSelect.GetComponent<GameObjectType>();
             if (gameObjectType != null)
             {
@@ -92,9 +90,11 @@ public class GameManager : Singleton<GameManager>
                 switch (type)
                 {
                     case ObjectType.NON_COMBAT_UNIT:
+                        currentSelectType = ObjectType.NON_COMBAT_UNIT;
                         SelectNonCombatUnit();
                         break;
                     case ObjectType.COMBAT_UNIT:
+                        currentSelectType = ObjectType.COMBAT_UNIT;
                         SelectCombatUnit();
                         break;
                     // 도시 건물
@@ -118,19 +118,21 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (UIPanelManager.instance.isEmpty())
-                print("esc menu");
+            {
+                // UIPanelManager.instance.OpenPanel("MENU_PANEL");
+            }
             else
                 UIPanelManager.instance.CloseCurrent();
         }
     }
 
-    void InitGame()
+    void Initialize()
     {
         fogLayer = LayerMask.GetMask("HexFog");
 
         InitPlyaers();
 
-        UIManager.instance.InitUI();
+        UIManager.instance.Initialize();
     }
 
     void InitPlyaers()
@@ -184,6 +186,11 @@ public class GameManager : Singleton<GameManager>
     public void DestroyUnit(int playerId, Unit unit)
     {
         players[playerId].info.units.Remove(unit);
+    }
+
+    public bool isCurrentUnit()
+    {
+        return currentSelect != null && currentSelect.GetComponent<Unit>() != null;
     }
 
     void SelectNonCombatUnit()

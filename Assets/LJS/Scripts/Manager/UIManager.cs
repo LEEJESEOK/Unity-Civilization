@@ -89,6 +89,7 @@ public class UIManager : Singleton<UIManager>
     bool useGold;
 
     Vector2 prevMousePosition;
+    static Vector3 camOffset = new Vector3(0, 3, -4);
     bool isLeftPressed;
 
     #region TileInfo UI
@@ -226,7 +227,6 @@ public class UIManager : Singleton<UIManager>
     internal void EnableCityBuild()
     {
         buildCityButton.SetActive(true);
-        print("test");
     }
 
     internal void DisableCityBuild()
@@ -280,7 +280,7 @@ public class UIManager : Singleton<UIManager>
         return Resources.LoadAll<Sprite>(path);
     }
 
-    public void InitUI()
+    public void Initialize()
     {
         if (mouseCapture)
             // 마우스 커서가 윈도우 밖으로 나가지 않도록 함
@@ -449,6 +449,13 @@ public class UIManager : Singleton<UIManager>
             cam.transform.position += cameraDir * Time.deltaTime;
         }
 
+        if (Input.GetKeyUp(KeyCode.Space) && (GameManager.instance.isCurrentUnit()))
+        {
+            Vector3 currentPos = GameManager.instance.currentSelect.transform.position;
+            cam.transform.position = currentPos + camOffset;
+
+        }
+
         // TODO 키보드로 화면 이동
     }
 
@@ -474,10 +481,12 @@ public class UIManager : Singleton<UIManager>
     #region UnitPanel
     public void InitUnitPanel()
     {
+        #region load component
         meleeAttackTMP = meleeAttackGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         rangeAttackTMP = rangeAttackGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         movePowerTMP = movePowerGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         buildCountTMP = buildCountGroup.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        #endregion
 
         DisableCityBuild();
         UIPanelManager.instance.ClosePanel("BUILD_FACILITY_COMMAND_TAB");

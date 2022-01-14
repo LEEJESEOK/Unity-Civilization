@@ -15,6 +15,12 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
             listenerList[i].AddClickCallback(ClickEvent);
 
         actionButton = GetComponentInChildren<ActionButtonState>().gameObject;
+
+        List<BuildFacilityButtonListener> buildFacilityListeners = new List<BuildFacilityButtonListener>(GetComponentsInChildren<BuildFacilityButtonListener>(true));
+        for (int i = 0; i < buildFacilityListeners.Count; ++i)
+        {
+            buildFacilityListeners[i].AddClickCallback(BuildFacility);
+        }
     }
 
     public override void ClickEvent(UIButtonId eventType)
@@ -73,8 +79,8 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
                 break;
 
             // for builder
-            case UIButtonId.COMMAND_BUILD_FACILITY:
-                break;
+            // case UIButtonId.COMMAND_BUILD_FACILITY:
+            //     break;
             // case UIButtonId.COMMAND_BUILD_FARM:
             //     HYO_ConstructManager.instance.CreateFacility(Facility.FARM);
             //     break;
@@ -128,6 +134,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
 
     public void BuildFacility(InGameObjectId objectId)
     {
+        print("BuildFacility");
         HYO_ConstructManager.instance.CreateFacility(objectId);
     }
 
@@ -138,7 +145,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
 
     public void ProductUnit(InGameObjectId objectId)
     {
-        
+
     }
 
     public void BuyUnit(InGameObjectId objectId)

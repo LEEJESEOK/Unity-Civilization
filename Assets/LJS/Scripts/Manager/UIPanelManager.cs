@@ -79,7 +79,6 @@ public class UIPanelManager : Singleton<UIPanelManager>
         SetSelected(firstObject);
 
         openedPanel.Add(panel);
-        print(panel.panelName);
     }
 
     public void OpenPanel(string panelName)

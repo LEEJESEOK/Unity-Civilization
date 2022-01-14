@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIPanel : MonoBehaviour
 {
     public string panelName;
-    
+
 
     private void OnEnable()
     {
@@ -15,6 +15,9 @@ public class UIPanel : MonoBehaviour
 
     private void OnDisable()
     {
+        if (UIManager.instance == null)
+            return;
+
         switch (panelName)
         {
             case "UNIT_PANEL":

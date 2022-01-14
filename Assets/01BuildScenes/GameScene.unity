@@ -41908,10 +41908,11 @@ MonoBehaviour:
     WorldProductivity: 0
     WorldGold: 0
     WorldScience: 0
-  icons:
+  disctirctIcons:
   - {fileID: 5677048629338626451, guid: 038eb12308329fb44bf5e11b064069e4, type: 3}
   - {fileID: 6949394731715469107, guid: 025534be2cd9d9649a1be7b080562ffe, type: 3}
   - {fileID: 1183273434445551749, guid: 99aac0887c314b344aa45caa1ccb501c, type: 3}
+  facilityIcons:
   - {fileID: 7792212678286411339, guid: 2d7784d2c77f9834e935d9834f98eba3, type: 3}
   - {fileID: 3414013353792855028, guid: 1dd6b28f03f0da544aba780396a5e36f, type: 3}
   cityGate: {fileID: 5994332032441786461, guid: 9f30c7d41e18efe46966faafbd9fae02, type: 3}
@@ -49761,7 +49762,6 @@ GameObject:
   - component: {fileID: 1395697885}
   - component: {fileID: 1395697884}
   - component: {fileID: 1395697883}
-  - component: {fileID: 1395697882}
   m_Layer: 5
   m_Name: CityProductPanel
   m_TagString: Untagged
@@ -49791,18 +49791,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 350, y: 0}
   m_Pivot: {x: 1, y: 0.5}
---- !u!114 &1395697882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395697880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a20285b7f0c249946bd35600209dce0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1395697883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50230,6 +50218,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1402512981}
+        m_TargetAssemblyTypeName: ButtonListener`1[[InGameObjectId, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1402512979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50277,7 +50277,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1402512975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de07787c0c4f4734fb875ffda66c584b, type: 3}
+  m_Script: {fileID: 11500000, guid: 76e46dafeeeb80a47926682280c4e5da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _buttonType: 20000
@@ -57194,6 +57194,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1629885842}
+        m_TargetAssemblyTypeName: ButtonListener`1[[InGameObjectId, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1629885840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57241,7 +57253,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1629885836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de07787c0c4f4734fb875ffda66c584b, type: 3}
+  m_Script: {fileID: 11500000, guid: 76e46dafeeeb80a47926682280c4e5da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _buttonType: 20001

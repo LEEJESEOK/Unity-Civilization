@@ -22,7 +22,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     public WorldOutPut worldOutPut;
 
     //prefab & icon
-    public GameObject[] icons;
+    public GameObject[] disctirctIcons;
+    public GameObject[] facilityIcons;
     //public GameObject emptyPre;
     public GameObject cityGate;
     public Vector3[] iconPos;
@@ -132,7 +133,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
             unitType = unitInfo.GetComponent<Unit>().unitType;
             isUnitSelected = true;
-            
+
             switch (unitType)
             {
                 case InGameObjectId.SETTLER:
@@ -302,7 +303,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
             NonCombatUnit unit = GameManager.instance.currentSelect.GetComponent<NonCombatUnit>();
             tileTemp = unit.myTilePos.transform;
-            GameObject empty = Instantiate(icons[(int)id + 3]);
+            GameObject empty = Instantiate(facilityIcons[(int)(id - InGameObjectId.FARM)]);
 
 
             //SET COLOR
@@ -317,7 +318,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                 skinnedMesh[i].material = skinnedmMat;
             }
 
-            unitInfo.GetComponent<NonCombatUnit>().buildCount += 1;
+            unitInfo.GetComponent<NonCombatUnit>().buildCount -= 1;
             Territory tt = tileTemp.GetComponent<TerrainData>().myCenter.gameObject.GetComponent<Territory>();
             //FacilityData fd = tileTemp.GetComponent<FacilityData>();
 
@@ -370,7 +371,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     public void CreateDistrict(InGameObjectId id, Transform pos)
     {
-        GameObject empty = Instantiate(icons[(int)id]);
+        GameObject empty = Instantiate(disctirctIcons[(int)(id - InGameObjectId.CAMPUS)]);
 
         //SET COLOR
         MeshRenderer mesh = empty.GetComponentInChildren<MeshRenderer>();
