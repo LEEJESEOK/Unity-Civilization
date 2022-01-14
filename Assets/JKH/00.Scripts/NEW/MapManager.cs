@@ -43,6 +43,17 @@ public class MapManager : Singleton<MapManager>
         getUnitInfo();
         SelectedUnitMove();
         UnitMarks();
+    
+        // unit sound
+        while (anim.GetCurrentAnimatorStateInfo(0).IsName("run") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        {
+            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_INFANTRY_WALK);
+        }
+
+        while (anim.GetCurrentAnimatorStateInfo(0).IsName("move") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        {
+            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_CAVALRY_WALK);
+        }
     }
 
     public void UnitMarks()
@@ -57,24 +68,8 @@ public class MapManager : Singleton<MapManager>
         }
         //MoveMark
         //EnemyMark
-    
-
-        while (anim.GetCurrentAnimatorStateInfo(0).IsName("run") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-        {
-            
-            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_INFANTRY_WALK);
-
-        }
-
-        while (anim.GetCurrentAnimatorStateInfo(0).IsName("move") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-        {
-            
-            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_CAVALRY_WALK);
-
-        }
     }
     
-
     void InitNodeMap(int targetX, int targetY)
     {
 
