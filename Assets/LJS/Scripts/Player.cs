@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public bool isTurn;
     public int playerId;
     public Camera playerCamera;
+    static Vector3 camOffset = new Vector3(0, 3, -4);
     public PlayerInfo info;
     int techCarryCost;
 
@@ -100,7 +101,14 @@ public class Player : MonoBehaviour
         UIManager.instance.CameraMove(playerCamera);
         UIManager.instance.CameraZoom(playerCamera);
 
-        if (Input.GetKeyDown(KeyCode.Return) && UIPanelManager.instance.isEmpty())
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            
+            Vector3 currentPos = GameManager.instance.currentSelect.transform.position;
+            playerCamera.transform.position = currentPos + camOffset;
+        }
+
+        if (UIPanelManager.instance.isEmpty() && Input.GetKeyUp(KeyCode.Return))
         {
             GameManager.instance.TurnEnd();
         }

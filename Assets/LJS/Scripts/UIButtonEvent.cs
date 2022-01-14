@@ -138,7 +138,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
 
     public void ProductUnit(InGameObjectId objectId)
     {
-
+        
     }
 
     public void BuyUnit(InGameObjectId objectId)
