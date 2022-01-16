@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         {
             info.gold = GameManager.instance.testStartGold;
             info.goldChange = GameManager.instance.testGoldChange;
-            info.science = GameManager.instance.testStartScience;
+            info.science = GameManager.instance.initialScience;
         }
 
         for (int i = 0; i < TechnologyDataManager.instance.technologies.Count; ++i)
@@ -66,12 +66,21 @@ public class Player : MonoBehaviour
 
     public void StartTurn()
     {
+        print(string.Format("[Start Turn] {0}", name));
+
         // UI를 플레이어의 정보로 변경
         // 카메라
         playerCamera.gameObject.SetActive(true);
 
         // 자원
-        print(string.Format("[Start Turn] {0}", name));
+        if (GameManager.instance.useScience)
+        {
+            info.science = GameManager.instance.initialScience;
+            for (int i = 0; i < info.cities.Count; ++i)
+            {
+                info.science += info.cities[i].totalOutput.TotalScience;
+            }
+        }
         UIManager.instance.UpdateResource(info.science, 0, 0, 0, info.gold, info.goldChange);
 
         // 연구
@@ -159,7 +168,7 @@ public class Player : MonoBehaviour
     }
 
     // 도시 건설 -> 플레이어의 도시 리스트에 추가
-    public void BuildCity(GameObject city)
+    public void BuildCity(Territory city)
     {
         info.cities.Add(city);
     }

@@ -95,6 +95,7 @@ public class TotalOutPut
 
 public class Territory : MonoBehaviour
 {
+    public string territoryName;
     public TotalOutPut totalOutput;
 
     public List<TerrainData> data;

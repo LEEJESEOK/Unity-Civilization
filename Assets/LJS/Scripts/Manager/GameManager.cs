@@ -6,7 +6,7 @@ public class GameManager : Singleton<GameManager>
 {
     [Header("Test")]
     public bool test;
-    public int testStartScience;
+    public int initialScience;
     public int testStartGold;
     public int testGoldChange;
 
@@ -32,11 +32,15 @@ public class GameManager : Singleton<GameManager>
     public List<GameObject> startPoints;
 
     [Header("Play")]
+    public bool isSelect;
     public GameObject currentSelect;
     public ObjectType currentSelectType;
 
     GameObject mouseDownObject;
     GameObject mouseUpObject;
+    bool onClick;
+    Vector3 mouseDownPosition;
+    bool onDrag;
 
     LayerMask fogLayer;
 
@@ -53,40 +57,46 @@ public class GameManager : Singleton<GameManager>
     void Update()
     {
         #region object select
-        // MouseDown 오브젝트
+        // TODO MouseDown 이후에 mouse좌표가 바뀌면 드래그
         if ((!UIManager.IsPointerOverUIObject()) && Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, float.MaxValue, ~fogLayer))
+            onClick = true;
+            mouseDownPosition = Input.mousePosition;
+        }
+        // 드래그, Drag
+        if ((!UIManager.IsPointerOverUIObject()) && Input.GetMouseButton(0))
+        {
+            if (mouseDownPosition != Input.mousePosition)
             {
-                mouseDownObject = hit.transform.gameObject;
+                onClick = false;
+                onDrag = true;
             }
         }
-        // MouseUp 오브젝트
-        if ((!UIManager.IsPointerOverUIObject()) && Input.GetMouseButtonUp(0))
+        // 클릭, Click
+        if ((!UIManager.IsPointerOverUIObject()) && Input.GetMouseButtonUp(0) && onClick)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, float.MaxValue, ~fogLayer))
-            {
-                mouseUpObject = hit.transform.gameObject;
-            }
-        }
-        // MouseDownObject, MouseUpObject 같으면 클릭
-        if ((mouseDownObject != null) && (mouseUpObject != null) && (mouseDownObject == mouseUpObject))
-        {
-            currentSelect = mouseDownObject;
-            mouseDownObject = mouseUpObject = null;
+            onClick = false;
+            onDrag = false;
 
-            GameObjectType gameObjectType = currentSelect.GetComponent<GameObjectType>();
-            if (gameObjectType != null)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit raycastHit;
+            GameObjectInfo gameObjectInfo = null;
+            if (Physics.Raycast(ray, out raycastHit, float.MaxValue, ~fogLayer))
             {
+                currentSelect = raycastHit.transform.gameObject;
+                gameObjectInfo = currentSelect.GetComponent<GameObjectInfo>();
+            }
+
+            // CurrentPlayer의 오브젝트만 조작
+            // 자신의 오브젝트
+            if ((gameObjectInfo != null) && (gameObjectInfo.playerId == currentPlayerId))
+            {
+                UIManager.ClearUI();
                 MapManager.instance.DeleteCube();
                 UIPanelManager.instance.ClosePanel("UNIT_PANEL");
                 UIPanelManager.instance.ClosePanel("CITY_PANEL");
 
-                ObjectType type = gameObjectType.type;
+                ObjectType type = gameObjectInfo.type;
                 switch (type)
                 {
                     case ObjectType.NON_COMBAT_UNIT:
@@ -100,20 +110,27 @@ public class GameManager : Singleton<GameManager>
                     // 도시 건물
                     // 건물이 있는 타일
                     case ObjectType.BUILDING:
-                        Territory territory = currentSelect.GetComponent<Territory>();
+                        Territory territory = currentSelect.transform.parent.GetComponent<Territory>();
 
                         if (territory != null)
                             UIPanelManager.instance.OpenPanel("CITY_PANEL");
                         break;
                     case ObjectType.TILE:
-                        TerrainData terrain = currentSelect.GetComponent<TerrainData>();
+                        TerrainData terrainData = currentSelect.GetComponent<TerrainData>();
+                        if (terrainData.objectOn.Count > 0)
+                            SelectGameObject(terrainData.objectOn[0]);
                         // terrain.objectOn[0];
                         break;
                 }
             }
         }
+
+        if (currentSelect == null)
+        {
+            UIManager.ClearUI();
+        }
         #endregion
-        
+
         // esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -122,7 +139,9 @@ public class GameManager : Singleton<GameManager>
                 // UIPanelManager.instance.OpenPanel("MENU_PANEL");
             }
             else
+            {
                 UIPanelManager.instance.CloseCurrent();
+            }
         }
     }
 
@@ -145,6 +164,17 @@ public class GameManager : Singleton<GameManager>
         }
 
         HexFogManager.instance.init(initPlayerCount);
+    }
+
+    IEnumerator DelayedStartCoroutine()
+    {
+        yield return null;
+
+        // Start InGame BGM
+        SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_INGAME);
+
+        // 첫번째 플레이어의 차례로 시작
+        players[_currentPlayerId].StartTurn();
     }
 
     // 현재 플레이어의 차례를 마치고 다음 플레이어 차례 시작
@@ -172,17 +202,6 @@ public class GameManager : Singleton<GameManager>
         HexFogManager.instance.prevInFov.Clear();
     }
 
-    IEnumerator DelayedStartCoroutine()
-    {
-        yield return null;
-
-        // Start InGame BGM
-        SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_INGAME);
-
-        // 첫번째 플레이어의 차례로 시작
-        players[_currentPlayerId].StartTurn();
-    }
-
     public void DestroyUnit(int playerId, Unit unit)
     {
         players[playerId].info.units.Remove(unit);
@@ -191,6 +210,11 @@ public class GameManager : Singleton<GameManager>
     public bool isCurrentUnit()
     {
         return currentSelect != null && currentSelect.GetComponent<Unit>() != null;
+    }
+
+    void SelectGameObject(GameObject go)
+    {
+
     }
 
     void SelectNonCombatUnit()
