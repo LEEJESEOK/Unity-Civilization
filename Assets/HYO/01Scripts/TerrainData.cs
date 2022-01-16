@@ -105,7 +105,7 @@ public class TerrainData : MonoBehaviour
     public GameObject[] territory = new GameObject[7];
     public GameObject myCenter;
 
-    public List<GameObject> objectOn= new List<GameObject>();
+    public List<GameObject> objectOn = new List<GameObject>();
     // 언덕유무
     public bool isHills;
 

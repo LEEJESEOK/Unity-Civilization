@@ -173,8 +173,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
             // 선택한 도시로 UI 갱신
             // UIPanelManager.instance.OpenPanel("CITY_PANEL");
-            UIManager.instance.UpdateCityProductPanelData(cityTemp);
-            UIPanelManager.instance.OpenPanel("CITY_PRODUCT_PANEL");
+            UIManager.instance.UpdateCityPanelData(cityTemp);
+            // UIPanelManager.instance.OpenPanel("CITY_PRODUCT_PANEL");
 
             SelectTile(cityTemp);
         }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Buildings : MonoBehaviour
+public class Building : MonoBehaviour
 {
     public int playerId;
     private void Awake()

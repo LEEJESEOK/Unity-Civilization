@@ -324,7 +324,7 @@ public class FieldOfView : MonoBehaviour
                             //유닛이 아니면
                             if (terrainData.objectOn[j].GetComponent<Unit>() == null)
                             {
-                                Buildings building = terrainData.objectOn[j].GetComponent<Buildings>();
+                                Building building = terrainData.objectOn[j].GetComponent<Building>();
                                 if (building != null)
                                 {
                                     if (building.playerId != GameManager.instance.currentPlayerId)
@@ -352,7 +352,7 @@ public class FieldOfView : MonoBehaviour
         }
         else
         {
-            if (GetComponentInParent<Buildings>().playerId == GameManager.instance.currentPlayerId)
+            if (GetComponentInParent<Building>().playerId == GameManager.instance.currentPlayerId)
             {
                 targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, HYO_ConstructManager.instance.layerMask);
                 for (int i = 0; i < targetsInViewRadius.Length; i++)
@@ -365,7 +365,7 @@ public class FieldOfView : MonoBehaviour
                             //유닛이 아니면
                             if (terrainData.objectOn[j].GetComponent<Unit>() == null)
                             {
-                                Buildings building = terrainData.objectOn[j].GetComponent<Buildings>();
+                                Building building = terrainData.objectOn[j].GetComponent<Building>();
                                 if (building != null)
                                 {
                                     if (building.playerId != GameManager.instance.currentPlayerId)

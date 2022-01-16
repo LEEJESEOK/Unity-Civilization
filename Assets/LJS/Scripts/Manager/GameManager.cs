@@ -32,6 +32,7 @@ public class GameManager : Singleton<GameManager>
     public List<GameObject> startPoints;
 
     [Header("Play")]
+    public bool isSelect;
     public GameObject currentSelect;
     public ObjectType currentSelectType;
 

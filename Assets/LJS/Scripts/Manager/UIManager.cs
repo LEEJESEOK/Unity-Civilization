@@ -67,6 +67,14 @@ public class UIManager : Singleton<UIManager>
     public TextMeshProUGUI buildCountTMP;
     #endregion
 
+    #region City Panel
+    [Header("City Panel")]
+    public TextMeshProUGUI cityFoodTMP;
+    public TextMeshProUGUI cityProductTMP;
+    public TextMeshProUGUI cityGoldTMP;
+    public TextMeshProUGUI cityScienceTMP;
+    #endregion
+
     #region City Product
     [Header("City Product Panel")]
     public GameObject productObjectButtonPrefab;
@@ -187,7 +195,8 @@ public class UIManager : Singleton<UIManager>
 
                             if (tileTemp.GetComponent<TerrainData>() != null && !IsPointerOverUIObject())
                             {
-                                tileTemp.GetComponent<TerrainData>().SetTileInfo();
+                                UpdateTileInfo(tileTemp.GetComponent<TerrainData>());
+                                // tileTemp.GetComponent<TerrainData>().SetTileInfo();
 
 
 
@@ -248,11 +257,25 @@ public class UIManager : Singleton<UIManager>
     {
         tileInfoText.text = type.ToString() + Environment.NewLine;
         tileInfoText.text += "소유자:" + center.ToString() + Environment.NewLine;
-
         tileInfoText.text += "행동력:" + move + Environment.NewLine;
         tileInfoText.text += food + "식량" + Environment.NewLine;
         tileInfoText.text += prod + "생산력" + Environment.NewLine;
     }
+
+    void UpdateTileInfo(TerrainData terrainData)
+    {
+        tileInfoText.text = terrainData.terrainType.ToString() + Environment.NewLine;
+        if (terrainData.myCenter != null)
+        {
+            Territory territory = terrainData.myCenter.GetComponent<Territory>();
+            if (territory != null)
+                tileInfoText.text += "소유자:" + GameManager.instance.players[territory.tt_playerId].name + Environment.NewLine;
+        }
+        tileInfoText.text += "행동력:" + terrainData.output.movePower + Environment.NewLine;
+        tileInfoText.text += terrainData.output.food + "식량" + Environment.NewLine;
+        tileInfoText.text += terrainData.output.productivity + "생산력" + Environment.NewLine;
+    }
+
 
     public static void ResizeLayoutGroup(GameObject layoutObject)
     {
@@ -695,6 +718,16 @@ public class UIManager : Singleton<UIManager>
     }
 
     // 도시 선택했을 때 호출
+    public void UpdateCityPanelData(Territory territory)
+    {
+        cityFoodTMP.text = territory.totalOutput.Totalfood.ToString();
+        cityProductTMP.text = territory.totalOutput.TotalProductivity.ToString();
+        cityGoldTMP.text = territory.totalOutput.TotalGold.ToString();
+        cityScienceTMP.text = territory.totalOutput.TotalScience.ToString();
+
+        UpdateCityProductPanelData(territory);
+    }
+
     // 생산 가능한 건물, 유닛 최신화
     // 도시의 생산력에 따라 남은 턴수 표시
     public void UpdateCityProductPanelData(Territory territory)
