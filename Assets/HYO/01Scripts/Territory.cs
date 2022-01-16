@@ -144,6 +144,7 @@ public class Territory : MonoBehaviour
         for (int i = 0; i < cols.Length; i++)
         {
             TerrainData td = cols[i].GetComponent<TerrainData>();
+
             if (td != null)
             {
                 #region test
@@ -160,6 +161,15 @@ public class Territory : MonoBehaviour
                 td.output.callback = MyCallback;
                 td.myCenter = cityCenter;
             }
+        }
+
+        for(int j = 0; j < data.Count; j++)
+        {
+            Material material = data[j].gameObject.GetComponent<MeshRenderer>().material;
+            material.shader = Shader.Find("Custom/OutlineShader");
+            material.SetColor("_OutlineColor", ColorManager.instance.playerColor[tt_playerId]);
+            //material.color = ColorManager.instance.playerColor[tt_playerId];
+            data[j].gameObject.GetComponent<MeshRenderer>().material = material;
         }
     }
 

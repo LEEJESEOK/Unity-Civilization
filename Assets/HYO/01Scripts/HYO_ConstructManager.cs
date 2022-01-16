@@ -167,7 +167,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                 // cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
 
                 Material material = cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material;
-                material.shader = Shader.Find("Custom/OutlineShader");
+                //material.shader = Shader.Find("Custom/OutlineShader");
+                material.SetColor("_OutlineColor", Color.white);
                 cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material = material;
             }
 
@@ -214,7 +215,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                         // 그린 외곽선 해제
                         // cityTemp.data[i].gameObject.GetComponent<Outline>().OutlineWidth = 0;
                         Material material = cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material;
-                        material.shader = Shader.Find("Standard");
+                        //material.shader = Shader.Find("Standard");
+                        material.SetColor("_OutlineColor", ColorManager.instance.playerColor[cityTemp.tt_playerId]);
                         cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material = material;
                     }
 
@@ -229,7 +231,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
                     // 그린 외곽선 해제
                     // cityTemp.data[i].gameObject.GetComponent<Outline>().OutlineWidth = 0;
                     Material material = cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material;
-                    material.shader = Shader.Find("Standard");
+                    //material.shader = Shader.Find("Standard");
+                    material.SetColor("_OutlineColor", ColorManager.instance.playerColor[cityTemp.tt_playerId]);
                     cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material = material;
                 }
             }
