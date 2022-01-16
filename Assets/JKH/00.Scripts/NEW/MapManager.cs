@@ -11,7 +11,11 @@ public class MapManager : Singleton<MapManager>
     List<TerrainData> terrainDataMap;
     List<JKH_Node> nodeMap;
     Animator anim;
+
     List<JKH_Node> movableList = new List<JKH_Node>();
+    //선제거 위한 List
+    List<JKH_Node> ShaderList = new List<JKH_Node>();
+
     public Unit unitInfo;
     public bool ableToMove = false;
     LayerMask mapLayer;
@@ -22,6 +26,7 @@ public class MapManager : Singleton<MapManager>
     public GameObject moveMark;
     public GameObject enemyMark;
 
+    public Territory cityTemp;
     void Start()
     {
         terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
@@ -339,6 +344,7 @@ public class MapManager : Singleton<MapManager>
 
 
         List<JKH_Node> path = new List<JKH_Node>();
+
         for (int i = 0; i < cols.Count; i++)
         {
             LayerMask unitLayer = LayerMask.GetMask("Unit");
@@ -385,31 +391,40 @@ public class MapManager : Singleton<MapManager>
         }
 
 
-        //Create Cube
+        //Create Cube/ outline
+        //저장소 구하기..
         for (int i = 0; i < movableList.Count; i++)
         {
-            //큐브위치에 유닛이 있으면 안된다
-            //큐브만든다.
-            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            Destroy(cube.GetComponent<BoxCollider>());
-            cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
-            cube.transform.localScale = Vector3.one * .3f;
-            JKH_Node node = movableList[i];
-            while (node.parent != null)
-                node = node.parent;
-            Vector3 pos = node.worldPosition;
+            while (movableList[i].parent != null)
+            {
+                movableList[i] = movableList[i].parent;
+            }
+            int x = movableList[i].gridX;
+            int y = movableList[i].gridY;
+            print("list" + x + ", " + y);
+            terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
 
-            pos.y = -.5f;
-            cube.transform.position = pos;
+            //====
+            //terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<Outline>().OutlineWidth = 10;
+            //cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
 
-            oldCubes.Add(cube);
+            //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            //Destroy(cube.GetComponent<BoxCollider>());
+            //cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
+            //cube.transform.localScale = Vector3.one * .3f;
+            //JKH_Node node = movableList[i];
+            //while (node.parent != null)
+            //    node = node.parent;
+            //Vector3 pos = node.worldPosition;
+
+            //pos.y = -.5f;
+            //cube.transform.position = pos;
+
+            //oldCubes.Add(cube);
         }
-        // 경로 탐색 완료
-        // ToDo 큐브  박기 , 다른거 누르면 바꾼다. @@
     }
 
-
-
+    
     //타일로 이동
     public void onClickMove()
     {
@@ -560,6 +575,8 @@ public class MapManager : Singleton<MapManager>
                                 // 플레이어 오브젝트 위치 이동 칸대로 이동하기
                                 JKH_Node path = movableList[i];
                                 DeleteCube();
+                                
+                                //DeleteCube() 하고나면 path 다시 넣어줘야함.
                                 StartCoroutine(MoveUnitCoroutine(selectedUnit, path, true));
                                 selectedUnit.movePower -= movePower;
 
@@ -580,11 +597,10 @@ public class MapManager : Singleton<MapManager>
                             if ((target.GetPosition() == dest.GetPosition())
                                 && (movePower <= selectedUnit.movePower))
                             {
-                                //print("상대유닛발견실패");
                                 // 플레이어 오브젝트 위치 이동 칸대로 이동하기
                                 JKH_Node path = movableList[i];
                                 DeleteCube();
-
+                                path = movableList[i];
                                 StartCoroutine(MoveUnitCoroutine(selectedUnit, path, false));
                                 // 좌표 이동, 이동력 감소
                                 selectedUnit.movePower -= movePower;
@@ -815,9 +831,12 @@ public class MapManager : Singleton<MapManager>
         // TODO 전투
 
         SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_INFANTRY_WALK);
+        
         //어떤경로로 이동하는지 표시
         while (path.parent != null)
         {
+
+            //print("116");
             yield return null;
 
 
@@ -855,7 +874,7 @@ public class MapManager : Singleton<MapManager>
             // 보정값 안에 들어오면 도착한것으로 판단 + 도착시 1 내위치(들) 바꾸기.
             if ((dest - unit.transform.position).sqrMagnitude < 0.005f)
             {
-                ////2                
+                ////2
                 lrCnt++;
 
                 print("lrCnt: " + lrCnt);
@@ -915,7 +934,7 @@ public class MapManager : Singleton<MapManager>
 
     }
 
-    //함수이름 바꾸기, 
+    //함수이름 바꾸기,
     public void DeleteCube()
     {
         if (oldCubes != null)
@@ -925,9 +944,27 @@ public class MapManager : Singleton<MapManager>
                 Destroy(oldCubes[j]);
             }
         }
+
+
+        // 선 제거. 여기서 path.parent null시킴
+        for (int i = 0; i < movableList.Count; i++)
+        {
+            //while (movableList[i].parent != null)
+            //{
+            //    movableList[i] = movableList[i].parent;
+            //}
+            //int x = movableList[i].gridX;
+            //int y = movableList[i].gridY;
+            //Material material = terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material;
+            //material.shader = Shader.Find("Standard");
+            //terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material = material;
+            //이러면 최근데이터 불러와져서 안지워짐, 근데 다른 타일 누르면 지워짐
+            //그래서 데이터따로 저장하고 불러와서 지운다.
+
+        }
     }
 
-    //막 사라지지 않게 경우의수 추가 
+    //막 사라지지 않게 경우의수 추가
     public void MarkDisabled()
     {
         unitMark.SetActive(false);
