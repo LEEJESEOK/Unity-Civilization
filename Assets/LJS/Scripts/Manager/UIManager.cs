@@ -69,6 +69,7 @@ public class UIManager : Singleton<UIManager>
 
     #region City Panel
     [Header("City Panel")]
+    public Image cityImage;
     public TextMeshProUGUI cityFoodTMP;
     public TextMeshProUGUI cityProductTMP;
     public TextMeshProUGUI cityGoldTMP;
@@ -106,7 +107,7 @@ public class UIManager : Singleton<UIManager>
     public float popupTime = 2;
     public float currentTime;
     bool isOpenPopup;
-    public Text tileInfoText;
+    public TextMeshProUGUI tileInfoText;
     #endregion
 
     // Start is called before the first frame update
@@ -155,6 +156,14 @@ public class UIManager : Singleton<UIManager>
 
         TileInfoPopUp();
     }
+
+    public static void ClearUI()
+    {
+        MapManager.instance.DeleteCube();
+        UIPanelManager.instance.ClosePanel("UNIT_PANEL");
+        UIPanelManager.instance.ClosePanel("CITY_PANEL");
+    }
+
     public void TileInfoPopUp()
     {
         if (Camera.main == null)
@@ -196,22 +205,21 @@ public class UIManager : Singleton<UIManager>
                             if (tileTemp.GetComponent<TerrainData>() != null && !IsPointerOverUIObject())
                             {
                                 UpdateTileInfo(tileTemp.GetComponent<TerrainData>());
-                                // tileTemp.GetComponent<TerrainData>().SetTileInfo();
-
-
 
                                 //위치조정
                                 Vector3 pos = mousePos;
 
 
-                                if (pos.x < 100f) pos.x = 100f;
+                                // if (pos.x < 250f) pos.x = 250f;
 
-                                if (pos.x > 1500f) pos.x = 1500f;
+                                // if (pos.x > (1920f - 250f)) pos.x = (1920f - 250f);
 
-                                if (pos.y < 200f) pos.y = 200f;
+                                // if (pos.y < 300f) pos.y = 300f;
 
-                                if (pos.y > 800f) pos.y = 800f;
+                                // if (pos.y > (1080f - 300f)) pos.y = (1080f - 300f);
 
+                                pos.x = Mathf.Clamp(pos.x, 125, 1920 - 125);
+                                pos.y = Mathf.Clamp(pos.y, 150, 1080 - 150);
 
                                 tileInfo.transform.position = new Vector3(pos.x, pos.y);
 
@@ -264,7 +272,7 @@ public class UIManager : Singleton<UIManager>
 
     void UpdateTileInfo(TerrainData terrainData)
     {
-        tileInfoText.text = terrainData.terrainType.ToString() + Environment.NewLine;
+        tileInfoText.text = "<b>" + terrainData.terrainType.ToString() + "</b>" + Environment.NewLine;
         if (terrainData.myCenter != null)
         {
             Territory territory = terrainData.myCenter.GetComponent<Territory>();
@@ -272,8 +280,8 @@ public class UIManager : Singleton<UIManager>
                 tileInfoText.text += "소유자:" + GameManager.instance.players[territory.tt_playerId].name + Environment.NewLine;
         }
         tileInfoText.text += "행동력:" + terrainData.output.movePower + Environment.NewLine;
-        tileInfoText.text += terrainData.output.food + "식량" + Environment.NewLine;
-        tileInfoText.text += terrainData.output.productivity + "생산력" + Environment.NewLine;
+        tileInfoText.text += terrainData.output.food + "<sprite name=food>" + Environment.NewLine;
+        tileInfoText.text += terrainData.output.productivity + "<sprite name=production>" + Environment.NewLine;
     }
 
 
@@ -745,8 +753,8 @@ public class UIManager : Singleton<UIManager>
             // // 연구되지 않은 오브젝트는 표시하지 않음
             bool isUnlocked = (productObject.requireTechId == TechnologyId.NONE)
                             || (GameManager.instance.currentPlayer.info.technologies.Find(x => x.id == productObject.requireTechId).isResearched);
-            // buttonListeners[i].transform.parent.gameObject.SetActive(isUnlocked);
-            buttonListeners[i].GetComponent<Button>().interactable = isUnlocked;
+            buttonListeners[i].transform.parent.gameObject.SetActive(isUnlocked);
+            // buttonListeners[i].GetComponent<Button>().interactable = isUnlocked;
 
             if (isUnlocked == false)
                 continue;

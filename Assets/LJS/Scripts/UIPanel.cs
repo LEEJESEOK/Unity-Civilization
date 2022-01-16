@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UIPanel : MonoBehaviour
 {
     public string panelName;
-
 
     private void OnEnable()
     {
@@ -21,6 +21,9 @@ public class UIPanel : MonoBehaviour
         switch (panelName)
         {
             case "UNIT_PANEL":
+                // 이동 영역 초기화
+                MapManager.instance.DeleteCube();
+                
                 // 버튼 상태 초기화
                 // TODO 도시 건설 버튼 비활성화
                 UIManager.instance.DisableCityBuild();

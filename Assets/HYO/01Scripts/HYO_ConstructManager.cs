@@ -254,7 +254,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         Territory tt = tileTemp.gameObject.AddComponent<Territory>();
 
         //전체 도시 리스트에 저장
-        GameManager.instance.currentPlayer.info.cities.Add(tileTemp.transform.gameObject);
+        GameManager.instance.currentPlayer.BuildCity(tt);
 
 
         worldOutPut.WorldFood += tt.totalOutput.Totalfood;

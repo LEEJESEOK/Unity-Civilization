@@ -11,7 +11,7 @@ public class PlayerInfo
     // 보유중인 유닛
     public List<Unit> units;
     // 보유한 도시
-    public List<GameObject> cities;
+    public List<Territory> cities;
     // 연구한 기술
     public List<Technology> technologies;
     // 연구중인 기술
@@ -32,7 +32,7 @@ public class PlayerInfo
     public PlayerInfo()
     {
         units = new List<Unit>();
-        cities = new List<GameObject>();
+        cities = new List<Territory>();
         technologies = new List<Technology>();
     }
 }
