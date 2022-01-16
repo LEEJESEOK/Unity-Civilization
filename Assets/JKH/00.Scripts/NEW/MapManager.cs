@@ -400,9 +400,11 @@ public class MapManager : Singleton<MapManager>
                 movableList[i] = movableList[i].parent;
             }
             int x = movableList[i].gridX;
-            int y = movableList[i].gridY; 
+            int y = movableList[i].gridY;
             print("list" + x + ", " + y);
             terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
+
+            //====
             //terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<Outline>().OutlineWidth = 10;
             //cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
 
@@ -573,6 +575,8 @@ public class MapManager : Singleton<MapManager>
                                 // 플레이어 오브젝트 위치 이동 칸대로 이동하기
                                 JKH_Node path = movableList[i];
                                 DeleteCube();
+                                
+                                //DeleteCube() 하고나면 path 다시 넣어줘야함.
                                 StartCoroutine(MoveUnitCoroutine(selectedUnit, path, true));
                                 selectedUnit.movePower -= movePower;
 
@@ -593,11 +597,10 @@ public class MapManager : Singleton<MapManager>
                             if ((target.GetPosition() == dest.GetPosition())
                                 && (movePower <= selectedUnit.movePower))
                             {
-                                //print("상대유닛발견실패");
                                 // 플레이어 오브젝트 위치 이동 칸대로 이동하기
                                 JKH_Node path = movableList[i];
                                 DeleteCube();
-
+                                path = movableList[i];
                                 StartCoroutine(MoveUnitCoroutine(selectedUnit, path, false));
                                 // 좌표 이동, 이동력 감소
                                 selectedUnit.movePower -= movePower;
@@ -828,9 +831,12 @@ public class MapManager : Singleton<MapManager>
         // TODO 전투
 
         SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_INFANTRY_WALK);
+        
         //어떤경로로 이동하는지 표시
         while (path.parent != null)
         {
+
+            //print("116");
             yield return null;
 
 
@@ -940,18 +946,18 @@ public class MapManager : Singleton<MapManager>
         }
 
 
-        // 선 제거.
+        // 선 제거. 여기서 path.parent null시킴
         for (int i = 0; i < movableList.Count; i++)
         {
-            while (movableList[i].parent != null)
-            {
-                movableList[i] = movableList[i].parent;
-            }
-            int x = movableList[i].gridX;
-            int y = movableList[i].gridY;
-            Material material = terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material;
-            material.shader = Shader.Find("Standard");
-            terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material = material;
+            //while (movableList[i].parent != null)
+            //{
+            //    movableList[i] = movableList[i].parent;
+            //}
+            //int x = movableList[i].gridX;
+            //int y = movableList[i].gridY;
+            //Material material = terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material;
+            //material.shader = Shader.Find("Standard");
+            //terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material = material;
             //이러면 최근데이터 불러와져서 안지워짐, 근데 다른 타일 누르면 지워짐
             //그래서 데이터따로 저장하고 불러와서 지운다.
 
