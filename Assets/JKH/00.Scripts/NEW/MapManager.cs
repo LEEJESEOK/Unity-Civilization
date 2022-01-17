@@ -44,7 +44,9 @@ public class MapManager : Singleton<MapManager>
         mapLayer = mapLayer | LayerMask.GetMask("Coast");
         mapLayer = mapLayer | LayerMask.GetMask("Ocean");
 
-        unitLayer = LayerMask.GetMask("Unit");
+        //unitLayer = LayerMask.GetMask("Unit");
+        unitLayer = unitLayer | LayerMask.GetMask("Unit");
+        //unitLayer = unitLayer | LayerMask.GetMask("City");
 
         unitSelecting = false;
     }
@@ -115,7 +117,6 @@ public class MapManager : Singleton<MapManager>
         UnitCheck(targetX, targetY);
     }
 
-    // TODO 광훈 targetX, targetY만 검사하는 코드로 수정
     public void UnitCheck(int targetX, int targetY)
     {
 
@@ -128,6 +129,7 @@ public class MapManager : Singleton<MapManager>
             Ray ray = new Ray(terrainDataMap[j].transform.position, transform.up);
             RaycastHit hitInfo;
             LayerMask layer = LayerMask.GetMask("Unit");
+            layer |= LayerMask.GetMask("City");
 
             // 목표지점에 유닛이 있는 경우
             if (data == terrainDataMap[(targetY * mapWidth) + targetX])
@@ -428,14 +430,16 @@ public class MapManager : Singleton<MapManager>
 
                 //이미 dest.parent=null
                 //print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
+                //  ||hitInfo.transform.gameObject.layer==LayerMask.NameToLayer("City")
 
                 //MoveMark표시
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
                 {
                     if (hitInfo.transform.gameObject.tag == "Map")
                     {
+                        
                         Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
-                        if (tileOnUnit.Length > 0 && tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)
+                        if (tileOnUnit.Length > 0 && (tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId || hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("City")))
                         {
                             enemyMark.SetActive(true);
                             Vector3 enemyMarkPos = hitInfo.transform.position;
