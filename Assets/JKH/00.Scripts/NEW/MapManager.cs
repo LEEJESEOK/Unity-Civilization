@@ -467,8 +467,6 @@ public class MapManager : Singleton<MapManager>
         {
 
 
-
-            print("Get Selected Function");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
 
@@ -523,7 +521,6 @@ public class MapManager : Singleton<MapManager>
 
                     if (hitInfo.transform.gameObject.tag == "Map" && hitInfo.transform.position == dest.worldPosition) //유닛있는데는 표시하면 안됨!
                     {
-                        //print("XXX");
                         dest = movableList[i]; //시작점.
                         int lrCount = 0; //lineRenderer 갯수
                         //int destLen = -1;
@@ -929,11 +926,10 @@ public class MapManager : Singleton<MapManager>
         while (path.parent != null)
         {
 
-            //print("116");
             yield return null;
 
             anim.SetBool("isMove", true);
-
+            Vector3 unitPos= unit.transform.position;
             // 이동방향 : 현재 타일 -> 다음 타일
             dir = path.parent.worldPosition - path.worldPosition;
             dir.Normalize();
@@ -947,11 +943,12 @@ public class MapManager : Singleton<MapManager>
             {
                 ////2
                 lrCount++;
-
-                print("lrCount: " + lrCount);
                 // 다음 타일로 변경
                 path = path.parent;
             }
+            for (int i = 0; i < lrCount + 1; ++i)
+                lr.SetPosition(i, unitPos);
+
             dir = Vector3.zero;
             if (onEnemy == true)
             {
