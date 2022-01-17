@@ -94,10 +94,13 @@ public class Unit : MonoBehaviour
     {
         if (GameManager.instance != null)
             GameManager.instance.DestroyUnit(playerId, this);
+        
+        //if(HexFogManager.instance!=null)
+        //    HexFogManager.instance.
 
         if (MapManager.instance != null)
         {
-            MapManager.instance.DeleteCube();
+            MapManager.instance.InitMoveArea();
 
             MapManager.instance.terrainDataMap[posX + (posY * MapManager.instance.mapWidth)].objectOn.Remove(gameObject);
         }
