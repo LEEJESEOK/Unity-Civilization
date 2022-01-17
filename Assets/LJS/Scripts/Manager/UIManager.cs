@@ -162,6 +162,7 @@ public class UIManager : Singleton<UIManager>
         MapManager.instance.DeleteCube();
         UIPanelManager.instance.ClosePanel("UNIT_PANEL");
         UIPanelManager.instance.ClosePanel("CITY_PANEL");
+        MapManager.instance.MarkDisabled();
     }
 
     public void TileInfoPopUp()
@@ -489,6 +490,13 @@ public class UIManager : Singleton<UIManager>
         }
 
         // TODO 키보드로 화면 이동
+
+        // 카메라가 범위 밖으로 나가지 않도록 보정
+        Vector3 pos = cam.transform.position;
+        pos.x = Mathf.Clamp(pos.x, -28, 8);
+        pos.z = Mathf.Clamp(pos.z, -28, 16);
+
+        cam.transform.position = pos;
     }
 
     // 마우스 휠 입력으로 화면 줌
