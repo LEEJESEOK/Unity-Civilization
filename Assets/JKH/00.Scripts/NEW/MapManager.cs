@@ -157,10 +157,11 @@ public class MapManager : Singleton<MapManager>
         //마우스 클릭한다
         if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
         {
-            
+            MarkDisabled();
+            DeleteCube();
             if (Physics.Raycast(ray, out hitInfo, 1000, layer))
             {
-                
+
                 lr.positionCount = 0;
                 //unitMove
                 selectedUnit = hitInfo.transform.GetComponent<Unit>();
@@ -339,6 +340,9 @@ public class MapManager : Singleton<MapManager>
     }
 
     List<GameObject> oldCubes = new List<GameObject>();
+    public JKH_Node shaderStorage;
+    //임시변수
+
     IEnumerator unitMoveStep(List<Collider> cols, Vector2Int startPos)
     {
 
@@ -394,21 +398,28 @@ public class MapManager : Singleton<MapManager>
         }
 
 
+
+
+
+
         //Create Cube/ outline
         //저장소 구하기..
-        
+
         for (int i = 0; i < movableList.Count; i++)
         {
-            while (movableList[i].parent != null)
+
+            shaderStorage  = movableList[i];
+            while (shaderStorage.parent != null)
             {
-                movableList[i] = movableList[i].parent;
+
+                shaderStorage = shaderStorage.parent;
             }
-            int x = movableList[i].gridX;
-            int y = movableList[i].gridY;
+            int x = shaderStorage.gridX;
+            int y = shaderStorage.gridY;
             print("list" + x + ", " + y);
 
-            
-            
+
+
             terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
             //====
             //terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<Outline>().OutlineWidth = 10;
@@ -428,7 +439,9 @@ public class MapManager : Singleton<MapManager>
 
             //oldCubes.Add(cube);
         }
+
     }
+
 
 
     //타일로 이동
@@ -777,7 +790,7 @@ public class MapManager : Singleton<MapManager>
         float unitMeleeDmg = unit.meleeAttack;
         float unitRangeDmg = unit.rangeAttack;
         float enemyMeleeDmg = 0;
-        float enemyRangeDmg = 0;
+        //float enemyRangeDmg = 0;
         //상대 유닛 변수
         //float enemyHp = enemy.hp;
         if (enemy.GetComponent<CombatUnit>() != null)
@@ -984,22 +997,22 @@ public class MapManager : Singleton<MapManager>
             {
                 Destroy(oldCubes[j]);
             }
-            
         }
-
 
         // 선 제거. 여기서 path.parent null시킴
         for (int i = 0; i < movableList.Count; i++)
         {
-            //while (movableList[i].parent != null)
-            //{
-            //    movableList[i] = movableList[i].parent;
-            //}
-            //int x = movableList[i].gridX;
-            //int y = movableList[i].gridY;
-            //Material material = terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material;
-            //material.shader = Shader.Find("Standard");
-            //terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material = material;
+
+            JKH_Node deleteShader = movableList[i];
+            while (deleteShader.parent != null)
+            {
+                deleteShader = deleteShader.parent;
+            }
+            int x = deleteShader.gridX;
+            int y = deleteShader.gridY;
+            Material material = terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material;
+            material.shader = Shader.Find("Standard");
+            terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material = material;
             //이러면 최근데이터 불러와져서 안지워짐, 근데 다른 타일 누르면 지워짐
             //그래서 데이터따로 저장하고 불러와서 지운다.
             JKH_Node node = movableList[i];
@@ -1008,13 +1021,13 @@ public class MapManager : Singleton<MapManager>
                 node = node.parent;
             }
 
-            
+
             terrainDataMap[node.gridX + node.gridY * mapWidth].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
-            
+
             //terrainDataMap[node.gridX + node.gridY * mapWidth].gameObject.GetComponent<MeshRenderer>().material.SetColor("_OutlineColor", new Color(0, 0, 0, 0));
         }
 
-        
+
     }
 
     //막 사라지지 않게 경우의수 추가
