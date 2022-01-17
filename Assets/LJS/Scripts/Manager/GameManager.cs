@@ -127,6 +127,7 @@ public class GameManager : Singleton<GameManager>
 
         if (currentSelect == null)
         {
+            MapManager.instance.unitSelecting = false;
             UIManager.ClearUI();
         }
         #endregion
