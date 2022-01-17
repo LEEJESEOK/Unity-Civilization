@@ -322,7 +322,7 @@ public class FieldOfView : MonoBehaviour
                         for (int j = 0; j < terrainData.objectOn.Count; j++)
                         {
                             //유닛이 아니면
-                            if (terrainData.objectOn[j].GetComponent<Unit>() == null)
+                            if (  terrainData.objectOn[j].GetComponent<Unit>() == null)
                             {
                                 Building building = terrainData.objectOn[j].GetComponent<Building>();
                                 if (building != null)
