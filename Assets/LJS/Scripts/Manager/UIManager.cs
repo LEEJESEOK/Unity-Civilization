@@ -482,7 +482,7 @@ public class UIManager : Singleton<UIManager>
             cam.transform.position += cameraDir * Time.deltaTime;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) && (GameManager.instance.isCurrentUnit()))
+        if (Input.GetKeyUp(KeyCode.Space) && (GameManager.instance.IsCurrentUnit()))
         {
             Vector3 currentPos = GameManager.instance.currentSelect.transform.position;
             currentPos.y = camOffset.y;
