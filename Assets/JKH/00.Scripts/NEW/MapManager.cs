@@ -8,7 +8,7 @@ public class MapManager : Singleton<MapManager>
     // 선택한 유닛
     public Unit selectedUnit;
     public int mapWidth, mapHeight;
-    List<TerrainData> terrainDataMap;
+    public List<TerrainData> terrainDataMap;
     List<JKH_Node> nodeMap;
     Animator anim;
 
@@ -739,6 +739,7 @@ public class MapManager : Singleton<MapManager>
         else if (enemy.hp <= 0)
         {
             unit.movePower = 0;
+            HexFogManager.instance.findTargetList[enemy.gameObject.GetComponent<Unit>().playerId].Remove(enemy.gameObject.GetComponent<Hideable>());
             Destroy(enemy.gameObject);
             print("enemy cut");
         }
