@@ -244,6 +244,7 @@ public class GameManager : Singleton<GameManager>
         if (unit.playerId != currentPlayerId) return;
 
         UIManager.instance.UpdateUnitData(unit);
+        MapManager.instance.MarkEnabled();
 
         switch (unit.unitType)
         {
@@ -266,6 +267,7 @@ public class GameManager : Singleton<GameManager>
         if (unit.playerId != currentPlayerId) return;
 
         UIManager.instance.UpdateUnitData(unit);
+        MapManager.instance.MarkEnabled();
 
         UIManager.instance.EnableFortification();
 

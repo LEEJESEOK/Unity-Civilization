@@ -857,11 +857,16 @@ public class MapManager : Singleton<MapManager>
             // TODO 전투 애니메이션 시작
             anim.SetBool("isMove", false);
             anim.SetBool("onCombat", true);
-            UnitCombat(selectedUnit.GetComponent<CombatUnit>(), tileOnUnit[0].GetComponent<Unit>());
-            while (!anim.GetCurrentAnimatorStateInfo(0).IsName("onCombat"))
+            while(!anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
             {
                 yield return null;
             }
+            while (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1 )
+            {
+                print("anim");
+                yield return null;
+            }
+            UnitCombat(selectedUnit.GetComponent<CombatUnit>(), tileOnUnit[0].GetComponent<Unit>());
             // TODO 전투 애니메이션 종료
             anim.SetBool("onCombat", false);
 
@@ -871,7 +876,7 @@ public class MapManager : Singleton<MapManager>
         //경로표시 다끝나면 선 지운다.
         lr.positionCount = 0;
         anim.SetBool("isMove", false);
-
+        // TODO 애니메이션 중간에 뒤돔
         unit.transform.forward = Vector3.back;
 
         //유닛 위치 타일에 다시 저장
@@ -898,6 +903,12 @@ public class MapManager : Singleton<MapManager>
             material.shader = Shader.Find("Standard");
             terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material = material;
         }
+    }
+
+    public void MarkEnabled()
+    {
+        unitMark.SetActive(true);
+        moveMark.SetActive(true);
     }
 
     //막 사라지지 않게 경우의수 추가
