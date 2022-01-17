@@ -7215,7 +7215,7 @@ MonoBehaviour:
   unitType: 10003
   movePower: 2
   maxMovePower: 2
-  hp: 100
+  hp: 1
   myTilePos: {fileID: 0}
   posX: 0
   posY: 0
@@ -7223,6 +7223,7 @@ MonoBehaviour:
   meleeAttack: 20
   rangeAttack: 0
   range: 0
+  combatCode: 1
 --- !u!136 &9165424210184169528
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7261,7 +7262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449480a85cd1e654398df00865f24e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 10000
+  playerId: 0
+  type: 0
 --- !u!1 &8046226949639074078
 GameObject:
   m_ObjectHideFlags: 0

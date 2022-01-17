@@ -7,6 +7,7 @@ public class CombatUnit : Unit
     public int meleeAttack;
     public int rangeAttack;
     public int range;
+    public int combatCode;
 
     protected override void Start()
     {
