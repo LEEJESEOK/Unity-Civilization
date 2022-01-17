@@ -416,7 +416,7 @@ public class MapManager : Singleton<MapManager>
             }
             int x = shaderStorage.gridX;
             int y = shaderStorage.gridY;
-            print("list" + x + ", " + y);
+            // print("list" + x + ", " + y);
 
 
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameObjectInfo : MonoBehaviour
 {
-    public int playerId;
+    public int playerId = -1;
     public ObjectType type;
 
     private void Start()
