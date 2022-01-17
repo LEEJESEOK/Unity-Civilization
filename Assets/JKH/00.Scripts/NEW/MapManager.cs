@@ -752,6 +752,19 @@ public class MapManager : Singleton<MapManager>
                 }
             }
         }
+
+        // int originX = node.gridX;
+        // int originY = node.gridY;
+
+        // neighbours.Add(nodeMap[(originX - 1) + (originY - 1) * mapWidth]);
+        // neighbours.Add(nodeMap[(originX) + (originY - 1) * mapWidth]);
+        // neighbours.Add(nodeMap[(originX + 1) + (originY - 1) * mapWidth]);
+
+        // neighbours.Add(nodeMap[(originX - 1) + (originY) * mapWidth]);
+        // neighbours.Add(nodeMap[(originX + 1) + (originY) * mapWidth]);
+
+        // neighbours.Add(nodeMap[(originX) + (originY + 1) * mapWidth]);
+
         return neighbours;
     }
 
