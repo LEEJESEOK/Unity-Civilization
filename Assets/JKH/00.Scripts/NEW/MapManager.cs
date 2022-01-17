@@ -912,7 +912,6 @@ public class MapManager : Singleton<MapManager>
     public void MarkEnabled()
     {
         unitMark.SetActive(true);
-        moveMark.SetActive(true);
     }
 
     //막 사라지지 않게 경우의수 추가

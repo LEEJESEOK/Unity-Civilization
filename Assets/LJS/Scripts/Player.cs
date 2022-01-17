@@ -174,7 +174,7 @@ public class Player : MonoBehaviour
     }
 
     // 새로 연구할 기술 선택
-    public void ChooseResearch(Technology technology)
+    public void SetOngoingTechnology(Technology technology)
     {
         info.ongoingTechnology = technology;
     }

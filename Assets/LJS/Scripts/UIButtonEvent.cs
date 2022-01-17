@@ -127,7 +127,7 @@ public class UIButtonEvent : ButtonEvent<UIButtonId>
             }
         }
 
-        GameManager.instance.currentPlayer.info.ongoingTechnology = selectedTech;
+        GameManager.instance.currentPlayer.SetOngoingTechnology(selectedTech);
         UIManager.instance.UpdateSelectedTechnology(selectedTech);
         print(string.Format("{0} 선택", selectedTech.korean));
     }
