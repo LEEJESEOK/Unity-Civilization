@@ -8,7 +8,7 @@ public class MapManager : Singleton<MapManager>
     // 선택한 유닛
     public Unit selectedUnit;
     public int mapWidth, mapHeight;
-    List<TerrainData> terrainDataMap;
+    public List<TerrainData> terrainDataMap;
     List<JKH_Node> nodeMap;
     Animator anim;
 
@@ -164,7 +164,7 @@ public class MapManager : Singleton<MapManager>
         if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
         {
             MarkDisabled();
-            DeleteCube();
+            InitMoveArea();
             if (Physics.Raycast(ray, out hitInfo, 1000, layer))
             {
 
@@ -317,16 +317,12 @@ public class MapManager : Singleton<MapManager>
         StartCoroutine(unitMoveStep(cols, startPos));
     }
 
-    List<GameObject> oldCubes = new List<GameObject>();
     public JKH_Node shaderStorage;
     //임시변수
 
     IEnumerator unitMoveStep(List<Collider> cols, Vector2Int startPos)
     {
-
-        //oldCube = GameObject.Find("Cube");
-        DeleteCube();
-
+        InitMoveArea();
 
         List<JKH_Node> path = new List<JKH_Node>();
 
@@ -380,33 +376,15 @@ public class MapManager : Singleton<MapManager>
             shaderStorage = movableList[i];
             while (shaderStorage.parent != null)
             {
-
                 shaderStorage = shaderStorage.parent;
             }
             int x = shaderStorage.gridX;
             int y = shaderStorage.gridY;
-            //print("list" + x + ", " + y);
-            //terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
+
             Material material = terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material;
             material.shader = Shader.Find("Custom/OutlineShader");
             material.SetColor("_OutlineColor", Color.white);
             terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material = material;
-            //====
-            //큐브생성부분
-
-            //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            //Destroy(cube.GetComponent<BoxCollider>());
-            //cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
-            //cube.transform.localScale = Vector3.one * .3f;
-            //JKH_Node node = movableList[i];
-            //while (node.parent != null)
-            //    node = node.parent;
-            //Vector3 pos = node.worldPosition;
-
-            //pos.y = -.5f;
-            //cube.transform.position = pos;
-
-            //oldCubes.Add(cube);
         }
 
     }
@@ -430,8 +408,6 @@ public class MapManager : Singleton<MapManager>
     {
         if (ableToMove && selectedUnit.movePower > 0)
         {
-
-
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
 
@@ -499,8 +475,6 @@ public class MapManager : Singleton<MapManager>
                             lr.SetPosition(lrCount, destPos);
                             lrCount++;
                             dest = dest.parent;
-
-
                         }
 
                     }
@@ -521,11 +495,10 @@ public class MapManager : Singleton<MapManager>
                         JKH_Node target = nodeMap[targetX + mapWidth * targetY];
 
 
-
                         for (int i = 0; i < movableList.Count; i++)
                         {
                             //누르면 큐브 사라지게한다.
-                            DeleteCube();
+                            InitMoveArea();
                             Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
 
                             //조건추가 (내 playerID와 목표지점 playerID가 같으면 못간다. 즉, 다르면 적군이고 클릭 할 수 있다.)
@@ -566,7 +539,7 @@ public class MapManager : Singleton<MapManager>
 
                                 // 플레이어 오브젝트 위치 이동 칸대로 이동하기
                                 JKH_Node path = movableList[i];
-                                DeleteCube();
+                                InitMoveArea();
 
                                 //DeleteCube() 하고나면 path 다시 넣어줘야함.
                                 StartCoroutine(MoveUnitCoroutine(selectedUnit, path, true));
@@ -591,7 +564,7 @@ public class MapManager : Singleton<MapManager>
                             {
                                 // 플레이어 오브젝트 위치 이동 칸대로 이동하기
                                 JKH_Node path = movableList[i];
-                                DeleteCube();
+                                InitMoveArea();
                                 path = movableList[i];
                                 StartCoroutine(MoveUnitCoroutine(selectedUnit, path, false));
                                 // 좌표 이동, 이동력 감소
@@ -607,7 +580,6 @@ public class MapManager : Singleton<MapManager>
                                 break;
                             }
 
-
                         }
 
                         // 이동할 수 없는 타일을 선택했을 경우
@@ -615,13 +587,10 @@ public class MapManager : Singleton<MapManager>
                         {
                             print("Failed");
                         }
-
-
                     }
 
                     else
                         print("Click Another One");
-
                 }
         }
 
@@ -653,6 +622,19 @@ public class MapManager : Singleton<MapManager>
                 }
             }
         }
+
+        // int originX = node.gridX;
+        // int originY = node.gridY;
+
+        // neighbours.Add(nodeMap[(originX - 1) + (originY - 1) * mapWidth]);
+        // neighbours.Add(nodeMap[(originX) + (originY - 1) * mapWidth]);
+        // neighbours.Add(nodeMap[(originX + 1) + (originY - 1) * mapWidth]);
+
+        // neighbours.Add(nodeMap[(originX - 1) + (originY) * mapWidth]);
+        // neighbours.Add(nodeMap[(originX + 1) + (originY) * mapWidth]);
+
+        // neighbours.Add(nodeMap[(originX) + (originY + 1) * mapWidth]);
+
         return neighbours;
     }
 
@@ -730,6 +712,7 @@ public class MapManager : Singleton<MapManager>
         else if (enemy.hp <= 0)
         {
             unit.movePower = 0;
+            HexFogManager.instance.findTargetList[enemy.gameObject.GetComponent<Unit>().playerId].Remove(enemy.gameObject.GetComponent<Hideable>());
             Destroy(enemy.gameObject);
             print("enemy cut");
         }
@@ -849,9 +832,9 @@ public class MapManager : Singleton<MapManager>
 
             //Line Renderer의 시작점= UnitPos
             if (lrCount > 1)
-                for (int i = 0; i < lrCount; ++i)                
+                for (int i = 0; i < lrCount; ++i)
                     lr.SetPosition(i, unitPos);
-                
+
 
 
             dir = Vector3.zero;
@@ -876,11 +859,11 @@ public class MapManager : Singleton<MapManager>
             //print(path.gridX + ", " + path.gridY); 
 
             // TODO 전투 애니메이션 시작
+            anim.SetBool("isMove", false);
             anim.SetBool("onCombat", true);
             UnitCombat(selectedUnit.GetComponent<CombatUnit>(), tileOnUnit[0].GetComponent<Unit>());
-            while(!anim.GetCurrentAnimatorStateInfo(0).IsName("onCombat"))
+            while (!anim.GetCurrentAnimatorStateInfo(0).IsName("onCombat"))
             {
-                print("test");
                 yield return null;
             }
             // TODO 전투 애니메이션 종료
@@ -901,20 +884,13 @@ public class MapManager : Singleton<MapManager>
     }
 
     //함수이름 바꾸기,
-    public void DeleteCube()
+    public void InitMoveArea()
     {
-        if (oldCubes != null)
-        {
-            for (int j = 0; j < oldCubes.Count; j++)
-            {
-                Destroy(oldCubes[j]);
-            }
-        }
-
         // 선 제거. 여기서 path.parent null시킴
         for (int i = 0; i < movableList.Count; i++)
         {
-
+            //이러면 최근데이터 불러와져서 안지워짐, 근데 다른 타일 누르면 지워짐
+            //그래서 데이터따로 저장하고 불러와서 지운다.
             JKH_Node deleteShader = movableList[i];
             while (deleteShader.parent != null)
             {
@@ -925,21 +901,7 @@ public class MapManager : Singleton<MapManager>
             Material material = terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material;
             material.shader = Shader.Find("Standard");
             terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material = material;
-            //이러면 최근데이터 불러와져서 안지워짐, 근데 다른 타일 누르면 지워짐
-            //그래서 데이터따로 저장하고 불러와서 지운다.
-            JKH_Node node = movableList[i];
-            while (node.parent != null)
-            {
-                node = node.parent;
-            }
-
-
-            terrainDataMap[node.gridX + node.gridY * mapWidth].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
-
-            //terrainDataMap[node.gridX + node.gridY * mapWidth].gameObject.GetComponent<MeshRenderer>().material.SetColor("_OutlineColor", new Color(0, 0, 0, 0));
         }
-
-
     }
 
     //막 사라지지 않게 경우의수 추가

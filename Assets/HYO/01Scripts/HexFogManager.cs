@@ -49,7 +49,7 @@ public class HexFogManager : Singleton<HexFogManager>
             units.Add(GameManager.instance.players[i].info.units);
             buildings.Add(new List<GameObject>());
         }
-
+        
     }
 
     private void LateUpdate()

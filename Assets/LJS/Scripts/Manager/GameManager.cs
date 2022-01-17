@@ -89,44 +89,20 @@ public class GameManager : Singleton<GameManager>
 
             // CurrentPlayer의 오브젝트만 조작
             // 자신의 오브젝트
-            if ((gameObjectInfo != null) && (gameObjectInfo.playerId == currentPlayerId))
+            if ((gameObjectInfo != null))
             {
                 UIManager.ClearUI();
-                MapManager.instance.DeleteCube();
+                MapManager.instance.InitMoveArea();
                 UIPanelManager.instance.ClosePanel("UNIT_PANEL");
                 UIPanelManager.instance.ClosePanel("CITY_PANEL");
 
-                ObjectType type = gameObjectInfo.type;
-                switch (type)
-                {
-                    case ObjectType.NON_COMBAT_UNIT:
-                        currentSelectType = ObjectType.NON_COMBAT_UNIT;
-                        SelectNonCombatUnit();
-                        break;
-                    case ObjectType.COMBAT_UNIT:
-                        currentSelectType = ObjectType.COMBAT_UNIT;
-                        SelectCombatUnit();
-                        break;
-                    // 도시 건물
-                    // 건물이 있는 타일
-                    case ObjectType.BUILDING:
-                        Territory territory = currentSelect.transform.parent.GetComponent<Territory>();
-
-                        if (territory != null)
-                            UIPanelManager.instance.OpenPanel("CITY_PANEL");
-                        break;
-                    case ObjectType.TILE:
-                        TerrainData terrainData = currentSelect.GetComponent<TerrainData>();
-                        if (terrainData.objectOn.Count > 0)
-                            SelectGameObject(terrainData.objectOn[0]);
-                        // terrain.objectOn[0];
-                        break;
-                }
+                SelectGameObject(currentSelect);
             }
         }
 
         if (currentSelect == null)
         {
+            MapManager.instance.unitSelecting = false;
             UIManager.ClearUI();
         }
         #endregion
@@ -192,6 +168,8 @@ public class GameManager : Singleton<GameManager>
 
         // 현재 플레이어의 차례 종료
         players[_currentPlayerId].EndTurn();
+        UIManager.ClearUI();
+
 
         // 다음 플레이어 차례로 전환
         _currentPlayerId = (_currentPlayerId + 1) % players.Count;
@@ -212,14 +190,59 @@ public class GameManager : Singleton<GameManager>
         return currentSelect != null && currentSelect.GetComponent<Unit>() != null;
     }
 
+    // 첫번째 오브젝트를 마지막 순서로
+    void SetFirstToLastSibling(ref List<GameObject> list)
+    {
+        List<GameObject> temp = new List<GameObject>();
+        for (int i = 1; i < list.Count; ++i)
+        {
+            temp.Add(list[i]);
+        }
+        temp.Add(list[0]);
+        list = temp;
+    }
+
     void SelectGameObject(GameObject go)
     {
+        currentSelect = go;
+        ObjectType type = go.GetComponent<GameObjectInfo>().type;
 
+        switch (type)
+        {
+            case ObjectType.NON_COMBAT_UNIT:
+                currentSelectType = ObjectType.NON_COMBAT_UNIT;
+                SelectNonCombatUnit();
+                break;
+            case ObjectType.COMBAT_UNIT:
+                currentSelectType = ObjectType.COMBAT_UNIT;
+                SelectCombatUnit();
+                break;
+            // 도시 건물
+            // 건물이 있는 타일
+            case ObjectType.BUILDING:
+                Territory territory = currentSelect.transform.parent.GetComponent<Territory>();
+
+                if (territory != null)
+                    UIPanelManager.instance.OpenPanel("CITY_PANEL");
+                break;
+            case ObjectType.TILE:
+                TerrainData terrainData = currentSelect.GetComponent<TerrainData>();
+                print(terrainData.x + ", " + terrainData.y);
+                if (terrainData.objectOn.Count > 0)
+                {
+                    // 타일에 있는 오브젝트 선택
+                    SelectGameObject(terrainData.objectOn[0]);
+                    SetFirstToLastSibling(ref terrainData.objectOn);
+                }
+                break;
+        }
     }
 
     void SelectNonCombatUnit()
     {
         NonCombatUnit unit = currentSelect.GetComponent<NonCombatUnit>();
+        if (unit.playerId != currentPlayerId) return;
+
         UIManager.instance.UpdateUnitData(unit);
 
         switch (unit.unitType)
@@ -240,6 +263,8 @@ public class GameManager : Singleton<GameManager>
     void SelectCombatUnit()
     {
         CombatUnit unit = currentSelect.GetComponent<CombatUnit>();
+        if (unit.playerId != currentPlayerId) return;
+
         UIManager.instance.UpdateUnitData(unit);
 
         UIManager.instance.EnableFortification();

@@ -155,7 +155,7 @@ public class Player : MonoBehaviour
         // 대기중인 유닛의 체력 회복
         for (int i = 0; i < info.units.Count; ++i)
         {
-
+            
         }
 
         isTurn = false;

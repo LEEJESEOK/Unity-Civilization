@@ -99,6 +99,19 @@ public class Unit : MonoBehaviour
         //    HexFogManager.instance.
 
         if (MapManager.instance != null)
-            MapManager.instance.DeleteCube();
+        {
+            MapManager.instance.InitMoveArea();
+
+            MapManager.instance.terrainDataMap[posX + (posY * MapManager.instance.mapWidth)].objectOn.Remove(gameObject);
+        }
+
+        if (HexFogManager.instance != null)
+        {
+
+            while (HexFogManager.instance.prevInFov.Find(x => x == gameObject))
+                HexFogManager.instance.prevInFov.Remove(gameObject);
+            while (HexFogManager.instance.inFov.Find(x => x == gameObject))
+                HexFogManager.instance.inFov.Remove(gameObject);
+        }
     }
 }

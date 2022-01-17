@@ -22,7 +22,7 @@ public class UIPanel : MonoBehaviour
         {
             case "UNIT_PANEL":
                 // 이동 영역 초기화
-                MapManager.instance.DeleteCube();
+                MapManager.instance.InitMoveArea();
                 
                 // 버튼 상태 초기화
                 // TODO 도시 건설 버튼 비활성화
