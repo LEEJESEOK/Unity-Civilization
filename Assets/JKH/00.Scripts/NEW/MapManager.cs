@@ -26,7 +26,8 @@ public class MapManager : Singleton<MapManager>
     public GameObject moveMark;
     public GameObject enemyMark;
 
-    public Territory cityTemp;
+    public bool unitSelecting;
+
     void Start()
     {
         terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
@@ -41,6 +42,7 @@ public class MapManager : Singleton<MapManager>
         mapLayer = mapLayer | LayerMask.GetMask("Coast");
         mapLayer = mapLayer | LayerMask.GetMask("Ocean");
 
+        unitSelecting = false;
     }
 
     void Update()
@@ -155,8 +157,10 @@ public class MapManager : Singleton<MapManager>
         //마우스 클릭한다
         if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
         {
+            
             if (Physics.Raycast(ray, out hitInfo, 1000, layer))
             {
+                
                 lr.positionCount = 0;
                 //unitMove
                 selectedUnit = hitInfo.transform.GetComponent<Unit>();
@@ -168,6 +172,8 @@ public class MapManager : Singleton<MapManager>
                 print("이동력: " + selectedUnit.movePower);
                 print("체력: " + selectedUnit.hp);
                 print("UnitID: " + selectedUnit.playerId);
+
+                unitSelecting = true;
 
                 //생성
                 unitMark.SetActive(true);
@@ -390,6 +396,7 @@ public class MapManager : Singleton<MapManager>
 
         //Create Cube/ outline
         //저장소 구하기..
+        
         for (int i = 0; i < movableList.Count; i++)
         {
             while (movableList[i].parent != null)
@@ -399,8 +406,10 @@ public class MapManager : Singleton<MapManager>
             int x = movableList[i].gridX;
             int y = movableList[i].gridY;
             print("list" + x + ", " + y);
-            terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
 
+            
+            
+            terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
             //====
             //terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<Outline>().OutlineWidth = 10;
             //cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
@@ -974,6 +983,7 @@ public class MapManager : Singleton<MapManager>
             {
                 Destroy(oldCubes[j]);
             }
+            unitSelecting = false;
         }
 
 
@@ -996,8 +1006,14 @@ public class MapManager : Singleton<MapManager>
             {
                 node = node.parent;
             }
+
+            
             terrainDataMap[node.gridX + node.gridY * mapWidth].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Standard");
+            
+            //terrainDataMap[node.gridX + node.gridY * mapWidth].gameObject.GetComponent<MeshRenderer>().material.SetColor("_OutlineColor", new Color(0, 0, 0, 0));
         }
+
+        
     }
 
     //막 사라지지 않게 경우의수 추가

@@ -241,5 +241,22 @@ public class Territory : MonoBehaviour
     void Update()
     {
         RequestedFood();
+            
+    }
+    private void LateUpdate()
+    {
+        if (MapManager.instance.unitSelecting == false)
+        {
+            for (int i = 0; i < data.Count; i++)
+            {
+                if (data[i].gameObject.GetComponent<MeshRenderer>().material.shader != Shader.Find("Custom/OutlineShader"))
+                {
+                    Material material = data[i].gameObject.GetComponent<MeshRenderer>().material;
+                    material.shader = Shader.Find("Custom/OutlineShader");
+                    material.SetColor("_OutlineColor", ColorManager.instance.playerColor[tt_playerId]);
+                    data[i].gameObject.GetComponent<MeshRenderer>().material = material;
+                }
+            }
+        }
     }
 }
