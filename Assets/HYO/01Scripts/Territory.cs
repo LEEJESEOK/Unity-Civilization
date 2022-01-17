@@ -123,6 +123,8 @@ public class Territory : MonoBehaviour
         districtUnderway = new DistrictUnderway(InGameObjectId.NONE, TypeIdBase.NONE, null, -1);
 
         tt_playerId = GameManager.instance.currentPlayerId;
+
+        MapManager.instance.unitSelecting = false;
     }
 
     void Start()
@@ -241,10 +243,7 @@ public class Territory : MonoBehaviour
     void Update()
     {
         RequestedFood();
-            
-    }
-    private void LateUpdate()
-    {
+
         if (MapManager.instance.unitSelecting == false)
         {
             for (int i = 0; i < data.Count; i++)
@@ -258,5 +257,7 @@ public class Territory : MonoBehaviour
                 }
             }
         }
+
     }
+
 }

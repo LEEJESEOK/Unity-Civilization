@@ -905,6 +905,7 @@ public class MapManager : Singleton<MapManager>
         // lr 하나씩 지운다?
         int lrCount = 0;
 
+        unitSelecting = false;
         SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_INFANTRY_WALK);
 
         //어떤경로로 이동하는지 표시
@@ -983,7 +984,7 @@ public class MapManager : Singleton<MapManager>
             {
                 Destroy(oldCubes[j]);
             }
-            unitSelecting = false;
+            
         }
 
 
