@@ -92,7 +92,7 @@ public class GameManager : Singleton<GameManager>
             if ((gameObjectInfo != null))
             {
                 UIManager.ClearUI();
-                MapManager.instance.DeleteCube();
+                MapManager.instance.InitMoveArea();
                 UIPanelManager.instance.ClosePanel("UNIT_PANEL");
                 UIPanelManager.instance.ClosePanel("CITY_PANEL");
 

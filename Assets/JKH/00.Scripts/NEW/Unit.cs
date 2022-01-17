@@ -100,7 +100,7 @@ public class Unit : MonoBehaviour
 
         if (MapManager.instance != null)
         {
-            MapManager.instance.DeleteCube();
+            MapManager.instance.InitMoveArea();
 
             MapManager.instance.terrainDataMap[posX + (posY * MapManager.instance.mapWidth)].objectOn.Remove(gameObject);
         }

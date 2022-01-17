@@ -159,7 +159,7 @@ public class UIManager : Singleton<UIManager>
 
     public static void ClearUI()
     {
-        MapManager.instance.DeleteCube();
+        MapManager.instance.InitMoveArea();
         UIPanelManager.instance.ClosePanel("UNIT_PANEL");
         UIPanelManager.instance.ClosePanel("CITY_PANEL");
         MapManager.instance.MarkDisabled();
