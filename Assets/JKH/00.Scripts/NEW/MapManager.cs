@@ -28,6 +28,8 @@ public class MapManager : Singleton<MapManager>
 
     public bool unitSelecting;
 
+    LayerMask unitLayer;
+
     void Start()
     {
         terrainDataMap = new List<TerrainData>(GetComponentsInChildren<TerrainData>());
@@ -41,6 +43,8 @@ public class MapManager : Singleton<MapManager>
         mapLayer = mapLayer | LayerMask.GetMask("Mountain");
         mapLayer = mapLayer | LayerMask.GetMask("Coast");
         mapLayer = mapLayer | LayerMask.GetMask("Ocean");
+
+        unitLayer = LayerMask.GetMask("Unit");
 
         unitSelecting = false;
     }
@@ -309,34 +313,6 @@ public class MapManager : Singleton<MapManager>
 
 
         StartCoroutine(unitMoveStep(cols, startPos));
-        //for (int i = 0; i < cols.Count; i++)
-        //{
-        //    TerrainData terrainData = cols[i].GetComponent<TerrainData>();
-        //    Vector2Int endPos = new Vector2Int(terrainData.x, terrainData.y);
-        //    if (startPos == endPos)
-        //        continue;
-        //    print(startPos);
-        //    print(endPos);
-        //    List<JKH_Node> path = FindPath(startPos.x, startPos.y, endPos.x, endPos.y);
-        //    if (path == null)
-        //        continue;
-        //    movePower = 0;
-        //    //path값 Null...
-        //    string pathStr = string.Format("({0}, {1})", path[0].gridX, path[0].gridY);
-        //    for (int j = 1; j < path.Count; ++j)
-        //    {
-        //        movePower += path[j].requiredMovePower;
-        //        pathStr += string.Format("-> ({0}, {1})", path[j].gridX, path[j].gridY);
-        //    }
-        //    pathStr += "(이동력 :" + movePower + ")";
-        //    print(pathStr);
-        //    if (selectedUnit.movePower >= movePower)
-        //    {
-        //        //그려주기해야함
-        //        movableList.Add(path[0]);
-        //    }
-
-        //}
     }
 
     List<GameObject> oldCubes = new List<GameObject>();
@@ -354,7 +330,6 @@ public class MapManager : Singleton<MapManager>
 
         for (int i = 0; i < cols.Count; i++)
         {
-            LayerMask unitLayer = LayerMask.GetMask("Unit");
             Collider[] tileOnUnit = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
             //print(tileOnUnit.Length);
             if (tileOnUnit.Length >= 1 && tileOnUnit[0].GetComponent<Unit>().playerId == selectedUnit.playerId) //상대방유닛은 안거르게됨.
@@ -388,27 +363,19 @@ public class MapManager : Singleton<MapManager>
                 pathStr += string.Format("-> ({0}, {1})", path[j].gridX, path[j].gridY);
             }
             pathStr += "(이동력 :" + movePower + ")";
-            //print(pathStr);
-            //print(pathStr);
             if (selectedUnit.movePower >= movePower)
             {
                 //그려주기해야함 corout
                 movableList.Add(path[0]);
             }
         }
-
-
-
-
-
-
         //Create Cube/ outline
         //저장소 구하기..
 
         for (int i = 0; i < movableList.Count; i++)
         {
 
-            shaderStorage  = movableList[i];
+            shaderStorage = movableList[i];
             while (shaderStorage.parent != null)
             {
 
@@ -416,18 +383,14 @@ public class MapManager : Singleton<MapManager>
             }
             int x = shaderStorage.gridX;
             int y = shaderStorage.gridY;
-            print("list" + x + ", " + y);
-
-
-
+            //print("list" + x + ", " + y);
             //terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
             Material material = terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material;
-            material.shader = Shader.Find("Custom/OutlineShader");           
+            material.shader = Shader.Find("Custom/OutlineShader");
             material.SetColor("_OutlineColor", Color.white);
             terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<MeshRenderer>().material = material;
             //====
-            //terrainDataMap[(y * mapWidth) + x].gameObject.GetComponent<Outline>().OutlineWidth = 10;
-            //cityTemp.data[i].gameObject.GetComponent<MeshRenderer>().material.shader = Shader.Find("Custom/OutlineShader");
+            //큐브생성부분
 
             //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             //Destroy(cube.GetComponent<BoxCollider>());
@@ -495,7 +458,6 @@ public class MapManager : Singleton<MapManager>
                 {
                     if (hitInfo.transform.gameObject.tag == "Map")
                     {
-                        LayerMask unitLayer = LayerMask.GetMask("Unit");
                         Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
                         if (tileOnUnit.Length > 0 && tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)
                         {
@@ -536,76 +498,12 @@ public class MapManager : Singleton<MapManager>
 
 
                         }
-                        #region 보기싫은
-                        //dest = movableList[i]; //또?
-                        //print(dest);
-                        //print(dest.parent);
-                        //print(destLen);
-                        //while (dest != null)
-                        //while(destLen!=0)
-                        //{
-                        //print(dest.gridX + ", " + dest.gridY);
-                        //dest-dest.parent 선긋기
 
-                        //if (dest.parent == null)
-                        //{
-                        //    targetPos = hitInfo.transform.position;
-                        //}
-                        //else
-                        //{
-                        //    targetPos = dest.parent.worldPosition;
-
-                        //}
-                        //dest.worldPosition.y = -.7f;
-                        //dest.parent.worldPosition.y = -.7f;
-                        //lr.SetPosition(0, dest.worldPosition);
-                        //lr.SetPosition(1, targetPos);
-
-                        //dest.worldPosition.y = -.7f;
-                        ///----
-                        //lr.SetPosition(0, dest.worldPosition);
-                        //if (dest.parent == null)
-                        //{
-                        //    targetPos = selectedUnit.transform.position;
-                        //}
-                        //else if (dest.parent != null)
-                        //{
-                        //    targetPos = dest.worldPosition;
-                        //}
-                        //targetPos.y = -.7f;
-                        //lr.SetPosition(1, targetPos);
-                        //dest = dest.parent;
-                        //destLen--;
-                        //아무튼이거이상함
-                        //}
-                        #endregion
                     }
                 }
                 else
                     lr.positionCount = 0;
-
-                //이동 가능한 타일 목록(시각화) ==> 너무많이 생성된다? 계속update가 된다.
-                //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                //cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
-                //cube.transform.localScale = Vector3.one * .3f;
-                //Vector3 pos = dest.worldPosition;
-                //pos.y = -.5f;
-                //cube.transform.position = pos;
             }
-
-            //print(movableList.Count);
-            //for (int k = 0; k < movableList.Count; k++)
-            //{
-            //    JKH_Node dest = movableList[k];
-            //    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            //    cube.GetComponent<Renderer>().material.color = new Color(0, .5f, 0, .3f);
-            //    cube.transform.localScale = Vector3.one * .3f;
-            //    Vector3 pos = dest.worldPosition;
-            //    pos.y = -.5f;
-            //    cube.transform.position = pos;
-
-            //}
-
             if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject() && selectedUnit.movePower > 0)
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
                 {
@@ -624,7 +522,6 @@ public class MapManager : Singleton<MapManager>
                         {
                             //누르면 큐브 사라지게한다.
                             DeleteCube();
-                            LayerMask unitLayer = LayerMask.GetMask("Unit");
                             Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
 
                             //조건추가 (내 playerID와 목표지점 playerID가 같으면 못간다. 즉, 다르면 적군이고 클릭 할 수 있다.)
@@ -782,7 +679,7 @@ public class MapManager : Singleton<MapManager>
     public int damageReceived;
 
     //enemy부분 combatUnit일떄랑 그렇지않을떄랑 경우의수 나누어서 본다.
-    public void UnitCombat(CombatUnit unit, Unit enemy)
+    void UnitCombat(CombatUnit unit, Unit enemy)
     {
         print("이함수 실행");
 
@@ -830,15 +727,14 @@ public class MapManager : Singleton<MapManager>
         {
             unit.movePower = 0;
             Destroy(enemy.gameObject);
-            print("enemy has been slained");
+            print("enemy cut");
         }
 
         if (unit.hp <= 0)
         {
             Destroy(unit.gameObject);
-            print("ally has been slained");
+            print("ally cut");
         }
-
     }
 
 
@@ -929,7 +825,7 @@ public class MapManager : Singleton<MapManager>
             yield return null;
 
             anim.SetBool("isMove", true);
-            Vector3 unitPos= unit.transform.position;
+            Vector3 unitPos = unit.transform.position;
             // 이동방향 : 현재 타일 -> 다음 타일
             dir = path.parent.worldPosition - path.worldPosition;
             dir.Normalize();
@@ -946,8 +842,13 @@ public class MapManager : Singleton<MapManager>
                 // 다음 타일로 변경
                 path = path.parent;
             }
-            for (int i = 0; i < lrCount + 1; ++i)
-                lr.SetPosition(i, unitPos);
+
+            //Line Renderer의 시작점= UnitPos
+            if (lrCount > 1)
+                for (int i = 0; i < lrCount; ++i)                
+                    lr.SetPosition(i, unitPos);
+                
+
 
             dir = Vector3.zero;
             if (onEnemy == true)
@@ -960,20 +861,26 @@ public class MapManager : Singleton<MapManager>
                 lastPos = path.worldPosition;
 
             }
-            //lr 제거..
-
-
-
 
         }
+
         if (onEnemy == true)
         {
-            LayerMask unitLayer = LayerMask.GetMask("Unit");
             // overlapsphere path 타일에 있는 상대 유닛 찾아옴
-            Collider[] tileOnUnit = Physics.OverlapSphere(path.worldPosition, .3f, unitLayer);
-            print(path.gridX + ", " + path.gridY);
+            //Collider[] tileOnUnit = Physics.OverlapSphere(path.worldPosition, .3f, unitLayer);
+            List<GameObject> tileOnUnit = terrainDataMap[path.gridX + (path.gridY * mapWidth)].objectOn;
+            //print(path.gridX + ", " + path.gridY); 
 
+            // TODO 전투 애니메이션 시작
+            anim.SetBool("onCombat", true);
             UnitCombat(selectedUnit.GetComponent<CombatUnit>(), tileOnUnit[0].GetComponent<Unit>());
+            while(!anim.GetCurrentAnimatorStateInfo(0).IsName("onCombat"))
+            {
+                print("test");
+                yield return null;
+            }
+            // TODO 전투 애니메이션 종료
+            anim.SetBool("onCombat", false);
 
             //Todo위치시켜주기 else도 마찬가지로 시도본다.?
         }
