@@ -18,7 +18,8 @@ public class Unit : MonoBehaviour
     //Unit's stat
     public float movePower;
     public float maxMovePower = 2;
-    public int hp = 100;
+    public int maxHp = 100;
+    public int hp;
 
     //unit tilePos
     public GameObject myTilePos;
@@ -29,6 +30,8 @@ public class Unit : MonoBehaviour
 
     protected virtual void Start()
     {
+        hp = maxHp;
+
         animator = GetComponent<Animator>();
 
         CheckMyPos();
@@ -94,7 +97,7 @@ public class Unit : MonoBehaviour
     {
         if (GameManager.instance != null)
             GameManager.instance.DestroyUnit(playerId, this);
-        
+
         //if(HexFogManager.instance!=null)
         //    HexFogManager.instance.
 

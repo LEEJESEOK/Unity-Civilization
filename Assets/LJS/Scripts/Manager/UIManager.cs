@@ -482,11 +482,13 @@ public class UIManager : Singleton<UIManager>
             cam.transform.position += cameraDir * Time.deltaTime;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space) && (GameManager.instance.isCurrentUnit()))
+        if (Input.GetKeyUp(KeyCode.Space) && (GameManager.instance.IsCurrentUnit()))
         {
             Vector3 currentPos = GameManager.instance.currentSelect.transform.position;
-            cam.transform.position = currentPos + camOffset;
+            currentPos.y = camOffset.y;
+            currentPos.z += camOffset.z;
 
+            cam.transform.position = currentPos;
         }
 
         // TODO 키보드로 화면 이동

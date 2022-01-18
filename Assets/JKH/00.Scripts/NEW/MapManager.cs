@@ -44,7 +44,9 @@ public class MapManager : Singleton<MapManager>
         mapLayer = mapLayer | LayerMask.GetMask("Coast");
         mapLayer = mapLayer | LayerMask.GetMask("Ocean");
 
-        unitLayer = LayerMask.GetMask("Unit");
+        //unitLayer = LayerMask.GetMask("Unit");
+        unitLayer = unitLayer | LayerMask.GetMask("Unit");
+        //unitLayer = unitLayer | LayerMask.GetMask("City");
 
         unitSelecting = false;
     }
@@ -115,7 +117,6 @@ public class MapManager : Singleton<MapManager>
         UnitCheck(targetX, targetY);
     }
 
-    // TODO 광훈 targetX, targetY만 검사하는 코드로 수정
     public void UnitCheck(int targetX, int targetY)
     {
 
@@ -128,6 +129,7 @@ public class MapManager : Singleton<MapManager>
             Ray ray = new Ray(terrainDataMap[j].transform.position, transform.up);
             RaycastHit hitInfo;
             LayerMask layer = LayerMask.GetMask("Unit");
+            layer |= LayerMask.GetMask("City");
 
             // 목표지점에 유닛이 있는 경우
             if (data == terrainDataMap[(targetY * mapWidth) + targetX])
@@ -149,51 +151,62 @@ public class MapManager : Singleton<MapManager>
     public void getUnitInfo()
     {
         if (Camera.main == null)
-        {
             return;
-        }
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitInfo;
+        // 선택한 오브젝트가 유닛
+        if (GameManager.instance.IsCurrentUnit() == false)
+            return;
+        // 현재 선택된 유닛과 새로 선택한 유닛이 다를 때
+        if (selectedUnit == GameManager.instance.GetCurrentUnit())
+            return;
 
-        LayerMask layer = LayerMask.GetMask("Unit");
-        //==LayerMask layer = 1 << LayerMask.NameToLayer("Unit");
+        selectedUnit = GameManager.instance.GetCurrentUnit();
+        anim = selectedUnit.animator;
 
-        //마우스 클릭한다
-        if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
-        {
-            MarkDisabled();
-            InitMoveArea();
-            if (Physics.Raycast(ray, out hitInfo, 1000, layer))
-            {
+        ableToMove = false;
 
-                lr.positionCount = 0;
-                //unitMove
-                selectedUnit = hitInfo.transform.GetComponent<Unit>();
-                anim = hitInfo.transform.GetComponent<Animator>();
-                ableToMove = false;
+        unitSelecting = true;
 
-                // 유닛 정보 출력(확인용)
-                print(selectedUnit.gameObject.name);
-                print("이동력: " + selectedUnit.movePower);
-                print("체력: " + selectedUnit.hp);
-                print("UnitID: " + selectedUnit.playerId);
+        MarkEnabled();
 
-                unitSelecting = true;
-
-                //생성
-                unitMark.SetActive(true);
-                Vector3 markPos = selectedUnit.transform.position;
-                markPos.y += 0.01f;
-                unitMark.transform.position = markPos;
-
-                //selectedUnit.transform.GetChild(1).gameObject.SetActive(true);
+        CheckAbleToGo();
 
 
-                //유닛이있는 타일의 정보를 가져온다.
+        // //마우스 클릭한다
+        // if (Input.GetButtonDown("Fire1") && !UIManager.IsPointerOverUIObject())
+        // {
+        //     MarkDisabled();
+        //     InitMoveArea();
+        //     if (Physics.Raycast(ray, out hitInfo, 1000, layer))
+        //     {
 
-                CheckAbleToGo();
-            }
-        }
+        //         lr.positionCount = 0;
+        //         //unitMove
+        //         selectedUnit = hitInfo.transform.GetComponent<Unit>();
+        //         anim = hitInfo.transform.GetComponent<Animator>();
+        //         ableToMove = false;
+
+        //         // 유닛 정보 출력(확인용)
+        //         print(selectedUnit.gameObject.name);
+        //         print("이동력: " + selectedUnit.movePower);
+        //         print("체력: " + selectedUnit.hp);
+        //         print("UnitID: " + selectedUnit.playerId);
+
+        //         unitSelecting = true;
+
+        //         //생성
+        //         unitMark.SetActive(true);
+        //         Vector3 markPos = selectedUnit.transform.position;
+        //         markPos.y += 0.01f;
+        //         unitMark.transform.position = markPos;
+
+        //         //selectedUnit.transform.GetChild(1).gameObject.SetActive(true);
+
+
+        //         //유닛이있는 타일의 정보를 가져온다.
+
+        //         CheckAbleToGo();
+        //     }
+        // }
     }
 
     // FindPath
@@ -428,14 +441,16 @@ public class MapManager : Singleton<MapManager>
 
                 //이미 dest.parent=null
                 //print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
+                //  ||hitInfo.transform.gameObject.layer==LayerMask.NameToLayer("City")
 
                 //MoveMark표시
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
                 {
                     if (hitInfo.transform.gameObject.tag == "Map")
                     {
+
                         Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
-                        if (tileOnUnit.Length > 0 && tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)
+                        if (tileOnUnit.Length > 0 && (tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId || hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("City")))
                         {
                             enemyMark.SetActive(true);
                             Vector3 enemyMarkPos = hitInfo.transform.position;
@@ -663,6 +678,8 @@ public class MapManager : Singleton<MapManager>
     //enemy부분 combatUnit일떄랑 그렇지않을떄랑 경우의수 나누어서 본다.
     void UnitCombat(CombatUnit unit, Unit enemy)
     {
+        if (unit == null)
+            return;
         print("이함수 실행");
 
         //아군 유닛 변수
@@ -799,6 +816,8 @@ public class MapManager : Singleton<MapManager>
         int lrCount = 0;
 
         unitSelecting = false;
+
+        anim.SetBool("isMove", true);
         SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_INFANTRY_WALK);
 
         //어떤경로로 이동하는지 표시
@@ -807,7 +826,6 @@ public class MapManager : Singleton<MapManager>
 
             yield return null;
 
-            anim.SetBool("isMove", true);
             Vector3 unitPos = unit.transform.position;
             // 이동방향 : 현재 타일 -> 다음 타일
             dir = path.parent.worldPosition - path.worldPosition;
@@ -846,6 +864,9 @@ public class MapManager : Singleton<MapManager>
             }
 
         }
+        //경로표시 다끝나면 선 지운다.
+        lr.positionCount = 0;
+        anim.SetBool("isMove", false);
 
         if (onEnemy == true)
         {
@@ -857,16 +878,11 @@ public class MapManager : Singleton<MapManager>
             // TODO 전투 애니메이션 시작
             anim.SetBool("isMove", false);
             anim.SetBool("onCombat", true);
-
-            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_UNIT_COMBAT);
-
-
-
-            while(!anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
+            while (!anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
             {
                 yield return null;
             }
-            while (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1 )
+            while (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
             {
                 print("anim");
                 yield return null;
@@ -879,9 +895,6 @@ public class MapManager : Singleton<MapManager>
             //Todo위치시켜주기 else도 마찬가지로 시도본다.?
         }
 
-        //경로표시 다끝나면 선 지운다.
-        lr.positionCount = 0;
-        anim.SetBool("isMove", false);
         // TODO 애니메이션 중간에 뒤돔
         unit.transform.forward = Vector3.back;
 
@@ -913,8 +926,11 @@ public class MapManager : Singleton<MapManager>
 
     public void MarkEnabled()
     {
+        Vector3 markPos = selectedUnit.transform.position;
+        markPos.y += 0.1f;
+        unitMark.transform.position = markPos;
+
         unitMark.SetActive(true);
-        moveMark.SetActive(true);
     }
 
     //막 사라지지 않게 경우의수 추가

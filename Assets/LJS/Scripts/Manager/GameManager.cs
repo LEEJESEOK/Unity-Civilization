@@ -98,6 +98,7 @@ public class GameManager : Singleton<GameManager>
 
                 SelectGameObject(currentSelect);
             }
+
         }
 
         if (currentSelect == null)
@@ -185,9 +186,17 @@ public class GameManager : Singleton<GameManager>
         players[playerId].info.units.Remove(unit);
     }
 
-    public bool isCurrentUnit()
+    public bool IsCurrentUnit()
     {
         return currentSelect != null && currentSelect.GetComponent<Unit>() != null;
+    }
+
+    public Unit GetCurrentUnit()
+    {
+        if (IsCurrentUnit())
+            return currentSelect.GetComponent<Unit>();
+        else
+            return null;
     }
 
     // 첫번째 오브젝트를 마지막 순서로
@@ -227,7 +236,6 @@ public class GameManager : Singleton<GameManager>
                 break;
             case ObjectType.TILE:
                 TerrainData terrainData = currentSelect.GetComponent<TerrainData>();
-                print(terrainData.x + ", " + terrainData.y);
                 if (terrainData.objectOn.Count > 0)
                 {
                     // 타일에 있는 오브젝트 선택
@@ -241,10 +249,13 @@ public class GameManager : Singleton<GameManager>
     void SelectNonCombatUnit()
     {
         NonCombatUnit unit = currentSelect.GetComponent<NonCombatUnit>();
-        if (unit.playerId != currentPlayerId) return;
+        if (unit.playerId != currentPlayerId)
+        {
+            currentSelect = null;
+            return;
+        }
 
         UIManager.instance.UpdateUnitData(unit);
-        MapManager.instance.MarkEnabled();
 
         switch (unit.unitType)
         {
@@ -264,10 +275,13 @@ public class GameManager : Singleton<GameManager>
     void SelectCombatUnit()
     {
         CombatUnit unit = currentSelect.GetComponent<CombatUnit>();
-        if (unit.playerId != currentPlayerId) return;
+        if (unit.playerId != currentPlayerId)
+        {
+            currentSelect = null;
+            return;
+        }
 
         UIManager.instance.UpdateUnitData(unit);
-        MapManager.instance.MarkEnabled();
 
         UIManager.instance.EnableFortification();
 
