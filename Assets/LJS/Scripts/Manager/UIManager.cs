@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Threading.Tasks;
 using System.Text;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -86,6 +87,15 @@ public class UIManager : Singleton<UIManager>
     public Transform goldUnitContent;
     #endregion
 
+    #region TileInfo UI
+    public GameObject tileInfo;
+    public Vector3 mousePos;
+    public float popupTime = 2;
+    public float currentTime;
+    bool isOpenPopup;
+    public TextMeshProUGUI tileInfoText;
+    #endregion
+
     RectTransform rect;
     UIButtonEvent uIButtonEvent;
 
@@ -100,15 +110,8 @@ public class UIManager : Singleton<UIManager>
     Vector2 prevMousePosition;
     static Vector3 camOffset = new Vector3(0, 3, -4);
     bool isLeftPressed;
+    bool isInit;
 
-    #region TileInfo UI
-    public GameObject tileInfo;
-    public Vector3 mousePos;
-    public float popupTime = 2;
-    public float currentTime;
-    bool isOpenPopup;
-    public TextMeshProUGUI tileInfoText;
-    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -135,6 +138,8 @@ public class UIManager : Singleton<UIManager>
     // Update is called once per frame
     void Update()
     {
+        if (isInit == false)
+            return;
 
         if (GameManager.instance.test)
         {
@@ -313,7 +318,7 @@ public class UIManager : Singleton<UIManager>
         return Resources.LoadAll<Sprite>(path);
     }
 
-    public void Initialize()
+    public Task Initialize()
     {
         if (mouseCapture)
             // 마우스 커서가 윈도우 밖으로 나가지 않도록 함
@@ -321,6 +326,8 @@ public class UIManager : Singleton<UIManager>
 
         InitResourcesIndicator();
         InitUnitPanel();
+        isInit = true;
+        return Task.CompletedTask;
     }
 
     void InitResourcesIndicator()

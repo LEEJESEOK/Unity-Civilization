@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 
 public class SoundManager : Singleton<SoundManager>
@@ -33,11 +34,22 @@ public class SoundManager : Singleton<SoundManager>
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
-
-        if (SceneManager.GetActiveScene().name == "StartScene")
+        switch (SceneManager.GetActiveScene().name)
         {
-            PlayBGM(BGM_TYPE.BGM_START);
+            case "StartScene":
+                PlayBGM(BGM_TYPE.BGM_START);
+                break;
+            case "GameScene":
+                PlayBGM(BGM_TYPE.BGM_INGAME);
+                break;
+            case "Victory":
+                PlayBGM(BGM_TYPE.BGM_RESULT);
+                PlayEFT(EFT_TYPE.EFT_VICTORY);
+                break;
+            case "Defeat":
+                PlayBGM(BGM_TYPE.BGM_RESULT);
+                PlayEFT(EFT_TYPE.EFT_DEFEAT);
+                break;
         }
     }
 
@@ -45,7 +57,6 @@ public class SoundManager : Singleton<SoundManager>
     {
         audioS_BGM.clip = bgmAudio[(int)type];
         audioS_BGM.Play();
-
     }
     public void StopBGM()
     {
@@ -59,6 +70,6 @@ public class SoundManager : Singleton<SoundManager>
 
     public void PlayEFT(EFT_TYPE type)
     {
-        audioS_EFT.PlayOneShot(eftAudio[(int)type]);       
+        audioS_EFT.PlayOneShot(eftAudio[(int)type]);
     }
 }

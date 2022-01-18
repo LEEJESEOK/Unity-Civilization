@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.Threading.Tasks;
+
 public class GameManager : Singleton<GameManager>
 {
     [Header("Test")]
@@ -45,18 +47,21 @@ public class GameManager : Singleton<GameManager>
 
     LayerMask fogLayer;
 
+    bool isInit = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Initialize();
-
-        StartCoroutine(DelayedStartCoroutine());
+        StartGame();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isInit == false)
+            return;
+
         #region object select
         // TODO MouseDown 이후에 mouse좌표가 바뀌면 드래그
         if ((!UIManager.IsPointerOverUIObject()) && Input.GetMouseButtonDown(0))
@@ -123,16 +128,28 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    void Initialize()
+    async void StartGame()
+    {
+        await Initialize();
+        isInit = true;
+
+        // Start InGame BGM
+
+        // 첫번째 플레이어의 차례로 시작
+        players[_currentPlayerId].StartTurn();
+    }
+
+    async Task Initialize()
     {
         fogLayer = LayerMask.GetMask("HexFog");
 
-        InitPlyaers();
+        await InitPlyaers();
 
-        UIManager.instance.Initialize();
+        await UIManager.instance.Initialize();
+
     }
 
-    void InitPlyaers()
+    async Task InitPlyaers()
     {
         for (int i = 0; i < initPlayerCount; ++i)
         {
@@ -141,18 +158,7 @@ public class GameManager : Singleton<GameManager>
             players[i].playerId = i;
         }
 
-        HexFogManager.instance.init(initPlayerCount);
-    }
-
-    IEnumerator DelayedStartCoroutine()
-    {
-        yield return null;
-
-        // Start InGame BGM
-        SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_INGAME);
-
-        // 첫번째 플레이어의 차례로 시작
-        players[_currentPlayerId].StartTurn();
+        await HexFogManager.instance.Initialize(initPlayerCount);
     }
 
     // 현재 플레이어의 차례를 마치고 다음 플레이어 차례 시작

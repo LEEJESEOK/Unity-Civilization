@@ -910,18 +910,19 @@ public class MapManager : Singleton<MapManager>
             }
             while (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
             {
-                print("anim");
                 yield return null;
             }
             UnitCombat(selectedUnit.GetComponent<CombatUnit>(), tileOnUnit[0].GetComponent<Unit>());
-
             // TODO 전투 애니메이션 종료
             anim.SetBool("onCombat", false);
 
             //Todo위치시켜주기 else도 마찬가지로 시도본다.?
         }
 
-        // TODO 애니메이션 중간에 뒤돔
+        //경로표시 다끝나면 선 지운다.
+        lr.positionCount = 0;
+        anim.SetBool("isMove", false);
+
         unit.transform.forward = Vector3.back;
 
         //유닛 위치 타일에 다시 저장

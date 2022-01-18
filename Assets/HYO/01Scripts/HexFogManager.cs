@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.Threading.Tasks;
+
 public class HexFogManager : Singleton<HexFogManager>
 {
     [SerializeField]
@@ -40,7 +42,7 @@ public class HexFogManager : Singleton<HexFogManager>
         //FindOtherUnitsBuildings(currentPlayerId);
     }
 
-    public void init(int playerCount)
+    public Task Initialize(int playerCount)
     {
         for (int i = 0; i < playerCount; ++i)
         {
@@ -51,7 +53,8 @@ public class HexFogManager : Singleton<HexFogManager>
             units.Add(GameManager.instance.players[i].info.units);
             buildings.Add(new List<GameObject>());
         }
-        
+
+        return Task.CompletedTask;
     }
 
     private void LateUpdate()

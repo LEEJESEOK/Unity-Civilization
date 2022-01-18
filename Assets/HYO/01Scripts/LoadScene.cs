@@ -4,36 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadScene : Singleton<LoadScene>
-{ 
-    void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-
-        if (SceneManager.GetActiveScene().name == "StartScene")
-        {
-            SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_START);
-        }  
-     
-    }
+{
     void Update()
-    {     
+    {
         //victory
         if (Input.GetKeyDown(KeyCode.V))
         {
-            SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_RESULT);
-            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_VICTORY);
-            SceneManager.LoadScene("Victory");
+            StartCoroutine(LoadSceneAsnyc("Victory"));
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_RESULT);
-            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_DEFEAT);
-            SceneManager.LoadScene("Defeat");
+            StartCoroutine(LoadSceneAsnyc("Defeat"));
         }
     }
     public void StartGameBTN()
     {
-        SceneManager.LoadScene("GameScene");
+        StartCoroutine(LoadSceneAsnyc("GameScene"));
     }
     public void ExitGameBTN()
     {
@@ -41,18 +27,29 @@ public class LoadScene : Singleton<LoadScene>
     }
     public void BackToMainBTN()
     {
-        SceneManager.LoadScene("StartScene");
+        StartCoroutine(LoadSceneAsnyc("StartScene"));
     }
     public void Victory()
     {
         SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_RESULT);
         SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_VICTORY);
-        SceneManager.LoadScene("Victory");
+        StartCoroutine(LoadSceneAsnyc("Defeat"));
     }
-    public void Defeat()
+    public async void Defeat()
     {
         SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_RESULT);
         SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_DEFEAT);
-        SceneManager.LoadScene("Defeat");
+        StartCoroutine(LoadSceneAsnyc("Defeat"));
+    }
+
+    IEnumerator LoadSceneAsnyc(string sceneName)
+    {
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+        while (!asyncOperation.isDone)
+        {
+            yield return null;
+        }
+        asyncOperation.allowSceneActivation = true;
+
     }
 }

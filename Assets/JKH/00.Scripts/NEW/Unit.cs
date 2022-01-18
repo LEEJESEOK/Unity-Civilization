@@ -113,7 +113,6 @@ public class Unit : MonoBehaviour
 
         if (HexFogManager.instance != null)
         {
-
             while (HexFogManager.instance.prevInFov.Find(x => x == gameObject))
                 HexFogManager.instance.prevInFov.Remove(gameObject);
             while (HexFogManager.instance.inFov.Find(x => x == gameObject))

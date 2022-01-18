@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8323985047734391829
 Transform:
   m_ObjectHideFlags: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2514b8362927c5d4ea873b68ea0e763a, type: 3}
   audioS_EFT: {fileID: 8323985047734391830}
   eftAudio:
-  - {fileID: 8300000, guid: 5993ede7312b90044962b9fde16c1c87, type: 3}
+  - {fileID: 8300000, guid: 9fb8b6340e574e44c838f38f84409c7a, type: 3}
   - {fileID: 8300000, guid: 234dcd2c676a598469d1b893ab94037a, type: 3}
   - {fileID: 8300000, guid: 67f258d0a76f49f43b8dd3422a90702a, type: 3}
   - {fileID: 8300000, guid: 3d247170743764944a5b7990f03370ac, type: 3}
