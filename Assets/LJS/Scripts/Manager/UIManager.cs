@@ -132,7 +132,7 @@ public class UIManager : Singleton<UIManager>
         uIButtonEvent = GetComponent<UIButtonEvent>();
 
         // BuildFacilityButton 이벤트 추가
-
+        StartCoroutine(CheckMouseOnTile());
     }
 
     // Update is called once per frame
@@ -168,6 +168,22 @@ public class UIManager : Singleton<UIManager>
         UIPanelManager.instance.ClosePanel("UNIT_PANEL");
         UIPanelManager.instance.ClosePanel("CITY_PANEL");
         MapManager.instance.MarkDisabled();
+    }
+
+    IEnumerator CheckMouseOnTile()
+    {
+        yield return null;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        // if (Physics.Raycast(ray, out hit, float.MaxValue, ))
+        // {
+        //     GameObject pointObject = hit.transform.gameObject;
+
+
+
+        // }
     }
 
     public void TileInfoPopUp()
