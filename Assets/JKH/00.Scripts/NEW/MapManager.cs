@@ -478,7 +478,7 @@ public class MapManager : Singleton<MapManager>
                     {
 
                         Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer|cityLayer);
-                        if (tileOnUnit.Length > 0 && (tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)) //|| tileOnUnit[0].GetComponent<Building>().tag==("City")
+                        if (tileOnUnit.Length > 0 && (tileOnUnit[0].GetComponentInChildren<Unit>().playerId != selectedUnit.playerId)) //|| tileOnUnit[0].GetComponent<Building>().tag==("City")
                         {
                             enemyMark.SetActive(true);
                             Vector3 enemyMarkPos = hitInfo.transform.position;
@@ -537,7 +537,7 @@ public class MapManager : Singleton<MapManager>
                         {
                             //누르면 큐브 사라지게한다.
                             InitMoveArea();
-                            Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
+                            Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer|cityLayer);
 
                             //조건추가 (내 playerID와 목표지점 playerID가 같으면 못간다. 즉, 다르면 적군이고 클릭 할 수 있다.)
                             //&&hitInfo.transform.GetComponent<Unit>().playerId==selectedUnit.playerId
@@ -570,7 +570,7 @@ public class MapManager : Singleton<MapManager>
 
                             // 목표지점에  상대방 유닛이있을때 그전까지이동하게하기
                             if (target.GetPosition() == dest.GetPosition() && (movePower <= selectedUnit.movePower) && tileOnUnit.Length > 0
-                                    && tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)
+                                    && tileOnUnit[0].GetComponentInChildren<Unit>().playerId != selectedUnit.playerId)
                             {
                                 //목표지점에 상대유닛있다
                                 print("상대유닛발견");
