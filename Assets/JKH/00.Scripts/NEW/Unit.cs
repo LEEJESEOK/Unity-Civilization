@@ -6,9 +6,9 @@ public class Unit : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject plane;
+    public GameObject plane;
     [SerializeField]
-    GameObject body;
+    public GameObject body;
 
     public int playerId;
 
@@ -44,9 +44,12 @@ public class Unit : MonoBehaviour
 
     public void SetObjectColor()
     {
-        Material planeMat = plane.GetComponent<MeshRenderer>().material;
-        planeMat.color = ColorManager.instance.playerColor[playerId];
-        plane.GetComponent<MeshRenderer>().material = planeMat;
+        if (plane != null)
+        {
+            Material planeMat = plane.GetComponent<MeshRenderer>().material;
+            planeMat.color = ColorManager.instance.playerColor[playerId];
+            plane.GetComponent<MeshRenderer>().material = planeMat;
+        }
 
         List<MeshRenderer> mesh = new List<MeshRenderer>(body.GetComponentsInChildren<MeshRenderer>(true));
         List<SkinnedMeshRenderer> skinnedMesh = new List<SkinnedMeshRenderer>(body.GetComponentsInChildren<SkinnedMeshRenderer>(true));
