@@ -322,7 +322,7 @@ public class FieldOfView : MonoBehaviour
                         for (int j = 0; j < terrainData.objectOn.Count; j++)
                         {
                             //유닛이 아니면
-                            if (  terrainData.objectOn[j].GetComponent<Unit>() == null)
+                            if (  terrainData.objectOn[j].GetComponentInChildren<Unit>() == null)
                             {
                                 Building building = terrainData.objectOn[j].GetComponent<Building>();
                                 if (building != null)
@@ -335,7 +335,7 @@ public class FieldOfView : MonoBehaviour
                             }
                             else
                             {
-                                Unit unit = terrainData.objectOn[j].GetComponent<Unit>();
+                                Unit unit = terrainData.objectOn[j].GetComponentInChildren<Unit>();
                                 if (unit != null)
                                 {
                                     if (unit.playerId != GameManager.instance.currentPlayerId)

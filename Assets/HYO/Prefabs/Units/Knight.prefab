@@ -7215,7 +7215,7 @@ MonoBehaviour:
   unitType: 10003
   movePower: 2
   maxMovePower: 2
-  hp: 1
+  hp: 100
   myTilePos: {fileID: 0}
   posX: 0
   posY: 0
