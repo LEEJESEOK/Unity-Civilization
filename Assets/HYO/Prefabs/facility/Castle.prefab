@@ -123,7 +123,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110f424ea9a2fd94b9aaf2bdfa29be22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plane: {fileID: 0}
+  body: {fileID: 0}
   playerId: 0
+  isSelected: 0
+  unitType: 0
+  movePower: 0
+  maxMovePower: 2
+  hp: 100
+  myTilePos: {fileID: 0}
+  posX: 0
+  posY: 0
+  animator: {fileID: 0}
+  meleeAttack: 0
+  rangeAttack: 0
+  range: 0
+  combatCode: 0
 --- !u!114 &-2899077158722634937
 MonoBehaviour:
   m_ObjectHideFlags: 0

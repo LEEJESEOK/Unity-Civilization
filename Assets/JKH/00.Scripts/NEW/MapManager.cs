@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MapManager : Singleton<MapManager>
 {
@@ -19,6 +18,7 @@ public class MapManager : Singleton<MapManager>
     public Unit unitInfo;
     public bool ableToMove = false;
     LayerMask mapLayer;
+    LayerMask cityLayer;
     LineRenderer lr;
 
     //mark(선택한 유닛, 목적타일표시, 적군포착 할 때 표시)
@@ -44,9 +44,10 @@ public class MapManager : Singleton<MapManager>
         mapLayer = mapLayer | LayerMask.GetMask("Coast");
         mapLayer = mapLayer | LayerMask.GetMask("Ocean");
 
-        //unitLayer = LayerMask.GetMask("Unit");
-        unitLayer = unitLayer | LayerMask.GetMask("Unit");
-        //unitLayer = unitLayer | LayerMask.GetMask("City");
+
+        unitLayer = LayerMask.GetMask("Unit");
+
+        cityLayer = LayerMask.GetMask("City");
 
         unitSelecting = false;
     }
@@ -301,9 +302,9 @@ public class MapManager : Singleton<MapManager>
             nodeMap[i].parent = null;
         }
     }
+
     //need to call
     // 선택한 유닛의 movePower만큼 Physics.OverlapSphere 각각 FindPath
-    public float movePower = 0;
     public void CheckAbleToGo()
     {
         LayerMask layerMask = LayerMask.GetMask("GrassLand") | LayerMask.GetMask("Plains") | LayerMask.GetMask("Desert");
@@ -318,28 +319,53 @@ public class MapManager : Singleton<MapManager>
     }
 
     public JKH_Node shaderStorage;
-    //임시변수
 
-    IEnumerator unitMoveStep(List<Collider> cols, Vector2Int startPos)
+    IEnumerator unitMoveStep(List<Collider> tiles, Vector2Int startPos)
     {
         InitMoveArea();
 
         List<JKH_Node> path = new List<JKH_Node>();
 
-        for (int i = 0; i < cols.Count; i++)
+        for (int i = 0; i < tiles.Count; i++)
         {
-            Collider[] tileOnUnit = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
-            //print(tileOnUnit.Length);
-            if (tileOnUnit.Length >= 1 && tileOnUnit[0].GetComponent<Unit>().playerId == selectedUnit.playerId) //상대방유닛은 안거르게됨.
+            //---
+            //List<Collider> tileOnUnit = new List<Collider>(Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer | cityLayer));
+            //if (tileOnUnit.Count >= 1 && (unit.playerId == selectedUnit.playerId)) //상대방유닛은 안거르게됨.
+            //{
+            //    //if (tileOnUnit[0].gameObject.name.Contains("Castle"))
+            //    continue;
+            //}
+            //--
+            List<GameObject> objectOn = tiles[i].GetComponent<TerrainData>().objectOn;
+            List<Unit> units = new List<Unit>();
+
+            for (int j = 0; j < objectOn.Count; ++j)
             {
-                tileOnUnit.Initialize();
+                units.Add(objectOn[j].GetComponentInChildren<Unit>(true));
+                
+            }
+
+            if (units.Count > 0 && units[0].playerId == selectedUnit.playerId)
+            {
+                print(units[0].gameObject.name);
                 continue;
             }
+
+            //if (tileOnUnit.Length >= 1 && tileOnUnit[0].GetComponent<TerrainData>().objectOn == "City")
+            //{
+            //    //if (tileOnUnit.Length >= 1 && tileOnUnit[0].GetComponent<Building>().tag == "City")
+            //    {
+            //        print("city잡힘");
+            //    }
+            //}
+
             //tileOnUnit.Initialize();
-            TerrainData terrainData = cols[i].GetComponent<TerrainData>();
+            TerrainData terrainData = tiles[i].GetComponent<TerrainData>();
             Vector2Int endPos = new Vector2Int(terrainData.x, terrainData.y);
+            print(endPos);
             if (startPos == endPos)
                 continue;
+            
             //print(startPos);
             //print(endPos);
             path = FindPath(startPos.x, startPos.y, endPos.x, endPos.y);
@@ -347,25 +373,26 @@ public class MapManager : Singleton<MapManager>
             if (path == null)
                 continue;
 
+            
+
             //LayerMask unitLayer = LayerMask.GetMask("Unit");
             //Collider[] tileOnUnit = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
-            //print(tileOnUnit.Length);
+            //print(tileOnUnit.Length); 
 
-
-            movePower = 0;
+            float movePower = 0;
             //path값 Null...
             string pathStr = string.Format("({0}, {1})", path[0].gridX, path[0].gridY);
             for (int j = 1; j < path.Count; ++j)
             {
                 movePower += path[j].requiredMovePower;
-                pathStr += string.Format("-> ({0}, {1})", path[j].gridX, path[j].gridY);
             }
-            pathStr += "(이동력 :" + movePower + ")";
             if (selectedUnit.movePower >= movePower)
             {
                 //그려주기해야함 corout
                 movableList.Add(path[0]);
             }
+
+            
         }
         //Create Cube/ outline
         //저장소 구하기..
@@ -401,6 +428,7 @@ public class MapManager : Singleton<MapManager>
         }
     }
 
+
     //bool visualizeOneTime = false;
     public GameObject rayWay;
     Vector3 targetPos;
@@ -428,18 +456,18 @@ public class MapManager : Singleton<MapManager>
                     print("ableToMove" + i + "번째: " + "x: " + dest.gridX + ", y: " + dest.gridY + ", cost : " + cost);
                 }
 
-                //이미 dest.parent=null
-                //print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
-                //  ||hitInfo.transform.gameObject.layer==LayerMask.NameToLayer("City")
+                // 이미 dest.parent=null
+                // print(new Vector2(dest.gridX, dest.gridX)); //가능한좌표 표시한다
+                // ||hitInfo.transform.gameObject.layer==LayerMask.NameToLayer("City")
 
                 //MoveMark표시
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
                 {
                     if (hitInfo.transform.gameObject.tag == "Map")
                     {
-                        
-                        Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer);
-                        if (tileOnUnit.Length > 0 && (tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId || hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("City")))
+
+                        Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer|cityLayer);
+                        if (tileOnUnit.Length > 0 && (tileOnUnit[0].GetComponent<Unit>().playerId != selectedUnit.playerId)) //|| tileOnUnit[0].GetComponent<Building>().tag==("City")
                         {
                             enemyMark.SetActive(true);
                             Vector3 enemyMarkPos = hitInfo.transform.position;
@@ -449,7 +477,7 @@ public class MapManager : Singleton<MapManager>
                         else
                             enemyMark.SetActive(false);
 
-                        //moveMark Pos 표시..
+                        //moveMark Pos 표시...
                         moveMark.SetActive(true);
                         Vector3 moveMarkPos = hitInfo.transform.position;
                         moveMarkPos.y += .2f;
@@ -460,7 +488,6 @@ public class MapManager : Singleton<MapManager>
                 //마우스 가르키고 있는 타일까지 경로 표시
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
                 {
-
                     if (hitInfo.transform.gameObject.tag == "Map" && hitInfo.transform.position == dest.worldPosition) //유닛있는데는 표시하면 안됨!
                     {
                         dest = movableList[i]; //시작점.
@@ -476,9 +503,9 @@ public class MapManager : Singleton<MapManager>
                             lrCount++;
                             dest = dest.parent;
                         }
-
                     }
                 }
+
                 else
                     lr.positionCount = 0;
             }
@@ -611,15 +638,15 @@ public class MapManager : Singleton<MapManager>
             pos.y = -0.95f;
             Ray ray = new Ray(pos, rotation * selectedUnit.transform.forward);
 
-            if (Physics.Raycast(ray, out hitInfo, 1000))
+            if (Physics.Raycast(ray, out hitInfo))
             {
-                if (hitInfo.transform.gameObject.tag == "Map")
+                TerrainData data = hitInfo.transform.gameObject.GetComponent<TerrainData>();
+                if (nodeMap[data.x + (data.y * mapWidth)].walkable)
                 {
-                    TerrainData data = hitInfo.transform.gameObject.GetComponent<TerrainData>();
                     int idx = terrainDataMap.IndexOf(data);
-                    //해당 x,y좌표 저장
                     neighbours.Add(nodeMap[idx]);
                 }
+                //해당 x,y좌표 저장
             }
         }
 
@@ -834,7 +861,6 @@ public class MapManager : Singleton<MapManager>
             if (lrCount > 1)
                 for (int i = 0; i < lrCount; ++i)
                     lr.SetPosition(i, unitPos);
-
 
 
             dir = Vector3.zero;

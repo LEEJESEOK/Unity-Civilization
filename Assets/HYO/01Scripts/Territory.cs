@@ -132,7 +132,7 @@ public class Territory : MonoBehaviour
         //first city
         if (HYO_ConstructManager.instance.isFirst)
         {
-            gameObject.tag = "FirstCity";
+            //gameObject.tag = "FirstCity";
             HYO_ConstructManager.instance.isFirst = false;
         }
         cityCenter = gameObject;
