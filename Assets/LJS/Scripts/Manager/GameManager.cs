@@ -43,7 +43,6 @@ public class GameManager : Singleton<GameManager>
     GameObject mouseUpObject;
     bool onClick;
     Vector3 mouseDownPosition;
-    bool onDrag;
 
     LayerMask fogLayer;
 
@@ -53,7 +52,7 @@ public class GameManager : Singleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
-        StartGame();
+        StartCoroutine(StartGame());
     }
 
     // Update is called once per frame
@@ -75,14 +74,12 @@ public class GameManager : Singleton<GameManager>
             if (mouseDownPosition != Input.mousePosition)
             {
                 onClick = false;
-                onDrag = true;
             }
         }
         // 클릭, Click
         if ((!UIManager.IsPointerOverUIObject()) && Input.GetMouseButtonUp(0) && onClick)
         {
             onClick = false;
-            onDrag = false;
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit raycastHit;
@@ -128,28 +125,28 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    async void StartGame()
+    IEnumerator StartGame()
     {
-        await Initialize();
+        yield return Initialize();
         isInit = true;
 
         // Start InGame BGM
 
         // 첫번째 플레이어의 차례로 시작
-        players[_currentPlayerId].StartTurn();
+        yield return players[_currentPlayerId].StartTurn();
     }
 
-    async Task Initialize()
+    IEnumerator Initialize()
     {
         fogLayer = LayerMask.GetMask("HexFog");
 
-        await InitPlyaers();
+        yield return InitPlyaers();
 
-        await UIManager.instance.Initialize();
+        yield return UIManager.instance.Initialize();
 
     }
 
-    async Task InitPlyaers()
+    IEnumerator InitPlyaers()
     {
         for (int i = 0; i < initPlayerCount; ++i)
         {
@@ -157,8 +154,8 @@ public class GameManager : Singleton<GameManager>
             players[i].transform.position = startPoints[i].transform.position;
             players[i].playerId = i;
         }
+        yield return HexFogManager.instance.Initialize(initPlayerCount);
 
-        await HexFogManager.instance.Initialize(initPlayerCount);
     }
 
     // 현재 플레이어의 차례를 마치고 다음 플레이어 차례 시작
@@ -170,6 +167,7 @@ public class GameManager : Singleton<GameManager>
         if ((currentPlayer.info.ongoingTechnology == null) || (currentPlayer.info.ongoingTechnology.remainCost <= 0))
         {
             print("새로운 연구를 선택해주세요");
+            UIManager.instance.UpdateTechnologyPanel();
             UIPanelManager.instance.OpenPanel("TECHNOLOGY_PANEL");
             return;
         }
@@ -181,11 +179,7 @@ public class GameManager : Singleton<GameManager>
 
         // 다음 플레이어 차례로 전환
         _currentPlayerId = (_currentPlayerId + 1) % players.Count;
-        players[_currentPlayerId].StartTurn();
-        //set hexfog
-        HexFogManager.instance.FindOtherTargetList(_currentPlayerId);
-        HexFogManager.instance.FindOtherUnitsBuildings(_currentPlayerId);
-        HexFogManager.instance.prevInFov.Clear();
+        StartCoroutine(players[_currentPlayerId].StartTurn());
     }
 
     public void DestroyUnit(int playerId, Unit unit)
@@ -238,20 +232,16 @@ public class GameManager : Singleton<GameManager>
 
         switch (type)
         {
-            case ObjectType.NON_COMBAT_UNIT:
-                currentSelectType = ObjectType.NON_COMBAT_UNIT;
-                SelectNonCombatUnit();
-                break;
-            case ObjectType.COMBAT_UNIT:
-                currentSelectType = ObjectType.COMBAT_UNIT;
-                SelectCombatUnit();
-                break;
             // 도시 건물
             // 건물이 있는 타일
             case ObjectType.BUILDING:
-                Building building = currentSelect.transform.parent.GetComponent<Building>();
+                Building building = currentSelect.transform.parent.GetComponentInChildren<Building>();
                 if (building != null)
+                {
+                    Territory territory = building.myTilePos.GetComponent<Territory>();
+                    UIManager.instance.UpdateCityPanelData(territory);
                     UIPanelManager.instance.OpenPanel("CITY_PANEL");
+                }
                 break;
             case ObjectType.TILE:
                 TerrainData terrainData = currentSelect.GetComponent<TerrainData>();
@@ -261,6 +251,14 @@ public class GameManager : Singleton<GameManager>
                     SelectGameObject(terrainData.objectOn[0]);
                     SetFirstToLastSibling(ref terrainData.objectOn);
                 }
+                break;
+            case ObjectType.NON_COMBAT_UNIT:
+                currentSelectType = ObjectType.NON_COMBAT_UNIT;
+                SelectNonCombatUnit();
+                break;
+            case ObjectType.COMBAT_UNIT:
+                currentSelectType = ObjectType.COMBAT_UNIT;
+                SelectCombatUnit();
                 break;
         }
     }

@@ -353,12 +353,12 @@ public class MapManager : Singleton<MapManager>
             for (int j = 0; j < objectOn.Count; ++j)
             {
                 units.Add(objectOn[j].GetComponentInChildren<Unit>(true));
-                
+
             }
 
             if (units.Count > 0 && units[0].playerId == selectedUnit.playerId)
             {
-                print(units[0].gameObject.name);
+                // print(units[0].gameObject.name);
                 continue;
             }
 
@@ -373,10 +373,9 @@ public class MapManager : Singleton<MapManager>
             //tileOnUnit.Initialize();
             TerrainData terrainData = tiles[i].GetComponent<TerrainData>();
             Vector2Int endPos = new Vector2Int(terrainData.x, terrainData.y);
-            print(endPos);
             if (startPos == endPos)
                 continue;
-            
+
             //print(startPos);
             //print(endPos);
             path = FindPath(startPos.x, startPos.y, endPos.x, endPos.y);
@@ -384,7 +383,7 @@ public class MapManager : Singleton<MapManager>
             if (path == null)
                 continue;
 
-            
+
 
             //LayerMask unitLayer = LayerMask.GetMask("Unit");
             //Collider[] tileOnUnit = Physics.OverlapSphere(cols[i].transform.position, .3f, unitLayer);
@@ -403,7 +402,7 @@ public class MapManager : Singleton<MapManager>
                 movableList.Add(path[0]);
             }
 
-            
+
         }
         //Create Cube/ outline
         //저장소 구하기..
@@ -477,7 +476,7 @@ public class MapManager : Singleton<MapManager>
                     if (hitInfo.transform.gameObject.tag == "Map")
                     {
 
-                        Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer|cityLayer);
+                        Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer | cityLayer);
                         if (tileOnUnit.Length > 0 && (tileOnUnit[0].GetComponentInChildren<Unit>().playerId != selectedUnit.playerId)) //|| tileOnUnit[0].GetComponent<Building>().tag==("City")
                         {
                             enemyMark.SetActive(true);
@@ -502,16 +501,13 @@ public class MapManager : Singleton<MapManager>
                     if (hitInfo.transform.gameObject.tag == "Map" && hitInfo.transform.position == dest.worldPosition) //유닛있는데는 표시하면 안됨!
                     {
                         dest = movableList[i]; //시작점.
-                        int lrCount = 0; //lineRenderer 갯수
-                        //int destLen = -1;
                         lr.positionCount = 0;
                         while (dest != null)
                         {
                             lr.positionCount++;
                             Vector3 destPos = dest.worldPosition;
                             destPos.y = -.9f;
-                            lr.SetPosition(lrCount, destPos);
-                            lrCount++;
+                            lr.SetPosition(lr.positionCount - 1, destPos);
                             dest = dest.parent;
                         }
                     }
@@ -537,7 +533,7 @@ public class MapManager : Singleton<MapManager>
                         {
                             //누르면 큐브 사라지게한다.
                             InitMoveArea();
-                            Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer|cityLayer);
+                            Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer | cityLayer);
 
                             //조건추가 (내 playerID와 목표지점 playerID가 같으면 못간다. 즉, 다르면 적군이고 클릭 할 수 있다.)
                             //&&hitInfo.transform.GetComponent<Unit>().playerId==selectedUnit.playerId
@@ -609,7 +605,7 @@ public class MapManager : Singleton<MapManager>
                                 selectedUnit.movePower -= movePower;
                                 if (selectedUnit.movePower <= 0)
                                 {
-                                    print("유닛 선택 해제");
+                                    // print("유닛 선택 해제");
                                     //selectedUnit = null;
                                 }
                                 print("Success");
@@ -903,8 +899,11 @@ public class MapManager : Singleton<MapManager>
 
             // TODO 전투 애니메이션 시작
             anim.SetBool("isMove", false);
+
+            Animator enemyAnim = tileOnUnit[0].GetComponent<Unit>().animator;
             anim.SetBool("onCombat", true);
-            while (!anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
+            enemyAnim.SetBool("onCombat", true);
+            while (!anim.GetCurrentAnimatorStateInfo(0).IsName("attack") || !enemyAnim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
             {
                 yield return null;
             }
@@ -912,9 +911,14 @@ public class MapManager : Singleton<MapManager>
             {
                 yield return null;
             }
+            while (enemyAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
+            {
+                yield return null;
+            }
+            anim.SetBool("onCombat", false);
+            enemyAnim.SetBool("onCombat", false);
             UnitCombat(selectedUnit.GetComponent<CombatUnit>(), tileOnUnit[0].GetComponent<Unit>());
             // TODO 전투 애니메이션 종료
-            anim.SetBool("onCombat", false);
 
             //Todo위치시켜주기 else도 마찬가지로 시도본다.?
         }

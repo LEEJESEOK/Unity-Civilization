@@ -18,12 +18,13 @@ public class HexFogManager : Singleton<HexFogManager>
     public List<List<GameObject>> buildings;
     public List<GameObject> otherUnitsBuildings;
 
-    public List<GameObject> inFov; 
+    public List<GameObject> inFov;
     public List<GameObject> prevInFov;
 
     public int currentPlayerId;
 
     Animator animator;
+    bool isInit = false;
 
     private void Start()
     {
@@ -42,7 +43,7 @@ public class HexFogManager : Singleton<HexFogManager>
         //FindOtherUnitsBuildings(currentPlayerId);
     }
 
-    public Task Initialize(int playerCount)
+    public IEnumerator Initialize(int playerCount)
     {
         for (int i = 0; i < playerCount; ++i)
         {
@@ -50,15 +51,18 @@ public class HexFogManager : Singleton<HexFogManager>
             fieldOfViews.Add(new List<FieldOfView>());
             allHideables.Add(new List<Hideable>());
 
-            units.Add(GameManager.instance.players[i].info.units);
+            units.Add(new List<Unit>());
             buildings.Add(new List<GameObject>());
         }
 
-        return Task.CompletedTask;
+        isInit = true;
+        yield return null;
     }
 
     private void LateUpdate()
     {
+        if (isInit == false)
+            return;
         currentPlayerId = GameManager.instance.currentPlayerId;
 
         MergeUnitInfo(currentPlayerId);
@@ -83,20 +87,20 @@ public class HexFogManager : Singleton<HexFogManager>
     //map manager에서 실행
     //public void UnitInFOVCheck()
     //{
-        
+
     //}
 
     void MergeUnitInfo(int id)
     {
         allHideables[id].Clear();
 
-        for(int i =0; i < fieldOfViews[id].Count; i++)
+        for (int i = 0; i < fieldOfViews[id].Count; i++)
         {
-            for(int j =0; j<fieldOfViews[id][i].hideables.Count; j++)
+            for (int j = 0; j < fieldOfViews[id][i].hideables.Count; j++)
             {
-                if(allHideables[id].Contains(fieldOfViews[id][i].hideables[j]) == false)
+                if (allHideables[id].Contains(fieldOfViews[id][i].hideables[j]) == false)
                 {
-                    if(findTargetList[id].Contains(fieldOfViews[id][i].hideables[j]) == false)
+                    if (findTargetList[id].Contains(fieldOfViews[id][i].hideables[j]) == false)
                     {
                         findTargetList[id].Add(fieldOfViews[id][i].hideables[j]);
                     }
@@ -110,11 +114,11 @@ public class HexFogManager : Singleton<HexFogManager>
     public void FindOtherTargetList(int id)
     {
         //set hexfog
-        for(int i=0; i< findTargetList.Count; i++)
+        for (int i = 0; i < findTargetList.Count; i++)
         {
             if (findTargetList[i] != findTargetList[id])
             {
-                for(int j = 0; j < findTargetList[i].Count; j++)
+                for (int j = 0; j < findTargetList[i].Count; j++)
                 {
                     otherTargetList.Add(findTargetList[i][j]);
                 }
@@ -153,7 +157,7 @@ public class HexFogManager : Singleton<HexFogManager>
 
     void HexFogAdd(int id)
     {
-        for(int i =0; i < findTargetList[id].Count; i++)
+        for (int i = 0; i < findTargetList[id].Count; i++)
         {
             if (allHideables[id].Contains(findTargetList[id][i]) == false)
             {
@@ -167,9 +171,9 @@ public class HexFogManager : Singleton<HexFogManager>
         }
 
         //set hexfog
-        for(int a = 0; a < otherTargetList.Count; a++)
+        for (int a = 0; a < otherTargetList.Count; a++)
         {
-            if(findTargetList[id].Contains(otherTargetList[a]) == false)
+            if (findTargetList[id].Contains(otherTargetList[a]) == false)
             {
                 otherTargetList[a].OnFOVLeaveShow();
             }

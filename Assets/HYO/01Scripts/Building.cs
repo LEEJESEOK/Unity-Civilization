@@ -7,8 +7,17 @@ public class Building : CombatUnit
     private void Awake()
     {
         playerId = GameManager.instance.currentPlayerId;
-
     }
+
+    protected override void Start()
+    {
+        base.Start();
+        
+        GameObjectInfo gameObjectType = GetComponent<GameObjectInfo>();
+        gameObjectType.type = ObjectType.BUILDING;
+    }
+
+
     private void OnDestroy()
     {
         // TODO data 제거

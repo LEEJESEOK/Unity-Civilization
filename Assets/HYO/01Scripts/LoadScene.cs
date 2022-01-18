@@ -35,7 +35,7 @@ public class LoadScene : Singleton<LoadScene>
         SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_VICTORY);
         StartCoroutine(LoadSceneAsnyc("Defeat"));
     }
-    public async void Defeat()
+    public void Defeat()
     {
         SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.BGM_RESULT);
         SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_DEFEAT);

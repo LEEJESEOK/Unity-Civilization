@@ -99,7 +99,9 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
     {
         if (GameManager.instance.IsCurrentUnit())
         {
+            unitInfo = GameManager.instance.GetCurrentUnit().gameObject;
             tileTemp = GameManager.instance.GetCurrentUnit().myTilePos.transform;
+            
             fd = tileTemp.GetComponent<FacilityData>();
         }
         if(GameManager.instance.IsCurrentCity())
@@ -119,6 +121,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
         // }
 
 
+        // TODO set District
         if (cityTemp != null)
         {
             SelectTile(cityTemp);
@@ -155,6 +158,7 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
             return false;
 
     }
+
     public void SelectCity()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

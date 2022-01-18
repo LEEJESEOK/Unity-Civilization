@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 using System.Text;
 using System.Linq;
 
@@ -50,8 +51,8 @@ public class Player : MonoBehaviour
 
             unitObject.transform.rotation = Quaternion.Euler(0, 180f, 0);
 
-            HexFogManager.instance.fieldOfViews[unit.playerId].Add(unitObject.GetComponentInChildren<FieldOfView>());
-            HexFogManager.instance.units[unit.playerId].Add(unit);
+            HexFogManager.instance.fieldOfViews[playerId].Add(unitObject.GetComponentInChildren<FieldOfView>());
+            HexFogManager.instance.units[playerId].Add(unit);
         }
     }
 
@@ -64,8 +65,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void StartTurn()
+    public IEnumerator StartTurn()
     {
+        yield return null;
         print(string.Format("[Start Turn] {0}", name));
 
         // UI를 플레이어의 정보로 변경
@@ -100,6 +102,10 @@ public class Player : MonoBehaviour
             // TODO 체력 회복
         }
 
+        //set hexfog
+        HexFogManager.instance.FindOtherTargetList(playerId);
+        HexFogManager.instance.FindOtherUnitsBuildings(playerId);
+        HexFogManager.instance.prevInFov.Clear();
         isTurn = true;
     }
 
@@ -155,7 +161,7 @@ public class Player : MonoBehaviour
         // 대기중인 유닛의 체력 회복
         for (int i = 0; i < info.units.Count; ++i)
         {
-            
+
         }
 
         isTurn = false;

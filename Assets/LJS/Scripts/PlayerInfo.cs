@@ -34,5 +34,6 @@ public class PlayerInfo
         units = new List<Unit>();
         cities = new List<Territory>();
         technologies = new List<Technology>();
+        ongoingTechnology = null;
     }
 }

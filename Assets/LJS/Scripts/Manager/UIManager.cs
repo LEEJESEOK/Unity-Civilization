@@ -112,6 +112,9 @@ public class UIManager : Singleton<UIManager>
     bool isLeftPressed;
     bool isInit;
 
+    LayerMask mapLayer;
+    LayerMask fogLayer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -132,7 +135,7 @@ public class UIManager : Singleton<UIManager>
         uIButtonEvent = GetComponent<UIButtonEvent>();
 
         // BuildFacilityButton 이벤트 추가
-        StartCoroutine(CheckMouseOnTile());
+        // StartCoroutine(CheckMouseOnTile());
     }
 
     // Update is called once per frame
@@ -170,21 +173,27 @@ public class UIManager : Singleton<UIManager>
         MapManager.instance.MarkDisabled();
     }
 
-    IEnumerator CheckMouseOnTile()
-    {
-        yield return null;
+    // IEnumerator CheckMouseOnTile()
+    // {
+    //     yield return null;
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+    //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //     RaycastHit hit;
 
-        // if (Physics.Raycast(ray, out hit, float.MaxValue, ))
-        // {
-        //     GameObject pointObject = hit.transform.gameObject;
+    //     if (Physics.Raycast(ray, out hit, float.MaxValue, fogLayer | mapLayer))
+    //     {
+    //         if (hit.transform.gameObject.layer == LayerMask.NameToLayer("HexFog"))
+    //         { 
+
+    //         }
+    //         else
+    //         {
+
+    //         }
 
 
-
-        // }
-    }
+    //     }
+    // }
 
     public void TileInfoPopUp()
     {
@@ -334,7 +343,7 @@ public class UIManager : Singleton<UIManager>
         return Resources.LoadAll<Sprite>(path);
     }
 
-    public Task Initialize()
+    public IEnumerator Initialize()
     {
         if (mouseCapture)
             // 마우스 커서가 윈도우 밖으로 나가지 않도록 함
@@ -343,7 +352,7 @@ public class UIManager : Singleton<UIManager>
         InitResourcesIndicator();
         InitUnitPanel();
         isInit = true;
-        return Task.CompletedTask;
+        yield return null;
     }
 
     void InitResourcesIndicator()
