@@ -97,18 +97,26 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
     private void Update()
     {
-
-        if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
+        if (GameManager.instance.IsCurrentUnit())
         {
-            if (SelectUnit())
-            {
-                tileTemp = unitInfo.GetComponent<Unit>().myTilePos.transform;
-                fd = tileTemp.GetComponent<FacilityData>();
-
-            }
-            else
-                SelectCity();
+            tileTemp = GameManager.instance.GetCurrentUnit().myTilePos.transform;
+            fd = tileTemp.GetComponent<FacilityData>();
         }
+        if(GameManager.instance.IsCurrentCity())
+        {
+            
+        }
+
+        // if (!UIManager.IsPointerOverUIObject() && Input.GetMouseButtonDown(0))
+        // {
+        //     if (SelectUnit())
+        //     {
+        //         tileTemp = unitInfo.GetComponent<Unit>().myTilePos.transform;
+
+        //     }
+        //     else
+        //         SelectCity();
+        // }
 
 
         if (cityTemp != null)

@@ -206,6 +206,19 @@ public class GameManager : Singleton<GameManager>
             return null;
     }
 
+    public bool IsCurrentCity()
+    {
+        return currentSelect != null && currentSelect.GetComponent<Unit>() != null;
+    }
+
+    public Building GetCurrentCity()
+    {
+        if (IsCurrentCity())
+            return currentSelect.GetComponent<Building>();
+        else
+            return null;
+    }
+
     // 첫번째 오브젝트를 마지막 순서로
     void SetFirstToLastSibling(ref List<GameObject> list)
     {
@@ -236,9 +249,8 @@ public class GameManager : Singleton<GameManager>
             // 도시 건물
             // 건물이 있는 타일
             case ObjectType.BUILDING:
-                Territory territory = currentSelect.transform.parent.GetComponent<Territory>();
-
-                if (territory != null)
+                Building building = currentSelect.transform.parent.GetComponent<Building>();
+                if (building != null)
                     UIPanelManager.instance.OpenPanel("CITY_PANEL");
                 break;
             case ObjectType.TILE:
