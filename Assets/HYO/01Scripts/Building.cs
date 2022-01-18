@@ -12,9 +12,24 @@ public class Building : CombatUnit
     private void OnDestroy()
     {
         // TODO data 제거
-        //Destroy(myTilePos.GetComponent<Territory>());
-        //TerrainData terrainData = myTilePos.GetComponent<TerrainData>();
-        //terrainData.myCenter = null;
-        //terrainData.objectOn.Remove(gameObject);
+        myTilePos.GetComponent<TerrainData>().objectOn.Remove(gameObject);
+        List<TerrainData> datas = myTilePos.GetComponent<Territory>().data;
+        for (int i = 0; i < datas.Count; i++)
+        {
+            datas[i].GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+            datas[i].myCenter = null;
+        }
+
+        Destroy(myTilePos.GetComponent<Territory>());
+
+
+
+        if (HexFogManager.instance != null)
+        {
+            while (HexFogManager.instance.prevInFov.Find(x => x == gameObject))
+                HexFogManager.instance.prevInFov.Remove(gameObject);
+            while (HexFogManager.instance.inFov.Find(x => x == gameObject))
+                HexFogManager.instance.inFov.Remove(gameObject);
+        }
     }
 }

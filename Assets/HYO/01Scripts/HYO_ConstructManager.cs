@@ -290,6 +290,8 @@ public class HYO_ConstructManager : Singleton<HYO_ConstructManager>
 
         tileTemp.GetComponent<TerrainData>().objectOn.Remove(unitInfo);
         HexFogManager.instance.units[unitInfo.GetComponent<Unit>().playerId].Remove(unitInfo.GetComponent<Unit>());
+
+        city.transform.GetComponent<Unit>().myTilePos = tileTemp.gameObject;
         tileTemp = null;
 
         //선택된 유닛 제거 후 초기화
