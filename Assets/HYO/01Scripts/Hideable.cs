@@ -28,11 +28,11 @@ public class Hideable : MonoBehaviour, IHideable
     }
     public void OnFOVHideUnits()
     {
-        gameObject.SetActive(false);
+        gameObject.GetComponent<Unit>().body.SetActive(false);
     }
     public void OnFOVShowUnits()
     {
-        gameObject.SetActive(true);
+        gameObject.GetComponent<Unit>().body.SetActive(true);
     }
 
 }

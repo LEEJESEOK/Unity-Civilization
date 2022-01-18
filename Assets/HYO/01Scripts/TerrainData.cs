@@ -237,7 +237,7 @@ public class TerrainData : MonoBehaviour
 
         if (one == false && playerId != GameManager.instance.currentPlayerId)
         {
-            obj.SetActive(false);
+            obj.GetComponent<Unit>().body.SetActive(false);
             one = true;
         }
     }

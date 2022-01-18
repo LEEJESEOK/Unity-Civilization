@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject playerPrefab;
     public int initPlayerCount;
     public List<Player> players;
+    [SerializeField]
     int _currentPlayerId;
     public int currentPlayerId { get => _currentPlayerId; }
     public Player currentPlayer { get => players[currentPlayerId]; }
@@ -244,6 +245,7 @@ public class GameManager : Singleton<GameManager>
         if (unit.playerId != currentPlayerId) return;
 
         UIManager.instance.UpdateUnitData(unit);
+        MapManager.instance.MarkEnabled();
 
         switch (unit.unitType)
         {
@@ -266,6 +268,7 @@ public class GameManager : Singleton<GameManager>
         if (unit.playerId != currentPlayerId) return;
 
         UIManager.instance.UpdateUnitData(unit);
+        MapManager.instance.MarkEnabled();
 
         UIManager.instance.EnableFortification();
 

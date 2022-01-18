@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Building : CombatUnit
 {
+
     private void Awake()
     {
         playerId = GameManager.instance.currentPlayerId;
