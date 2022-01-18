@@ -8,6 +8,10 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     private static object _Lock = new object();
     private static T _Instance;
 
+    public Singleton()
+    {
+
+    }
 
     public static T instance
     {
@@ -39,6 +43,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             return _Instance;
         }
     }
+
     private void OnApplicationQuit()
     {
         _ShuttingDown = true;

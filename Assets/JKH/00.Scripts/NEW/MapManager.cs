@@ -857,6 +857,11 @@ public class MapManager : Singleton<MapManager>
             // TODO 전투 애니메이션 시작
             anim.SetBool("isMove", false);
             anim.SetBool("onCombat", true);
+
+            SoundManager.instance.PlayEFT(SoundManager.EFT_TYPE.EFT_UNIT_COMBAT);
+
+
+
             while(!anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
             {
                 yield return null;
@@ -867,6 +872,7 @@ public class MapManager : Singleton<MapManager>
                 yield return null;
             }
             UnitCombat(selectedUnit.GetComponent<CombatUnit>(), tileOnUnit[0].GetComponent<Unit>());
+
             // TODO 전투 애니메이션 종료
             anim.SetBool("onCombat", false);
 

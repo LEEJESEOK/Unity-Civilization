@@ -58,11 +58,14 @@ public class HexFogManager : Singleton<HexFogManager>
 
         MergeUnitInfo(currentPlayerId);
         HexFogAdd(currentPlayerId);
-
-
+ 
+    }
+    //map manager에서 실행
+    public void UnitInFOVCheck()
+    {
         for (int i = 0; i < prevInFov.Count; i++)
         {
-           prevInFov[i].SetActive(false);
+            prevInFov[i].SetActive(false);
         }
         prevInFov.Clear();
 
