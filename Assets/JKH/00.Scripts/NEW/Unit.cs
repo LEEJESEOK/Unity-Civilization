@@ -6,9 +6,9 @@ public class Unit : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject plane;
+    public GameObject plane;
     [SerializeField]
-    GameObject body;
+    public GameObject body;
 
     public int playerId;
 

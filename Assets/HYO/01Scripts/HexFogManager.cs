@@ -21,6 +21,8 @@ public class HexFogManager : Singleton<HexFogManager>
 
     public int currentPlayerId;
 
+    Animator animator;
+
     private void Start()
     {
         fieldOfViews = new List<List<FieldOfView>>();
@@ -61,13 +63,15 @@ public class HexFogManager : Singleton<HexFogManager>
 
         for (int i = 0; i < prevInFov.Count; i++)
         {
-            prevInFov[i].SetActive(false);
+            //prevInFov[i].SetActive(false);
+            prevInFov[i].GetComponent<Unit>().body.SetActive(false);
         }
         prevInFov.Clear();
 
         for (int i = 0; i < inFov.Count; i++)
         {
-            inFov[i].SetActive(true);
+            //inFov[i].SetActive(true);
+            inFov[i].GetComponent<Unit>().body.SetActive(true);
             prevInFov.Add(inFov[i]);
         }
         inFov.Clear();
@@ -134,7 +138,7 @@ public class HexFogManager : Singleton<HexFogManager>
             {
                 for (int f = 0; f < units[b].Count; f++)
                 {
-                    units[b][f].gameObject.SetActive(true);
+                    units[b][f].gameObject.GetComponent<Unit>().body.SetActive(true);
                 }
                 for (int g = 0; g < buildings[b].Count; g++)
                 {
