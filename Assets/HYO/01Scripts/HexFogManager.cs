@@ -142,7 +142,7 @@ public class HexFogManager : Singleton<HexFogManager>
                 }
                 for (int g = 0; g < buildings[b].Count; g++)
                 {
-                    buildings[b][g].SetActive(true);
+                    buildings[b][g].gameObject.GetComponent<Unit>().body.SetActive(true);
                 }
             }
         }

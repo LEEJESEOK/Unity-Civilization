@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject playerPrefab;
     public int initPlayerCount;
     public List<Player> players;
+    [SerializeField]
     int _currentPlayerId;
     public int currentPlayerId { get => _currentPlayerId; }
     public Player currentPlayer { get => players[currentPlayerId]; }

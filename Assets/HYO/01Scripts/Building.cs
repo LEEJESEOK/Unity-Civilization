@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Building : CombatUnit
 {
-    public int playerId;
 
     private void Awake()
     {
