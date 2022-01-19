@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5677048629339047347}
   - component: {fileID: -8675849608778682452}
   - component: {fileID: 8356431211641567170}
+  - component: {fileID: 7533267235016016693}
   m_Layer: 0
   m_Name: Campus
   m_TagString: Untagged
@@ -65,6 +66,7 @@ MonoBehaviour:
   unitType: 0
   movePower: 0
   maxMovePower: 2
+  maxHp: 100
   hp: 100
   myTilePos: {fileID: 0}
   posX: 0
@@ -74,7 +76,20 @@ MonoBehaviour:
   rangeAttack: 0
   range: 0
   combatCode: 0
-  playerId: 0
+--- !u!114 &7533267235016016693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677048629338626451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449480a85cd1e654398df00865f24e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerId: -1
+  type: 0
 --- !u!1 &7960931193323093394
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,8 +44,9 @@ public class Player : MonoBehaviour
 
             #region test
             // 초기 위치 지정
-            Vector3 pos = transform.position + Vector3.left * (1.5f) * i;
+            Vector3 pos = transform.position + Vector3.left * (1.5f) * (i / 2);
             pos.y = -0.9f;
+            pos.z += (i % 2) * 1f;
             unitObject.transform.position = pos;
             #endregion
 

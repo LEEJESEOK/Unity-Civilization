@@ -107,8 +107,9 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0
-  visualizeFieldOfView: 1
+  visualizeFieldOfView: 0
   meshResolution: 5
   meshResolutionPeripheralVision: 25
   viewMeshFilter: {fileID: 33434862900411462}
+  currentPlayerId: 0
   hideables: []

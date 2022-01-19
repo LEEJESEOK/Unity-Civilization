@@ -473,26 +473,22 @@ public class MapManager : Singleton<MapManager>
                 //MoveMark표시
                 if (Physics.Raycast(ray, out hitInfo, 1000, mapLayer))
                 {
-                    if (hitInfo.transform.gameObject.tag == "Map")
+                    Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer | cityLayer);
+                    if (tileOnUnit.Length > 0 && (tileOnUnit[0].GetComponentInChildren<Unit>().playerId != selectedUnit.playerId)) //|| tileOnUnit[0].GetComponent<Building>().tag==("City")
                     {
-
-                        Collider[] tileOnUnit = Physics.OverlapSphere(hitInfo.transform.position, .3f, unitLayer | cityLayer);
-                        if (tileOnUnit.Length > 0 && (tileOnUnit[0].GetComponentInChildren<Unit>().playerId != selectedUnit.playerId)) //|| tileOnUnit[0].GetComponent<Building>().tag==("City")
-                        {
-                            enemyMark.SetActive(true);
-                            Vector3 enemyMarkPos = hitInfo.transform.position;
-                            enemyMarkPos.y += .2f;
-                            enemyMark.transform.position = enemyMarkPos;
-                        }
-                        else
-                            enemyMark.SetActive(false);
-
-                        //moveMark Pos 표시...
-                        moveMark.SetActive(true);
-                        Vector3 moveMarkPos = hitInfo.transform.position;
-                        moveMarkPos.y += .2f;
-                        moveMark.transform.position = moveMarkPos;
+                        enemyMark.SetActive(true);
+                        // Vector3 enemyMarkPos = hitInfo.transform.position;
+                        // enemyMarkPos.y += .2f;
+                        // enemyMark.transform.position = enemyMarkPos;
                     }
+                    else
+                        enemyMark.SetActive(false);
+
+                    //moveMark Pos 표시...
+                    moveMark.SetActive(true);
+                    Vector3 moveMarkPos = hitInfo.transform.position;
+                    moveMarkPos.y += .2f;
+                    moveMark.transform.position = moveMarkPos;
                 }
 
                 //마우스 가르키고 있는 타일까지 경로 표시

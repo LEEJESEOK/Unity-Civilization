@@ -212,12 +212,6 @@ public class JKH_UnitMove : MonoBehaviour
         //hitInfo.transform.GetComponent<TerrainData>().x => startX
         //hitInfo.transform.GetComponent<TerrainData>().y => startY
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = new Color(0, 1, 0, 0.5f);
-        Gizmos.DrawSphere(transform.position, .95f * movePower);
-    }
-
 
     //갈수있는 타일 받기 
     public void checkAbleToGo()

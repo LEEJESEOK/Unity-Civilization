@@ -439,18 +439,6 @@ public class JKH_Move : MonoBehaviour
         return result;
     }
 
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-
-        if (grid != null)
-            for (int i = 0; i < grid.path.Count; ++i)
-            {
-                Gizmos.DrawCube(grid.path[i].worldPosition, Vector3.one * 0.5f);
-            }
-    }
-
     IEnumerator DelayedStartFindPath()
     {
         yield return null;
