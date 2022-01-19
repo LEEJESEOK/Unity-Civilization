@@ -7044,7 +7044,7 @@ Animator:
   m_GameObject: {fileID: 7875038894457549344}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: cf2f4f48c57855a4faee32e736b71983, type: 3}
-  m_Controller: {fileID: 9100000, guid: 7453922e99d86664b9376283fead05b5, type: 2}
+  m_Controller: {fileID: 9100000, guid: f76c2d984f0c6c340833ef4a81e08360, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -7085,6 +7085,7 @@ MonoBehaviour:
   unitType: 10007
   movePower: 2
   maxMovePower: 2
+  maxHp: 100
   hp: 100
   myTilePos: {fileID: 0}
   posX: 0

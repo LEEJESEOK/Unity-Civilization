@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1183273434445972645}
   - component: {fileID: 692736597639803522}
   - component: {fileID: -6181161565694128798}
+  - component: {fileID: -7699585790718036305}
   m_Layer: 0
   m_Name: IndustrialZone
   m_TagString: Untagged
@@ -75,6 +76,20 @@ MonoBehaviour:
   rangeAttack: 0
   range: 0
   combatCode: 0
+--- !u!114 &-7699585790718036305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183273434445551749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449480a85cd1e654398df00865f24e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerId: -1
+  type: 0
 --- !u!1 &6091912438276520352
 GameObject:
   m_ObjectHideFlags: 0

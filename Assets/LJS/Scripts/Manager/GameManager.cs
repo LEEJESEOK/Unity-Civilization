@@ -228,7 +228,14 @@ public class GameManager : Singleton<GameManager>
     void SelectGameObject(GameObject go)
     {
         currentSelect = go;
-        ObjectType type = go.GetComponent<GameObjectInfo>().type;
+        GameObjectInfo objectInfo = go.GetComponent<GameObjectInfo>();
+        // if (objectInfo.playerId != currentPlayerId)
+        //     return;
+
+        // if (!(objectInfo.playerId == -1) || !(objectInfo.playerId == currentPlayerId))
+        //     return;
+
+        ObjectType type = objectInfo.type;
 
         switch (type)
         {

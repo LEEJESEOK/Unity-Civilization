@@ -444,6 +444,9 @@ public class MapManager : Singleton<MapManager>
     Vector3 targetPos;
     public void SelectedUnitMove()
     {
+        if (Camera.main == null)
+            return;
+
         if (ableToMove && selectedUnit.movePower > 0)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -896,23 +899,27 @@ public class MapManager : Singleton<MapManager>
             // TODO 전투 애니메이션 시작
             anim.SetBool("isMove", false);
 
-            Animator enemyAnim = tileOnUnit[0].GetComponent<Unit>().animator;
+            // Animator enemyAnim = tileOnUnit[0].GetComponent<Unit>().animator;
             anim.SetBool("onCombat", true);
-            enemyAnim.SetBool("onCombat", true);
-            while (!anim.GetCurrentAnimatorStateInfo(0).IsName("attack") || !enemyAnim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
+            // enemyAnim.SetBool("onCombat", true);
+            while (!anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
             {
                 yield return null;
             }
+            // while (!enemyAnim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
+            // {
+            //     yield return null;
+            // }
             while (anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
             {
                 yield return null;
             }
-            while (enemyAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
-            {
-                yield return null;
-            }
+            // while (enemyAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
+            // {
+            //     yield return null;
+            // }
             anim.SetBool("onCombat", false);
-            enemyAnim.SetBool("onCombat", false);
+            // enemyAnim.SetBool("onCombat", false);
             UnitCombat(selectedUnit.GetComponent<CombatUnit>(), tileOnUnit[0].GetComponent<Unit>());
             // TODO 전투 애니메이션 종료
 
@@ -922,6 +929,7 @@ public class MapManager : Singleton<MapManager>
         //경로표시 다끝나면 선 지운다.
         lr.positionCount = 0;
         anim.SetBool("isMove", false);
+        SoundManager.instance.StopEFT();
 
         unit.transform.forward = Vector3.back;
 

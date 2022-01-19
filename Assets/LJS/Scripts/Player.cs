@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
         info.name = "Player " + (playerId + 1);
         gameObject.name = info.name;
 
-        if (GameManager.instance.test)
+        // if (GameManager.instance.test)
         {
             info.gold = GameManager.instance.testStartGold;
             info.goldChange = GameManager.instance.testGoldChange;
@@ -68,7 +68,6 @@ public class Player : MonoBehaviour
 
     public IEnumerator StartTurn()
     {
-        yield return null;
         print(string.Format("[Start Turn] {0}", name));
 
         // UI를 플레이어의 정보로 변경
@@ -108,6 +107,7 @@ public class Player : MonoBehaviour
         HexFogManager.instance.FindOtherUnitsBuildings(playerId);
         HexFogManager.instance.prevInFov.Clear();
         isTurn = true;
+        yield return null;
     }
 
     public void TurnUpdate()
@@ -116,10 +116,10 @@ public class Player : MonoBehaviour
         UIManager.instance.CameraMove(playerCamera);
         UIManager.instance.CameraZoom(playerCamera);
 
-        if (UIPanelManager.instance.isEmpty() && Input.GetKeyUp(KeyCode.Return))
-        {
-            GameManager.instance.TurnEnd();
-        }
+        // if (UIPanelManager.instance.isEmpty() && Input.GetKeyUp(KeyCode.Return))
+        // {
+        //     GameManager.instance.TurnEnd();
+        // }
     }
 
     // 자원 생산

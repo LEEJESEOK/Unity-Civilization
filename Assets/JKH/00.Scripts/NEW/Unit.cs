@@ -101,9 +101,6 @@ public class Unit : MonoBehaviour
         if (GameManager.instance != null)
             GameManager.instance.DestroyUnit(playerId, this);
 
-        //if(HexFogManager.instance!=null)
-        //    HexFogManager.instance.
-
         if (MapManager.instance != null)
         {
             MapManager.instance.InitMoveArea();
@@ -113,6 +110,8 @@ public class Unit : MonoBehaviour
 
         if (HexFogManager.instance != null)
         {
+            while (HexFogManager.instance.otherUnitsBuildings.Find(x => x == gameObject))
+                HexFogManager.instance.otherUnitsBuildings.Remove(gameObject);
             while (HexFogManager.instance.prevInFov.Find(x => x == gameObject))
                 HexFogManager.instance.prevInFov.Remove(gameObject);
             while (HexFogManager.instance.inFov.Find(x => x == gameObject))

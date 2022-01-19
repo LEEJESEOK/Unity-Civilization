@@ -110,7 +110,7 @@ public class UIManager : Singleton<UIManager>
     Vector2 prevMousePosition;
     static Vector3 camOffset = new Vector3(0, 3, -4);
     bool isLeftPressed;
-    bool isInit;
+    public bool isInit;
 
     LayerMask mapLayer;
     LayerMask fogLayer;
@@ -120,12 +120,12 @@ public class UIManager : Singleton<UIManager>
     void Start()
     {
         #region Test
-        if (GameManager.instance.test)
-        {
-            // load sample images
-            samples = new List<Sprite>(Resources.LoadAll<Sprite>("Image/Sample"));
-        }
-        else
+        // if (GameManager.instance.test)
+        // {
+        //     // load sample images
+        //     samples = new List<Sprite>(Resources.LoadAll<Sprite>("Image/Sample"));
+        // }
+        // else
         {
             mouseCapture = true;
         }
@@ -144,23 +144,23 @@ public class UIManager : Singleton<UIManager>
         if (isInit == false)
             return;
 
-        if (GameManager.instance.test)
-        {
-            #region sample image
-            if (Input.GetKeyDown(KeyCode.Alpha0))
-            {
-                sample.gameObject.SetActive(!sample.gameObject.activeSelf);
-            }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                sample.sprite = samples[(samples.IndexOf(sample.sprite) + 1) % samples.Count];
-            }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                sample.sprite = samples[(samples.IndexOf(sample.sprite) - 1 + samples.Count) % samples.Count];
-            }
-            #endregion
-        }
+        // if (GameManager.instance.test)
+        // {
+        //     #region sample image
+        //     if (Input.GetKeyDown(KeyCode.Alpha0))
+        //     {
+        //         sample.gameObject.SetActive(!sample.gameObject.activeSelf);
+        //     }
+        //     if (Input.GetKeyDown(KeyCode.UpArrow))
+        //     {
+        //         sample.sprite = samples[(samples.IndexOf(sample.sprite) + 1) % samples.Count];
+        //     }
+        //     if (Input.GetKeyDown(KeyCode.DownArrow))
+        //     {
+        //         sample.sprite = samples[(samples.IndexOf(sample.sprite) - 1 + samples.Count) % samples.Count];
+        //     }
+        //     #endregion
+        // }
 
         TileInfoPopUp();
     }
@@ -574,7 +574,10 @@ public class UIManager : Singleton<UIManager>
         buildCountGroup.SetActive(false);
 
         // TODO 유닛 이미지
-        // unitImage.sprite = Resources.Load<Sprite>("");
+        print(unit.unitType);
+        print(unitImage == null);
+        unitImage.sprite = Resources.Load<Sprite>("Image/UI/ObjectPanel/UnitPanel/Class/" + unit.unitType.ToString());
+        print(unitImage.sprite.name);
 
         // 현재 체력
         float hpRatio = (float)unit.hp / 100f;
@@ -771,6 +774,7 @@ public class UIManager : Singleton<UIManager>
     // 도시 선택했을 때 호출
     public void UpdateCityPanelData(Territory territory)
     {
+        cityImage.sprite = Resources.Load<Sprite>("Image/UI/ObjectPanel/CityPanel/Castle");
         cityFoodTMP.text = territory.totalOutput.Totalfood.ToString();
         cityProductTMP.text = territory.totalOutput.TotalProductivity.ToString();
         cityGoldTMP.text = territory.totalOutput.TotalGold.ToString();
