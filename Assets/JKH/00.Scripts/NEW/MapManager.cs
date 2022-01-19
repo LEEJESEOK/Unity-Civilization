@@ -888,6 +888,7 @@ public class MapManager : Singleton<MapManager>
         //경로표시 다끝나면 선 지운다.
         lr.positionCount = 0;
         anim.SetBool("isMove", false);
+        SoundManager.instance.StopEFT();
 
         if (onEnemy == true)
         {
@@ -898,6 +899,7 @@ public class MapManager : Singleton<MapManager>
 
             // TODO 전투 애니메이션 시작
             anim.SetBool("isMove", false);
+            SoundManager.instance.StopEFT();
 
             // Animator enemyAnim = tileOnUnit[0].GetComponent<Unit>().animator;
             anim.SetBool("onCombat", true);

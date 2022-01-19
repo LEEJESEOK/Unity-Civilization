@@ -229,10 +229,10 @@ public class GameManager : Singleton<GameManager>
     {
         currentSelect = go;
         GameObjectInfo objectInfo = go.GetComponent<GameObjectInfo>();
-        // if (objectInfo.playerId != currentPlayerId)
-        //     return;
 
-        // if (!(objectInfo.playerId == -1) || !(objectInfo.playerId == currentPlayerId))
+        // 타일(-1)은 포함
+        // 다른 플레이어 오브젝트 제외
+        // if ((objectInfo.playerId != -1) && (objectInfo.playerId != currentPlayerId))
         //     return;
 
         ObjectType type = objectInfo.type;
@@ -255,8 +255,11 @@ public class GameManager : Singleton<GameManager>
                 if (terrainData.objectOn.Count > 0)
                 {
                     // 타일에 있는 오브젝트 선택
-                    SelectGameObject(terrainData.objectOn[0]);
-                    SetFirstToLastSibling(ref terrainData.objectOn);
+                    if ((terrainData.objectOn[0].GetComponent<GameObjectInfo>().playerId == currentPlayerId))
+                    {
+                        SelectGameObject(terrainData.objectOn[0]);
+                        SetFirstToLastSibling(ref terrainData.objectOn);
+                    }
                 }
                 break;
             case ObjectType.NON_COMBAT_UNIT:

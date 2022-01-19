@@ -606,7 +606,7 @@ public class UIManager : Singleton<UIManager>
         if (unit.unitType == InGameObjectId.BUILDER)
         {
             buildCountGroup.SetActive(true);
-            buildCountTMP.text = unit.buildCount.ToString() + "/" + unit.buildCount.ToString();
+            buildCountTMP.text = unit.buildCount.ToString() + "/" + unit.maxBuildCount.ToString();
         }
     }
     #endregion
